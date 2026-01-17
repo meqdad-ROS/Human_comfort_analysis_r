@@ -9,9 +9,12 @@
 /renv/library/
 /renv/staging/
 renv.lock
+/renv
+/tokenpasskey.txt
 # Markdown files
 *.html
 # *.pdf
+*.tex
 *.tex
 # Other files
 *~
