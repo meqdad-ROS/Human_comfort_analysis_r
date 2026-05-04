@@ -390,7 +390,7 @@ regrissorClass <- R6Class("regrissorClass",
                         
                         #-------------------------------------------------------
                         # New Method: Perform t-test
-                        perform_t_test = function(outcome, group_column = NULL, type = "independent", plot = FALSE, mu = NULL) {
+                        perform_t_test = function(outcome, group_column = NULL, type = "independent", plot = FALSE, mu = NULL, assume_equal_var = TRUE) {
                           if (is.null(self$data)) {
                             stop("No data available")
                           }
@@ -423,6 +423,31 @@ regrissorClass <- R6Class("regrissorClass",
                             if (plot) {
                               boxplot(self$data[[outcome]] ~ self$data[[group_column]], 
                                       main = paste("Boxplot of", outcome, "by", group_column), 
+                                      xlab = group_column, ylab = outcome, col = c("lightblue", "lightgreen"))
+                            }
+                          } else if (type == "welch") {
+                            if (is.null(group_column) || !group_column %in% names(self$data)) {
+                              stop("Group column required for Welch's t-test")
+                            }
+                            groups <- unique(na.omit(self$data[[group_column]]))
+                            if (length(groups) != 2) {
+                              stop("Group column must have exactly 2 unique groups for Welch's t-test")
+                            }
+                            # Informational: Check variances using Levene's test (no warning since unequal variances are allowed)
+                            if (!requireNamespace("car", quietly = TRUE)) {
+                              stop("Package 'car' required for variance check. Install with install.packages('car')")
+                            }
+                            levene_result <- car::leveneTest(self$data[[outcome]] ~ as.factor(self$data[[group_column]]))
+                            levene_p <- levene_result$`Pr(>F)`[1]
+                            if (levene_p < 0.05) {
+                              cat("Variances are unequal (Levene's test p = ", round(levene_p, 4), "). Proceeding with Welch's t-test for unequal variances.\n")
+                            } else {
+                              cat("Variances are equal (Levene's test p = ", round(levene_p, 4), "). Welch's t-test still applied (robust to equal variances).\n")
+                            }
+                            result <- t.test(self$data[[outcome]] ~ self$data[[group_column]], var.equal = FALSE)  # Welch's test: does not assume equal variances
+                            if (plot) {
+                              boxplot(self$data[[outcome]] ~ self$data[[group_column]], 
+                                      main = paste("Boxplot of", outcome, "by", group_column, "(Welch's Test)"), 
                                       xlab = group_column, ylab = outcome, col = c("lightblue", "lightgreen"))
                             }
                           } else if (type == "paired") {
@@ -464,7 +489,7 @@ regrissorClass <- R6Class("regrissorClass",
                               abline(v = mu, col = "red", lwd = 2)  # Reference line at mu
                             }
                           } else {
-                            stop("Type must be 'independent', 'paired', or 'one_sample'")
+                            stop("Type must be 'independent', 'welch', 'paired', or 'one_sample'")
                           }
                           # Recommendation: Add comments for statistical interpretation
                           # - p_value < 0.05: Reject the null hypothesis (significant difference in means).
@@ -480,7 +505,8 @@ regrissorClass <- R6Class("regrissorClass",
                             outcome = outcome,
                             group_column = group_column
                           )
-                        }, 
+                        },
+
                     #-------------------
                     # New Method: Calculate Pearson correlation
                     calculate_pearson_correlation = function(variables, plot = FALSE) {
@@ -635,66 +661,78 @@ regrissorClass <- R6Class("regrissorClass",
                       
                 # New Method: Perform Levene's or Anderson-Darling test
                 perform_levene_anderson = function(outcome, group_column, type = "levene", plot = FALSE) {
-                    if (is.null(self$data)) {
-                        stop("No data available")
-                        }
-                    if (!outcome %in% names(self$data) || !group_column %in% names(self$data)) {
-                        stop("Outcome or group column not found")
-                        }
-                    if (!is.numeric(self$data[[outcome]])) {
-                        stop("Outcome must be numeric")
-                        }
-                    groups <- unique(na.omit(self$data[[group_column]]))
-                    if (length(groups) < 2) {
-                        stop("Test requires at least 2 groups")
-                        }
-                    # Perform test
+                  if (is.null(self$data)) {
+                    stop("No data available")
+                  }
+                  if (!outcome %in% names(self$data) || !group_column %in% names(self$data)) {
+                    stop("Outcome or group column not found")
+                  }
+                  if (!is.numeric(self$data[[outcome]])) {
+                    stop("Outcome must be numeric")
+                  }
+                  groups <- unique(na.omit(self$data[[group_column]]))
+                  if (length(groups) < 2) {
+                    stop("Test requires at least 2 groups")
+                  }
+                  # Perform test
+                  if (type == "levene") {
+                    if (!requireNamespace("car", quietly = TRUE)) {
+                      stop("Package 'car' required for Levene's test. Install with install.packages('car')")
+                    }
+                    result <- car::leveneTest(self$data[[outcome]] ~ as.factor(self$data[[group_column]]))
+                    statistic <- result$`F value`[1]
+                    p_value <- result$`Pr(>F)`[1]
+                  } else if (type == "anderson_darling_nor") {
+                    if (!requireNamespace("nortest", quietly = TRUE)) {
+                      stop("Package 'nortest' required for Anderson-Darling normality test. Install with install.packages('nortest')")
+                    }
+                    # Anderson-Darling for each group (aggregate p-values or compare)
+                    p_values <- sapply(groups, function(g) {
+                      nortest::ad.test(self$data[[outcome]][self$data[[group_column]] == g])$p.value
+                    })
+                    statistic <- NA  # Not a single stat; use p-values
+                    p_value <- min(p_values)  # Conservative approach
+                  } else if (type == "anderson_darling_k") {
+                    if (!requireNamespace("kSamples", quietly = TRUE)) {
+                      stop("Package 'kSamples' required for K-sample Anderson-Darling test. Install with install.packages('kSamples')")
+                    }
+                    # Prepare data as a list of vectors (one per group)
+                    group_data <- split(self$data[[outcome]], self$data[[group_column]])
+                    result <- kSamples::ad.test(group_data)  # K-sample test
+                    statistic <- result$statistic
+                    p_value <- result$p.value
+                  } else {
+                    stop("Type must be 'levene', 'anderson_darling_nor', or 'anderson_darling_k'")
+                  }
+                  
+                  # Optional plot
+                  if (plot) {
                     if (type == "levene") {
-                        if (!requireNamespace("car", quietly = TRUE)) {
-                          stop("Package 'car' required for Levene's test. Install with install.packages('car')")
-                          }
-                      result <- car::leveneTest(self$data[[outcome]] ~ as.factor(self$data[[group_column]]))
-                      statistic <- result$`F value`[1]
-                      p_value <- result$`Pr(>F)`[1]
-                          } else if (type == "anderson_darling") {
-                              if (!requireNamespace("nortest", quietly = TRUE)) {
-                                  stop("Package 'nortest' required for Anderson-Darling test. Install with install.packages('nortest')")}
-                              # Anderson-Darling for each group (aggregate p-values or compare)
-                              p_values <- sapply(groups, function(g) {
-                              nortest::ad.test(self$data[[outcome]][self$data[[group_column]] == g])$p.value})
-                              statistic <- NA  # Not a single stat; use p-values
-                              p_value <- min(p_values)  # Conservative approach
-                          } else {
-                              stop("Type must be 'levene' or 'anderson_darling'")
-                                }
-                            
-                    # Optional plot
-                    if (plot) {
-                        if (type == "levene") {
-                           boxplot(self$data[[outcome]] ~ self$data[[group_column]], 
-                                      main = paste("Boxplot of", outcome, "by", group_column, "(Levene's)"), 
-                                      xlab = group_column, ylab = outcome, col = rainbow(length(groups)))
-                            } else {
-                                # Q-Q plot for each group
-                                par(mfrow = c(1, length(groups)))
-                                for (g in groups) {
-                                    qqnorm(self$data[[outcome]][self$data[[group_column]] == g], 
-                                                main = paste("Q-Q Plot for", g, "(Anderson-Darling)"))
-                                    qqline(self$data[[outcome]][self$data[[group_column]] == g])
-                                    }
-                                par(mfrow = c(1, 1))
-                                }
-                          }
-                            
-                    cat(type, "test completed for", outcome, "by", group_column, "\n")
-                            
-                    # Return results
-                    list(
-                        statistic = statistic,
-                        p_value = p_value,
-                        method = paste(type, "test")
-                      )
+                      boxplot(self$data[[outcome]] ~ self$data[[group_column]], 
+                              main = paste("Boxplot of", outcome, "by", group_column, "(Levene's)"), 
+                              xlab = group_column, ylab = outcome, col = rainbow(length(groups)))
+                    } else {
+                      # Q-Q plot for each group
+                      par(mfrow = c(1, length(groups)))
+                      for (g in groups) {
+                        qqnorm(self$data[[outcome]][self$data[[group_column]] == g], 
+                               main = paste("Q-Q Plot for", g, "(Anderson-Darling)"))
+                        qqline(self$data[[outcome]][self$data[[group_column]] == g])
+                      }
+                      par(mfrow = c(1, 1))
+                    }
+                  }
+                  
+                  cat(type, "test completed for", outcome, "by", group_column, "\n")
+                  
+                  # Return results
+                  list(
+                    statistic = statistic,
+                    p_value = p_value,
+                    method = paste(type, "test")
+                  )
                 },
+                
                 
                 ##-----------------------------------------------------
                 # New Method: Perform Response Surface Analysis

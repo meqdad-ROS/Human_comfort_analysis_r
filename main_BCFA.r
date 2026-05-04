@@ -20,6 +20,7 @@ library(splithalf)
 library(ltm)
 library(dplyr)
 library(R6)
+library(kSamples)
 
 #-------------------------------------------------------------------------------
 # step 00: source all required classes and files
@@ -372,16 +373,16 @@ print(results_MW_BCFA_LiSo_gener$statistic)
 
 
 # Anderson-Darling test (e.g., normality of Sensitivity by Gender)
-sens_ad_result <- analy_BCFA$perform_levene_anderson("Sensitivity", "Gender", type = "anderson_darling", plot = TRUE)
+sens_ad_result <- analy_BCFA$perform_levene_anderson("Sensitivity", "Gender", type = "anderson_darling_k", plot = TRUE)
 print(sens_ad_result$p_value)
 # Anderson-Darling test (e.g., normality of Performance by Gender)
-perform_ad_result <- analy_BCFA$perform_levene_anderson("Performance", "Gender", type = "anderson_darling", plot = TRUE)
+perform_ad_result <- analy_BCFA$perform_levene_anderson("Performance", "Gender", type = "anderson_darling_k", plot = TRUE)
 print(perform_ad_result$p_value)
 # Anderson-Darling test (e.g., normality of Performance by Gender)
-thaq_ad_result <- analy_BCFA$perform_levene_anderson("Th_AQ_Effect", "Gender", type = "anderson_darling", plot = TRUE)
+thaq_ad_result <- analy_BCFA$perform_levene_anderson("Th_AQ_Effect", "Gender", type = "anderson_darling_k", plot = TRUE)
 print(thaq_ad_result$p_value)
 # Anderson-Darling test (e.g., normality of Performance by Gender)
-liso_ad_result <- analy_BCFA$perform_levene_anderson("Li_So_Effect", "Gender", type = "anderson_darling", plot = TRUE)
+liso_ad_result <- analy_BCFA$perform_levene_anderson("Li_So_Effect", "Gender", type = "anderson_darling_k", plot = TRUE)
 print(liso_ad_result$p_value)
 
 ##now again to sensitivity and gender and run Mann-whitny 
@@ -392,13 +393,14 @@ results <- sens_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses
 liso_comp_analyzer <- ComparativeAnalyzer$new(analy_BCFA, "Li_So_Effect", "Gender")
 results <- liso_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
 
-##now again to performance uner bad indoor environmental quality and gender and run Mann-whitny 
+##now again to performance under bad indoor environmental quality and gender and run Mann-whitny 
 perfo_comp_analyzer <- ComparativeAnalyzer$new(analy_BCFA, "Performance", "Gender")
 results <- perfo_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
 
 ##now again to thermal comfort and airquality effect on productivity and gender and run Mann-whitny 
 thaq_comp_analyzer <- ComparativeAnalyzer$new(analy_BCFA, "Th_AQ_Effect", "Gender")
 results <- thaq_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
+
 
 ## Sensitivity, Performance, Th_AQ_Effect, Li_So_Effect
 ## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
