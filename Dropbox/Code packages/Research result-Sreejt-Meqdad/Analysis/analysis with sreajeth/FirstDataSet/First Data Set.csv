@@ -1,0 +1,371 @@
+Timestamp,Language ,Location of Leaving,Occupation,age,Length,Weight,Gender,AQ sensitivity,TC sensitivity,SQ sensitivity,LQ sensitivity,Performance under AQ,Performance under TC,Performance under LQ,Performance under SQ,Effect - LQ,Effect - SQ,Effect - AQ,Effect - TC,Other AQ - conditions
+10/29/2019 15:31:56,English,North America,outdoor-work,45 - 60,more than 190,116-130 kg,Male,4,4,4,4,1,5,4,3,1,5,5,1,4
+10/29/2019 17:21:50,English,North America,Office-work,45 - 60,more than 190,116-130 kg,Male,4,4,4,4,1,5,4,3,1,5,5,1,4
+10/29/2019 21:04:56,English,North America,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,5,5,4,2,4,2,2,4,5,4,5,5
+10/29/2019 22:12:51,English,North America,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,5,2,2,2,2,4,4,5,4,5
+10/30/2019 11:11:05,English,North America,Office-work,30 - 45,170 - 180,71-85 kg,Male,5,5,5,5,2,2,2,2,4,4,5,3,2
+10/30/2019 12:58:08,English,North America,Office-work,45 - 60,170 - 180,86-100 kg,Male,3,3,2,3,3,3,4,3,3,3,3,3,3
+10/30/2019 19:23:31,English,North America,Office-work,30 - 45,180 - 190,71-85 kg,Male,5,5,2,2,3,3,1,2,1,1,3,5,1
+11/4/2019 22:44:40,English,North America,Office-work,30 - 45,170 - 180,71-85 kg,Male,3,4,4,4,4,4,1,4,5,5,2,3,1
+11/12/2019 20:50:56,English,North America,Office-work,18 - 30,160 - 170,56-70 kg,Female,1,1,3,3,3,3,3,3,3,3,3,3,3
+11/18/2019 23:05:56,English,Sweden,Office-work,30 - 45,170 - 180,86-100 kg,Male,4,4,4,3,1,1,1,3,4,4,4,3,4
+11/18/2019 23:18:14,English,Sweden,Office-work,18 - 30,170 - 180,71-85 kg,Male,3,3,4,3,2,3,3,3,3,4,4,2,4
+11/18/2019 23:22:36,English,Sweden,Office-work,30 - 45,160 - 170,56-70 kg,Male,4,4,3,3,4,4,4,4,4,4,3,4,3
+11/18/2019 23:23:17,English,Sweden,Office-work,45 - 60,Under 150,86-100 kg,Female,3,3,4,3,3,3,4,4,2,3,5,1,5
+11/19/2019 0:13:22,English,Sweden,Office-work,30 - 45,170 - 180,71-85 kg,Male,2,2,2,1,2,2,2,2,4,3,3,3,2
+11/19/2019 0:24:13,English,Sweden,Office-work,30 - 45,180 - 190,86-100 kg,Male,4,4,5,4,2,3,3,3,5,4,4,4,5
+11/19/2019 1:20:19,English,Sweden,Office-work,18 - 30,160 - 170,56-70 kg,Male,3,4,4,3,2,1,1,1,5,5,5,4,3
+11/19/2019 2:33:21,English,Sweden,Office-work,18 - 30,160 - 170,56-70 kg,Male,4,4,5,5,2,2,1,2,2,2,3,4,1
+11/19/2019 4:06:43,English,Sweden,Office-work,18 - 30,160 - 170,71-85 kg,Male,4,5,5,4,1,1,1,1,2,5,4,5,5
+11/19/2019 4:47:53,English,Sweden,Office-work,18 - 30,170 - 180,86-100 kg,Male,4,4,5,3,3,2,4,2,3,5,4,2,3
+11/19/2019 5:37:51,English,Sweden,Office-work,Above 60,160 - 170,56-70 kg,Male,3,3,4,3,3,2,1,2,1,4,3,3,1
+11/19/2019 6:59:52,English,Sweden,Office-work,18 - 30,160 - 170,56-70 kg,Male,4,5,4,4,3,2,1,2,3,4,3,4,5
+11/19/2019 7:37:33,English,Sweden,Office-work,30 - 45,160 - 170,86-100 kg,Male,4,4,3,3,4,4,3,3,4,4,3,4,4
+11/19/2019 9:48:20,English,Sweden,Office-work,18 - 30,170 - 180,56-70 kg,Male,3,3,4,3,3,3,3,3,3,4,3,2,3
+11/19/2019 21:25:27,English,Sweden,Office-work,30 - 45,170 - 180,116-130 kg,Male,4,5,5,5,2,1,1,1,3,3,2,5,3
+11/21/2019 6:21:45,English,Sweden,Office-work,18 - 30,160 - 170,71-85 kg,Male,2,4,1,2,3,5,2,2,3,1,2,4,2
+11/21/2019 9:41:01,English,Sweden,Office-work,18 - 30,170 - 180,71-85 kg,Male,5,5,3,4,3,1,3,4,3,3,4,5,4
+11/24/2019 4:57:12,English,Sweden,Office-work,30 - 45,160 - 170,56-70 kg,Male,3,3,3,5,3,3,4,5,3,3,3,3,4
+12/1/2019 13:05:39,English,Oceania,Office-work,30 - 45,170 - 180,86-100 kg,Male,5,5,4,3,2,1,3,3,1,3,4,4,4
+12/1/2019 13:14:03,English,Oceania,Office-work,45 - 60,180 - 190,86-100 kg,Male,5,5,5,5,1,1,1,1,5,5,5,4,5
+12/1/2019 13:22:09,English,Oceania,Office-work,30 - 45,170 - 180,86-100 kg,Male,5,4,4,4,2,2,2,4,2,4,4,4,5
+12/1/2019 13:32:16,English,Oceania,Office-work,30 - 45,160 - 170,71-85 kg,Male,5,2,5,4,1,2,2,1,2,5,5,4,4
+12/1/2019 13:53:13,English,Oceania,Office-work,30 - 45,160 - 170,56-70 kg,Male,5,5,5,3,1,1,1,1,2,1,3,1,1
+12/1/2019 17:35:47,English,Oceania,Office-work,Above 60,180 - 190,101-115 kg,Male,3,4,5,3,1,1,1,1,3,3,5,5,4
+12/1/2019 17:58:27,English,Oceania,Office-work,Above 60,150 - 160,56-70 kg,Male,5,4,5,3,1,1,1,1,4,2,5,3,5
+12/1/2019 18:57:04,English,Oceania,Office-work,30 - 45,170 - 180,71-85 kg,Male,5,4,5,4,5,5,5,4,4,5,5,4,5
+12/1/2019 21:11:13,English,Oceania,Office-work,45 - 60,170 - 180,71-85 kg,Male,2,4,4,5,1,1,2,4,5,4,5,5,4
+12/3/2019 6:59:15,English,Oceania,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,4,4,3,4,3,2,3,2,2,2,3
+12/3/2019 22:26:51,English,Oceania,Office-work,45 - 60,150 - 160,71-85 kg,Female,5,5,4,4,2,4,3,1,2,1,5,5,2
+12/6/2019 21:33:20,English,Oceania,Office-work,30 - 45,160 - 170,71-85 kg,Male,4,4,4,4,4,4,4,5,5,4,4,4,4
+12/9/2019 8:55:40,English,GCC,Office-work,18 - 30,150 - 160,<=55 kg,Female,4,4,5,5,5,5,1,3,4,5,3,2,5
+12/9/2019 8:58:36,English,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,5,2,1,1,1,3,4,1,1,5,5,1
+12/9/2019 9:06:04,English,GCC,Office-work,30 - 45,170 - 180,101-115 kg,Male,4,5,5,4,1,1,2,2,3,4,4,2,5
+12/9/2019 9:13:27,English,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,4,3,4,3,3,3,3,2,2,4,3,2
+12/9/2019 9:18:54,English,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,5,4,5,5,5,5,4,4,4,4,4,4,4
+12/9/2019 9:27:25,English,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Female,4,5,3,3,5,5,4,3,1,3,4,5,3
+12/9/2019 9:27:27,English,GCC,Office-work,30 - 45,170 - 180,56-70 kg,Male,5,5,3,5,3,2,3,4,3,1,4,2,2
+12/9/2019 9:30:28,English,GCC,Office-work,45 - 60,170 - 180,71-85 kg,Female,5,5,5,5,2,1,3,1,3,3,5,5,3
+12/9/2019 9:49:25,English,GCC,Office-work,30 - 45,160 - 170,<=55 kg,Female,5,5,5,4,3,3,3,1,3,5,3,3,3
+12/9/2019 9:52:30,English,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,3,4,4,3,3,2,4,5,4,4,4,4
+12/9/2019 9:52:37,English,GCC,Office-work,45 - 60,170 - 180,71-85 kg,Male,3,3,5,5,1,1,1,1,5,5,4,4,4
+12/9/2019 10:05:41,English,GCC,Office-work,30 - 45,170 - 180,56-70 kg,Male,4,3,3,3,3,1,3,3,1,4,2,5,3
+12/9/2019 10:22:15,English,GCC,Office-work,45 - 60,170 - 180,71-85 kg,Male,4,5,5,4,5,5,4,5,4,5,5,5,5
+12/9/2019 10:39:55,English,GCC,Office-work,18 - 30,150 - 160,<=55 kg,Female,3,3,4,4,4,4,3,3,3,3,4,3,3
+12/9/2019 11:13:11,English,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,4,5,5,5,1,2,2,4,4,5,4,5,5
+12/9/2019 13:01:11,English,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,5,5,5,3,3,4,2,3,5,5,3,5
+12/9/2019 13:15:02,English,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,5,5,1,1,1,1,4,4,4,4,2
+12/9/2019 13:48:13,English,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,3,5,3,3,4,1,3,3,1,1,1,5,1
+12/9/2019 15:07:02,English,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,4,5,4,4,3,3,3,1,3,3,2,3
+12/9/2019 17:29:51,English,GCC,Office-work,45 - 60,Under 150,56-70 kg,Female,3,5,4,4,3,1,1,2,3,3,5,5,4
+12/10/2019 0:55:04,English,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,4,5,4,5,3,2,3,1,4,4,3,3,3
+12/10/2019 18:38:51,English,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,5,5,5,5,1,1,1,1,5,5,5,4,4
+12/11/2019 16:26:58,English,East Europ,Office-work,30 - 45,170 - 180,<=55 kg,Female,4,4,4,3,3,4,4,2,2,4,3,3,4
+12/15/2019 10:16:01,English,Sweden,Office-work,45 - 60,180 - 190,101-115 kg,Male,5,5,4,5,2,2,2,2,4,4,4,5,4
+10/27/2019 11:33:30,Arabic,Mediterranean,outdoor-work,30 - 45,170 - 180,101-115 kg,Male,2,5,4,2,4,1,1,2,4,2,4,5,5
+10/28/2019 15:15:00,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,86-100 kg,Male,5,5,5,5,2,1,3,1,3,2,4,4,4
+10/28/2019 20:38:32,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,71-85 kg,Male,2,4,5,5,4,1,3,2,1,3,2,1,2
+10/29/2019 15:28:00,Arabic,Mediterranean,More-Movement,18 - 30,160 - 170,<=55 kg,Female,5,5,3,5,2,3,2,4,5,2,4,4,5
+10/29/2019 15:28:23,Arabic,Mediterranean,House Wife,30 - 45,170 - 180,86-100 kg,Female,4,4,4,4,2,2,4,1,4,5,5,4,5
+10/29/2019 15:37:15,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,86-100 kg,Female,3,4,4,4,3,2,2,2,4,4,4,5,4
+10/29/2019 15:41:51,Arabic,Mediterranean,House Wife,30 - 45,150 - 160,86-100 kg,Female,5,5,5,5,3,5,1,1,3,3,2,4,5
+10/29/2019 15:42:30,Arabic,Mediterranean,More-Movement,18 - 30,170 - 180,71-85 kg,Female,4,4,4,4,2,2,2,3,3,2,1,2,1
+10/29/2019 15:47:22,Arabic,Mediterranean,More-Movement,18 - 30,150 - 160,56-70 kg,Female,1,3,5,5,1,3,1,2,1,3,4,5,5
+10/29/2019 15:47:56,Arabic,GCC,Office-work,30 - 45,170 - 180,56-70 kg,Female,5,5,5,5,1,3,3,3,3,4,5,4,5
+10/29/2019 15:54:46,Arabic,GCC,More-Movement,30 - 45,150 - 160,86-100 kg,Female,4,4,5,5,2,2,2,2,3,5,4,5,5
+10/29/2019 15:57:05,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,116-130 kg,Male,4,4,4,4,2,3,4,3,3,3,2,3,4
+10/29/2019 15:57:56,Arabic,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Female,5,5,4,3,2,1,3,2,3,5,4,5,3
+10/29/2019 16:04:36,Arabic,Mediterranean,House Wife,45 - 60,160 - 170,86-100 kg,Female,4,5,4,4,1,1,5,5,3,4,5,5,4
+10/29/2019 16:14:02,Arabic,Mediterranean,House Wife,30 - 45,150 - 160,71-85 kg,Female,3,3,3,3,2,2,2,2,3,4,4,4,4
+10/29/2019 16:21:31,Arabic,Mediterranean,More-Movement,18 - 30,160 - 170,56-70 kg,Female,4,4,5,5,2,1,2,3,5,4,4,5,4
+10/29/2019 16:25:10,Arabic,Mediterranean,House Wife,45 - 60,160 - 170,86-100 kg,Female,3,5,5,3,1,2,5,2,3,3,5,5,5
+10/29/2019 17:40:27,Arabic,Mediterranean,outdoor-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,5,3,2,2,2,5,5,5,4,4
+10/29/2019 18:22:09,Arabic,Mediterranean,House Wife,30 - 45,160 - 170,56-70 kg,Female,5,5,5,5,1,1,3,2,2,3,5,5,5
+10/29/2019 19:19:19,Arabic,Mediterranean,outdoor-work,45 - 60,170 - 180,71-85 kg,Male,4,4,4,4,2,2,2,2,4,2,4,4,5
+10/29/2019 20:23:59,Arabic,Mediterranean,House Wife,Above 60,150 - 160,<=55 kg,Female,5,3,2,2,4,5,4,3,3,2,3,2,4
+10/29/2019 20:47:51,Arabic,Mediterranean,outdoor-work,30 - 45,170 - 180,71-85 kg,Male,4,5,4,5,2,1,2,4,3,3,5,5,4
+10/29/2019 21:12:15,Arabic,Mediterranean,outdoor-work,30 - 45,160 - 170,86-100 kg,Male,3,5,5,4,4,1,4,4,2,1,4,4,5
+10/29/2019 21:32:06,Arabic,Mediterranean,House Wife,45 - 60,170 - 180,86-100 kg,Female,2,3,4,4,3,5,1,1,5,4,5,3,5
+10/29/2019 21:40:08,Arabic,Mediterranean,House Wife,45 - 60,150 - 160,71-85 kg,Female,5,5,4,5,5,5,1,1,5,5,5,5,5
+10/29/2019 21:42:38,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,71-85 kg,Female,2,4,5,5,4,1,3,2,2,3,4,4,4
+10/29/2019 21:46:02,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,86-100 kg,Female,4,4,4,3,1,1,1,1,4,3,5,4,5
+10/29/2019 21:54:09,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,56-70 kg,Male,5,5,5,5,3,4,3,3,3,3,3,3,3
+10/29/2019 21:57:48,Arabic,Mediterranean,More-Movement,18 - 30,150 - 160,56-70 kg,Female,2,2,3,2,1,5,5,3,4,3,1,1,1
+10/29/2019 22:00:20,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,5,4,4,4,1,3,3,4,3,1,4,3
+10/29/2019 22:00:33,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,56-70 kg,Female,2,2,1,1,1,2,1,3,5,4,5,2,2
+10/29/2019 22:01:33,Arabic,Mediterranean,More-Movement,18 - 30,160 - 170,71-85 kg,Male,5,4,5,5,3,3,2,3,4,4,3,5,4
+10/29/2019 22:01:42,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,71-85 kg,Male,5,4,5,5,3,3,2,3,4,4,3,5,4
+10/29/2019 22:06:21,Arabic,Mediterranean,Office-work,30 - 45,Under 150,<=55 kg,Female,5,5,4,5,2,3,3,4,4,3,5,4,5
+10/29/2019 22:09:58,Arabic,Mediterranean,Office-work,18 - 30,Under 150,<=55 kg,Female,2,3,4,5,2,3,3,2,4,3,3,5,5
+10/29/2019 22:14:28,Arabic,Mediterranean,Office-work,30 - 45,170 - 180,86-100 kg,Male,5,5,5,5,4,1,3,2,1,4,4,3,4
+10/29/2019 22:15:00,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,56-70 kg,Female,3,4,5,5,5,3,3,1,5,4,5,5,5
+10/29/2019 22:16:45,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Male,5,5,5,5,4,2,2,4,3,4,4,4,4
+10/29/2019 22:20:26,Arabic,Mediterranean,Office-work,45 - 60,150 - 160,71-85 kg,Female,4,4,4,4,2,4,2,2,4,5,4,4,5
+10/29/2019 22:25:38,Arabic,Mediterranean,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,5,5,4,3,2,1,4,5,2,4,3
+10/29/2019 22:28:45,Arabic,Mediterranean,Office-work,18 - 30,Under 150,<=55 kg,Male,5,1,4,5,2,2,3,1,2,1,5,5,1
+10/29/2019 22:29:56,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,56-70 kg,Female,4,3,4,4,4,3,2,2,4,5,5,4,4
+10/29/2019 22:30:21,Arabic,Mediterranean,More-Movement,18 - 30,160 - 170,56-70 kg,Female,3,3,5,2,2,1,2,3,2,4,4,3,4
+10/29/2019 22:36:00,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,<=55 kg,Female,5,4,5,4,1,1,3,1,3,4,4,5,5
+10/29/2019 22:39:48,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,86-100 kg,Male,4,4,4,4,1,1,1,1,4,4,4,4,4
+10/29/2019 22:52:24,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Female,5,5,5,5,1,2,2,2,4,3,5,4,4
+10/29/2019 22:58:09,Arabic,Mediterranean,More-Movement,30 - 45,160 - 170,<=55 kg,Female,3,3,5,5,5,3,1,1,4,5,4,2,5
+10/29/2019 23:09:32,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,101-115 kg,Female,5,3,5,3,5,5,3,1,3,5,2,5,4
+10/29/2019 23:16:09,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,<=55 kg,Female,4,4,4,4,4,1,3,3,2,2,4,4,4
+10/29/2019 23:17:52,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,116-130 kg,Male,5,5,5,5,3,1,5,5,3,1,4,5,4
+10/29/2019 23:20:32,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,86-100 kg,Male,5,5,5,5,1,1,1,1,2,3,4,4,4
+10/29/2019 23:42:29,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,71-85 kg,Female,4,5,5,4,5,5,5,5,3,3,2,2,2
+10/30/2019 1:40:00,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,71-85 kg,Female,3,3,4,4,1,1,2,2,4,5,5,4,5
+10/30/2019 3:32:36,Arabic,Mediterranean,More-Movement,18 - 30,150 - 160,71-85 kg,Female,5,5,5,3,3,1,1,1,2,4,4,4,5
+10/30/2019 5:00:19,Arabic,Mediterranean,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,4,3,2,3,3,3,3,3,3,2
+10/30/2019 6:29:09,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,56-70 kg,Male,3,4,2,2,3,2,5,2,3,1,5,1,5
+10/30/2019 6:51:52,Arabic,Mediterranean,Office-work,18 - 30,180 - 190,56-70 kg,Male,4,4,4,4,3,2,4,2,2,3,3,4,3
+10/30/2019 7:04:06,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,3,2,2,3,3,3,4,5,5,5,4,5
+10/30/2019 7:04:20,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,3,2,2,3,3,3,4,5,5,5,4,5
+10/30/2019 7:04:32,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,3,2,2,3,3,3,4,5,5,5,4,5
+10/30/2019 8:03:24,Arabic,Mediterranean,Office-work,45 - 60,150 - 160,56-70 kg,Female,5,5,5,5,1,1,1,1,3,3,4,3,4
+10/30/2019 9:06:50,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,56-70 kg,Female,4,5,5,5,2,2,2,2,5,4,5,3,5
+10/30/2019 10:22:43,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,5,5,5,3,2,3,3,3,3,3,3,3
+10/30/2019 10:36:49,Arabic,Mediterranean,Office-work,18 - 30,170 - 180,86-100 kg,Male,5,5,5,5,2,2,2,2,3,5,5,4,5
+10/30/2019 10:44:49,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,71-85 kg,Female,4,4,4,4,1,2,2,3,3,3,4,4,4
+10/30/2019 10:45:56,Arabic,Mediterranean,Office-work,30 - 45,170 - 180,71-85 kg,Male,3,3,3,3,3,3,3,3,4,5,5,5,5
+10/30/2019 10:48:38,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,71-85 kg,Male,4,4,4,5,2,2,3,3,4,4,4,4,4
+10/30/2019 11:23:32,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,86-100 kg,Male,4,4,5,5,2,2,4,2,4,4,5,4,5
+10/30/2019 11:34:21,Arabic,Mediterranean,Office-work,45 - 60,150 - 160,56-70 kg,Female,5,2,4,5,1,5,5,5,1,2,5,3,5
+10/30/2019 11:51:55,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,71-85 kg,Male,4,4,4,3,4,3,5,3,4,4,5,4,4
+10/30/2019 11:52:18,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,71-85 kg,Male,4,4,4,3,4,3,5,3,4,4,5,4,4
+10/30/2019 11:52:41,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,71-85 kg,Male,4,4,4,3,4,3,5,3,4,4,5,4,4
+10/30/2019 12:05:16,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,71-85 kg,Male,2,4,4,4,5,5,4,3,4,2,3,2,4
+10/30/2019 12:14:18,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,71-85 kg,Male,4,4,3,4,4,4,4,5,5,4,4,5,4
+10/30/2019 12:36:56,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,86-100 kg,Male,4,4,5,4,3,2,2,3,2,3,5,4,5
+10/30/2019 16:57:51,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,101-115 kg,Male,3,5,3,5,3,2,1,1,5,4,4,4,4
+10/30/2019 18:06:40,Arabic,Mediterranean,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,5,5,4,4,1,1,1,4,5,3,3,4
+10/31/2019 15:42:06,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,56-70 kg,Female,3,2,2,5,3,5,3,2,3,4,2,3,2
+11/1/2019 10:23:26,Arabic,Mediterranean,Office-work,18 - 30,180 - 190,56-70 kg,Male,4,4,4,4,3,2,4,2,2,3,3,4,3
+11/2/2019 2:35:52,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,56-70 kg,Male,5,5,3,2,1,2,3,1,4,5,2,1,1
+11/5/2019 22:04:15,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,4,4,3,2,2,2,4,4,4,4,5
+11/12/2019 12:51:46,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,116-130 kg,Male,5,4,5,5,3,1,4,3,3,2,1,5,3
+11/12/2019 16:33:15,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Male,4,4,4,4,3,2,3,4,4,4,4,4,4
+11/12/2019 16:52:21,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,4,4,3,2,3,2,1,2,2,2,2
+11/12/2019 17:01:08,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Female,5,5,5,5,5,1,1,1,4,4,4,4,5
+11/12/2019 17:14:03,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,56-70 kg,Female,4,4,5,5,5,4,3,5,4,4,4,4,4
+11/12/2019 17:22:18,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,56-70 kg,Female,3,4,4,5,3,5,4,2,1,5,3,4,4
+11/12/2019 18:40:05,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,<=55 kg,Female,2,2,5,4,4,4,1,1,5,5,2,2,3
+11/12/2019 19:59:10,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,56-70 kg,Female,4,5,5,5,2,1,2,2,5,5,5,5,5
+11/12/2019 20:09:40,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,86-100 kg,Male,5,5,5,5,2,5,5,5,3,5,2,2,2
+11/12/2019 21:01:38,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,56-70 kg,Female,3,5,3,2,4,3,4,4,2,2,4,5,3
+11/12/2019 21:29:28,Arabic,Mediterranean,Office-work,45 - 60,170 - 180,86-100 kg,Male,5,5,5,5,4,2,3,3,4,3,3,3,3
+11/12/2019 21:40:33,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Female,5,5,5,5,1,1,2,1,3,3,2,5,4
+11/12/2019 22:06:58,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,86-100 kg,Female,3,4,4,4,4,3,2,2,4,4,4,5,4
+11/12/2019 22:15:22,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,71-85 kg,Female,5,5,4,3,3,3,1,4,3,2,4,4,5
+11/12/2019 22:16:40,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,71-85 kg,Female,3,5,5,3,3,1,1,1,5,5,5,5,4
+11/13/2019 0:18:12,Arabic,Mediterranean,Office-work,18 - 30,160 - 170,<=55 kg,Female,2,2,5,3,5,1,2,3,3,5,5,5,5
+11/13/2019 0:20:17,Arabic,Mediterranean,Office-work,45 - 60,160 - 170,71-85 kg,Female,3,3,5,5,1,1,1,5,1,1,5,4,5
+11/13/2019 9:48:40,Arabic,Mediterranean,Office-work,30 - 45,170 - 180,86-100 kg,Male,3,4,4,5,2,3,2,2,5,5,5,4,5
+11/13/2019 20:48:42,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,56-70 kg,Female,3,5,5,4,3,2,1,2,4,4,5,4,3
+11/13/2019 23:05:59,Arabic,Mediterranean,Office-work,18 - 30,170 - 180,56-70 kg,Female,4,5,5,5,2,1,1,3,5,3,5,4,4
+11/14/2019 11:12:19,Arabic,Mediterranean,Office-work,30 - 45,180 - 190,101-115 kg,Male,4,4,4,4,1,1,5,4,2,2,5,5,4
+11/14/2019 13:22:30,Arabic,Mediterranean,Office-work,30 - 45,150 - 160,56-70 kg,Female,3,4,4,5,2,1,1,4,3,2,3,4,5
+11/14/2019 13:25:12,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,56-70 kg,Female,5,5,5,4,4,1,5,3,1,3,4,5,4
+11/14/2019 13:30:09,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,4,3,3,3,3,1,2,4,4,4,4,4
+11/14/2019 13:52:36,Arabic,Mediterranean,Office-work,18 - 30,150 - 160,71-85 kg,Female,3,3,5,5,1,1,2,4,4,2,4,5,4
+11/14/2019 15:22:18,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,71-85 kg,Female,5,5,5,5,4,4,4,4,4,3,5,5,5
+11/14/2019 16:11:45,Arabic,Mediterranean,Office-work,45 - 60,150 - 160,71-85 kg,Female,5,5,5,5,2,2,3,2,4,5,5,3,4
+11/14/2019 18:04:46,Arabic,Mediterranean,Office-work,30 - 45,160 - 170,86-100 kg,Female,5,5,5,5,4,3,2,1,2,4,4,5,5
+11/14/2019 20:12:42,Arabic,GCC,Office-work,30 - 45,160 - 170,<=55 kg,Female,4,4,4,4,1,2,4,4,1,2,5,5,3
+11/14/2019 21:08:52,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,5,3,2,2,2,5,5,5,4,4
+11/15/2019 0:07:54,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Male,4,5,5,4,2,1,3,1,3,4,5,4,5
+11/15/2019 2:05:32,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,5,5,5,3,1,2,2,4,4,5,5,5
+11/15/2019 8:24:04,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,4,5,5,4,3,4,4,2,1,2,1,1
+11/15/2019 9:35:15,Arabic,GCC,Office-work,18 - 30,150 - 160,<=55 kg,Female,5,5,5,5,1,1,3,3,4,3,5,5,4
+11/15/2019 11:45:43,Arabic,GCC,Office-work,18 - 30,150 - 160,56-70 kg,Female,3,4,4,5,2,3,3,2,4,3,4,4,4
+11/15/2019 22:35:53,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Female,5,5,5,5,4,4,4,2,4,5,5,4,4
+11/16/2019 16:46:27,Arabic,GCC,Office-work,18 - 30,150 - 160,<=55 kg,Female,4,5,5,5,3,1,5,2,4,5,4,5,5
+11/16/2019 22:41:17,Arabic,GCC,Office-work,18 - 30,150 - 160,56-70 kg,Female,3,3,4,4,2,2,3,4,3,4,4,5,5
+11/16/2019 23:13:11,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,4,5,5,1,1,1,1,3,5,5,5,5
+11/17/2019 7:45:06,Arabic,GCC,Office-work,45 - 60,150 - 160,56-70 kg,Female,5,4,5,4,4,1,3,5,2,4,5,5,5
+11/17/2019 9:31:44,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Female,2,2,2,2,2,2,2,2,4,5,4,4,5
+11/17/2019 11:18:23,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,5,5,4,5,2,2,2,2,2,3,5,4,5
+11/18/2019 0:57:18,Arabic,GCC,Office-work,18 - 30,170 - 180,71-85 kg,Male,5,5,5,4,1,1,2,1,5,1,1,4,5
+11/18/2019 23:21:10,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,5,5,4,4,5,5,4,4,5,5,5,5,5
+11/18/2019 23:27:14,Arabic,GCC,Office-work,30 - 45,170 - 180,56-70 kg,Male,4,4,4,3,3,2,3,3,3,4,3,4,2
+11/19/2019 6:17:59,Arabic,GCC,Office-work,18 - 30,160 - 170,56-70 kg,Male,3,4,5,5,3,3,2,1,3,3,3,4,2
+12/1/2019 12:56:55,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Male,3,5,5,3,1,1,1,1,4,5,5,5,3
+12/1/2019 13:00:08,Arabic,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,3,3,4,4,4,1,2,2,2,2,3,4,4
+12/1/2019 13:06:25,Arabic,GCC,Office-work,30 - 45,170 - 180,101-115 kg,Male,5,5,5,5,3,1,2,2,4,4,4,4,5
+12/1/2019 13:10:18,Arabic,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,5,5,5,5,3,4,4,4,4,3,5,4,4
+12/1/2019 13:10:32,Arabic,GCC,Office-work,45 - 60,160 - 170,101-115 kg,Male,5,4,5,2,3,1,4,2,2,5,4,3,4
+12/1/2019 13:14:10,Arabic,GCC,Office-work,30 - 45,more than 190,>=131 kg,Male,4,5,5,5,3,1,2,4,3,3,4,5,5
+12/1/2019 13:15:31,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,2,2,2,3,3,1,3,2,2,3,4,4,5
+12/1/2019 13:15:41,Arabic,GCC,Office-work,45 - 60,180 - 190,86-100 kg,Male,4,4,3,3,4,4,4,1,2,4,5,4,4
+12/1/2019 13:16:07,Arabic,GCC,Office-work,30 - 45,180 - 190,116-130 kg,Male,5,5,5,4,2,1,4,3,1,2,4,5,4
+12/1/2019 13:17:21,Arabic,GCC,Office-work,45 - 60,180 - 190,86-100 kg,Male,4,4,2,2,5,5,5,5,1,2,5,5,4
+12/1/2019 13:18:31,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,3,5,5,3,2,2,3,4,2,4,2,4,5
+12/1/2019 13:19:00,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,2,2,4,4,4,3,2,2,5,3,2,3,4
+12/1/2019 13:19:31,Arabic,GCC,Office-work,45 - 60,170 - 180,116-130 kg,Male,4,3,5,4,1,2,1,1,4,5,5,4,5
+12/1/2019 13:21:32,Arabic,GCC,Office-work,45 - 60,180 - 190,101-115 kg,Male,3,4,5,5,1,1,3,1,2,5,3,3,4
+12/1/2019 13:24:38,Arabic,GCC,Office-work,Above 60,170 - 180,71-85 kg,Male,3,5,4,3,4,1,3,3,2,2,4,5,3
+12/1/2019 13:25:33,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,2,4,2,3,3,4,4,5,5,5
+12/1/2019 13:25:39,Arabic,GCC,Office-work,30 - 45,170 - 180,116-130 kg,Male,5,5,4,2,1,2,2,1,4,2,5,5,5
+12/1/2019 13:27:22,Arabic,GCC,Office-work,30 - 45,170 - 180,<=55 kg,Male,3,3,3,3,2,1,1,1,3,4,4,5,5
+12/1/2019 13:31:35,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,5,5,3,2,4,2,4,4,4,5,4
+12/1/2019 13:31:44,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,3,5,5,5,3,3,3,2,4,5,4,4,5
+12/1/2019 13:33:59,Arabic,GCC,Office-work,30 - 45,180 - 190,71-85 kg,Male,5,5,5,4,1,3,3,3,3,2,1,1,2
+12/1/2019 13:35:05,Arabic,GCC,Office-work,30 - 45,170 - 180,101-115 kg,Male,3,5,5,4,2,1,1,1,2,3,3,4,3
+12/1/2019 13:36:58,Arabic,GCC,Office-work,18 - 30,170 - 180,86-100 kg,Male,3,2,3,5,2,1,1,1,5,3,3,4,4
+12/1/2019 13:50:55,Arabic,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,4,4,2,3,2,3,4,1,2,5,4,5,4
+12/1/2019 13:55:10,Arabic,GCC,Office-work,30 - 45,170 - 180,101-115 kg,Male,4,4,5,5,4,4,3,2,3,5,2,4,4
+12/1/2019 13:55:20,Arabic,GCC,Office-work,45 - 60,160 - 170,56-70 kg,Male,3,2,4,3,3,1,1,3,4,4,4,3,5
+12/1/2019 14:09:57,Arabic,GCC,Office-work,18 - 30,170 - 180,71-85 kg,Male,5,5,5,4,2,4,2,2,4,4,4,4,5
+12/1/2019 14:12:55,Arabic,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,3,4,5,4,2,1,2,1,3,4,3,4,4
+12/1/2019 14:15:36,Arabic,GCC,Office-work,45 - 60,160 - 170,56-70 kg,Male,3,4,5,4,3,4,2,2,2,4,5,4,4
+12/1/2019 14:24:30,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,4,5,5,4,2,4,3,4,5,3,5,5
+12/1/2019 14:33:29,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,4,4,3,3,4,3,1,3,4,4,3,3,5
+12/1/2019 14:35:20,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,5,3,1,3,2,2,2,4,5,4
+12/1/2019 14:44:44,Arabic,GCC,Office-work,30 - 45,180 - 190,86-100 kg,Male,5,4,3,4,1,3,3,3,4,4,5,2,5
+12/1/2019 15:12:10,Arabic,GCC,Office-work,18 - 30,170 - 180,71-85 kg,Male,1,1,4,2,2,4,3,3,3,3,3,1,4
+12/1/2019 15:12:28,Arabic,GCC,Office-work,18 - 30,170 - 180,71-85 kg,Male,5,4,3,5,1,1,1,1,5,4,4,4,5
+12/1/2019 15:13:34,Arabic,GCC,Office-work,18 - 30,170 - 180,116-130 kg,Male,3,3,3,2,5,2,1,3,4,2,3,5,4
+12/1/2019 15:16:10,Arabic,GCC,Office-work,30 - 45,160 - 170,86-100 kg,Male,3,3,3,4,4,4,4,2,4,5,4,4,4
+12/1/2019 15:16:29,Arabic,GCC,Office-work,30 - 45,160 - 170,86-100 kg,Male,3,3,3,4,4,4,4,2,4,5,4,4,4
+12/1/2019 15:23:54,Arabic,GCC,Office-work,45 - 60,180 - 190,86-100 kg,Male,3,3,3,3,1,1,4,3,4,1,2,2,5
+12/1/2019 15:25:41,Arabic,GCC,Office-work,30 - 45,180 - 190,>=131 kg,Male,4,3,2,3,2,3,1,4,4,3,2,4,5
+12/1/2019 15:38:32,Arabic,GCC,Office-work,Above 60,160 - 170,86-100 kg,Male,3,3,3,4,4,2,2,4,3,2,4,3,4
+12/1/2019 16:09:37,Arabic,GCC,Office-work,45 - 60,170 - 180,101-115 kg,Male,5,5,4,4,2,2,3,2,3,4,5,4,5
+12/1/2019 16:16:33,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,5,5,5,5,3,3,3,2,3,3,3,4,4
+12/1/2019 16:24:58,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,4,5,1,1,1,1,4,5,5,5,5
+12/1/2019 16:43:16,Arabic,GCC,Office-work,18 - 30,180 - 190,71-85 kg,Male,3,4,1,3,4,1,3,4,5,5,4,4,4
+12/1/2019 16:43:17,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,5,5,5,4,2,2,3,3,2,3,5,5,3
+12/1/2019 16:58:58,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,5,5,4,3,2,4,2,1,3,4,4,4
+12/1/2019 17:25:13,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,5,1,5,1,1,1,1,5,1,4,5,1
+12/1/2019 17:27:59,Arabic,GCC,Office-work,30 - 45,160 - 170,86-100 kg,Male,2,2,4,4,5,4,4,3,1,1,1,2,2
+12/1/2019 17:39:08,Arabic,GCC,Office-work,45 - 60,180 - 190,116-130 kg,Male,3,5,5,5,3,3,2,2,4,4,3,5,5
+12/1/2019 17:56:11,Arabic,GCC,Office-work,18 - 30,170 - 180,71-85 kg,Male,2,3,3,4,1,1,1,1,2,2,3,1,5
+12/1/2019 18:37:21,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,2,4,2,3,3,4,4,5,5,5
+12/1/2019 18:41:53,Arabic,GCC,Office-work,30 - 45,170 - 180,116-130 kg,Male,4,5,4,5,4,1,1,2,3,4,4,5,4
+12/1/2019 20:51:32,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Male,3,5,4,2,3,1,4,5,1,2,3,3,5
+12/1/2019 21:05:12,Arabic,GCC,Office-work,30 - 45,170 - 180,101-115 kg,Male,4,4,5,5,1,3,3,3,3,5,4,5,4
+12/1/2019 21:11:58,Arabic,GCC,Office-work,30 - 45,170 - 180,86-100 kg,Male,5,5,5,5,1,1,1,1,4,4,5,4,5
+12/1/2019 21:33:54,Arabic,GCC,Office-work,30 - 45,180 - 190,101-115 kg,Male,2,4,3,4,1,4,4,3,1,2,4,2,3
+12/1/2019 21:41:54,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,3,3,3,1,4,4,2,2,4,4,4,3
+12/1/2019 22:05:34,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,4,5,5,2,1,2,1,4,5,5,5,4
+12/1/2019 22:43:16,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,4,4,3,3,3,3,3,3,3,3,3
+12/2/2019 7:52:15,Arabic,GCC,Office-work,30 - 45,170 - 180,>=131 kg,Male,5,5,5,5,3,1,3,3,3,2,5,4,4
+12/2/2019 8:02:03,Arabic,GCC,More-Movement,Above 60,170 - 180,71-85 kg,Male,4,5,5,5,3,1,4,4,3,3,5,3,4
+12/2/2019 10:04:41,Arabic,GCC,More-Movement,30 - 45,180 - 190,71-85 kg,Male,4,4,5,3,2,2,3,2,3,4,4,5,5
+12/2/2019 17:44:40,Arabic,GCC,More-Movement,45 - 60,160 - 170,71-85 kg,Male,5,5,5,5,3,1,5,5,5,5,3,5,4
+12/3/2019 7:51:08,Arabic,GCC,Office-work,18 - 30,160 - 170,86-100 kg,Female,1,4,4,4,1,1,1,1,4,4,5,4,5
+12/3/2019 22:30:56,Arabic,GCC,Office-work,30 - 45,170 - 180,101-115 kg,Male,4,4,4,4,4,2,3,3,2,4,3,4,4
+12/5/2019 17:44:19,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,3,5,4,4,3,1,4,2,1,3,3,4,4
+12/6/2019 6:04:15,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,4,5,3,4,2,2,3,2,2,4,3,4,4
+12/7/2019 17:00:05,Arabic,GCC,Office-work,30 - 45,170 - 180,>=131 kg,Male,2,4,4,3,2,1,1,2,4,4,2,5,1
+12/9/2019 8:50:25,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Female,2,2,4,1,3,2,4,3,2,3,4,4,4
+12/9/2019 8:53:49,Arabic,GCC,Office-work,18 - 30,160 - 170,56-70 kg,Female,5,4,5,5,3,4,4,1,2,5,5,1,4
+12/9/2019 8:55:37,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,2,3,4,3,2,1,2,3,4,5,5,5,5
+12/9/2019 8:57:04,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,3,3,3,3,4,4,1,2,4,4,3,4,4
+12/9/2019 8:58:00,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,5,5,5,2,1,2,1,4,5,5,4,4
+12/9/2019 8:58:15,Arabic,GCC,Office-work,45 - 60,150 - 160,56-70 kg,Female,5,3,3,2,3,1,2,2,4,3,1,2,2
+12/9/2019 8:59:09,Arabic,GCC,Office-work,45 - 60,160 - 170,86-100 kg,Female,4,4,5,4,5,3,4,2,2,5,4,3,2
+12/9/2019 8:59:34,Arabic,GCC,Office-work,Above 60,160 - 170,56-70 kg,Male,5,5,5,4,3,2,4,4,3,3,3,5,4
+12/9/2019 8:59:45,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Male,1,3,4,2,3,3,1,1,2,2,4,4,4
+12/9/2019 9:03:27,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Female,4,4,4,3,1,1,1,1,5,5,4,4,4
+12/9/2019 9:06:40,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,4,4,5,5,4,2,4,1,2,5,3,5,4
+12/9/2019 9:07:33,Arabic,GCC,More-Movement,18 - 30,160 - 170,<=55 kg,Female,5,5,5,5,2,3,4,2,1,3,5,3,3
+12/9/2019 9:08:47,Arabic,GCC,Office-work,30 - 45,160 - 170,<=55 kg,Male,4,2,4,2,1,1,4,3,4,2,5,5,4
+12/9/2019 9:09:58,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,3,2,2,2,2,1,4,1,3,3,3,3,3
+12/9/2019 9:12:24,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Female,3,5,4,3,1,3,1,1,2,4,4,2,3
+12/9/2019 9:12:52,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Female,4,4,4,4,1,1,2,5,4,5,4,5,5
+12/9/2019 9:14:49,Arabic,GCC,Office-work,45 - 60,150 - 160,56-70 kg,Female,5,5,5,5,3,2,2,2,5,5,5,5,5
+12/9/2019 9:15:39,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,5,5,2,2,2,1,4,5,5,4,4
+12/9/2019 9:18:24,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,4,5,4,5,1,1,3,3,3,2,4,5,5
+12/9/2019 9:19:18,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Female,5,5,5,5,1,2,3,2,3,4,5,4,5
+12/9/2019 9:19:19,Arabic,GCC,Office-work,45 - 60,170 - 180,56-70 kg,Male,3,2,2,1,1,1,2,1,2,1,3,4,2
+12/9/2019 9:23:01,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Male,4,3,3,4,1,1,3,3,3,4,5,4,4
+12/9/2019 9:23:18,Arabic,GCC,Office-work,30 - 45,more than 190,116-130 kg,Male,4,5,5,5,3,1,2,5,4,1,3,5,5
+12/9/2019 9:26:56,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,3,5,5,5,5,5,5,5,4,5,5,4,5
+12/9/2019 9:28:26,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,3,4,3,3,3,2,3,3,4,4,5,4,5
+12/9/2019 9:30:21,Arabic,GCC,Office-work,30 - 45,160 - 170,56-70 kg,Female,5,5,5,5,1,1,3,3,2,3,4,5,5
+12/9/2019 9:30:22,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,4,4,2,4,3,1,4,4,2,1,4,5,5
+12/9/2019 9:33:40,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,5,5,5,1,1,2,2,3,5,5,4,4
+12/9/2019 9:38:33,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Female,4,4,4,4,5,4,3,1,1,5,5,3,3
+12/9/2019 9:40:59,Arabic,GCC,More-Movement,18 - 30,180 - 190,56-70 kg,Male,3,3,5,4,5,4,5,3,1,3,2,3,2
+12/9/2019 9:43:22,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Female,2,4,5,4,3,1,3,1,3,5,4,5,3
+12/9/2019 9:47:13,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,5,5,5,1,1,1,1,4,5,4,4,5
+12/9/2019 9:48:35,Arabic,GCC,Office-work,45 - 60,150 - 160,86-100 kg,Female,5,5,5,5,1,1,1,1,3,4,4,5,4
+12/9/2019 9:48:39,Arabic,GCC,Office-work,45 - 60,160 - 170,56-70 kg,Female,4,5,5,5,2,1,2,1,1,5,5,4,4
+12/9/2019 9:48:44,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,4,5,4,3,2,1,4,3,4,2,5,4,5
+12/9/2019 9:51:39,Arabic,GCC,Office-work,30 - 45,170 - 180,116-130 kg,Male,2,4,2,4,3,2,4,2,3,2,4,4,4
+12/9/2019 9:57:54,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,5,4,5,4,2,1,2,1,3,3,3,3,3
+12/9/2019 10:00:00,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,4,5,4,4,3,3,3,1,3,4,4,5,4
+12/9/2019 10:11:54,Arabic,GCC,Office-work,30 - 45,180 - 190,86-100 kg,Male,2,2,2,3,5,5,3,3,4,4,4,4,4
+12/9/2019 10:15:14,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,4,4,4,1,1,1,1,2,4,5,4,5
+12/9/2019 10:16:46,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,3,3,3,3,4,2,2,2,3,4,4,4,4
+12/9/2019 10:17:34,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Male,3,4,4,5,1,1,3,1,3,4,5,3,4
+12/9/2019 10:20:17,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,4,4,4,4,2,2,2,2,4,4,3,3,3
+12/9/2019 10:21:58,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Female,4,4,4,5,3,1,1,3,5,5,5,5,5
+12/9/2019 10:22:27,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,5,3,3,4,4,1,1,2,4,3,3,2,4
+12/9/2019 10:24:02,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,2,2,4,3,2,2,2,3,2,3,3,2,3
+12/9/2019 10:26:49,Arabic,GCC,More-Movement,30 - 45,150 - 160,56-70 kg,Female,4,4,5,5,2,2,4,1,2,4,4,1,5
+12/9/2019 10:27:30,Arabic,GCC,More-Movement,30 - 45,150 - 160,>=131 kg,Female,5,5,5,5,2,1,2,1,4,5,5,5,4
+12/9/2019 10:30:15,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,5,5,5,1,1,1,1,5,5,5,5,5
+12/9/2019 10:32:38,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Female,5,5,3,4,4,1,2,4,2,2,5,5,4
+12/9/2019 10:45:11,Arabic,GCC,Office-work,45 - 60,160 - 170,86-100 kg,Male,5,5,4,4,1,2,2,3,2,2,5,3,5
+12/9/2019 10:46:08,Arabic,GCC,Office-work,30 - 45,160 - 170,86-100 kg,Male,3,4,4,3,2,2,2,2,3,3,3,4,4
+12/9/2019 10:47:41,Arabic,GCC,More-Movement,Above 60,170 - 180,86-100 kg,Male,3,3,3,3,1,1,1,1,3,3,3,3,3
+12/9/2019 10:52:06,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,4,4,2,2,3,4,3,2,3,4,3,2,4
+12/9/2019 10:59:19,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,5,5,5,5,2,1,3,4,4,3,4,4,5
+12/9/2019 11:20:19,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,3,5,4,3,5,1,5,2,2,3,2,4,2
+12/9/2019 11:22:18,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Female,3,3,4,4,3,3,3,3,3,3,5,4,4
+12/9/2019 11:30:04,Arabic,GCC,Office-work,18 - 30,150 - 160,56-70 kg,Female,3,4,4,5,1,1,4,3,2,3,5,5,5
+12/9/2019 11:44:02,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Male,3,3,3,3,3,3,3,3,4,5,5,3,4
+12/9/2019 11:44:07,Arabic,GCC,More-Movement,30 - 45,150 - 160,56-70 kg,Female,4,4,4,4,5,1,3,3,4,4,4,5,4
+12/9/2019 11:45:23,Arabic,GCC,More-Movement,30 - 45,180 - 190,71-85 kg,Male,1,1,1,2,3,3,3,3,3,4,4,3,3
+12/9/2019 11:56:58,Arabic,GCC,More-Movement,45 - 60,180 - 190,>=131 kg,Male,1,3,3,3,3,4,3,4,2,1,2,3,4
+12/9/2019 11:58:44,Arabic,GCC,More-Movement,45 - 60,160 - 170,71-85 kg,Female,5,5,5,5,1,2,3,2,3,3,5,5,3
+12/9/2019 12:00:55,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Female,5,5,5,5,2,2,2,2,5,4,5,5,5
+12/9/2019 12:04:43,Arabic,GCC,Office-work,30 - 45,150 - 160,86-100 kg,Female,4,5,5,5,1,1,3,2,3,5,4,5,5
+12/9/2019 12:10:27,Arabic,GCC,Office-work,30 - 45,170 - 180,71-85 kg,Female,4,4,4,4,3,2,2,1,4,4,4,5,5
+12/9/2019 12:14:27,Arabic,GCC,More-Movement,18 - 30,150 - 160,56-70 kg,Female,5,5,5,5,4,2,4,1,4,5,4,4,5
+12/9/2019 12:33:16,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,3,4,4,4,1,3,1,1,5,4,5,3,5
+12/9/2019 12:38:00,Arabic,GCC,Office-work,30 - 45,160 - 170,71-85 kg,Male,4,4,5,5,2,2,3,3,4,3,4,4,5
+12/9/2019 12:45:59,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,2,4,3,3,2,2,2,4,4,1,2,3,4
+12/9/2019 12:47:24,Arabic,GCC,More-Movement,18 - 30,150 - 160,71-85 kg,Female,5,5,5,5,1,3,4,1,2,3,5,5,5
+12/9/2019 13:05:25,Arabic,GCC,Office-work,18 - 30,150 - 160,<=55 kg,Female,3,5,5,5,1,2,4,4,1,2,5,5,4
+12/9/2019 13:24:32,Arabic,GCC,Office-work,30 - 45,150 - 160,71-85 kg,Female,4,5,5,5,3,2,4,3,3,4,5,4,5
+12/9/2019 13:39:39,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,5,5,5,5,4,1,3,1,3,5,5,5,4
+12/9/2019 13:41:25,Arabic,GCC,Office-work,45 - 60,170 - 180,71-85 kg,Male,4,4,4,4,4,4,3,3,4,5,4,4,4
+12/9/2019 13:51:49,Arabic,GCC,Office-work,45 - 60,170 - 180,86-100 kg,Male,5,5,5,5,3,1,1,2,4,5,4,4,5
+12/9/2019 13:59:42,Arabic,GCC,Office-work,45 - 60,150 - 160,56-70 kg,Female,1,5,4,4,2,1,3,2,1,2,1,4,4
+12/9/2019 14:10:05,Arabic,GCC,More-Movement,18 - 30,170 - 180,56-70 kg,Female,4,5,5,4,4,5,3,1,3,3,3,4,4
+12/9/2019 14:35:48,Arabic,GCC,Office-work,18 - 30,160 - 170,56-70 kg,Male,5,3,5,4,1,3,4,4,2,3,5,3,4
+12/9/2019 14:39:56,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,4,5,4,5,4,4,4,5,4,4,5,4
+12/9/2019 16:51:30,Arabic,GCC,Office-work,45 - 60,160 - 170,71-85 kg,Male,4,4,4,4,4,4,5,4,3,3,4,4,3
+12/9/2019 19:05:33,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,3,3,3,3,3,2,2,2,4,4,5,4,5
+12/9/2019 22:40:36,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,4,5,5,5,3,1,4,1,1,5,3,3,3
+12/9/2019 22:43:57,Arabic,GCC,Office-work,30 - 45,160 - 170,<=55 kg,Female,5,5,5,5,2,2,2,1,5,5,4,3,5
+12/10/2019 0:37:50,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,5,5,5,4,2,3,4,1,4,3,3,5,5
+12/10/2019 2:53:39,Arabic,GCC,More-Movement,18 - 30,150 - 160,<=55 kg,Female,2,3,4,5,3,1,3,1,3,4,4,3,3
+12/10/2019 12:11:38,Arabic,GCC,Office-work,30 - 45,150 - 160,<=55 kg,Female,3,2,3,2,1,1,1,1,3,2,2,2,3
+12/10/2019 12:52:39,Arabic,GCC,Office-work,30 - 45,160 - 170,86-100 kg,Male,4,5,5,4,5,5,3,3,3,3,1,1,3
+12/10/2019 13:14:08,Arabic,GCC,Office-work,30 - 45,150 - 160,56-70 kg,Female,5,5,5,5,2,2,4,4,4,2,2,5,4
+12/10/2019 16:36:36,Arabic,GCC,Office-work,45 - 60,160 - 170,86-100 kg,Male,2,4,3,5,3,1,1,1,5,5,3,2,3
+12/11/2019 7:46:59,Arabic,GCC,Office-work,45 - 60,150 - 160,56-70 kg,Female,3,3,4,4,3,3,2,3,3,2,2,3,3
+12/11/2019 10:45:39,Arabic,GCC,Office-work,45 - 60,160 - 170,116-130 kg,Female,5,5,5,5,3,4,4,4,2,3,2,4,5
+12/11/2019 18:51:08,Arabic,GCC,Office-work,30 - 45,160 - 170,86-100 kg,Male,5,5,5,5,5,5,5,5,3,3,3,3,3
+12/12/2019 9:31:57,Arabic,GCC,More-Movement,18 - 30,150 - 160,<=55 kg,Female,5,5,4,1,3,3,2,1,1,3,4,5,5
+12/12/2019 11:46:08,Arabic,GCC,Office-work,45 - 60,160 - 170,56-70 kg,Female,3,2,2,4,2,4,2,3,2,3,3,5,3
+12/12/2019 11:57:53,Arabic,GCC,Office-work,45 - 60,150 - 160,71-85 kg,Female,4,5,4,3,2,1,4,3,4,2,5,4,5
+12/15/2019 9:31:20,Arabic,GCC,More-Movement,18 - 30,150 - 160,<=55 kg,Female,5,5,5,5,3,3,4,5,4,1,5,2,3
+12/15/2019 10:03:21,Arabic,GCC,More-Movement,30 - 45,150 - 160,56-70 kg,Female,2,4,3,4,2,2,3,4,3,3,2,4,4
+12/15/2019 11:51:13,Arabic,GCC,More-Movement,30 - 45,150 - 160,71-85 kg,Female,3,5,4,5,2,1,4,4,2,2,5,3,5
+12/15/2019 13:07:40,Arabic,GCC,More-Movement,30 - 45,160 - 170,71-85 kg,Female,3,4,3,3,3,3,3,3,3,5,4,4,5
+12/15/2019 13:38:00,Arabic,GCC,More-Movement,45 - 60,170 - 180,71-85 kg,Female,3,3,3,5,3,2,2,2,2,4,3,4,3
+12/15/2019 13:38:20,Arabic,GCC,More-Movement,45 - 60,170 - 180,71-85 kg,Female,3,3,3,5,3,2,2,2,2,4,3,4,3
+12/16/2019 12:58:49,Arabic,GCC,More-Movement,30 - 45,150 - 160,56-70 kg,Female,2,2,3,2,1,1,2,1,2,4,5,1,5
+12/16/2019 15:19:05,Arabic,GCC,More-Movement,30 - 45,170 - 180,71-85 kg,Female,4,3,5,3,2,1,5,2,2,4,5,4,3
+12/18/2019 13:16:34,Arabic,GCC,More-Movement,45 - 60,170 - 180,86-100 kg,Male,5,5,5,5,1,1,3,2,4,5,5,5,5
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
