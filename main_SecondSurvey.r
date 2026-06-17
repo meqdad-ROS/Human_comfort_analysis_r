@@ -1,0 +1,1640 @@
+#Linear regression and other alternative algorithm for data analysis 
+# Written by Meqdad Hasan 
+#clear all environment variable and ploting device and consul. 
+#-------------------------------------------------------------------------------
+cat("\014")  #clear consol from code 
+while (dev.cur() > 1) dev.off()  # clear all plot device 
+rm(list = ls()) # clear all environment variables
+cat("\014")  #clear consol from code 
+#-------------------------------------------------------------------------------
+# step 0: Load necessary libraries
+library(readxl)  #Load excel library
+library(ggplot2)
+library(reshape2)
+library(plyr)
+library(car)
+library(multcomp)
+library(lavaan)
+library(semPlot)
+library(psych)
+library(splithalf)
+library(ltm)
+library(dplyr)
+library(R6)
+library(kSamples)
+library(rsm)
+library(DescTools)
+
+#-------------------------------------------------------------------------------
+# step 00: source all required classes and files
+source("regrissorClass.r")
+source("ComparativeAnalyzer.r")
+source("perform_kw_then_pairwise_mw.r")
+source("cfTestClass.r")
+#-------------------------------------------------------------------------------
+# Step 1: load Data 
+
+# # Data from first  and second datasets both merged together _Confirmatory Factor analysis score data
+data_SCFs <- read.csv("SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv", header = TRUE)
+View(data_SCFs)
+## Upload the original response after cleaning (the ranked) dataset of both survey after merging them out. 
+data_SOrRank <- read_excel("SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx", header = TRUE)
+View(data_SOrRank)
+#-------------------------------------------------------------------------------
+# Step 2: create instant Objects for all data sets
+# Second Object for the (Second Datasets  _SCFA) (Continuous Data)
+analy_SCFA <- regrissorClass$new(data_SCFs)
+
+# declare the new Object confirmatory instant object before any method 
+# implementation(Second Datasets  _SCFA) (Continuous Data)
+conf_Analyzer = cfTestClass$new(input=data_SCFs,
+                                file_sep = ",", 
+                                header = TRUE)
+
+
+# ==============================================================================
+# EXECUTION (4th _ Second Dataset ... CFA Data)
+# ==============================================================================
+## Fourth Object for the (Second Dataset _SCFA)
+
+#########--------------#### analy_SCFs$calculate_summary()$print_summary()
+#########--------------#### analy_SCFs$get_numeric_info()$column_names
+#########--------------#### analy_SCFs$get_categorical_info()$column_names
+#---------------------------------------------Plot Histogram-----------------------------
+#########--------------#### analy_SCFs$plot_histogram("Sensitivity")
+#########--------------#### analy_SCFs$plot_histogram("productivity")
+#########--------------#### analy_SCFs$plot_histogram("performance_decrease_under_thermal_and_Air")
+#########--------------#### analy_SCFs$plot_histogram("Work_effectively")
+#########--------------#### analy_SCFs$plot_histogram("performance_decrease_under_noise_and_light")
+#########--------------#### analy_SCFs$plot_histogram("Combined_Effect_of_Air_thermal_noise_light")
+#------------------------  Instead of histogram print plot frequency table for categorical varaibles-------------
+#########--------------#### print(analy_SCFs$get_categorical_info()$frequency_tables$Gender)
+#########--------------#### lapply(analy_SCFs$get_categorical_info()$frequency_tables, print)
+# ---------------------------------------Linear Regression Model-------------------------
+# List models
+#########--------------#### analy_SCFs$list_regression_models()
+
+#########--------------#### analy_SCFs$plot_scatter_by_group("productivity", "performance_decrease_under_thermal_and_Air", "Gender")
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Data from Second datasets _Confermatory Factor analysis score data
+#########  data_SCFs <- read.csv("SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv", header = TRUE)
+#########   View(data_SCFs)
+
+# ==============================================================================
+# EXECUTION (HOW TO USE THE OOP STRUCTURE)
+# EXECUTION (1st _ both datasets ... Oregenal responses)
+# ==============================================================================+++++++++++================================
+# First letus create 4 different objects from the same classes each with a differnt dataset from the above. 
+# ==============================================================================+++++++++++================================
+# ==============================================================================+++++++++++================================
+
+
+
+# ==============================================================================
+# EXECUTION (2nd _ both datasets ... CFA Data)
+# ==============================================================================
+# # For logistic, first ensure a binary outcome (e.g., create one or use existing)
+### analy_BOr$add_column("binary_outcome", ifelse(analy_BOr$data$productivity > median(analy_BOr$data$productivity, na.rm = TRUE), 1, 0))
+### log_model <- analy_BOr$fit_logistic_regression("binary_outcome", c("Gender", "Age"))
+
+# Second Object for the (both data EDFA)
+
+analy_SCFA$calculate_summary()$print_summary()
+analy_SCFA$get_numeric_info()$column_names
+analy_SCFA$get_categorical_info()$column_names
+
+#---------------------------------------------Plot Histogram-----------------------------
+analy_SCFA$plot_histogram("Sensitivity")
+analy_SCFA$plot_histogram("Performance")
+analy_SCFA$plot_histogram("Th_AQ_Effect")
+analy_SCFA$plot_histogram("Li_So_Effect")
+#------------------------  Instead of histogram print plot frequency table for categorical varaibles-------------
+print(analy_SCFA$get_categorical_info()$frequency_tables$Gender)
+lapply(analy_SCFA$get_categorical_info()$frequency_tables, print)
+# ---------------------------------------Linear Regression Model-------------------------
+# List models
+analy_SCFA$list_regression_models()
+
+# It found from scatter plot that the best correlation is found between  "Th_AQ_Effect", "Li_So_Effect
+#1-------------------------------------------------------
+lin_model <- analy_SCFA$fit_linear_regression("Th_AQ_Effect", "Li_So_Effect")
+print(lin_model$r_squared)  # R-squared value
+print(lin_model$p_values)   # P-values for coefficients
+# Plot it
+analy_SCFA$plot_regression_model(lin_model, type = "linear")
+# Fit multiple linear regression (e.g., productivity ~ multiple predictors)
+multi_lin_model <- analy_SCFA$fit_multiple_linear_regression("Sensitivity", c("Th_AQ_Effect", "Li_So_Effect"))
+print(multi_lin_model$sse)  # Sum of Squared Errors
+analy_SCFA$plot_regression_model(multi_lin_model , type = "multiple_linear")
+#2-------------------------------------------------------
+# Fit a linear model 2
+lin_model_2 <- analy_SCFA$fit_linear_regression("Th_AQ_Effect", "Sensitivity")
+analy_SCFA$plot_regression_model(lin_model_2, type = "linear")
+print(lin_model_2$r_squared)  # R-squared value
+print(lin_model_2$p_values)   # P-values for coefficients
+
+#3-------------------------------------------------------
+# Fit a linear model 3
+lin_model_3 <- analy_SCFA$fit_linear_regression("Th_AQ_Effect", "Performance")
+analy_SCFA$plot_regression_model(lin_model_3, type = "linear")
+print(lin_model_3$r_squared)  # R-squared value
+print(lin_model_3$p_values)   # P-values for coefficients
+
+#4-------------------------------------------------------
+# Fit a linear model 4
+lin_model_4 <- analy_SCFA$fit_linear_regression("Li_So_Effect", "Sensitivity")
+analy_SCFA$plot_regression_model(lin_model_4, type = "linear")
+print(lin_model_4$r_squared)  # R-squared value
+print(lin_model_4$p_values)   # P-values for coefficients
+
+multi_lin_model_2 <- analy_SCFA$fit_multiple_linear_regression("Performance", c("Th_AQ_Effect", "Li_So_Effect"))
+print(multi_lin_model_2$sse)  # Sum of Squared Errors
+analy_SCFA$plot_regression_model(multi_lin_model_2 , type = "multiple_linear")
+#5-------------------------------------------------------
+# Fit a linear model 5
+lin_model_5 <- analy_SCFA$fit_linear_regression("Li_So_Effect", "Performance")
+analy_SCFA$plot_regression_model(lin_model_5, type = "linear")
+print(lin_model_5$r_squared)  # R-squared value
+print(lin_model_5$p_values)   # P-values for coefficients
+
+multi_lin_model_3 <- analy_SCFA$fit_multiple_linear_regression("Li_So_Effect", c("Sensitivity", "Performance"))
+print(multi_lin_model_3$sse)  # Sum of Squared Errors
+analy_SCFA$plot_regression_model(multi_lin_model_3 , type = "multiple_linear")
+#6-------------------------------------------------------
+# Fit a linear model 6
+lin_model_6 <- analy_SCFA$fit_linear_regression("Performance", "Sensitivity")
+analy_SCFA$plot_regression_model(lin_model_6, type = "linear")
+print(lin_model_6$r_squared)  # R-squared value
+print(lin_model_6$p_values)   # P-values for coefficients
+
+multi_lin_model_4 <- analy_SCFA$fit_multiple_linear_regression("Th_AQ_Effect", c("Sensitivity", "Performance"))
+print(multi_lin_model_4$sse)  # Sum of Squared Errors
+analy_SCFA$plot_regression_model(multi_lin_model_4 , type = "multiple_linear")
+#-------------------------------------------------------
+#--------------------------------------------Perform T-test---------------------------------
+# Independent t-test: Compare productivity by Gender
+t_result_BCFA <- analy_SCFA$perform_t_test("Sensitivity", "Gender", type = "independent", plot = TRUE)
+print(t_result_BCFA$p_value)  # Check significance
+cat("If p < 0.05, reject null: means differ significantly.\n")
+#Only a 0.023% chance this difference occurred by random chance,
+#We can reject the null hypothesis that both genders have equal mean Sensitivity
+
+# One-sample t-test: Is mean Sensitivity different from 5.0?
+t_one_BCFA <- analy_SCFA$perform_t_test("Sensitivity", type = "one_sample", mu = 5.0, plot = TRUE)
+#Since the data distribution is far left from the hypothesized mean (mu), the null hypothesis that the true mean Sensitivity equals 5 is very unlikely.
+#This is a visual cue supporting rejection of the null hypothesis.
+#Because the observed Sensitivity values are far less than 5 (confirmed by histogram and likely by computed mean), the:
+#  p-value will be very small (< 0.05), meaning you reject the null hypothesis.
+#The confidence interval will NOT include 5.
+#The sample mean will be much less than 5.
+
+
+# Paired t-test: If you have paired data (e.g., add a 'before' and 'after' column first)
+# Number of rows in your data
+n <- nrow(analy_SCFA$data)
+set.seed(42)
+
+analy_SCFA_after <- analy_SCFA$clone()
+analy_SCFA_after$add_column("after_Sensitivity", analy_SCFA_after$data$Sensitivity + rnorm(n, mean = 0.2, sd = 0.1))
+
+
+library(tidyr)
+df <- analy_SCFA_after$data
+
+# Assuming 'after_Sensitivity' correctly added to df already
+# Convert to long format
+df_long <- tidyr::pivot_longer(df,
+                               cols = c("Sensitivity", "after_Sensitivity"),
+                               names_to = "time",
+                               values_to = "Sensitivity_value")
+###after_sensitivity_values <- analy_SCFA_after$data$Sensitivity + rnorm(n, mean = 0.2, sd = 0.1)
+# Map 'time' values to more readable factor levels
+df_long$time <- factor(df_long$time, levels = c("Sensitivity", "after_Sensitivity"),
+                       labels = c("before", "after"))
+
+# Create a new regrissorClass object with the long data
+analy_SCFA_long <- regrissorClass$new(df_long)
+
+t_paired_result <- analy_SCFA_long$perform_t_test(outcome = "Sensitivity_value",
+                                                  group_column = "time",
+                                                  type = "paired",
+                                                  plot = TRUE)
+print(t_paired_result$p_value)
+
+
+#Since the data column have been collected from tow different interval befor 2019 and after 2024, #Where 2019 (span from raw 1:to:360) and 2024 (span from 361:to 572), it significant to compare both data together and to perform paired t-test to them. Thus the following paired t-test try to figure out if the sensitivity differes among genders. Here, the null hypothesis (H0 = there is no difference between groups)
+
+# Step 1: Extract before 2019 Sensitivity and after 2024 Sensitivity
+df_before <- analy_SCFA$data [1:360, ]
+df_after  <- analy_SCFA$data [361:572, ]
+# Step 2: Extract corresponding genders for both intervals
+# Check gender counts before aligning
+table(df_before$Gender)
+table(df_after$Gender)
+
+# Split both datasets by gender
+before_male   <- df_before[df_before$Gender == "Male", ]
+before_female <- df_before[df_before$Gender == "Female", ]
+
+after_male    <- df_after[df_after$Gender == "Male", ]
+after_female  <- df_after[df_after$Gender == "Female", ]
+
+# Step 3: Check lengths are equal to proceed with pairing
+if (dim(df_before)[1]<=dim(df_after)[1]){
+  i = dim(df_before)[1]
+  j = dim(before_male)[1]
+  k = dim(before_female)[1]
+} else {
+  i = dim(df_after)[1]
+  j = dim(after_male)[1]
+  k = dim(after_female)[1]
+}
+print("length of our sampeld data is ")
+cat(i, j, k)
+
+# Set seed for reproducible random sampling
+set.seed(123)
+# Sample j and k random row indices without replacement (ensure after_* have enough rows)
+if (nrow(after_male) < j || nrow(after_female) < k) {
+  stop("Not enough rows in after_male or after_female for sampling. Check data sizes.")
+}
+
+# Now order both dataset in mean of males and females and compine them sample of the bigger oneor both: 
+# Sample j and K random row indices without replacement
+random_indices_male_after <- sample(nrow(after_male), size = j, replace = FALSE)
+random_indices_female_after <- sample(nrow(after_female), size = k, replace = FALSE)
+random_indices_male_before <- sample(nrow(before_male), size = j, replace = FALSE)
+random_indices_female_before <- sample(nrow(before_female), size = k, replace = FALSE)
+# Create the new data frame using those indices
+before_ordered <- rbind(before_male[random_indices_male_before, ], before_female[random_indices_female_before, ])
+after_ordered <- rbind(after_male[random_indices_male_after, ], after_female[random_indices_female_after, ])
+
+# Verify same number of rows after ordering
+if(nrow(before_ordered) != nrow(after_ordered)) {
+  stop("Number of samples for before and after do not match after ordering by gender")
+}
+
+# Step 4: Create data frame combining before and after with genders for paired analysis
+paired_df <- data.frame(
+  id = 1:nrow(before_ordered),
+  Gender = before_ordered$Gender,  # aligned gender
+  Sensitivity_before = before_ordered$Sensitivity,
+  Sensitivity_after = after_ordered$Sensitivity
+)
+# Check for any mismatches or NA values
+summary(paired_df)
+
+
+# Proceed with reshaping for paired analysis
+paired_long <- tidyr::pivot_longer(paired_df,
+                                   cols = c("Sensitivity_before", "Sensitivity_after"),
+                                   names_to = "time",
+                                   values_to = "Sensitivity_value")
+
+paired_long$time <- factor(paired_long$time, levels = c("Sensitivity_before", "Sensitivity_after"),
+                           labels = c("before", "after"))
+
+paired_long$Gender <- factor(paired_long$Gender)  # Ensure Gender is factor
+
+# Create regrissorClass object for paired data analysis
+before_after_paired <- regrissorClass$new(paired_long)
+
+t_paired_result <- before_after_paired$perform_t_test(outcome = "Sensitivity_value",
+                                                  group_column = "time",
+                                                  type = "paired",
+                                                  plot = TRUE)
+print(t_paired_result$p_value)
+#The is no significant difference between before and after sensitivity which mean nothing change during times. We accept the null hypothesis, H0 := there is no difference between groups of two different period
+
+
+#now just provide a comparision between sensitivity before and after based on gender: to check the significant of both cases
+# Independent t-test: Compare Sensitivity by Gender after only
+before_after_gender_sens <- regrissorClass$new(paired_df)
+t_result_Before_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_before", "Gender", type = "independent", plot = TRUE) #Sensitivity_after
+print(t_result_Before_G_sen$p_value)  # Check significance
+cat("If p < 0.05, reject null: means differ significantly.\n")
+#Only a 0.0203% chance this difference occurred by random chance,
+#We can reject the null hypothesis that both genders have equal mean Sensitivity
+
+# One-sample t-test: Is mean Sensitivity different from 5.0?
+t_one_Before_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_before", type = "one_sample", mu = 1.0, plot = TRUE)
+#-----------------------------------------------------------------------------------------------
+t_result_after_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_after", "Gender", type = "independent", plot = TRUE) #Sensitivity_after
+print(t_result_after_G_sen$p_value)  # Check significance
+cat("If p < 0.05, reject null: means differ significantly.\n")
+#Only a 0.6076% chance this difference occurred by random chance,
+#We can accept the null hypothesis that both genders have equal mean Sensitivity
+# One-sample t-test: Is mean Sensitivity different from 5.0?
+t_one_after_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_after", type = "one_sample", mu = 1.0, plot = TRUE)
+
+### === Now modify the above code or repeat it to test productivity, TC, and its a difficult, isnot, simply copy the code to an External function or class.   
+
+## --- sensitivity 
+sens_comp_analyzer_para <- ComparativeAnalyzer$new(analy_SCFA, "Sensitivity", "Gender")
+results_sens_gend_BCFA <- sens_comp_analyzer_para$run_all_analyses()
+## --- performance 
+perf_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Performance", "Gender")
+results_Perf_gend_BCFA <- perf_comp_analyzer$run_all_analyses()
+## --- Thermal - Air 
+Th_AQ_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Th_AQ_Effect", "Gender")
+results_Th_AQ_gend_BCFA <- Th_AQ_comp_analyzer$run_all_analyses()
+## --- Acoustic -Light
+Li_So_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Li_So_Effect", "Gender")
+results_Li_So_gend_BCFA <- Li_So_comp_analyzer$run_all_analyses()
+
+############| Proper Statistical Test Needed
+############|   To formally test this, conduct a repeated-measures ANOVA or mixed-effects model with:
+############|       Time (within-subject)
+############|       Gender (between-subject)
+############|       Time × Gender interaction ← This tests if gender differences changed over time
+###--------------------------------------------------------------------------###
+###--------------------------------------------------------------------------###
+#-======-=========-=======-================
+# Calculate correlations for multiple numeric variables 
+cor_BCFA_result <- analy_SCFA$calculate_pearson_correlation(
+                                  c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"), 
+                                  plot = TRUE
+                                  )
+print(cor_BCFA_result$correlation_matrix)  # View r-values
+print(cor_BCFA_result$p_value_matrix)      # View p-values
+
+###--------------------------------------------------------------------------###
+#-======-=========-=======-================
+# 1. Kruskal-Wallis H test (e.g., productivity across professions, assuming >2 professions) ((Mainly for ranking data)) *****
+kw_BCFA_result_perfor_prof <- analy_SCFA$perform_kruskal_wallis("Performance", "Occupation", plot = TRUE)
+print(kw_BCFA_result_perfor_prof$p_value)  # p < 0.05 indicates significant differences
+print(kw_BCFA_result_perfor_prof$h_statistic)  # h_statistic is large indicates significant differences
+print(kw_BCFA_result_perfor_prof$degrees_of_freedom) #print number of groups in the categorical factor above
+# 2. Mann-Whitney U test (e.g., productivity between Male and Female)
+
+results_kw_BCFA_perfor_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Occupation", plot = TRUE)
+results_kw_BCFA_perfor_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Location.of.Leaving", plot = TRUE)
+results_kw_BCFA_perfor_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Length", plot = TRUE)
+results_kw_BCFA_perfor_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "age", plot = TRUE)
+results_kw_BCFA_perfor_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Weight", plot = TRUE)
+# 2. Mann-Whitney U test (e.g., performance between Male and Female)
+results_MW_BCFA_perfor_gener <- analy_SCFA$perform_mann_whitney_ks("Performance", "Gender", type = "mann_whitney", plot=TRUE)
+print(results_MW_BCFA_perfor_gener$p_value)
+print(results_MW_BCFA_perfor_gener$statistic)
+
+results_kw_BCFA_sensi_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Occupation", plot = TRUE)
+results_kw_BCFA_sensi_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Location.of.Leaving", plot = TRUE)
+results_kw_BCFA_sensi_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Length", plot = TRUE)
+results_kw_BCFA_sensi_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "age", plot = TRUE)
+results_kw_BCFA_sensi_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Weight", plot = TRUE)
+# 2. Mann-Whitney U test (e.g., Sensitivity between Male and Female)
+results_MW_BCFA_sensi_gener <- analy_SCFA$perform_mann_whitney_ks("Sensitivity", "Gender", type = "mann_whitney", plot=TRUE)
+print(results_MW_BCFA_sensi_gener$p_value)
+print(results_MW_BCFA_sensi_gener$statistic)
+
+
+results_kw_BCFA_ThAQ_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Occupation", plot = TRUE)
+results_kw_BCFA_ThAQ_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Location.of.Leaving", plot = TRUE)
+results_kw_BCFA_ThAQ_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Length", plot = TRUE)
+results_kw_BCFA_ThAQ_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "age", plot = TRUE)
+results_kw_BCFA_ThAQ_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Weight", plot = TRUE)
+# 2. Mann-Whitney U test (e.g., Th_AQ_Effect between Male and Female)
+results_MW_BCFA_ThAQ_gener <- analy_SCFA$perform_mann_whitney_ks("Th_AQ_Effect", "Gender", type = "mann_whitney", plot=TRUE)
+print(results_MW_BCFA_ThAQ_gener$p_value)
+print(results_MW_BCFA_ThAQ_gener$statistic)
+
+
+results_kw_BCFA_LiSo_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Occupation", plot = TRUE)
+results_kw_BCFA_LiSo_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Location.of.Leaving", plot = TRUE)
+results_kw_BCFA_LiSo_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Length", plot = TRUE)
+results_kw_BCFA_LiSo_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "age", plot = TRUE)
+results_kw_BCFA_LiSo_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Weight", plot = TRUE)
+# 2. Mann-Whitney U test (e.g., Th_AQ_Effect between Male and Female)
+results_MW_BCFA_LiSo_gener <- analy_SCFA$perform_mann_whitney_ks("Li_So_Effect", "Gender", type = "mann_whitney", plot=TRUE)
+print(results_MW_BCFA_LiSo_gener$p_value)
+print(results_MW_BCFA_LiSo_gener$statistic)
+
+
+
+
+
+# Anderson-Darling test (e.g., normality of Sensitivity by Gender)
+sens_ad_result <- analy_SCFA$perform_levene_anderson("Sensitivity", "Gender", type = "anderson_darling_k", plot = TRUE)
+print(sens_ad_result$p_value)
+# Anderson-Darling test (e.g., normality of Performance by Gender)
+perform_ad_result <- analy_SCFA$perform_levene_anderson("Performance", "Gender", type = "anderson_darling_k", plot = TRUE)
+print(perform_ad_result$p_value)
+# Anderson-Darling test (e.g., normality of Performance by Gender)
+thaq_ad_result <- analy_SCFA$perform_levene_anderson("Th_AQ_Effect", "Gender", type = "anderson_darling_k", plot = TRUE)
+print(thaq_ad_result$p_value)
+# Anderson-Darling test (e.g., normality of Performance by Gender)
+liso_ad_result <- analy_SCFA$perform_levene_anderson("Li_So_Effect", "Gender", type = "anderson_darling_k", plot = TRUE)
+print(liso_ad_result$p_value)
+
+##now again to sensitivity and gender and run Mann-whitny 
+sens_comp_analyzer_nonPara <- ComparativeAnalyzer$new(analy_SCFA, "Sensitivity", "Gender")
+results_comp_BCFA_sensi_gener <- sens_comp_analyzer_nonPara$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
+
+##now again to light and sound effect on productivity and gender and run Mann-whitny 
+liso_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Li_So_Effect", "Gender")
+results_comp_BCFA_LiSo_gener <- liso_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
+
+##now again to performance under bad indoor environmental quality and gender and run Mann-whitny 
+perfo_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Performance", "Gender")
+results_comp_BCFA_perfor_gener <- perfo_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
+
+##now again to thermal comfort and airquality effect on productivity and gender and run Mann-whitny 
+thaq_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Th_AQ_Effect", "Gender")
+results_comp_BCFA_ThAQ_gener <- thaq_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
+#------------------------------------------------------------
+#now implement a comprehensive dataAnalysis using different regression classes at once
+# Simple + multiple only Performance as outcome and others as predictor
+res_regrission_BCFA_numaric_perf <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var = "Performance",
+  predictors  = c("Th_AQ_Effect", "Li_So_Effect", "Sensitivity")
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_Perf_ageGen <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Performance",
+  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
+  demographic_predictors = c("Gender", "age"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_Perf_LoOccLW <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Performance",
+  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
+  demographic_predictors = c("Location.of.Leaving", "Occupation","Length", "Weight"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+#---------------------------------------------------------------------
+# Simple + multiple only Sensitivity as outcome and others as predictor
+res_regrission_BCFA_numaric_sens <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var = "Sensitivity",
+  predictors  = c("Th_AQ_Effect", "Li_So_Effect", "Performance")
+) 
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_Sens_LenWheigh <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Sensitivity",
+  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
+  demographic_predictors = c("Length", "Weight"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_Sens_ageGen <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Sensitivity",
+  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
+  demographic_predictors = c("Gender", "age"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_Sens_LocOcc <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Sensitivity",
+  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
+  demographic_predictors = c("Location.of.Leaving", "Occupation"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+#------------------------------------------------------------------------------
+# Simple + multiple only Th_AQ_Effect as outcome and others as predictor
+res_regrission_BCFA_numaric_ThAq <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var = "Th_AQ_Effect",
+  predictors  = c("Sensitivity", "Li_So_Effect", "Performance")
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_ThAq_LenWheigh <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Th_AQ_Effect",
+  predictors             = c("Sensitivity", "Li_So_Effect", "Performance"),
+  demographic_predictors = c("Length", "Weight"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_ThAq_ageGen <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Th_AQ_Effect",
+  predictors             = c("Sensitivity", "Li_So_Effect", "Performance"),
+  demographic_predictors = c("Gender", "age"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+
+# Full pipeline with demographics and interactions
+res_regre_BCFA_full_ThAq_LocOcc <- analy_SCFA$perform_comprehensive_regression_analysis(
+  outcome_var            = "Th_AQ_Effect",
+  predictors             = c("Sensitivity", "Li_So_Effect", "Performance"),
+  demographic_predictors = c("Location.of.Leaving", "Occupation"),
+  interaction_terms      = TRUE,
+  include_logistic       = TRUE
+)
+
+##========================================================================
+## perform cluster analysis or k-mean clustering on continuous factor data.
+# k = NULL lets the elbow method choose k automatically (minimum of 3 enforced).
+# k_max = 10 sets the upper bound of the elbow search range.
+
+# Cluster all 4 IEQ factors; compare clusters by Gender
+ca_result_BCFA_gender <- analy_SCFA$perform_cluster_analysis(
+  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
+  demographic_column = "Gender",
+  k     = NULL,
+  k_max = 10,
+  plot  = TRUE
+)
+print(ca_result_BCFA_gender$clusters$centers)   # Cluster centroids (scaled)
+print(ca_result_BCFA_gender$differences)         # Two-way ANOVA: variable ~ Gender * cluster
+cat("Detected elbow k:", ca_result_BCFA_gender$optimal_k,
+    "| Final k used:", ca_result_BCFA_gender$final_k, "\n")
+
+# Same clustering; compare clusters by Occupation
+ca_result_BCFA_occ <- analy_SCFA$perform_cluster_analysis(
+  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
+  demographic_column = "Occupation",
+  k     = NULL,
+  k_max = 10,
+  plot  = TRUE
+)
+print(ca_result_BCFA_occ$clusters$centers)
+print(ca_result_BCFA_occ$differences)
+cat("Detected elbow k:", ca_result_BCFA_occ$optimal_k,
+    "| Final k used:", ca_result_BCFA_occ$final_k, "\n")
+
+# Same clustering; compare clusters by Location.of.Leaving
+ca_result_BCFA_LoL <- analy_SCFA$perform_cluster_analysis(
+  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
+  demographic_column = "Location.of.Leaving",
+  k     = NULL,
+  k_max = 10,
+  plot  = TRUE
+)
+print(ca_result_BCFA_LoL$clusters$centers)
+print(ca_result_BCFA_LoL$differences)
+cat("Detected elbow k:", ca_result_BCFA_LoL$optimal_k,
+    "| Final k used:", ca_result_BCFA_LoL$final_k, "\n")
+
+# Same clustering; compare clusters by Age
+ca_result_BCFA_age <- analy_SCFA$perform_cluster_analysis(
+  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
+  demographic_column = "age",
+  k     = NULL,
+  k_max = 10,
+  plot  = TRUE
+)
+print(ca_result_BCFA_age$clusters$centers)
+print(ca_result_BCFA_age$differences)
+cat("Detected elbow k:", ca_result_BCFA_age$optimal_k,
+    "| Final k used:", ca_result_BCFA_age$final_k, "\n")
+
+
+# Same clustering; compare clusters by Length
+ca_result_BCFA_len <- analy_SCFA$perform_cluster_analysis(
+  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
+  demographic_column = "Length",
+  k     = NULL,
+  k_max = 10,
+  plot  = TRUE
+)
+print(ca_result_BCFA_len$clusters$centers)
+print(ca_result_BCFA_len$differences)
+cat("Detected elbow k:", ca_result_BCFA_len$optimal_k,
+    "| Final k used:", ca_result_BCFA_len$final_k, "\n")
+
+# Same clustering; compare clusters by Weight
+ca_result_BCFA_wigh <- analy_SCFA$perform_cluster_analysis(
+  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
+  demographic_column = "Weight",
+  k     = NULL,
+  k_max = 10,
+  plot  = TRUE
+)
+print(ca_result_BCFA_wigh$clusters$centers)
+print(ca_result_BCFA_wigh$differences)
+cat("Detected elbow k:", ca_result_BCFA_wigh$optimal_k,
+    "| Final k used:", ca_result_BCFA_wigh$final_k, "\n")
+
+
+###-----###===============================================================
+## perform surface response analysis on continuous factor data
+analy_SCFA$list_all_methods()
+
+# Example 1: First-order model with Sensitivity and Th_AQ_Effect
+cat("\n=== First-Order Response Surface Analysis ===\n")
+# rs_first_order_1 <- analy_SCFA$perform_response_surface_analysis(response= "Performance", 
+#                                                                predictors=c("Sensitivity", "Th_AQ_Effect"),
+#                                                                plot = TRUE)
+# Step 2: Generate plots manually
+par(mfrow = c(1, 2))
+
+# Contour plot — use contour() directly without rsm:: prefix
+contour(rs_first_order_1$model, ~ x1 + x2,
+        image = TRUE,
+        main  = "Response Surface — Contour Plot")
+
+# Residuals vs Fitted
+plot(fitted(rs_first_order_1$model), resid(rsa_result_1$model),
+     main = "Residuals vs Fitted",
+     xlab = "Fitted Values",
+     ylab = "Residuals",
+     col  = "steelblue", pch = 16)
+abline(h = 0, col = "red", lwd = 2)
+
+par(mfrow = c(1, 1))
+
+# Step 3: Inspect results normally
+print(rs_first_order_1$summary)
+print(rs_first_order_1$stationary_point)
+cat("R-squared:", summary(rs_first_order_1$model)$r.squared, "\n")
+
+
+####-----------------------------------
+####-----------------------------------
+####-----------------------------------
+# Example 1: First-order model with Sensitivity and Th_AQ_Effect
+rs_first_order <- analy_SCFA$perform_response_surface_analysis_two(
+                    formula = Performance ~ FO(Sensitivity, Th_AQ_Effect),
+                    model_type = "first_order",
+                    data       = analy_SCFA$data,
+                    plot = TRUE,
+                    coded = TRUE,
+                    steepest_ascent = TRUE,
+                    canonical = TRUE,
+                    contour = TRUE) 
+
+
+# Print the results
+print(rs_first_order)
+
+# Example 2: Second-order model with same variables
+cat("\n=== Second-Order Response Surface Analysis ===\n")
+rs_second_order <- analy_SCFA$perform_response_surface_analysis_two(
+                            formula = Performance ~ SO(Sensitivity, Th_AQ_Effect),
+                            model_type = "second_order", 
+                            data       = analy_SCFA$data,
+                            plot = TRUE,
+                            coded = TRUE,
+                            steepest_ascent = TRUE,
+                            canonical = TRUE,
+                            contour = TRUE) 
+
+# Print the results
+print(rs_second_order)
+
+# Example 3: Second-order model with all four variables
+cat("\n=== Second-Order Analysis with All Variables ===\n")
+rs_full <- analy_SCFA$perform_response_surface_analysis_two(
+                    formula = Performance ~ SO(Sensitivity, Th_AQ_Effect, Li_So_Effect),
+                    model_type = "second_order", 
+                    data       = analy_SCFA$data,
+                    plot = TRUE,
+                    coded = TRUE,
+                    steepest_ascent = TRUE,
+                    canonical = TRUE,
+                    contour = TRUE) 
+
+
+# Print the results
+print(rs_full)
+
+# Step 4: Extract and analyze specific results
+
+# Extract coefficients
+coefficients <- rs_second_order$coefficients
+cat("\nModel Coefficients:\n")
+print(coefficients)
+
+# Extract canonical analysis for second-order model
+if (!is.null(rs_second_order$canonical_analysis)) {
+  cat("\nCanonical Analysis:\n")
+  cat("Eigenvalues:", rs_second_order$canonical_analysis$eigenvalues, "\n")
+  cat("Stationary point:", rs_second_order$canonical_analysis$xs, "\n")
+}
+
+# Extract steepest ascent for first-order model
+if (!is.null(rs_first_order$steepest_ascent)) {
+  cat("\nSteepest Ascent Direction:\n")
+  print(rs_first_order$steepest_ascent)
+}
+
+# Step 5: Generate predictions for optimization
+if (!is.null(rs_second_order$predictions)) {
+  pred_data <- rs_second_order$predictions
+  cat("\nOptimization Analysis:\n")
+  cat("Variable names:", pred_data$variable_names, "\n")
+  
+  # Find maximum predicted value
+  max_idx <- which.max(pred_data$predicted_values)
+  optimum <- pred_data$grid[max_idx, ]
+  cat("Predicted optimum at:\n")
+  print(optimum)
+  cat("Maximum predicted performance:", pred_data$predicted_values[max_idx], "\n")
+}
+
+# Step 6: Compare models
+cat("\n=== Model Comparison ===\n")
+cat("First-order model R-squared:", summary(rs_first_order$model)$r.squared, "\n")
+cat("Second-order model R-squared:", summary(rs_second_order$model)$r.squared, "\n")
+
+# Step 7: Advanced analysis - Response surface for different demographic groups
+demographics <- c("Gender", "Location.of.Leaving", "Occupation")
+
+for (demo in demographics) {
+  if (demo %in% names(data_SCFs)) {
+          cat("\n=== Response Surface Analysis by", demo, "===\n")
+          # Split data by demographic
+          demo_groups <- split(data_SCFs, data_SCFs[[demo]])
+    
+          for (group_name in names(demo_groups)[1:min(3, length(demo_groups))]) {  # Limit to first 3 groups
+                  group_data <- demo_groups[[group_name]]
+                  cat("\nAnalyzing group:", group_name, "\n")
+      
+                  # Create temporary analyzer for this group
+                  temp_analy <- regrissorClass$new(group_data)
+      
+                  # Perform response surface analysis
+                  rs_group <- temp_analy$perform_response_surface_analysis_two(
+                                      formula = Performance ~ SO(Sensitivity, Th_AQ_Effect),
+                                      model_type = "second_order",
+                                      data = group_data,
+                                      plot = FALSE,  # Don't plot for each group
+                                      coded = TRUE,
+                                      canonical = TRUE
+                  )
+
+                  # Extract key results
+                  r_squared <- summary(rs_group$model)$r.squared
+                  cat("R-squared for", group_name, ":", r_squared, "\n")
+
+                  # Extract stationary point if available
+                  if (!is.null(rs_group$stationary_point)) {
+                                cat("Stationary point for", group_name, ":\n")
+                                print(rs_group$stationary_point)
+                    }
+          }
+  }
+}
+###-----------------------------------------------------------------------------
+# Example 4: Second-order model with three variables
+cat("\n=== Second-Order Analysis with All Variables ===\n")
+rs_second_sen_ThAQLiSo <- analy_SCFA$perform_response_surface_analysis_two(
+  formula = Sensitivity ~ SO(Th_AQ_Effect, Li_So_Effect),
+  model_type = "second_order", 
+  data       = analy_SCFA$data,
+  plot = TRUE,
+  coded = TRUE,
+  steepest_ascent = TRUE,
+  canonical = TRUE,
+  contour = TRUE) 
+
+
+# Print the results
+print(rs_second_sen_ThAQLiSo)
+
+# Step 8: Extract and analyze specific results
+
+# Extract coefficients
+coefficient_SenThAQLiSo <- rs_second_sen_ThAQLiSo$coefficients
+cat("\nModel Coefficients:\n")
+print(coefficient_SenThAQLiSo)
+
+# Extract canonical analysis for second-order model
+if (!is.null(rs_second_sen_ThAQLiSo$canonical_analysis)) {
+  cat("\nCanonical Analysis:\n")
+  cat("Eigenvalues:", rs_second_sen_ThAQLiSo$canonical_analysis$eigenvalues, "\n")
+  cat("Stationary point:", rs_second_sen_ThAQLiSo$canonical_analysis$xs, "\n")
+}
+
+# Step 9: Generate predictions for optimization
+if (!is.null(rs_second_sen_ThAQLiSo$predictions)) {
+  pred_data_SeThAQLiSo <- rs_second_sen_ThAQLiSo$predictions
+  cat("\nOptimization Analysis:\n")
+  cat("Variable names:", pred_data_SeThAQLiSo$variable_names, "\n")
+  
+  # Find maximum predicted value
+  max_idx_SeThAQLiSo <- which.max(pred_data_SeThAQLiSo$predicted_values)
+  optimum_SeThAQLiSo <- pred_data_SeThAQLiSo$grid[max_idx, ]
+  cat("Predicted optimum at:\n")
+  print(optimum_SeThAQLiSo)
+  cat("Maximum predicted performance:", pred_data_SeThAQLiSo$predicted_values[max_idx], "\n")
+}
+
+# Step 10: Models R-square result
+cat("Second-order model R-squared:", summary(rs_second_sen_ThAQLiSo$model)$r.squared, "\n")
+
+# Step 11: Advanced analysis - Response surface for different demographic groups
+demographics <- c("Gender", "Location.of.Leaving", "Occupation")
+
+for (demo in demographics) {
+  if (demo %in% names(data_SCFs)) {
+    cat("\n=== Response Surface Analysis by", demo, "===\n")
+    # Split data by demographic
+    demo_groups <- split(data_SCFs, data_SCFs[[demo]])
+    
+    for (group_name in names(demo_groups)[1:min(3, length(demo_groups))]) {  # Limit to first 3 groups
+      group_data <- demo_groups[[group_name]]
+      cat("\nAnalyzing group:", group_name, "\n")
+      
+      # Create temporary analyzer for this group
+      temp_analy <- regrissorClass$new(group_data)
+      
+      # Perform response surface analysis
+      rs_group <- temp_analy$perform_response_surface_analysis_two(
+        formula = Sensitivity ~ SO(Th_AQ_Effect, Li_So_Effect),
+        model_type = "second_order",
+        data = group_data,
+        plot = FALSE,  # Don't plot for each group
+        coded = TRUE,
+        canonical = TRUE
+      )
+      
+      # Extract key results
+      r_squared <- summary(rs_group$model)$r.squared
+      cat("R-squared for", group_name, ":", r_squared, "\n")
+      
+      # Extract stationary point if available
+      if (!is.null(rs_group$stationary_point)) {
+        cat("Stationary point for", group_name, ":\n")
+        print(rs_group$stationary_point)
+      }
+    }
+  }
+}
+
+# ============================================================
+# Response Surface Analysis — Method One (Simple String-Based)
+# perform_response_surface_analysis(response, predictors, plot)
+# CONSTRAINT: exactly 2 predictors required
+# ============================================================
+
+# --- Call 1: Performance as response, Sensitivity and Th_AQ_Effect as predictors
+rsa_result_1 <- analy_SCFA$perform_response_surface_analysis(
+  response   = "Sensitivity",
+  predictors = c("Th_AQ_Effect", "Li_So_Effect"),
+  plot       = TRUE
+)
+
+# --- Extract and inspect results
+print(rsa_result_1$summary)               # Full RSM model summary (coefficients, F-stats, p-values)
+print(rsa_result_1$stationary_point)      # Optimal (x1, x2) values where response is maximized/minimized
+cat("Method used:", rsa_result_1$method, "\n")
+
+# --- Manually pull R-squared from the embedded model
+cat("R-squared:", summary(rsa_result_1$model)$r.squared, "\n")
+
+# --- Extract coefficients table
+coef_table <- coef(rsa_result_1$model)
+print(coef_table)
+###=============================================================================
+###=============================================================================
+# The following tests include 
+#     - chi-square tests, 
+
+
+
+
+
+# Create a list to store all results for later access
+all_chi_results <- list()
+# Create an empty data frame to store a summary table of p-values and effect sizes
+summary_df <- data.frame(
+  Variable_1 = character(),
+  Variable_2 = character(),
+  ChiSq_P_Value = numeric(),
+  Fishers_P_Value = numeric(),
+  Cramers_V = numeric(),
+  Association = character(),
+  stringsAsFactors = FALSE
+)
+
+
+
+
+# extract the name of categorical variables from the class:
+categorical_vars <- conf_Analyzer$categorical_cols
+print(categorical_vars)
+#iterate over all variables and made chi-square test and Fisher test between them (15) iteration
+for (i in c(1:(length(categorical_vars)-1))){
+  for (j in c((i+1):length(categorical_vars))){
+    
+    #prepare data
+    var_1 <- categorical_vars[i]
+    var_2 <- categorical_vars[j]
+    # Test independence between var1 and var2
+    chi_results <- conf_Analyzer$perform_chi_square_test(var1 = var_1, 
+                                                         var2 = var_2
+                                                         )
+    
+    # Initialize Fisher's p-value as NA
+    fisher_p <- NA
+    
+    # Check if Chi-Square assumptions were violated (expected frequencies < 5)
+    # If so, run Fisher's Exact Test as a robust fallback
+    if (any(chi_results$expected_frequencies < 5, na.rm = TRUE)) {
+      cat("\n⚠ Expected frequencies < 5 detected. Supplementing with Fisher's Exact Test...\n")
+      
+      # Create the contingency table directly from the data
+      cont_table <- table(data_SCFs[[var_1]], data_SCFs[[var_2]])
+      
+      # Run Fisher's Exact Test with Monte Carlo simulation 
+      # (simulate.p.value=TRUE is required for tables larger than 2x2 to avoid computation timeouts)
+      fisher_res <- fisher.test(cont_table, simulate.p.value = TRUE, B = 2000)
+      fisher_p <- fisher_res$p.value
+      
+      cat(sprintf("Fisher's Exact Test p-value: %.6f\n", fisher_p))
+    }
+    # Append the Fisher's result to the chi_results object for complete storage
+    chi_results$fisher_p_value <- fisher_p
+    
+    # Store the full results in the list
+    pair_name <- paste(var_1, "vs", var_2, sep = "_")
+    all_chi_results[[pair_name]] <- chi_results
+    
+    # Append to the summary data frame
+    summary_df <- rbind(summary_df, data.frame(
+      Variable_1 = var_1,
+      Variable_2 = var_2,
+      ChiSq_P_Value = chi_results$p_value,
+      Fishers_P_Value = fisher_p,
+      Cramers_V = ifelse(is.null(chi_results$effect_sizes$cramers_v), NA, chi_results$effect_sizes$cramers_v),
+      Association = chi_results$effect_sizes$cramers_v_interpretation,
+      stringsAsFactors = FALSE
+    ))
+    
+  }
+}
+# ============================================================
+# PRINT SUMMARY TABLE
+# ============================================================
+cat("\n\n", rep("=", 80), "\n", sep = "")
+cat("SUMMARY OF ALL CATEGORICAL ASSOCIATIONS\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+# Format p-values for easier reading in the console
+summary_df$ChiSq_P_Value <- format.pval(summary_df$ChiSq_P_Value, digits = 4)
+summary_df$Fishers_P_Value <- format.pval(summary_df$Fishers_P_Value, digits = 4)
+
+# Replace NA Fisher's with "N/A (ChiSq OK)"
+summary_df$Fishers_P_Value[is.na(summary_df$Fishers_P_Value)] <- "N/A (ChiSq OK)"
+
+print(summary_df, row.names = FALSE)
+
+cat("\nNote: If Fishers_P_Value is 'N/A (ChiSq OK)', the Chi-Square assumptions were met.\n")
+cat("If Fishers_P_Value is present, the Chi-Square approximation was unreliable (expected counts < 5).\n")
+
+###=========================================================================================
+###=============================================================================
+# The following tests include 
+#     - stratified test result
+sratfied_summary_df <- data.frame(
+  Stratify_By = character(),
+  Stratum = character(),
+  R_Squared = numeric(),
+  stringsAsFactors = FALSE
+)
+# 2. Create an empty Master List to hold all raw result objects
+all_stratified_results <- list()
+
+
+for (i in categorical_vars){
+        # Example usage:
+        stratified_results <- conf_Analyzer$perform_stratified_analysis(
+          data            = conf_Analyzer$data,
+          outcome = "Performance",
+          predictors = c("Sensitivity", "Th_AQ_Effect", "Li_So_Effect"),
+          stratify_by_var = i
+        )
+## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
+        # Save the entire result object into the master list (keyed by the variable name)
+        all_stratified_results[[i]] <- stratified_results
+        
+# View results:
+        # Extract metrics for the summary data frame
+        for (stratum_name in names(stratified_results)) {
+          
+          # Append a new row to the data frame
+          sratfied_summary_df <- rbind(sratfied_summary_df, data.frame(
+            Stratify_By = i,
+            Stratum = stratum_name,
+            R_Squared = stratified_results[[stratum_name]]$r_squared,
+            stringsAsFactors = FALSE
+          ))
+        }
+        # 5. Extract effect sizes from stratified analysis
+        stratum_effect_sizes <- conf_Analyzer$extract_effect_sizes(
+          list(r.squared = stratified_results[[stratum_name]]$r_squared),
+          "regression"
+        )
+}
+
+# ============================================================
+# PRINT OUT THE CONSOLIDATED RESULTS
+# ============================================================
+
+cat("\n", rep("=", 70), "\n", sep = "")
+cat("CONSOLIDATED STRATIFIED ANALYSIS RESULTS\n")
+cat(rep("=", 70), "\n\n", sep = "")
+
+# Print the final data frame
+print(sratfied_summary_df, row.names = FALSE)
+
+# Optional: You can easily sort the table to see which stratum had the highest R²
+stratified_results <- sratfied_summary_df[order(-sratfied_summary_df$R_Squared), ]
+# Print the final data frame
+print(sratfied_summary_df, row.names = FALSE)
+
+###=========================================================================================
+###=============================================================================
+# The following tests include 
+#     - Mediation/Moderation Analysis (Conditional on Theory)
+
+# Mediation Analysis Example
+# Run the Lavaan mediation analysis
+lavaan_med_results <- conf_Analyzer$perform_lavaan_mediation(
+  data = conf_Analyzer$data,
+  demographic_var = "age",             # Categorical variable!
+  outcome_var = "Performance",
+  mediator_var = "Th_AQ_Effect",
+  reference_group = ,         # Optional: Set your baseline age group
+  n_boot = 1000
+)
+
+# To access specific results later:
+# lavaan_med_results$estimates
+# View mediation results
+print(lavaan_med_results)
+
+# If you want to include Moderation Analysis
+moderation_results <- conf_Analyzer$perform_mediation_moderation_analysis(
+  data = conf_Analyzer$data,
+  demographic_var = "Sensitivity",
+  outcome_var = "Performance", 
+  mediator_var = "Th_AQ_Effect",
+  moderator_var = "Gender",              # Add a moderator variable
+  n_boot = 1000,
+  alpha = 0.05
+)
+print(moderation_results )
+
+###=========================================================================================
+###=============================================================================
+# The following tests include 
+#     - Effect Size Calculation and Standardized Reporting
+#     - Sensitivity Analysis and Robustness Testing
+sensitivity_results_perf = conf_Analyzer$perform_sensitivity_analysis(data =  conf_Analyzer$data, 
+                                               model_type = "linear",
+                                               dependent_var = "Performance",
+                                               independent_vars = c("Sensitivity", "Th_AQ_Effect", "Li_So_Effect"),
+                                               outlier_method = "iqr",
+                                               missing_data_methods = c("listwise", "mean_imputation"),
+                                               alpha = 0.05) 
+
+# 1. View how many outliers were found in each predictor
+print(sensitivity_results_perf$outlier_analysis$outlier_info)
+
+# 2. Compare R-squared before and after removing outliers
+print(sensitivity_results_perf$outlier_analysis$impact_on_models)
+
+# 3. Check if the model assumptions (Normality, Homogeneity) held
+print(sensitivity_results_perf$assumption_validation)
+
+# 4. View how the model performed across different subgroups (Gender, Occupation, etc.)
+print(sensitivity_results_perf$subgroup_analysis)
+
+###=============================================================================
+###=============================================================================
+analy_SCFA$list_all_methods()
+conf_Analyzer$list_all_methods()
+###=============================================================================
+###=============================================================================
+###=============================================================================
+###=============================================================================
+###=============================================================================
+##Create new two objects  analy_BOr  which is the regressor class instant, and  
+## analy_BOr_conf which is the cfTestClass instant
+analy_BOr = regrissorClass$new(data_BOrRank)
+analy_BOr_conf = cfTestClass$new(input=data_BOrRank,
+                                 file_sep = ",", 
+                                 header = TRUE)
+
+#perform the rest on the ranked discrete data
+# Mann-Whitney U test (e.g., distribution of performance_decrease between two groups)
+ks_result_Ranked <- analy_BOr$perform_mann_whitney_ks("Performance.under.AQ", "age", type = "ks", plot = TRUE)
+print(ks_result_Ranked$p_value)
+
+
+# ==============================================================================
+# EXECUTION: Non-Parametric Tests on Ranked Discrete Data
+# ==============================================================================
+
+# 1. Get Names of all colmons, then hardcoding the name of ranked data columns. 
+names(data_BOrRank)
+# 3. Define the ranked outcome variables from your CSV
+ranked_vars <- analy_BOr$numeric_cols
+
+# Mann-Whitney and KS tests require exactly 2 groups. Gender is perfect for this.
+group_var <- "Gender"
+
+# Create empty data frames to store the summary of all tests
+mw_summary <- data.frame(Variable=character, U_statistic=numeric, P_value=numeric, Significance=character, stringsAsFactors=FALSE)
+ks_summary <- data.frame(Variable=character, D_statistic=numeric, P_value=numeric, Significance=character, stringsAsFactors=FALSE)
+
+# 4. Loop through each ranked variable and run the tests
+for (var in ranked_vars) {
+      cat("\n", rep("=", 60), "\n", sep = "")
+      cat("Testing:", var, "by", group_var, "\n")
+      cat(rep("=", 60), "\n", sep = "")
+  
+      # --- Mann-Whitney U Test ---
+      mw_res <- tryCatch({
+        analy_BOr$perform_mann_whitney_ks(outcome = var, group_column = group_var, type = "mann_whitney", plot = TRUE)
+      }, error = function(e) {
+        cat("Mann-Whitney Error:", e$message, "\n")
+        return(NULL)
+      })
+  
+      if (!is.null(mw_res)) {
+          mw_summary <- rbind(mw_summary, data.frame(
+          Variable = var,
+          U_statistic = unname(mw_res$statistic),
+          P_value = mw_res$p_value,
+          Significance = ifelse(mw_res$p_value < 0.05, "Significant", "Not Significant")
+    ))
+  }
+  
+      # --- Kolmogorov-Smirnov Test ---
+      ks_res <- tryCatch({
+        analy_BOr$perform_mann_whitney_ks(outcome = var, group_column = group_var, type = "ks", plot = FALSE)
+      }, error = function(e) {
+        cat("KS Error:", e$message, "\n")
+        return(NULL)
+      })
+  
+      if (!is.null(ks_res)) {
+        ks_summary <- rbind(ks_summary, data.frame(
+            Variable = var,
+            D_statistic = unname(ks_res$statistic),
+            P_value = ks_res$p_value,
+            Significance = ifelse(ks_res$p_value < 0.05, "Significant", "Not Significant")
+    ))
+  }
+}
+
+# 5. Print the consolidated summary tables
+cat("\n\n=== MANN-WHITNEY U TEST SUMMARY (Male vs Female) ===\n")
+print(mw_summary)
+
+cat("\n\n=== KOLMOGOROV-SMIRNOV TEST SUMMARY (Male vs Female) ===\n")
+print(ks_summary)
+
+
+#####===========================================================================
+##----------------------------------------------------------------------------##
+#####===========================================================================
+# Goodman and Kruskal's gamma (for ordinal-ordinal associations)
+# Kendall's tau-b (for ties in ordinal data)
+# Extract the two ordinal columns from your ranked data object
+var1 <- analy_BOr$data$AQ.sensitivity
+var2 <- analy_BOr$data$Performance.under.AQ
+
+# 1. Goodman and Kruskal's gamma
+gamma_result <- GoodmanKruskalGamma(var1, var2, conf.level = 0.95)
+cat("\nGoodman and Kruskal's Gamma (AQ sensitivity vs Performance under AQ):\n")
+print(gamma_result)
+
+# 2. Kendall's tau-b
+tau_b_result <- KendallTauB(var1, var2, conf.level = 0.95)
+cat("\nKendall's Tau-b (AQ sensitivity vs Performance under AQ):\n")
+print(tau_b_result)
+##-------------------------------------------------------------------------------
+# Create empty data frame to store results
+# -------------------------------------------------------------------------------
+# Corrected code block
+# -------------------------------------------------------------------------------
+
+# library(DescTools)   # for GoodmanKruskalGamma
+
+# Initialize empty data frame to store results (with desired columns)
+ordinal_assoc_results <- data.frame(
+  Var1 = character(),
+  Var2 = character(),
+  Kendall_Tau_b = numeric(),
+  Tau_b_P_Value = numeric(),
+  Goodman_Gamma = numeric(),
+  Gamma_P_Value = numeric(),
+  N_Pairs = integer(),
+  Tau_b_Significant = logical(),
+  Gamma_Significant = logical(),
+  stringsAsFactors = FALSE
+)
+
+# Generate all unique pairs of variables (assumes 'ranked_vars' exists)
+var_pairs <- combn(ranked_vars, 2, simplify = FALSE)
+
+cat("\n=== Calculating Ordinal Associations (Gamma & Tau-b) ===\n")
+
+for (pair_idx in seq_along(var_pairs)) {
+  var1_name <- var_pairs[[pair_idx]][1]
+  var2_name <- var_pairs[[pair_idx]][2]
+  
+  # Extract raw data
+  var1_raw <- analy_BOr$data[[var1_name]]
+  var2_raw <- analy_BOr$data[[var2_name]]
+  
+  # Convert to numeric (for Kendall) and factor (for Gamma)
+  var1_num <- as.numeric(var1_raw)   # factor → integer codes, numeric → unchanged
+  var2_num <- as.numeric(var2_raw)
+  var1_fac <- as.factor(var1_raw)
+  var2_fac <- as.factor(var2_raw)
+  
+  # Complete cases (exclude any missing values)
+  complete_idx <- complete.cases(var1_num, var2_num)
+  n_pairs <- sum(complete_idx)
+  
+  # Skip if too few complete pairs
+  if (n_pairs < 2) {
+    new_row <- data.frame(
+      Var1 = var1_name,
+      Var2 = var2_name,
+      Kendall_Tau_b = NA_real_,
+      Tau_b_P_Value = NA_real_,
+      Goodman_Gamma = NA_real_,
+      Gamma_P_Value = NA_real_,
+      N_Pairs = n_pairs,
+      Tau_b_Significant = NA,
+      Gamma_Significant = NA,
+      stringsAsFactors = FALSE
+    )
+    ordinal_assoc_results <- rbind(ordinal_assoc_results, new_row)
+    next
+  }
+  
+  # ---- 1. Kendall's Tau-b ----
+  tau_b_result <- tryCatch({
+    ct <- cor.test(var1_num[complete_idx], var2_num[complete_idx],
+                   method = "kendall", use = "complete.obs")
+    list(estimate = as.numeric(ct$estimate), p_value = ct$p.value)
+  }, error = function(e) {
+    cat("\n    Warning: Kendall Tau-b failed for", var1_name, "&", var2_name, "-", e$message, "\n")
+    list(estimate = NA_real_, p_value = NA_real_)
+  })
+  
+  # ---- 2. Goodman-Kruskal Gamma ----
+  gamma_result <- tryCatch({
+    # Get estimate and 95% confidence interval
+    gamma_obj <- DescTools::GoodmanKruskalGamma(var1_fac, var2_fac, conf.level = 0.95)
+    
+    # gamma_obj is a matrix with columns: "gamma", "lwr.ci", "upr.ci"
+    if (is.matrix(gamma_obj) || is.data.frame(gamma_obj)) {
+      gamma_est <- gamma_obj[1, "gamma"]
+      lower    <- gamma_obj[1, "lwr.ci"]
+      upper    <- gamma_obj[1, "upr.ci"]
+    } else {
+      # Fallback (should not happen with conf.level set)
+      gamma_est <- as.numeric(gamma_obj)
+      lower <- upper <- NA_real_
+    }
+    
+    # Compute p-value from CI assuming asymptotic normality
+    if (!is.na(lower) && !is.na(upper) && lower != upper) {
+      se <- (upper - lower) / (2 * qnorm(0.975))
+      z <- gamma_est / se
+      p_value <- 2 * (1 - pnorm(abs(z)))
+    } else {
+      p_value <- NA_real_
+    }
+    
+    list(estimate = gamma_est, p_value = p_value)
+  }, error = function(e) {
+    cat("\n    Warning: Goodman-Kruskal Gamma failed for", var1_name, "&", var2_name, "-", e$message, "\n")
+    list(estimate = NA_real_, p_value = NA_real_)
+  })
+  
+  # ---- Assemble row ----
+  new_row <- data.frame(
+    Var1 = var1_name,
+    Var2 = var2_name,
+    Kendall_Tau_b = tau_b_result$estimate,
+    Tau_b_P_Value = tau_b_result$p_value,
+    Goodman_Gamma = gamma_result$estimate,
+    Gamma_P_Value = gamma_result$p_value,
+    N_Pairs = n_pairs,
+    Tau_b_Significant = ifelse(!is.na(tau_b_result$p_value) && tau_b_result$p_value < 0.05, TRUE, FALSE),
+    Gamma_Significant = ifelse(!is.na(gamma_result$p_value) && gamma_result$p_value < 0.05, TRUE, FALSE),
+    stringsAsFactors = FALSE
+  )
+  
+  ordinal_assoc_results <- rbind(ordinal_assoc_results, new_row)
+}
+
+# View the full summary table
+print(ordinal_assoc_results)
+
+
+# ==============================================================================
+# CALCULATE KENDALL'S TAU-B AND GOODMAN-KRUSKAL GAMMA (BULLETPROOF METHOD)
+# ==============================================================================
+
+library(DescTools) # Keep this loaded for the manual Gamma calculation trick
+
+# Create empty data frame to store results
+ordinal_assoc_results <- data.frame(
+  Var1 = character(),
+  Var2 = character(),
+  Gamma = numeric(),
+  Gamma_P_Value = numeric(),
+  Tau_b = numeric(),
+  Tau_b_P_Value = numeric(),
+  stringsAsFactors = FALSE
+)
+
+# Generate all unique pairs of variables
+var_pairs <- combn(ranked_vars, 2, simplify = FALSE)
+
+cat("\n=== Calculating Ordinal Associations (Gamma & Tau-b) ===\n")
+
+for (pair in var_pairs) {
+  v1_name <- pair[1]
+  v2_name <- pair[2]
+  
+  # 1. Extract data as NUMERIC (Required for cor.test)
+  v1_num <- as.numeric(analy_BOr$data[[v1_name]])
+  v2_num <- as.numeric(analy_BOr$data[[v2_name]])
+  
+  # 2. Extract data as FACTOR (Required for DescTools)
+  v1_fac <- as.factor(analy_BOr$data[[v1_name]])
+  v2_fac <- as.factor(analy_BOr$data[[v2_name]])
+  
+  # --- Calculate Kendall's Tau-b using cor.test ---
+  tau_b_res <- tryCatch({
+    res <- cor.test(v1_num, v2_num, method = "kendall")
+    list(tau_b = as.numeric(res$estimate), p.value = res$p.value)
+  }, error = function(e) {
+    list(tau_b = NA_real_, p.value = NA_real_)
+  })
+  
+  # --- Calculate Goodman and Kruskal's Gamma ---
+  # We use the exact same two-step logic that worked in your manual test:
+  # Step A: Use DescTools on FACTORS to get the Gamma estimate
+  # Step B: Use base R on NUMERIC to get the p-value
+  gamma_res <- tryCatch({
+    # Step A: Get Estimate
+    gamma_est <- GoodmanKruskalGamma(v1_fac, v2_fac, conf.level = NA)
+    
+    # Step B: Get P-value (cor.test uses the underlying "goodman" algorithm perfectly on numeric data)
+    p_val <- cor.test(v1_num, v2_num, method = "goodman")$p.value
+    
+    list(gamma = as.numeric(gamma_est), p.value = p_val)
+  }, error = function(e) {
+    list(gamma = NA_real_, p.value = NA_real_)
+  })
+  
+  # Append to results
+  ordinal_assoc_results <- rbind(ordinal_assoc_results, data.frame(
+    Var1 = v1_name,
+    Var2 = v2_name,
+    Gamma = gamma_res$gamma,
+    Gamma_P_Value = gamma_res$p.value,
+    Tau_b = tau_b_res$tau_b,
+    Tau_b_P_Value = tau_b_res$p.value,
+    stringsAsFactors = FALSE
+  ))
+}
+
+# View the fully populated table
+cat("\n=== Full Ordinal Associations Summary ===\n")
+print(ordinal_assoc_results)
+
+# ==============================================================================
+# FILTER TO SIGNIFICANT ASSOCIATIONS (p < 0.05)
+# ==============================================================================
+# We use a safe filter that ignores NAs so we don't get rows of <NA>
+significant_assoc <- ordinal_assoc_results[
+  (!is.na(ordinal_assoc_results$Tau_b_P_Value) & ordinal_assoc_results$Tau_b_P_Value < 0.05) |
+    (!is.na(ordinal_assoc_results$Gamma_P_Value) & ordinal_assoc_results$Gamma_P_Value < 0.05), 
+]
+
+cat("\n=== Significant Ordinal Associations (p < 0.05) ===\n")
+print(significant_assoc)
+
+
+cat("\n=== Significant Ordinal Associations (p < 0.05) ===\n")
+print(significant_assoc)
+
+
+
+## data_BOrRank
+## Sensitivity, Performance, Th_AQ_Effect, Li_So_Effect
+## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
+#####===========================================================================
+#####===========================================================================
+#####===========================================================================
+#####===========================================================================
+#####===========================================================================
+#perform this on the ranked discrete data and continuous data
+# 3. Levene's test (e.g., variance homogeneity of productivity by profession)
+# Call Levene's test on the ranked data object
+#perform this on the ranked discrete data and continuous data
+# 3. Levene's test (e.g., variance homogeneity of productivity by profession)
+# Call Levene's test on the ranked data object
+# ==============================================================================
+# PRE-EXECUTION VALIDATION: Verify required packages and data integrity
+# ==============================================================================
+
+# Dependency verification function
+verify_dependencies <- function(packages_required = c("car", "nortest", "kSamples")) {
+  missing_packages <- c()
+  for (pkg in packages_required) {
+    if (!requireNamespace(pkg, quietly = TRUE)) {
+      missing_packages <- c(missing_packages, pkg)
+    }
+  }
+  if (length(missing_packages) > 0) {
+    cat("WARNING: Missing packages:\n")
+    cat("  install.packages(c(", paste(shQuote(missing_packages), collapse = ", "), "))\n")
+    return(FALSE)
+  }
+  return(TRUE)
+}
+
+# Execute dependency check
+if (!verify_dependencies()) {
+  stop("Required packages not installed. Please install missing dependencies.")
+}
+
+# Verify object initialization
+if (is.null(analy_BOr$data) || nrow(analy_BOr$data) == 0) {
+  stop("analy_BOr object not properly initialized or contains no data")
+}
+
+if (is.null(analy_SCFA$data) || nrow(analy_SCFA$data) == 0) {
+  stop("analy_SCFA object not properly initialized or contains no data")
+}
+
+# Clear all existing plot devices and reset graphics state
+while (dev.cur() > 1) {
+  dev.off()
+}
+
+# Reset par() to default specifications
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+# ==============================================================================
+# SECTION 1: LEVENE'S TEST FOR HOMOGENEITY OF VARIANCE (Ranked/Raw Data)
+# ==============================================================================
+# Purpose: Test if outcome variable variance is homogeneous across demographic groups
+# Null hypothesis (H₀): Variances are equal across groups
+# Alternative (H₁): At least one group has unequal variance
+
+cat("\n=== LEVENE'S TEST FOR VARIANCE HOMOGENEITY ===\n\n")
+while (dev.cur() > 1) {
+  dev.off()
+}
+
+# Reset par() to default specifications
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+
+# Test 1.1: Variance homogeneity of "Performance under TC" across Gender
+# Clear all existing plot devices and reset graphics state
+while (dev.cur() > 1) {
+  dev.off()
+}
+
+# Reset par() to default specifications
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+
+# Now execute your Levene's test with plotting enabled
+lev_result_ranked <- analy_BOr$perform_levene_anderson(
+  outcome = "Performance.under.TC",      # Outcome variable (must be numeric)
+  group_column = "Gender",               # Grouping factor
+  type = "levene",                       # Levene's homogeneity test (Levene, 1960)
+  plot = TRUE                            # Generate boxplot visualization
+)
+
+
+cat("  F-statistic:", round(lev_result_ranked$statistic, 4), "\n")
+cat("  p-value:", round(lev_result_ranked$p_value, 4), "\n")
+if (lev_result_ranked$p_value < 0.05) {
+  cat("  Interpretation: Variances are SIGNIFICANTLY DIFFERENT across Gender (p < 0.05)\n")
+  cat("  Recommendation: Use Welch's t-test or non-parametric Mann-Whitney U test\n")
+} else {
+  cat("  Interpretation: Variances are NOT significantly different (p ≥ 0.05)\n")
+  cat("  Recommendation: Standard t-test with equal variance assumption is appropriate\n")
+}
+
+# Test 1.2: Variance homogeneity of "TC sensitivity" across Gender
+cat("\n\nTest 1.2: TC Sensitivity by Gender\n")
+lev_tc_gender <- analy_BOr$perform_levene_anderson(
+  outcome = "TC.sensitivity",            # Thermal Comfort sensitivity
+  group_column = "Gender",
+  type = "levene",
+  plot = TRUE
+)
+
+cat("  F-statistic:", round(lev_tc_gender$statistic, 4), "\n")
+cat("  p-value:", round(lev_tc_gender$p_value, 4), "\n")
+cat("  Interpretation:", 
+    ifelse(lev_tc_gender$p_value < 0.05, 
+           "Unequal variances (heteroscedastic)\n", 
+           "Equal variances (homoscedastic)\n"))
+
+# Test 1.3: Variance homogeneity of "Performance under AQ" across Occupation
+cat("\n\nTest 1.3: Performance under AQ by Occupation\n")
+lev_perf_occ <- analy_BOr$perform_levene_anderson(
+  outcome = "Performance.under.AQ",      # Air Quality performance impact
+  group_column = "Occupation",           # Occupational category
+  type = "levene",
+  plot = TRUE
+)
+
+cat("  F-statistic:", round(lev_perf_occ$statistic, 4), "\n")
+cat("  p-value:", round(lev_perf_occ$p_value, 4), "\n")
+cat("  Interpretation:", 
+    ifelse(lev_perf_occ$p_value < 0.05, 
+           "Variances differ significantly across occupations\n", 
+           "Variances are homogeneous across occupations\n"))
+# ==============================================================================
+# SUMMARY AND RECOMMENDATIONS
+# ==============================================================================
+
+cat("\n\n=== STATISTICAL TESTING SUMMARY AND RECOMMENDATIONS ===\n")
+cat("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
+cat("\n1. VARIANCE HOMOGENEITY (Levene's Test):\n")
+cat("   • Assesses assumption of equal variances across groups\n")
+cat("   • Failure (p < 0.05) → Use Welch's or non-parametric alternatives\n")
+
+cat("\n2. UNIVARIATE NORMALITY (Anderson-Darling, Per-Group):\n")
+cat("   • Tests whether scores within each group follow N(μ,σ²)\n")
+cat("   • Failure (p < 0.05) → Consider transformation or non-parametric tests\n")
+
+cat("\n3. DISTRIBUTIONAL EQUIVALENCE (K-Sample Anderson-Darling):\n")
+cat("   • Tests whether demographic strata have identical distributions\n")
+cat("   • Significant (p < 0.05) → Differential IEQ effects across groups\n")
+cat("   • Non-significant (p ≥ 0.05) → Uniform environmental sensitivity profile\n")
+
+cat("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
+## perform surface response analysis on continuous factor data
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+
+
+# ==============================================================================
+# ORDINAL LOGISTIC REGRESSION
+# ==============================================================================
+
+# Let's model "Performance under TC" (as an ordinal outcome: 1-5) 
+# predicted by "TC sensitivity", "AQ sensitivity", and "Gender"
+
+ord_log_model <- analy_BOr$fit_ordinal_logistic_regression(
+  outcome = "Performance.under.TC", 
+  predictors = c("TC.sensitivity", "AQ.sensitivity", "Gender"), 
+  conf_level = 0.95, 
+  plot = TRUE
+)
+
+# Interpret the results:
+# - Odds_Ratio > 1: As the predictor increases, the odds of being in a higher performance category increase.
+# - Odds_Ratio < 1: As the predictor increases, the odds of being in a higher performance category decrease.
+# - P_Value < 0.05: The predictor is statistically significant.
+
+# If you want to use the CFA data (analy_SCFA) but treat the outcome as ordinal,
+# you can still use this method if you convert the continuous outcome to an ordered factor.
+# Example: Convert 'Sensitivity' to Low/Med/High
+# analy_SCFA$data$Sensitivity_Ord <- cut(analy_SCFA$data$Sensitivity, 
+#                                        breaks = quantile(analy_SCFA$data$Sensitivity, probs = c(0, 0.33, 0.66, 1)), 
+#                                        include.lowest = TRUE, 
+#                                        labels = c("Low", "Medium", "High"))
+# analy_SCFA$data$Sensitivity_Ord <- as.ordered(analy_SCFA$data$Sensitivity_Ord)
+
+# ord_log_model_cfa <- analy_SCFA$fit_ordinal_logistic_regression(
+#   outcome = "Sensitivity_Ord", 
+#   predictors = c("Th_AQ_Effect", "Li_So_Effect"), 
+#   conf_level = 0.95, 
+#   plot = TRUE
+# )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# After initialization, let us find out and print out the object summary 
+analy_SCFA$list_all_methods()
+analy_BOr$list_all_methods()
+

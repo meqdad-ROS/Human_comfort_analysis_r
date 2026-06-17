@@ -16,8 +16,4 @@ LaTeX: pdfLaTeX
 MarkdownWrap: Column
 MarkdownWrapAtColumn: 72
 
-PythonType: system
-PythonVersion: 3.11.13
-PythonPath: /usr/bin/python3.11
-
 SpellingDictionary: en_GB

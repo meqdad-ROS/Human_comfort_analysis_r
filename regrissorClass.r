@@ -226,9 +226,16 @@ regrissorClass <- R6Class("regrissorClass",
                           # New Method: List available regression models
                           list_regression_models = function() {
                             cat("Available Regression Models in regrissorClass:\n")
-                            cat("1. Linear Regression (fit_linear_regression): Simple linear model with one predictor.\n")
-                            cat("2. Logistic Regression (fit_logistic_regression): For binary outcomes.\n")
-                            cat("3. Multiple Linear Regression (fit_multiple_linear_regression): Multiple predictors for numeric outcome.\n")
+                            cat("1. fit_linear_regression(outcome, predictor)\n")
+                            cat("   Simple linear model with one numeric predictor.\n")
+                            cat("2. fit_logistic_regression(outcome, predictors)\n")
+                            cat("   For binary outcomes; predictors is a character vector.\n")
+                            cat("3. fit_multiple_linear_regression(outcome, predictors)\n")
+                            cat("   Multiple numeric predictors for a numeric outcome.\n")
+                            cat("4. perform_comprehensive_regression_analysis(outcome_var, predictors,\n")
+                            cat("     demographic_predictors, interaction_terms, include_logistic)\n")
+                            cat("   Runs simple, multiple, demographic (ANCOVA), interaction, and\n")
+                            cat("   optionally logistic regression in one call. Returns a named list.\n")
                             cat("Note: Ensure outcome and predictors are appropriate for the model type.\n")
                             return(invisible(self))
                           },
@@ -307,6 +314,230 @@ regrissorClass <- R6Class("regrissorClass",
                             )
                           },
                           
+                          
+                          # New Method: Comprehensive regression analysis
+                          # Runs simple, multiple, demographic (ANCOVA-style), interaction, and optionally logistic
+                          # regression in a single call. Returns a named list of all results.
+                          perform_comprehensive_regression_analysis = function(
+                              outcome_var,
+                              predictors         = NULL,
+                              demographic_predictors = NULL,
+                              interaction_terms  = FALSE,
+                              include_logistic   = FALSE) {
+                            
+                            # ── Validation ────────────────────────────────────────────────────────────
+                            if (is.null(self$data)) stop("No data available for analysis")
+                            if (!outcome_var %in% names(self$data))
+                              stop("Outcome variable not found: ", outcome_var)
+                            if (!is.numeric(self$data[[outcome_var]]))
+                              stop("Outcome must be numeric for regression")
+                            
+                            # Default: all numeric columns except the outcome
+                            if (is.null(predictors))
+                              predictors <- setdiff(self$numeric_cols, outcome_var)
+                            
+                            missing_preds <- setdiff(predictors, names(self$data))
+                            if (length(missing_preds) > 0)
+                              stop("Predictors not found: ", paste(missing_preds, collapse = ", "))
+                            if (!all(sapply(self$data[predictors], is.numeric)))
+                              stop("All numeric predictors must be numeric")
+                            
+                            if (!is.null(demographic_predictors)) {
+                              missing_demo <- setdiff(demographic_predictors, names(self$data))
+                              if (length(missing_demo) > 0)
+                                stop("Demographic predictors not found: ", paste(missing_demo, collapse = ", "))
+                            }
+                            
+                            is_binary <- length(unique(na.omit(self$data[[outcome_var]]))) == 2
+                            
+                            cat("=== Comprehensive Regression Analysis ===\n")
+                            cat("Outcome          :", outcome_var, "\n")
+                            cat("Predictors       :", paste(predictors, collapse = ", "), "\n")
+                            if (!is.null(demographic_predictors))
+                              cat("Demographics     :", paste(demographic_predictors, collapse = ", "), "\n")
+                            cat("Interaction terms:", interaction_terms, "\n")
+                            cat("Binary outcome   :", is_binary, "\n\n")
+                            
+                            results <- list()
+                            
+                            # ── 1. Simple linear regressions ─────────────────────────────────────────
+                            if (length(predictors) > 0) {
+                              cat("=== Simple Linear Regressions ===\n")
+                              for (pred in predictors) {
+                                model_data <- na.omit(self$data[, c(outcome_var, pred)])
+                                formula    <- as.formula(paste(outcome_var, "~", pred))
+                                model      <- lm(formula, data = model_data)
+                                s          <- summary(model)
+                                cat("  ", pred, "->", outcome_var,
+                                    "| R\u00b2 =", round(s$r.squared, 4),
+                                    "| p =",  round(coef(s)[2, 4],  4), "\n")
+                                results[[paste0("simple_", pred)]] <- list(
+                                  model        = model,
+                                  formula      = formula,
+                                  r_squared    = s$r.squared,
+                                  p_value      = coef(s)[2, 4],
+                                  coefficients = coef(model)
+                                )
+                              }
+                            }
+                            
+                            # ── 2. Multiple linear regression ────────────────────────────────────────
+                            if (length(predictors) > 1) {
+                              cat("\n=== Multiple Linear Regression ===\n")
+                              multi_data    <- na.omit(self$data[, c(outcome_var, predictors)])
+                              formula_multi <- as.formula(paste(outcome_var, "~",
+                                                                paste(predictors, collapse = " + ")))
+                              multi_model   <- lm(formula_multi, data = multi_data)
+                              s_multi       <- summary(multi_model)
+                              print(s_multi)
+                              
+                              vif_results <- NULL
+                              if (requireNamespace("car", quietly = TRUE)) {
+                                vif_results <- car::vif(multi_model)
+                                cat("\nVIF values:\n")
+                                print(vif_results)
+                              }
+                              
+                              results$multiple <- list(
+                                model               = multi_model,
+                                formula             = formula_multi,
+                                r_squared           = s_multi$r.squared,
+                                adjusted_r_squared  = s_multi$adj.r.squared,
+                                coefficients        = coef(multi_model),
+                                vif                 = vif_results,
+                                summary             = s_multi
+                              )
+                            }
+                            
+                            # ── 3a. Individual demographic effects (per-variable) ────────────────────
+                            # Categorical demographics → Type II ANOVA; continuous → simple lm.
+                            # This gives the univariate effect of each demographic on its own.
+                            if (!is.null(demographic_predictors) && length(demographic_predictors) > 0) {
+                              cat("\n=== Individual Demographic Effects ===\n")
+                              for (demo_pred in demographic_predictors) {
+                                col <- self$data[[demo_pred]]
+                                if (is.character(col) || is.factor(col)) {
+                                  # Categorical: Type II ANOVA via car::Anova
+                                  demo_data_i              <- na.omit(self$data[, c(outcome_var, demo_pred)])
+                                  demo_data_i[[demo_pred]] <- as.factor(demo_data_i[[demo_pred]])
+                                  anova_result <- car::Anova(
+                                    lm(as.formula(paste(outcome_var, "~", demo_pred)), data = demo_data_i)
+                                  )
+                                  cat("ANOVA for", demo_pred, ":\n")
+                                  print(anova_result)
+                                  results[[paste0("demo_anova_", demo_pred)]] <- anova_result
+                                } else {
+                                  # Continuous: simple linear regression
+                                  demo_data_i <- na.omit(self$data[, c(outcome_var, demo_pred)])
+                                  formula_i   <- as.formula(paste(outcome_var, "~", demo_pred))
+                                  model_i     <- lm(formula_i, data = demo_data_i)
+                                  s_i         <- summary(model_i)
+                                  cat(" ", demo_pred, "->", outcome_var,
+                                      "| R\u00b2 =", round(s_i$r.squared, 4),
+                                      "| p =",  round(coef(s_i)[2, 4],  4), "\n")
+                                  results[[paste0("demo_", demo_pred)]] <- list(
+                                    model        = model_i,
+                                    formula      = formula_i,
+                                    r_squared    = s_i$r.squared,
+                                    p_value      = coef(s_i)[2, 4],
+                                    coefficients = coef(model_i)
+                                  )
+                                }
+                              }
+                            }
+                            
+                            # ── 3b. Combined demographic model (ANCOVA-style) ────────────────────────
+                            # All numeric predictors + all demographics in one model.
+                            if (!is.null(demographic_predictors) && length(demographic_predictors) > 0) {
+                              cat("\n=== Combined Demographic Model (ANCOVA) ===\n")
+                              all_preds  <- c(predictors, demographic_predictors)
+                              demo_data  <- na.omit(self$data[, c(outcome_var, all_preds)])
+                              for (d in demographic_predictors)
+                                demo_data[[d]] <- as.factor(demo_data[[d]])
+                              
+                              formula_demo <- as.formula(paste(outcome_var, "~",
+                                                               paste(all_preds, collapse = " + ")))
+                              demo_model   <- lm(formula_demo, data = demo_data)
+                              s_demo       <- summary(demo_model)
+                              print(s_demo)
+                              
+                              results$demographic <- list(
+                                model              = demo_model,
+                                formula            = formula_demo,
+                                r_squared          = s_demo$r.squared,
+                                adjusted_r_squared = s_demo$adj.r.squared,
+                                coefficients       = coef(demo_model),
+                                summary            = s_demo
+                              )
+                            }
+                            
+                            # ── 4. Interaction terms (numeric × demographic) ──────────────────────────
+                            if (interaction_terms && !is.null(demographic_predictors) &&
+                                length(demographic_predictors) > 0) {
+                              cat("\n=== Regression with Interaction Terms ===\n")
+                              all_preds      <- c(predictors, demographic_predictors)
+                              interact_data  <- na.omit(self$data[, c(outcome_var, all_preds)])
+                              for (d in demographic_predictors)
+                                interact_data[[d]] <- as.factor(interact_data[[d]])
+                              
+                              # One interaction term per numeric–demographic pair
+                              interaction_pairs <- unlist(lapply(predictors, function(p)
+                                lapply(demographic_predictors, function(d) paste(p, "*", d))))
+                              formula_interact <- as.formula(paste(
+                                outcome_var, "~",
+                                paste(c(predictors, demographic_predictors, interaction_pairs),
+                                      collapse = " + ")))
+                              
+                              interact_model <- lm(formula_interact, data = interact_data)
+                              s_interact     <- summary(interact_model)
+                              print(s_interact)
+                              
+                              results$interaction <- list(
+                                model              = interact_model,
+                                formula            = formula_interact,
+                                r_squared          = s_interact$r.squared,
+                                adjusted_r_squared = s_interact$adj.r.squared,
+                                coefficients       = coef(interact_model),
+                                summary            = s_interact
+                              )
+                            }
+                            
+                            # ── 5. Optional logistic regression ──────────────────────────────────────
+                            if (include_logistic) {
+                              if (!is_binary) {
+                                # Median-split to create a binary outcome
+                                median_val  <- median(self$data[[outcome_var]], na.rm = TRUE)
+                                binary_col  <- paste0(outcome_var, "_binary")
+                                self$data[[binary_col]] <- ifelse(self$data[[outcome_var]] > median_val, 1L, 0L)
+                                logistic_outcome <- binary_col
+                                cat("\n=== Logistic Regression (median split: >", median_val, "= 1) ===\n")
+                              } else {
+                                logistic_outcome <- outcome_var
+                                cat("\n=== Logistic Regression ===\n")
+                              }
+                              
+                              logistic_preds <- c(predictors,
+                                                  if (!is.null(demographic_predictors)) demographic_predictors)
+                              logistic_data  <- na.omit(self$data[, c(logistic_outcome, logistic_preds)])
+                              formula_log    <- as.formula(paste(logistic_outcome, "~",
+                                                                 paste(logistic_preds, collapse = " + ")))
+                              log_model      <- glm(formula_log, data = logistic_data, family = binomial)
+                              s_log          <- summary(log_model)
+                              print(s_log)
+                              
+                              results$logistic <- list(
+                                model        = log_model,
+                                formula      = formula_log,
+                                aic          = log_model$aic,
+                                coefficients = coef(log_model),
+                                summary      = s_log
+                              )
+                            }
+                            
+                            cat("\n=== Analysis Complete ===\n")
+                            cat("Result sections:", paste(names(results), collapse = ", "), "\n")
+                            return(results)
+                          },
                           
                           # New Method: Fit multiple linear regression
                           fit_multiple_linear_regression = function(outcome, predictors) {
@@ -734,7 +965,7 @@ regrissorClass <- R6Class("regrissorClass",
                 },
                 
                 
-                ##-----------------------------------------------------
+                ##-------------------------------------------------------------------------------
                 # New Method: Perform Response Surface Analysis
                 perform_response_surface_analysis = function(response, predictors, plot = TRUE) {
                     if (is.null(self$data)) {
@@ -759,14 +990,25 @@ regrissorClass <- R6Class("regrissorClass",
                           
                     # Optional plots
                     if (plot) {
-                       par(mfrow = c(2, 2))
-                       rsm::contour(model, ~ x1 + x2, image = TRUE, main = "Contour Plot")
-                       rsm::persp(model, ~ x1 + x2, main = "3D Surface Plot")
-                       plot(fitted(model), resid(model), main = "Residuals vs Fitted", xlab = "Fitted", ylab = "Residuals")
-                       abline(h = 0, col = "red")
-                       rsm::steepest(model, main = "Steepest Ascent Path")
-                       par(mfrow = c(1, 1))
-                          }
+                      par(mfrow = c(1, 2))
+                      
+                      # Contour plot using base contour via rsm method dispatch
+                      tryCatch({
+                        contour(model, ~ x1 + x2, image = TRUE, main = "Contour Plot")
+                      }, error = function(e) {
+                        cat("Contour plot skipped:", e$message, "\n")
+                      })
+                      
+                      # Residuals vs Fitted
+                      plot(fitted(model), resid(model),
+                           main = "Residuals vs Fitted",
+                           xlab = "Fitted Values",
+                           ylab = "Residuals",
+                           col  = "steelblue", pch = 16)
+                      abline(h = 0, col = "red", lwd = 2)
+                      
+                      par(mfrow = c(1, 1))
+                    }
                     cat("Response surface analysis completed for", response, "with predictors", paste(predictors, collapse = ", "), "\n")
                           
                     # Return results
@@ -777,9 +1019,12 @@ regrissorClass <- R6Class("regrissorClass",
                         method = "Response Surface Methodology"
                         )
                     },
-                  
+                ##------------------------------------------------------------------------                  
                 # New Method: Perform Cluster Analysis with Demographic Differences
-                perform_cluster_analysis = function(variables, demographic_column, k = 3, plot = TRUE) {
+                # k = NULL means auto-detect from elbow method (minimum 3 enforced).
+                # k = integer means use that exact k (elbow plot still shown).
+                # k_max controls the search range for the elbow (default 10).
+                perform_cluster_analysis = function(variables, demographic_column, k = NULL, k_max = 10, plot = TRUE) {
                     if (is.null(self$data)) {
                        stop("No data available")
                        }
@@ -789,23 +1034,75 @@ regrissorClass <- R6Class("regrissorClass",
                     if (!all(sapply(self$data[variables], is.numeric))) {
                        stop("Variables must be numeric")
                        }
-                      
+
                     # Scale data
                     data_scaled <- scale(self$data[, variables, drop = FALSE])
-                        
-                    # Perform k-means clustering
+
+                    # --- Elbow analysis: compute WSS for k = 1 to k_max ---
                     set.seed(123)
-                    clusters <- kmeans(data_scaled, centers = k, nstart = 25)
+                    wss <- sapply(1:k_max, function(ki) {
+                        kmeans(data_scaled, centers = ki, nstart = 25, iter.max = 50)$tot.withinss
+                    })
+
+                    # Perpendicular distance method: find the k with maximum distance
+                    # from the line connecting the first and last points of the WSS curve.
+                    find_elbow <- function(wss_vals) {
+                        n   <- length(wss_vals)
+                        x   <- (seq_len(n) - 1) / (n - 1)
+                        y   <- (wss_vals - min(wss_vals)) / (max(wss_vals) - min(wss_vals))
+                        x1  <- x[1];  y1 <- y[1]
+                        x2  <- x[n];  y2 <- y[n]
+                        num <- abs((y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1)
+                        den <- sqrt((y2 - y1)^2 + (x2 - x1)^2)
+                        which.max(num / den)
+                    }
+                    optimal_k <- find_elbow(wss)
+
+                    # Determine final k
+                    if (!is.null(k)) {
+                        final_k <- k
+                        cat("Using user-specified k =", final_k, "\n")
+                    } else {
+                        # Auto-detected: enforce a minimum of 3
+                        final_k <- max(optimal_k, 3)
+                        cat("Elbow method detected optimal k =", optimal_k,
+                            "| Final k used:", final_k,
+                            ifelse(optimal_k < 3, "(minimum of 3 enforced)\n", "\n"))
+                    }
+
+                    # Elbow plot (shown before clustering regardless of final plot flag)
+                    if (plot) {
+                        elbow_df <- data.frame(k = 1:k_max, WSS = wss)
+                        elbow_plot <- ggplot2::ggplot(elbow_df, ggplot2::aes(x = k, y = WSS)) +
+                            ggplot2::geom_line() +
+                            ggplot2::geom_point() +
+                            ggplot2::geom_vline(xintercept = final_k, linetype = "dashed", color = "red") +
+                            ggplot2::annotate("text", x = final_k + 0.3, y = max(wss) * 0.95,
+                                     label = paste("k =", final_k), color = "red", hjust = 0) +
+                            ggplot2::labs(
+                                title    = "Elbow Plot — Optimal Number of Clusters",
+                                subtitle = paste("Detected elbow at k =", optimal_k,
+                                                 "| Final k =", final_k),
+                                x = "Number of Clusters (k)",
+                                y = "Total Within-Cluster Sum of Squares") +
+                            ggplot2::theme_minimal()
+                        print(elbow_plot)
+                    }
+
+                    # Perform k-means clustering with final_k
+                    set.seed(123)
+                    clusters <- kmeans(data_scaled, centers = final_k, nstart = 25)
                     self$data$cluster <- clusters$cluster
-                            
-                    # Analyze differences by demographic
+
+                    # Analyze differences by demographic (two-way ANOVA: demographic x cluster)
                     diff_results <- lapply(variables, function(var) {
-                       aov_result <- aov(self$data[[var]] ~ as.factor(self$data[[demographic_column]]) * as.factor(self$data$cluster))
+                       aov_result <- aov(self$data[[var]] ~ as.factor(self$data[[demographic_column]]) *
+                                                            as.factor(self$data$cluster))
                        summary(aov_result)
                          })
                     names(diff_results) <- variables
-                                
-                    # Optional plots
+
+                    # Cluster and distribution plots
                     if (plot) {
                          if (!requireNamespace("factoextra", quietly = TRUE)) {
                               stop("Package 'factoextra' required for plots. Install with install.packages('factoextra')")
@@ -814,17 +1111,21 @@ regrissorClass <- R6Class("regrissorClass",
                          factoextra::fviz_cluster(clusters, data = data_scaled, main = "Cluster Plot")
                          plot(hclust(dist(data_scaled)), main = "Dendrogram")
                          boxplot(self$data[[variables[1]]] ~ self$data$cluster + self$data[[demographic_column]],
-                         main = paste("Boxplot of", variables[1], "by Cluster and", demographic_column))
+                                 main = paste("Boxplot of", variables[1], "by Cluster and", demographic_column))
                          par(mfrow = c(1, 1))
                              }
-                                
-                    cat("Cluster analysis completed with", k, "clusters on variables", paste(variables, collapse = ", "), "\n")
-                                
+
+                    cat("Cluster analysis completed with", final_k, "clusters on variables",
+                        paste(variables, collapse = ", "), "\n")
+
                     # Return results
                     list(
-                        clusters = clusters,
+                        clusters    = clusters,
                         differences = diff_results,
-                        method = "K-Means Clustering with Demographic Analysis"
+                        optimal_k   = optimal_k,
+                        final_k     = final_k,
+                        wss         = wss,
+                        method      = "K-Means Clustering with Demographic Analysis"
                         )
                    },
                   
@@ -871,7 +1172,322 @@ regrissorClass <- R6Class("regrissorClass",
                         )
                  }, 
               
-              
+####==========================================================================              
+# ==============================================================================
+
+# Perform Response Surface Analysis
+# 
+# This method implements response surface methodology (RSM) using the rsm package
+# to fit first-order and second-order models, perform canonical analysis,
+# and generate response surface visualizations.
+# 
+#  param formula Formula for the response surface model (e.g., y ~ FO(x1, x2) or y ~ SO(x1, x2))'#
+#  param data Data frame containing the variables
+#  param model_type Type of model: "first_order" (FO) or "second_order" (SO)
+#  param plot Generate visualization plots (default: TRUE)
+#  param coded Use coded variables (default: TRUE)
+#  param steepest_ascent Calculate steepest ascent direction (default: TRUE for first-order)
+#  param canonical Perform canonical analysis (default: TRUE for second-order)
+#  param contour Generate contour plots (default: TRUE)
+
+#  return List containing model results, coefficients, canonical analysis, and visualizations
+# 
+#  examples
+# # First-order model
+# result <- analy$perform_response_surface_analysis(
+#   formula = Performance ~ FO(Sensitivity, Th_AQ_Effect),
+#   model_type = "first_order"
+# )
+# 
+# # Second-order model  
+# result <- analy$perform_response_surface_analysis(
+#   formula = Performance ~ SO(Sensitivity, Th_AQ_Effect),
+#   model_type = "second_order"
+# )
+# 
+perform_response_surface_analysis_two = function(formula, data, model_type = "second_order", 
+                                              plot = TRUE, coded = TRUE, 
+                                              steepest_ascent = TRUE, canonical = TRUE,
+                                              contour = TRUE) {
+  
+  # Check if rsm package is available
+  if (!requireNamespace("rsm", quietly = TRUE)) {
+    stop("The 'rsm' package is required. Install it via: install.packages('rsm')")
+  }
+  
+  cat("Performing", model_type, "response surface analysis...\n")
+  
+  # Prepare data (placeholder for user-defined coding logic)
+  data_coded <- data 
+  
+  # Extract variables from formula to dynamically build rsm-compatible formulas
+  formula_vars <- all.vars(formula)
+  response_var <- formula_vars[1]
+  predictor_vars <- formula_vars[2:length(formula_vars)]
+  
+  # Construct a character string for predictors separated by commas
+  predictors_joined <- paste(predictor_vars, collapse = ", ")
+  
+  # Dynamically modify formula to match rsm requirement rules
+  if (model_type == "first_order") {
+    rsm_formula_str <- paste(response_var, "~ FO(", predictors_joined, ")")
+  } else if (model_type == "second_order") {
+    rsm_formula_str <- paste(response_var, "~ SO(", predictors_joined, ")")
+  } else {
+    stop("Invalid model_type. Use 'first_order' or 'second_order'")
+  }
+  
+  rsm_formula <- as.formula(rsm_formula_str)
+  
+  # Fit the response surface model
+  tryCatch({
+    rsm_model <- rsm::rsm(rsm_formula, data = data_coded)
+    cat(model_type, "model fitted successfully using formula:", rsm_formula_str, "\n")
+  }, error = function(e) {
+    stop("Error fitting model: ", e$message)
+  })
+  
+  # Get model summary and coefficients
+  model_summary <- summary(rsm_model)
+  coefficients <- coef(rsm_model)
+  
+  # Initialize results list
+  results <- list(
+    model = rsm_model,
+    model_type = model_type,
+    coefficients = coefficients,
+    summary = model_summary,
+    formula = rsm_formula,
+    data_used = data_coded
+  )
+  
+  # Perform additional analyses based on model type
+  if (model_type == "first_order" && steepest_ascent) {
+    tryCatch({
+      steepest_result <- rsm::steepest(rsm_model)
+      results$steepest_ascent <- steepest_result
+      cat("Steepest ascent analysis completed.\n")
+    }, error = function(e) {
+      cat("Warning: Could not calculate steepest ascent: ", e$message, "\n")
+    })
+  }
+  
+  if (model_type == "second_order" && canonical) {
+    tryCatch({
+      # Canonical analysis is extracted from the rsm summary object directly
+      canonical_analysis <- model_summary$canonical
+      results$canonical_analysis <- canonical_analysis
+      cat("Canonical analysis completed.\n")
+      
+      if (!is.null(canonical_analysis$xs)) {
+        results$stationary_point <- canonical_analysis$xs
+        cat("Stationary point identified.\n")
+      }
+    }, error = function(e) {
+      cat("Warning: Could not perform canonical analysis: ", e$message, "\n")
+    })
+  }
+  
+  # Generate plots if requested
+  if (plot) {
+    cat("Generating visualization plots...\n")
+    tryCatch({
+      if (model_type == "second_order" && contour) {
+        par(mfrow = c(2, 2))  # 2x2 grid for plots
+        
+        if (length(predictor_vars) >= 2) {
+          # Use proper formula structure for the contour function
+          plot_formula <- as.formula(paste("~", paste(predictor_vars[1:min(3, length(predictor_vars))], collapse = " + ")))
+          rsm::contour.lm(rsm_model, plot_formula, image = TRUE, main = "Response Surface Contour Plot")
+        }
+      }
+      par(mfrow = c(1, 1)) # Reset canvas
+    }, error = function(e) {
+      cat("Warning: Could not generate plots: ", e$message, "\n")
+      par(mfrow = c(1, 1))  # Reset on error
+    })
+  }
+  
+  # Generate predictions for visualization matrix
+  tryCatch({
+    if (length(predictor_vars) >= 2) {
+      x1_range <- range(data_coded[[predictor_vars[1]]], na.rm = TRUE)
+      x2_range <- range(data_coded[[predictor_vars[2]]], na.rm = TRUE)
+      
+      x1_grid <- seq(x1_range[1], x1_range[2], length.out = 20)
+      x2_grid <- seq(x2_range[1], x2_range[2], length.out = 20)
+      
+      grid_data <- expand.grid(x1 = x1_grid, x2 = x2_grid)
+      
+      # Fix loop handling and set remaining variables to their mean
+      if (length(predictor_vars) > 2) {
+        for (i in 3:length(predictor_vars)) {
+          if (predictor_vars[i] %in% names(grid_data)) {
+            next # FIXED: removed parentheses from next()
+          } else {
+            grid_data[[predictor_vars[i]]] <- mean(data_coded[[predictor_vars[i]]], na.rm = TRUE)
+          }
+        }
+      }
+      
+      names(grid_data)[1:min(2, length(predictor_vars))] <- predictor_vars[1:min(2, length(predictor_vars))]
+      predictions <- predict(rsm_model, newdata = grid_data)
+      
+      results$predictions <- list(
+        grid = grid_data,
+        predicted_values = predictions,
+        variable_names = predictor_vars
+      )
+    }
+  }, error = function(e) {
+    cat("Warning: Could not generate predictions: ", e$message, "\n")
+  })
+  
+  class(results) <- "response_surface_result"
+  return(results)
+},
+
+
+                ###=============================================================
+                #### fit logistic regression method
+fit_ordinal_logistic_regression = function(
+    outcome,
+    predictors,
+    conf_level = 0.95,
+    plot = TRUE
+) {
+  
+  require(MASS)
+  
+  vars <- c(outcome, predictors)
+  
+  model_df <- self$data[, vars, drop = FALSE]
+  
+  model_df <- stats::na.omit(model_df)
+  
+  if (nrow(model_df) == 0)
+    stop("No complete observations available.")
+  
+  # Outcome must be ordered factor
+  if (!is.ordered(model_df[[outcome]])) {
+    
+    if (is.factor(model_df[[outcome]]) ||
+        is.numeric(model_df[[outcome]])) {
+      
+      model_df[[outcome]] <- ordered(model_df[[outcome]])
+      
+    } else {
+      
+      stop("Outcome must be numeric or factor.")
+    }
+  }
+  
+  formula_obj <- reformulate(
+    predictors,
+    response = outcome
+  )
+  
+  # Important in R6
+  environment(formula_obj) <- environment()
+  
+  cat("Step 1\n")
+  
+  mf <- model.frame(
+    formula_obj,
+    data = model_df,
+    na.action = na.omit
+  )
+  
+  ord_model <- MASS::polr(
+    formula_obj,
+    data = mf,
+    Hess = TRUE,
+    method = "logistic"
+  )
+  
+  cat("Step 2\n")
+  
+  coef_summary <- as.data.frame(
+    coef(summary(ord_model))
+  )
+  
+  coef_summary$Term <- rownames(coef_summary)
+  
+  coef_summary$P_Value <- 2 * (
+    1 - pnorm(abs(coef_summary$`t value`))
+  )
+  
+  results_df <- data.frame(
+    Term = rownames(coef_summary),
+    Estimate = coef_summary[, "Value"],
+    Std_Error = coef_summary[, "Std. Error"],
+    Z_Value = coef_summary[, "t value"],
+    P_Value = coef_summary$P_Value,
+    Odds_Ratio = exp(coef_summary[, "Value"]),
+    row.names = NULL
+  )
+  
+ 
+  
+  prop_odds_test <- NULL
+  
+  if (requireNamespace("brant", quietly = TRUE)) {
+    
+    prop_odds_test <- tryCatch(
+      brant::brant(ord_model),
+      error = function(e) {
+        warning(
+          paste(
+            "Brant test failed:",
+            e$message
+          )
+        )
+        NULL
+      }
+    )
+  }
+  
+  if (plot) {
+    
+    if (!requireNamespace("ggplot2", quietly = TRUE))
+      stop("ggplot2 required.")
+    
+    p <- ggplot2::ggplot(
+      results_df,
+      ggplot2::aes(
+        x = reorder(Term, Odds_Ratio),
+        y = Odds_Ratio
+      )
+    ) +
+      ggplot2::geom_point(size = 3) +
+      ggplot2::geom_hline(
+        yintercept = 1,
+        linetype = "dashed",
+        colour = "red"
+      ) +
+      ggplot2::coord_flip() +
+      ggplot2::labs(
+        title = "Ordinal Logistic Regression Odds Ratios",
+        x = "Predictor",
+        y = "Odds Ratio"
+      ) +
+      ggplot2::theme_minimal()
+    
+    print(p)
+  }
+  print(results_df)
+  return(
+    list(
+      model = ord_model,
+      coefficients = results_df,
+      proportional_odds_test = prop_odds_test
+    )
+  )
+},
+
+
+
+                #===================================================
               # New Method: List all methods in the class**
               list_all_methods = function() {
                 # Get all public members
@@ -893,5 +1509,10 @@ regrissorClass <- R6Class("regrissorClass",
                               stop("Column '", column, "' not found in data")
                             }
                           }
+                          
                         )
 )
+
+
+
+

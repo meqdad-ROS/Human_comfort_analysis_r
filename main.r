@@ -66,7 +66,7 @@ lin_model <- analy_BOr$fit_linear_regression("TC.sensitivity", "Performance.unde
 print(lin_model$r_squared)  # R-squared value
 print(lin_model$p_values)   # P-values for coefficients
 # Fit multiple linear regression (e.g., productivity ~ multiple predictors)
-multi_lin_model <- analy_BOr$fit_multiple_linear_regression("TC.sensitivity", c("Performance.under.TC", "TC.sensitivity"))
+multi_lin_model <- analy_BOr$fit_multiple_linear_regression("TC.sensitivity", c("Performance.under.TC", "Effect...TC"))
 print(multi_lin_model$sse)  # Sum of Squared Errors
 # Fit a linear model
 lin_model <- analy_BOr$fit_linear_regression("TC.sensitivity", "Performance.under.TC")

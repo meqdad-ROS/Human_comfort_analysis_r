@@ -18,3 +18,4 @@ renv.lock
 *.tex
 # Other files
 *~
+.positai
