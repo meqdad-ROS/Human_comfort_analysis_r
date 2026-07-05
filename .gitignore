@@ -19,3 +19,5 @@ renv.lock
 # Other files
 *~
 .positai
+regression_results/detailed_logistic_regression_models.txt
+regression_results/detailed_logistic_regression_models.txt
