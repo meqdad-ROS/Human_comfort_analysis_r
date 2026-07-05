@@ -1,0 +1,16 @@
+"Model","Outcome","Predictors","N","R_Squared","Adj_R_Squared","Eta_Squared","Omega_Squared","F_Statistic","F_PValue","Sig_Predictors"
+"Model_1","productivity","Work_effectively + performance_decrease_under_thermal_and_Air + Sensitivity",211,0.661616,0.656712,0.661616,0.65564,134.9106,"<2e-16",2
+"Model_2","productivity","Work_effectively + performance_decrease_under_thermal_and_Air + performance_decrease_under_noise_and_light",211,0.542806,0.53618,0.542806,0.534998,81.9206,"<2e-16",2
+"Model_3","productivity","Work_effectively + performance_decrease_under_thermal_and_Air + Combined_Effect_of_Air_thermal_noise_light",211,0.552662,0.546179,0.552662,0.545001,85.2457,"<2e-16",3
+"Model_4","productivity","Work_effectively + Sensitivity + performance_decrease_under_noise_and_light",211,0.623501,0.618044,0.623501,0.616922,114.2673,"<2e-16",2
+"Model_5","productivity","Work_effectively + Sensitivity + Combined_Effect_of_Air_thermal_noise_light",211,0.607146,0.601453,0.607146,0.600313,106.6378,"<2e-16",2
+"Model_6","productivity","Work_effectively + performance_decrease_under_noise_and_light + Combined_Effect_of_Air_thermal_noise_light",211,0.473962,0.466338,0.473962,0.465156,62.1692,"<2e-16",2
+"Model_7","productivity","performance_decrease_under_thermal_and_Air + Sensitivity + performance_decrease_under_noise_and_light",211,0.663974,0.659104,0.663974,0.658036,136.3413,"<2e-16",2
+"Model_8","productivity","performance_decrease_under_thermal_and_Air + Sensitivity + Combined_Effect_of_Air_thermal_noise_light",211,0.660859,0.655943,0.660859,0.654871,134.4549,"<2e-16",2
+"Model_9","productivity","performance_decrease_under_thermal_and_Air + performance_decrease_under_noise_and_light + Combined_Effect_of_Air_thermal_noise_light",211,0.544681,0.538083,0.544681,0.536902,82.5422,"<2e-16",2
+"Model_10","productivity","Sensitivity + performance_decrease_under_noise_and_light + Combined_Effect_of_Air_thermal_noise_light",211,0.630858,0.625508,0.630858,0.624394,117.9199,"<2e-16",3
+"Model_11","Work_effectively","performance_decrease_under_thermal_and_Air + Sensitivity + performance_decrease_under_noise_and_light",211,0.054453,0.040749,0.054453,0.040564,3.9736,"0.0088",1
+"Model_12","Work_effectively","performance_decrease_under_thermal_and_Air + Sensitivity + Combined_Effect_of_Air_thermal_noise_light",211,0.126424,0.113764,0.126424,0.113286,9.9857,"3.6e-06",3
+"Model_13","Work_effectively","performance_decrease_under_thermal_and_Air + performance_decrease_under_noise_and_light + Combined_Effect_of_Air_thermal_noise_light",211,0.067434,0.053919,0.067434,0.053677,4.9894,"0.0023",2
+"Model_14","Work_effectively","Sensitivity + performance_decrease_under_noise_and_light + Combined_Effect_of_Air_thermal_noise_light",211,0.104733,0.091758,0.104733,0.091363,8.072,"4.1e-05",2
+"Model_15","performance_decrease_under_thermal_and_Air","Sensitivity + performance_decrease_under_noise_and_light + Combined_Effect_of_Air_thermal_noise_light",211,0.784964,0.781848,0.784964,0.781036,251.8767,"<2e-16",3

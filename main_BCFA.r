@@ -1586,44 +1586,6 @@ ord_log_model <- analy_BOr$fit_ordinal_logistic_regression(
 #   conf_level = 0.95, 
 #   plot = TRUE
 # )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ==============================================================================
-# EXECUTION (4th _ Second Dataset ... CFA Data)
-# ==============================================================================
-## Fourth Object for the (Second Dataset _SCFA)
-#########--------------#### analy_SCFs <- regrissorClass$new(data_SCFs)
-#########--------------#### analy_SCFs$calculate_summary()$print_summary()
-#########--------------#### analy_SCFs$get_numeric_info()$column_names
-#########--------------#### analy_SCFs$get_categorical_info()$column_names
-#---------------------------------------------Plot Histogram-----------------------------
-#########--------------#### analy_SCFs$plot_histogram("Sensitivity")
-#########--------------#### analy_SCFs$plot_histogram("productivity")
-#########--------------#### analy_SCFs$plot_histogram("performance_decrease_under_thermal_and_Air")
-#########--------------#### analy_SCFs$plot_histogram("Work_effectively")
-#########--------------#### analy_SCFs$plot_histogram("performance_decrease_under_noise_and_light")
-#########--------------#### analy_SCFs$plot_histogram("Combined_Effect_of_Air_thermal_noise_light")
-#------------------------  Instead of histogram print plot frequency table for categorical varaibles-------------
-#########--------------#### print(analy_SCFs$get_categorical_info()$frequency_tables$Gender)
-#########--------------#### lapply(analy_SCFs$get_categorical_info()$frequency_tables, print)
-# ---------------------------------------Linear Regression Model-------------------------
-# List models
-#########--------------#### analy_SCFs$list_regression_models()
-
-#########--------------#### analy_SCFs$plot_scatter_by_group("productivity", "performance_decrease_under_thermal_and_Air", "Gender")
 #-------------------------------------------------------------------------------
 # After initialization, let us find out and print out the object summary 
 analy_BCFA$list_all_methods()

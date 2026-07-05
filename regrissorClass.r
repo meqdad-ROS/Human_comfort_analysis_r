@@ -171,7 +171,7 @@ regrissorClass <- R6Class("regrissorClass",
                             categories <- unique(plot_data[[category_column]])
                             num_categories <- length(categories)
                             colors <- rainbow(num_categories)  # Assign distinct colors
-                            
+                            par(mar = c(5, 4, 8, 8)) 
                             # Create scatter plot
                             plot(plot_data[[x_column]], plot_data[[y_column]], 
                                  col = colors[as.factor(plot_data[[category_column]])], 
@@ -181,8 +181,12 @@ regrissorClass <- R6Class("regrissorClass",
                                  main = paste("Scatter Plot of", x_column, "vs", y_column, "by", category_column),
                                  grid = TRUE)
                             
+                            # 1. Allow drawing outside the plot region
+                            par(xpd = TRUE)
                             # Add legend
-                            legend("topright", legend = categories, col = colors, pch = 16, title = category_column)
+                            legend("topright", inset = c(-1, -0.5), 
+                                   legend = categories, col = colors, 
+                                   pch = 16, title = category_column)
                             
                             cat("Scatter plot created for", x_column, "vs", y_column, "grouped by", category_column, "\n")
                             return(invisible(self))

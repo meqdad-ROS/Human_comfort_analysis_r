@@ -5,7 +5,7 @@
 cat("\014")  #clear consol from code 
 while (dev.cur() > 1) dev.off()  # clear all plot device 
 rm(list = ls()) # clear all environment variables
-cat("\014")  #clear consol from code 
+
 #-------------------------------------------------------------------------------
 # step 0: Load necessary libraries
 library(readxl)  #Load excel library
@@ -24,13 +24,13 @@ library(R6)
 library(kSamples)
 library(rsm)
 library(DescTools)
-
 #-------------------------------------------------------------------------------
 # step 00: source all required classes and files
 source("regrissorClass.r")
 source("ComparativeAnalyzer.r")
 source("perform_kw_then_pairwise_mw.r")
 source("cfTestClass.r")
+cat("\014")  #clear consol from code 
 #-------------------------------------------------------------------------------
 # Step 1: load Data 
 
@@ -38,7 +38,7 @@ source("cfTestClass.r")
 data_SCFs <- read.csv("SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv", header = TRUE)
 View(data_SCFs)
 ## Upload the original response after cleaning (the ranked) dataset of both survey after merging them out. 
-data_SOrRank <- read_excel("SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx", header = TRUE)
+data_SOrRank <- read_excel("SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx")
 View(data_SOrRank)
 #-------------------------------------------------------------------------------
 # Step 2: create instant Objects for all data sets
@@ -47,492 +47,1639 @@ analy_SCFA <- regrissorClass$new(data_SCFs)
 
 # declare the new Object confirmatory instant object before any method 
 # implementation(Second Datasets  _SCFA) (Continuous Data)
-conf_Analyzer = cfTestClass$new(input=data_SCFs,
+scfa_conf_Analyzer = cfTestClass$new(input=data_SCFs,
                                 file_sep = ",", 
                                 header = TRUE)
 
-
+##Create new two objects  analy_SSOr  which is the regressor class instant, and  
+## analy_BOr_conf which is the cfTestClass instant
+analy_SSOr = regrissorClass$new(data_SOrRank)
+analy_SSOr_conf = cfTestClass$new(input=data_SOrRank,
+                                 file_sep = ",", 
+                                 header = TRUE)
 # ==============================================================================
-# EXECUTION (4th _ Second Dataset ... CFA Data)
-# ==============================================================================
-## Fourth Object for the (Second Dataset _SCFA)
-
-#########--------------#### analy_SCFs$calculate_summary()$print_summary()
-#########--------------#### analy_SCFs$get_numeric_info()$column_names
-#########--------------#### analy_SCFs$get_categorical_info()$column_names
-#---------------------------------------------Plot Histogram-----------------------------
-#########--------------#### analy_SCFs$plot_histogram("Sensitivity")
-#########--------------#### analy_SCFs$plot_histogram("productivity")
-#########--------------#### analy_SCFs$plot_histogram("performance_decrease_under_thermal_and_Air")
-#########--------------#### analy_SCFs$plot_histogram("Work_effectively")
-#########--------------#### analy_SCFs$plot_histogram("performance_decrease_under_noise_and_light")
-#########--------------#### analy_SCFs$plot_histogram("Combined_Effect_of_Air_thermal_noise_light")
-#------------------------  Instead of histogram print plot frequency table for categorical varaibles-------------
-#########--------------#### print(analy_SCFs$get_categorical_info()$frequency_tables$Gender)
-#########--------------#### lapply(analy_SCFs$get_categorical_info()$frequency_tables, print)
-# ---------------------------------------Linear Regression Model-------------------------
-# List models
-#########--------------#### analy_SCFs$list_regression_models()
-
-#########--------------#### analy_SCFs$plot_scatter_by_group("productivity", "performance_decrease_under_thermal_and_Air", "Gender")
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-# Data from Second datasets _Confermatory Factor analysis score data
-#########  data_SCFs <- read.csv("SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv", header = TRUE)
-#########   View(data_SCFs)
-
-# ==============================================================================
-# EXECUTION (HOW TO USE THE OOP STRUCTURE)
-# EXECUTION (1st _ both datasets ... Oregenal responses)
-# ==============================================================================+++++++++++================================
-# First letus create 4 different objects from the same classes each with a differnt dataset from the above. 
-# ==============================================================================+++++++++++================================
-# ==============================================================================+++++++++++================================
-
-
-
-# ==============================================================================
-# EXECUTION (2nd _ both datasets ... CFA Data)
-# ==============================================================================
-# # For logistic, first ensure a binary outcome (e.g., create one or use existing)
-### analy_BOr$add_column("binary_outcome", ifelse(analy_BOr$data$productivity > median(analy_BOr$data$productivity, na.rm = TRUE), 1, 0))
-### log_model <- analy_BOr$fit_logistic_regression("binary_outcome", c("Gender", "Age"))
-
-# Second Object for the (both data EDFA)
-
+# Summary of all objects and discriptive statistics: 
+###---- First continuous data summary 
 analy_SCFA$calculate_summary()$print_summary()
-analy_SCFA$get_numeric_info()$column_names
-analy_SCFA$get_categorical_info()$column_names
+numaric_names <- analy_SCFA$get_numeric_info()$column_names
+categorical_names <- analy_SCFA$get_categorical_info()$column_names
 
-#---------------------------------------------Plot Histogram-----------------------------
-analy_SCFA$plot_histogram("Sensitivity")
-analy_SCFA$plot_histogram("Performance")
-analy_SCFA$plot_histogram("Th_AQ_Effect")
-analy_SCFA$plot_histogram("Li_So_Effect")
-#------------------------  Instead of histogram print plot frequency table for categorical varaibles-------------
-print(analy_SCFA$get_categorical_info()$frequency_tables$Gender)
+#---------------------------------------------iterate over all variable - Plot Histogram-----------------------------
+### Now self histogram implementation
+for (i in numaric_names){
+    analy_SCFA$plot_histogram(i)
+}
+#------------------------  Instead of histogram print plot frequency -----------
+###----------------------------table for categorical varaibles------------------
 lapply(analy_SCFA$get_categorical_info()$frequency_tables, print)
+# ==============================================================================
+# ---------------------------------------Linear Regression Model-----------------
+# List models
+analy_SCFA$list_regression_models()
+
+for (i in c(1:(length(numaric_names)-1))){
+  for (j in c(i+1:length(numaric_names))){
+    for (k in categorical_names){
+        analy_SCFA$plot_scatter_by_group(numaric_names[i], numaric_names[j], k)
+    }
+  }
+}
+
+
+combn(numaric_names, 2, function(pair){
+    for (k in categorical_names){
+      analy_SCFA$plot_scatter_by_group(pair[1], pair[2], k)
+}}, simplify = FALSE)
+
+pair_numeric_vars = combn(numaric_names, 2, simplify = FALSE)
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# ==============================================================================
 # ---------------------------------------Linear Regression Model-------------------------
 # List models
 analy_SCFA$list_regression_models()
 
-# It found from scatter plot that the best correlation is found between  "Th_AQ_Effect", "Li_So_Effect
-#1-------------------------------------------------------
-lin_model <- analy_SCFA$fit_linear_regression("Th_AQ_Effect", "Li_So_Effect")
-print(lin_model$r_squared)  # R-squared value
-print(lin_model$p_values)   # P-values for coefficients
-# Plot it
-analy_SCFA$plot_regression_model(lin_model, type = "linear")
-# Fit multiple linear regression (e.g., productivity ~ multiple predictors)
-multi_lin_model <- analy_SCFA$fit_multiple_linear_regression("Sensitivity", c("Th_AQ_Effect", "Li_So_Effect"))
-print(multi_lin_model$sse)  # Sum of Squared Errors
-analy_SCFA$plot_regression_model(multi_lin_model , type = "multiple_linear")
-#2-------------------------------------------------------
-# Fit a linear model 2
-lin_model_2 <- analy_SCFA$fit_linear_regression("Th_AQ_Effect", "Sensitivity")
-analy_SCFA$plot_regression_model(lin_model_2, type = "linear")
-print(lin_model_2$r_squared)  # R-squared value
-print(lin_model_2$p_values)   # P-values for coefficients
-
-#3-------------------------------------------------------
-# Fit a linear model 3
-lin_model_3 <- analy_SCFA$fit_linear_regression("Th_AQ_Effect", "Performance")
-analy_SCFA$plot_regression_model(lin_model_3, type = "linear")
-print(lin_model_3$r_squared)  # R-squared value
-print(lin_model_3$p_values)   # P-values for coefficients
-
-#4-------------------------------------------------------
-# Fit a linear model 4
-lin_model_4 <- analy_SCFA$fit_linear_regression("Li_So_Effect", "Sensitivity")
-analy_SCFA$plot_regression_model(lin_model_4, type = "linear")
-print(lin_model_4$r_squared)  # R-squared value
-print(lin_model_4$p_values)   # P-values for coefficients
-
-multi_lin_model_2 <- analy_SCFA$fit_multiple_linear_regression("Performance", c("Th_AQ_Effect", "Li_So_Effect"))
-print(multi_lin_model_2$sse)  # Sum of Squared Errors
-analy_SCFA$plot_regression_model(multi_lin_model_2 , type = "multiple_linear")
-#5-------------------------------------------------------
-# Fit a linear model 5
-lin_model_5 <- analy_SCFA$fit_linear_regression("Li_So_Effect", "Performance")
-analy_SCFA$plot_regression_model(lin_model_5, type = "linear")
-print(lin_model_5$r_squared)  # R-squared value
-print(lin_model_5$p_values)   # P-values for coefficients
-
-multi_lin_model_3 <- analy_SCFA$fit_multiple_linear_regression("Li_So_Effect", c("Sensitivity", "Performance"))
-print(multi_lin_model_3$sse)  # Sum of Squared Errors
-analy_SCFA$plot_regression_model(multi_lin_model_3 , type = "multiple_linear")
-#6-------------------------------------------------------
-# Fit a linear model 6
-lin_model_6 <- analy_SCFA$fit_linear_regression("Performance", "Sensitivity")
-analy_SCFA$plot_regression_model(lin_model_6, type = "linear")
-print(lin_model_6$r_squared)  # R-squared value
-print(lin_model_6$p_values)   # P-values for coefficients
-
-multi_lin_model_4 <- analy_SCFA$fit_multiple_linear_regression("Th_AQ_Effect", c("Sensitivity", "Performance"))
-print(multi_lin_model_4$sse)  # Sum of Squared Errors
-analy_SCFA$plot_regression_model(multi_lin_model_4 , type = "multiple_linear")
-#-------------------------------------------------------
-#--------------------------------------------Perform T-test---------------------------------
-# Independent t-test: Compare productivity by Gender
-t_result_BCFA <- analy_SCFA$perform_t_test("Sensitivity", "Gender", type = "independent", plot = TRUE)
-print(t_result_BCFA$p_value)  # Check significance
-cat("If p < 0.05, reject null: means differ significantly.\n")
-#Only a 0.023% chance this difference occurred by random chance,
-#We can reject the null hypothesis that both genders have equal mean Sensitivity
-
-# One-sample t-test: Is mean Sensitivity different from 5.0?
-t_one_BCFA <- analy_SCFA$perform_t_test("Sensitivity", type = "one_sample", mu = 5.0, plot = TRUE)
-#Since the data distribution is far left from the hypothesized mean (mu), the null hypothesis that the true mean Sensitivity equals 5 is very unlikely.
-#This is a visual cue supporting rejection of the null hypothesis.
-#Because the observed Sensitivity values are far less than 5 (confirmed by histogram and likely by computed mean), the:
-#  p-value will be very small (< 0.05), meaning you reject the null hypothesis.
-#The confidence interval will NOT include 5.
-#The sample mean will be much less than 5.
-
-
-# Paired t-test: If you have paired data (e.g., add a 'before' and 'after' column first)
-# Number of rows in your data
-n <- nrow(analy_SCFA$data)
-set.seed(42)
-
-analy_SCFA_after <- analy_SCFA$clone()
-analy_SCFA_after$add_column("after_Sensitivity", analy_SCFA_after$data$Sensitivity + rnorm(n, mean = 0.2, sd = 0.1))
-
-
-library(tidyr)
-df <- analy_SCFA_after$data
-
-# Assuming 'after_Sensitivity' correctly added to df already
-# Convert to long format
-df_long <- tidyr::pivot_longer(df,
-                               cols = c("Sensitivity", "after_Sensitivity"),
-                               names_to = "time",
-                               values_to = "Sensitivity_value")
-###after_sensitivity_values <- analy_SCFA_after$data$Sensitivity + rnorm(n, mean = 0.2, sd = 0.1)
-# Map 'time' values to more readable factor levels
-df_long$time <- factor(df_long$time, levels = c("Sensitivity", "after_Sensitivity"),
-                       labels = c("before", "after"))
-
-# Create a new regrissorClass object with the long data
-analy_SCFA_long <- regrissorClass$new(df_long)
-
-t_paired_result <- analy_SCFA_long$perform_t_test(outcome = "Sensitivity_value",
-                                                  group_column = "time",
-                                                  type = "paired",
-                                                  plot = TRUE)
-print(t_paired_result$p_value)
-
-
-#Since the data column have been collected from tow different interval befor 2019 and after 2024, #Where 2019 (span from raw 1:to:360) and 2024 (span from 361:to 572), it significant to compare both data together and to perform paired t-test to them. Thus the following paired t-test try to figure out if the sensitivity differes among genders. Here, the null hypothesis (H0 = there is no difference between groups)
-
-# Step 1: Extract before 2019 Sensitivity and after 2024 Sensitivity
-df_before <- analy_SCFA$data [1:360, ]
-df_after  <- analy_SCFA$data [361:572, ]
-# Step 2: Extract corresponding genders for both intervals
-# Check gender counts before aligning
-table(df_before$Gender)
-table(df_after$Gender)
-
-# Split both datasets by gender
-before_male   <- df_before[df_before$Gender == "Male", ]
-before_female <- df_before[df_before$Gender == "Female", ]
-
-after_male    <- df_after[df_after$Gender == "Male", ]
-after_female  <- df_after[df_after$Gender == "Female", ]
-
-# Step 3: Check lengths are equal to proceed with pairing
-if (dim(df_before)[1]<=dim(df_after)[1]){
-  i = dim(df_before)[1]
-  j = dim(before_male)[1]
-  k = dim(before_female)[1]
-} else {
-  i = dim(df_after)[1]
-  j = dim(after_male)[1]
-  k = dim(after_female)[1]
-}
-print("length of our sampeld data is ")
-cat(i, j, k)
-
-# Set seed for reproducible random sampling
-set.seed(123)
-# Sample j and k random row indices without replacement (ensure after_* have enough rows)
-if (nrow(after_male) < j || nrow(after_female) < k) {
-  stop("Not enough rows in after_male or after_female for sampling. Check data sizes.")
-}
-
-# Now order both dataset in mean of males and females and compine them sample of the bigger oneor both: 
-# Sample j and K random row indices without replacement
-random_indices_male_after <- sample(nrow(after_male), size = j, replace = FALSE)
-random_indices_female_after <- sample(nrow(after_female), size = k, replace = FALSE)
-random_indices_male_before <- sample(nrow(before_male), size = j, replace = FALSE)
-random_indices_female_before <- sample(nrow(before_female), size = k, replace = FALSE)
-# Create the new data frame using those indices
-before_ordered <- rbind(before_male[random_indices_male_before, ], before_female[random_indices_female_before, ])
-after_ordered <- rbind(after_male[random_indices_male_after, ], after_female[random_indices_female_after, ])
-
-# Verify same number of rows after ordering
-if(nrow(before_ordered) != nrow(after_ordered)) {
-  stop("Number of samples for before and after do not match after ordering by gender")
-}
-
-# Step 4: Create data frame combining before and after with genders for paired analysis
-paired_df <- data.frame(
-  id = 1:nrow(before_ordered),
-  Gender = before_ordered$Gender,  # aligned gender
-  Sensitivity_before = before_ordered$Sensitivity,
-  Sensitivity_after = after_ordered$Sensitivity
+# It found from scatter plot that the correlation are found between 
+# 1- productivity vs Combined Effect of Air thermal noise and light by headache and sleep (all groups)
+# 2- productivity vs performance decrease under noise and light (some groups)
+# 3- Productivity vs Sensitiviy (some groups)
+# 4- Productivity vs Performance decrease under thermal and air (some groups)
+# ==============================================================================
+#create dataframe for saving the variable of regressions 
+# 3. Initialize an empty data frame to store linear-regression results
+lin_result_df <- data.frame(
+  Var1 = character(),
+  Var2 = character(),
+  R_Squared = numeric(),
+  P_Value = numeric(),
+  stringsAsFactors = FALSE
 )
-# Check for any mismatches or NA values
-summary(paired_df)
 
 
-# Proceed with reshaping for paired analysis
-paired_long <- tidyr::pivot_longer(paired_df,
-                                   cols = c("Sensitivity_before", "Sensitivity_after"),
-                                   names_to = "time",
-                                   values_to = "Sensitivity_value")
+# 4. Loop through each pair, fit the model, and store results
+for (i in pair_numeric_vars) {
+    var1 <- i[1]
+    var2 <- i[2]
+  
+    # Fit the linear regression model (Var1 ~ Var2)
+    lin_model <- analy_SCFA$fit_linear_regression(var1, var2)
+    
+    # Plot it
+    analy_SCFA$plot_regression_model(lin_model, type = "linear")
+    
+    # Append results to the data frame
+    lin_result_df <- rbind(lin_result_df, data.frame(
+      Var1 = var1,
+      Var2 = var2,
+      R_Squared = lin_model$r_squared,
+      P_Value = lin_model$p_values, # Assuming the second p-value is for the slope
+      stringsAsFactors = FALSE
+  ))
+}
+#          -------------------------------------------------------
+cat('the following is the dataframe generated by all models of the linear regression')
+print(lin_result_df)
+# ----------------Fitting Multi-linear regression-------------------------------
+# ------------------------------------------------------------------------------
+pair_numeric_vars_3 = combn(numaric_names, 3, simplify = FALSE)
+pair_2_catg_var = combn(categorical_names, 2, simplify = FALSE)
+pair_3_catg_var =  combn(categorical_names, 3, simplify = FALSE)
 
-paired_long$time <- factor(paired_long$time, levels = c("Sensitivity_before", "Sensitivity_after"),
-                           labels = c("before", "after"))
+mulinreg_result_df <- data.frame(
+  Var1 = character(),
+  Var2 = character(),
+  Var3 = character(),
+  sse = numeric(),  # Sum of Squared Errors
+  stringsAsFactors = FALSE
+)
 
-paired_long$Gender <- factor(paired_long$Gender)  # Ensure Gender is factor
-
-# Create regrissorClass object for paired data analysis
-before_after_paired <- regrissorClass$new(paired_long)
-
-t_paired_result <- before_after_paired$perform_t_test(outcome = "Sensitivity_value",
-                                                  group_column = "time",
-                                                  type = "paired",
-                                                  plot = TRUE)
-print(t_paired_result$p_value)
-#The is no significant difference between before and after sensitivity which mean nothing change during times. We accept the null hypothesis, H0 := there is no difference between groups of two different period
-
-
-#now just provide a comparision between sensitivity before and after based on gender: to check the significant of both cases
-# Independent t-test: Compare Sensitivity by Gender after only
-before_after_gender_sens <- regrissorClass$new(paired_df)
-t_result_Before_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_before", "Gender", type = "independent", plot = TRUE) #Sensitivity_after
-print(t_result_Before_G_sen$p_value)  # Check significance
-cat("If p < 0.05, reject null: means differ significantly.\n")
-#Only a 0.0203% chance this difference occurred by random chance,
-#We can reject the null hypothesis that both genders have equal mean Sensitivity
-
-# One-sample t-test: Is mean Sensitivity different from 5.0?
-t_one_Before_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_before", type = "one_sample", mu = 1.0, plot = TRUE)
-#-----------------------------------------------------------------------------------------------
-t_result_after_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_after", "Gender", type = "independent", plot = TRUE) #Sensitivity_after
-print(t_result_after_G_sen$p_value)  # Check significance
-cat("If p < 0.05, reject null: means differ significantly.\n")
-#Only a 0.6076% chance this difference occurred by random chance,
-#We can accept the null hypothesis that both genders have equal mean Sensitivity
-# One-sample t-test: Is mean Sensitivity different from 5.0?
-t_one_after_G_sen <- before_after_gender_sens$perform_t_test("Sensitivity_after", type = "one_sample", mu = 1.0, plot = TRUE)
-
-### === Now modify the above code or repeat it to test productivity, TC, and its a difficult, isnot, simply copy the code to an External function or class.   
-
-## --- sensitivity 
-sens_comp_analyzer_para <- ComparativeAnalyzer$new(analy_SCFA, "Sensitivity", "Gender")
-results_sens_gend_BCFA <- sens_comp_analyzer_para$run_all_analyses()
-## --- performance 
-perf_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Performance", "Gender")
-results_Perf_gend_BCFA <- perf_comp_analyzer$run_all_analyses()
-## --- Thermal - Air 
-Th_AQ_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Th_AQ_Effect", "Gender")
-results_Th_AQ_gend_BCFA <- Th_AQ_comp_analyzer$run_all_analyses()
-## --- Acoustic -Light
-Li_So_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Li_So_Effect", "Gender")
-results_Li_So_gend_BCFA <- Li_So_comp_analyzer$run_all_analyses()
-
-############| Proper Statistical Test Needed
-############|   To formally test this, conduct a repeated-measures ANOVA or mixed-effects model with:
-############|       Time (within-subject)
-############|       Gender (between-subject)
-############|       Time × Gender interaction ← This tests if gender differences changed over time
-###--------------------------------------------------------------------------###
-###--------------------------------------------------------------------------###
-#-======-=========-=======-================
-# Calculate correlations for multiple numeric variables 
-cor_BCFA_result <- analy_SCFA$calculate_pearson_correlation(
-                                  c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"), 
-                                  plot = TRUE
-                                  )
-print(cor_BCFA_result$correlation_matrix)  # View r-values
-print(cor_BCFA_result$p_value_matrix)      # View p-values
-
-###--------------------------------------------------------------------------###
-#-======-=========-=======-================
-# 1. Kruskal-Wallis H test (e.g., productivity across professions, assuming >2 professions) ((Mainly for ranking data)) *****
-kw_BCFA_result_perfor_prof <- analy_SCFA$perform_kruskal_wallis("Performance", "Occupation", plot = TRUE)
-print(kw_BCFA_result_perfor_prof$p_value)  # p < 0.05 indicates significant differences
-print(kw_BCFA_result_perfor_prof$h_statistic)  # h_statistic is large indicates significant differences
-print(kw_BCFA_result_perfor_prof$degrees_of_freedom) #print number of groups in the categorical factor above
-# 2. Mann-Whitney U test (e.g., productivity between Male and Female)
-
-results_kw_BCFA_perfor_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Occupation", plot = TRUE)
-results_kw_BCFA_perfor_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Location.of.Leaving", plot = TRUE)
-results_kw_BCFA_perfor_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Length", plot = TRUE)
-results_kw_BCFA_perfor_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "age", plot = TRUE)
-results_kw_BCFA_perfor_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Performance", "Weight", plot = TRUE)
-# 2. Mann-Whitney U test (e.g., performance between Male and Female)
-results_MW_BCFA_perfor_gener <- analy_SCFA$perform_mann_whitney_ks("Performance", "Gender", type = "mann_whitney", plot=TRUE)
-print(results_MW_BCFA_perfor_gener$p_value)
-print(results_MW_BCFA_perfor_gener$statistic)
-
-results_kw_BCFA_sensi_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Occupation", plot = TRUE)
-results_kw_BCFA_sensi_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Location.of.Leaving", plot = TRUE)
-results_kw_BCFA_sensi_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Length", plot = TRUE)
-results_kw_BCFA_sensi_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "age", plot = TRUE)
-results_kw_BCFA_sensi_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Sensitivity", "Weight", plot = TRUE)
-# 2. Mann-Whitney U test (e.g., Sensitivity between Male and Female)
-results_MW_BCFA_sensi_gener <- analy_SCFA$perform_mann_whitney_ks("Sensitivity", "Gender", type = "mann_whitney", plot=TRUE)
-print(results_MW_BCFA_sensi_gener$p_value)
-print(results_MW_BCFA_sensi_gener$statistic)
+# 4. Loop through each pair, fit the model, and store results
+for (i in pair_numeric_vars_3) {
+  var1 <- i[1]
+  var2 <- i[2]
+  var3 <- i[3]
+  
+  ## Fit multiple linear regression (e.g., productivity ~ c(var1, multiple predictors))
+  multi_lin_model <- analy_SCFA$fit_multiple_linear_regression(var1, c(var2, var3))
+  ## Plot it. 
+  analy_SCFA$plot_regression_model(multi_lin_model , type = "multiple_linear")
+  
+  # Append results to the data frame
+  mulinreg_result_df  <- rbind(mulinreg_result_df, data.frame(
+      Var1 = var1,
+      Var2 = var2,
+      Var3 = var3,
+      R_Squared = multi_lin_model$sse,
+      stringsAsFactors = FALSE
+    ))
+}
 
 
-results_kw_BCFA_ThAQ_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Occupation", plot = TRUE)
-results_kw_BCFA_ThAQ_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Location.of.Leaving", plot = TRUE)
-results_kw_BCFA_ThAQ_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Length", plot = TRUE)
-results_kw_BCFA_ThAQ_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "age", plot = TRUE)
-results_kw_BCFA_ThAQ_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Th_AQ_Effect", "Weight", plot = TRUE)
-# 2. Mann-Whitney U test (e.g., Th_AQ_Effect between Male and Female)
-results_MW_BCFA_ThAQ_gener <- analy_SCFA$perform_mann_whitney_ks("Th_AQ_Effect", "Gender", type = "mann_whitney", plot=TRUE)
-print(results_MW_BCFA_ThAQ_gener$p_value)
-print(results_MW_BCFA_ThAQ_gener$statistic)
+cat('the following is the dataframe generated by all models of the linear regression')
+print(mulinreg_result_df)
 
 
-results_kw_BCFA_LiSo_prof <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Occupation", plot = TRUE)
-results_kw_BCFA_LiSo_coun <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Location.of.Leaving", plot = TRUE)
-results_kw_BCFA_LiSo_leng <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Length", plot = TRUE)
-results_kw_BCFA_LiSo_age <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "age", plot = TRUE)
-results_kw_BCFA_LiSo_wight <- perform_kw_then_pairwise_mw(analy_SCFA, "Li_So_Effect", "Weight", plot = TRUE)
-# 2. Mann-Whitney U test (e.g., Th_AQ_Effect between Male and Female)
-results_MW_BCFA_LiSo_gener <- analy_SCFA$perform_mann_whitney_ks("Li_So_Effect", "Gender", type = "mann_whitney", plot=TRUE)
-print(results_MW_BCFA_LiSo_gener$p_value)
-print(results_MW_BCFA_LiSo_gener$statistic)
-
-
-
-
-
-# Anderson-Darling test (e.g., normality of Sensitivity by Gender)
-sens_ad_result <- analy_SCFA$perform_levene_anderson("Sensitivity", "Gender", type = "anderson_darling_k", plot = TRUE)
-print(sens_ad_result$p_value)
-# Anderson-Darling test (e.g., normality of Performance by Gender)
-perform_ad_result <- analy_SCFA$perform_levene_anderson("Performance", "Gender", type = "anderson_darling_k", plot = TRUE)
-print(perform_ad_result$p_value)
-# Anderson-Darling test (e.g., normality of Performance by Gender)
-thaq_ad_result <- analy_SCFA$perform_levene_anderson("Th_AQ_Effect", "Gender", type = "anderson_darling_k", plot = TRUE)
-print(thaq_ad_result$p_value)
-# Anderson-Darling test (e.g., normality of Performance by Gender)
-liso_ad_result <- analy_SCFA$perform_levene_anderson("Li_So_Effect", "Gender", type = "anderson_darling_k", plot = TRUE)
-print(liso_ad_result$p_value)
-
-##now again to sensitivity and gender and run Mann-whitny 
-sens_comp_analyzer_nonPara <- ComparativeAnalyzer$new(analy_SCFA, "Sensitivity", "Gender")
-results_comp_BCFA_sensi_gener <- sens_comp_analyzer_nonPara$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
-
-##now again to light and sound effect on productivity and gender and run Mann-whitny 
-liso_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Li_So_Effect", "Gender")
-results_comp_BCFA_LiSo_gener <- liso_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
-
-##now again to performance under bad indoor environmental quality and gender and run Mann-whitny 
-perfo_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Performance", "Gender")
-results_comp_BCFA_perfor_gener <- perfo_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
-
-##now again to thermal comfort and airquality effect on productivity and gender and run Mann-whitny 
-thaq_comp_analyzer <- ComparativeAnalyzer$new(analy_SCFA, "Th_AQ_Effect", "Gender")
-results_comp_BCFA_ThAQ_gener <- thaq_comp_analyzer$run_all_analyses(use_nonparametric = TRUE)  # Uses Mann-Whitney instead of t-test
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #------------------------------------------------------------
-#now implement a comprehensive dataAnalysis using different regression classes at once
-# Simple + multiple only Performance as outcome and others as predictor
-res_regrission_BCFA_numaric_perf <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var = "Performance",
-  predictors  = c("Th_AQ_Effect", "Li_So_Effect", "Sensitivity")
+# now implement a comprehensive dataAnalysis using different regression classes at once
+# Simple + multiple. Change outcome and predictors. Made it once the numaric 
+# and the next with different demographic predictors 
+
+pair_4_numeric_vars <- combn(numaric_names, 4, simplify = FALSE)
+
+# Initialize results list to store all model information
+regression_results_list <- list()
+
+# ============================================================
+# LOOP: Iterate and calculate all metrics including effect sizes
+# ============================================================
+
+cat("\n", rep("=", 110), "\n", sep = "")
+cat("COMPREHENSIVE MULTIPLE LINEAR REGRESSION WITH EFFECT SIZES\n")
+cat(sprintf("Analyzing %d model combinations\n", length(pair_4_numeric_vars)))
+cat(rep("=", 110), "\n\n", sep = "")
+
+for (idx in seq_along(pair_4_numeric_vars)) {
+  
+  var_combo <- pair_4_numeric_vars[[idx]]
+  outcome_var <- var_combo[1]
+  predictor_vars <- var_combo[2:4]
+  
+  model_id <- sprintf("Model_%d", idx)
+  
+  cat(sprintf("\n%s. %s ~ %s + %s + %s\n", idx, outcome_var, 
+              predictor_vars[1], predictor_vars[2], predictor_vars[3]))
+  cat(rep("-", 110), "\n", sep = "")
+  
+  tryCatch({
+    
+    # Prepare and fit model
+    model_data <- analy_SCFA$data[, c(outcome_var, predictor_vars), drop = FALSE]
+    model_data_complete <- na.omit(model_data)
+    
+    formula_obj <- as.formula(paste(outcome_var, "~", 
+                                    paste(predictor_vars, collapse = " + ")))
+    lm_model <- lm(formula_obj, data = model_data_complete)
+    model_summary <- summary(lm_model)
+    
+    # Display coefficients
+    coef_table <- model_summary$coefficients
+    cat("\nCoefficients:\n")
+    print(coef_table, digits = 6)
+    
+    # Extract basic statistics
+    r_squared <- model_summary$r.squared
+    adj_r_squared <- model_summary$adj.r.squared
+    f_stat <- model_summary$fstatistic[1]
+    f_pvalue <- pf(f_stat, model_summary$fstatistic[2], 
+                   model_summary$fstatistic[3], lower.tail = FALSE)
+    n_obs <- nrow(model_data_complete)
+    
+    # ========================================================
+    # CRITICAL: Calculate effect sizes (η² and ω²)
+    # ========================================================
+    
+    anova_table <- anova(lm_model)
+    ss_residual <- anova_table["Residuals", "Sum Sq"]
+    ss_total <- sum(anova_table[, "Sum Sq"])
+    ss_regression <- ss_total - ss_residual
+    
+    # η² = SSregression / SStotal (proportion of variance explained)
+    eta_squared <- ss_regression / ss_total
+    
+    # ω² = (SSregression - k*MSresidual) / (SStotal + MSresidual)
+    # where k = number of predictors
+    k_predictors <- length(predictor_vars)
+    ms_residual <- anova_table["Residuals", "Mean Sq"]
+    omega_squared <- max(0, (ss_regression - k_predictors * ms_residual) / 
+                           (ss_total + ms_residual))
+    
+    # Count significant predictors
+    coef_pvalues <- coef_table[-1, 4]  # Exclude intercept
+    sig_count <- sum(coef_pvalues < 0.05)
+    sig_predictors <- names(coef_pvalues)[coef_pvalues < 0.05]
+    
+    cat(sprintf("\nModel Statistics:\n"))
+    cat(sprintf("  Sample Size:               %d\n", n_obs))
+    cat(sprintf("  R²:                        %.6f\n", r_squared))
+    cat(sprintf("  Adjusted R²:               %.6f\n", adj_r_squared))
+    cat(sprintf("  F-statistic:               %.4f (p < 0.001)\n", f_stat))
+    cat(sprintf("  Residual Std. Error:       %.6f\n", model_summary$sigma))
+    
+    cat(sprintf("\nEffect Sizes:\n"))
+    cat(sprintf("  η² (Eta-squared):          %.6f  [%.2f%% of variance explained]\n", 
+                eta_squared, eta_squared * 100))
+    cat(sprintf("  ω² (Omega-squared):        %.6f  [conservative estimate]\n", 
+                omega_squared))
+    
+    if (length(sig_predictors) > 0) {
+      cat(sprintf("  Significant Predictors:    %s\n", 
+                  paste(sig_predictors, collapse = ", ")))
+    } else {
+      cat(sprintf("  Significant Predictors:    None\n"))
+    }
+    
+    # ========================================================
+    # Store all results including effect sizes
+    # ========================================================
+    
+    regression_results_list[[model_id]] <- list(
+      outcome = outcome_var,
+      predictors = predictor_vars,
+      formula = formula_obj,
+      model = lm_model,
+      summary = model_summary,
+      coefficients = coef_table,
+      n_observations = n_obs,
+      r_squared = r_squared,
+      adj_r_squared = adj_r_squared,
+      eta_squared = eta_squared,           # ✓ EFFECT SIZE 1
+      omega_squared = omega_squared,       # ✓ EFFECT SIZE 2
+      f_statistic = f_stat,
+      f_pvalue = f_pvalue,
+      residual_se = model_summary$sigma,
+      sig_predictors_count = sig_count,
+      sig_predictors_names = sig_predictors
+    )
+    
+    cat("\n")
+    
+  }, error = function(e) {
+    cat(sprintf("  ERROR: %s\n\n", e$message))
+  })
+}
+
+# ============================================================
+# STEP 2: Build COMPREHENSIVE summary table WITH effect sizes
+# ============================================================
+
+cat("\n", rep("=", 110), "\n", sep = "")
+cat("CONSOLIDATED SUMMARY: ALL MODELS WITH EFFECT SIZES\n")
+cat(rep("=", 110), "\n\n", sep = "")
+
+summary_table <- data.frame(
+  Model = character(),
+  Outcome = character(),
+  Predictors = character(),
+  N = integer(),
+  R_Squared = numeric(),
+  Adj_R_Squared = numeric(),
+  Eta_Squared = numeric(),          # ✓ ADDED
+  Omega_Squared = numeric(),        # ✓ ADDED
+  F_Statistic = numeric(),
+  F_PValue = character(),
+  Sig_Predictors = integer(),
+  stringsAsFactors = FALSE
 )
 
+for (model_id in names(regression_results_list)) {
+  model_info <- regression_results_list[[model_id]]
+  
+  summary_table <- rbind(summary_table, data.frame(
+    Model = model_id,
+    Outcome = model_info$outcome,
+    Predictors = paste(model_info$predictors, collapse = " + "),
+    N = model_info$n_observations,
+    R_Squared = round(model_info$r_squared, 6),
+    Adj_R_Squared = round(model_info$adj_r_squared, 6),
+    Eta_Squared = round(model_info$eta_squared, 6),         # ✓ EFFECT SIZE
+    Omega_Squared = round(model_info$omega_squared, 6),     # ✓ EFFECT SIZE
+    F_Statistic = round(model_info$f_statistic, 4),
+    F_PValue = format.pval(model_info$f_pvalue, digits = 2),
+    Sig_Predictors = model_info$sig_predictors_count,
+    stringsAsFactors = FALSE
+  ))
+}
+
+# Display full summary
+print(summary_table, row.names = FALSE)
+
+# ============================================================
+# STEP 3: Ranking by EFFECT SIZE (not just R²)
+# ============================================================
+
+cat("\n\n", rep("=", 110), "\n", sep = "")
+cat("TOP MODELS RANKED BY EFFECT SIZE (ω²)\n")
+cat(rep("=", 110), "\n\n", sep = "")
+
+top_by_omega <- summary_table[order(-summary_table$Omega_Squared), ]
+top_by_omega <- head(top_by_omega, 5)
+
+print(top_by_omega, row.names = FALSE)
+
+# ============================================================
+# STEP 4: Export complete results with effect sizes
+# ============================================================
+
+if (!dir.exists("regression_results")) {
+  dir.create("regression_results")
+}
+
+# Write summary table to CSV
+write.csv(summary_table, 
+          file = "regression_results/models_summary_with_effect_sizes.csv",
+          row.names = FALSE)
+
+# Write detailed results
+# sink(file = "regression_results/detailed_coefficient_tables.txt")
+
+for (model_id in names(regression_results_list)) {
+  model_info <- regression_results_list[[model_id]]
+  
+  cat(sprintf("\n%s: %s ~ %s\n", 
+              model_id, model_info$outcome,
+              paste(model_info$predictors, collapse = " + ")))
+  cat(rep("=", 110), "\n\n", sep = "")
+  
+  cat("DESCRIPTIVE STATISTICS:\n")
+  cat(sprintf("  N = %d | R² = %.6f | Adj.R² = %.6f\n",
+              model_info$n_observations,
+              model_info$r_squared,
+              model_info$adj_r_squared))
+  cat(sprintf("  η² = %.6f | ω² = %.6f\n",
+              model_info$eta_squared,
+              model_info$omega_squared))
+  cat(sprintf("  F(%d, %d) = %.4f, p < 0.001\n",
+              length(model_info$predictors),
+              model_info$n_observations - length(model_info$predictors) - 1,
+              model_info$f_statistic))
+  
+  cat("\nCOEFFICIENTS:\n")
+  print(model_info$coefficients, digits = 6)
+  cat("\n\n")
+}
+
+# sink()
+
+cat("\n✓ Results exported:\n")
+cat("  1. models_summary_with_effect_sizes.csv\n")
+cat("  2. detailed_coefficient_tables.txt\n\n")
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# ==============================================================================
 # Full pipeline with demographics and interactions
-res_regre_BCFA_full_Perf_ageGen <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Performance",
-  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
-  demographic_predictors = c("Gender", "age"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
+# ==============================================================================
+# COMPREHENSIVE ITERATIVE REGRESSION ANALYSIS
+# Outcome: All numeric variables
+# Predictors: All numeric variables (excluding outcome)
+# Demographics: All categorical variables
+# ==============================================================================
+
+# Step 1: Extract numeric and categorical column names
+numeric_vars <- analy_SCFA$numeric_cols
+categorical_vars <- analy_SCFA$categorical_cols
+
+# Write detailed results
+# sink(file = "regression_results/detailed_logistic_regression_models.txt")
+
+cat("\n=== AVAILABLE VARIABLES FOR REGRESSION ===\n")
+cat("Numeric outcomes available:", paste(numeric_vars, collapse = ", "), "\n")
+cat("Categorical demographics available:", paste(categorical_vars, collapse = ", "), "\n\n")
+
+# Step 2: Initialize consolidated results data frame
+comprehensive_reg_results <- data.frame(
+  Outcome_Var = character(),
+  Predictor_Vars = character(),
+  Demographic_Vars = character(),
+  Model_Type = character(),
+  R_Squared = numeric(),
+  Adjusted_R_Squared = numeric(),
+  Omega_Squared = numeric(),
+  F_Statistic = numeric(),
+  P_Value = numeric(),
+  N_Observations = integer(),
+  AIC = numeric(),
+  BIC = numeric(),
+  stringsAsFactors = FALSE
 )
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_Perf_LoOccLW <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Performance",
-  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
-  demographic_predictors = c("Location.of.Leaving", "Occupation","Length", "Weight"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
-)
-#---------------------------------------------------------------------
-# Simple + multiple only Sensitivity as outcome and others as predictor
-res_regrission_BCFA_numaric_sens <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var = "Sensitivity",
-  predictors  = c("Th_AQ_Effect", "Li_So_Effect", "Performance")
-) 
+# Step 3: Initialize list to store detailed model objects
+all_regression_models <- list()
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_Sens_LenWheigh <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Sensitivity",
-  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
-  demographic_predictors = c("Length", "Weight"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
+# HELPER FUNCTION: Safe model extraction with validation
+extract_model_metrics <- function(model_obj, model_summary) {
+  
+  # Validate input objects
+  if (is.null(model_obj) || is.null(model_summary)) {
+    return(NULL)
+  }
+  
+  # Extract R-squared values with error handling
+  r_sq <- tryCatch({
+    as.numeric(model_summary$r.squared)
+  }, error = function(e) {
+    warning("Failed to extract R-squared")
+    return(NA_real_)
+  })
+  
+  adj_r_sq <- tryCatch({
+    as.numeric(model_summary$adj.r.squared)
+  }, error = function(e) {
+    warning("Failed to extract adjusted R-squared")
+    return(NA_real_)
+  })
+  
+  # Extract F-statistic components safely
+  f_stat <- tryCatch({
+    if (!is.null(model_summary$fstatistic) && 
+        length(model_summary$fstatistic) >= 3) {
+      f_val <- as.numeric(model_summary$fstatistic[1])
+      df1 <- as.numeric(model_summary$fstatistic[2])
+      df2 <- as.numeric(model_summary$fstatistic[3])
+      
+      # Calculate p-value from F-distribution
+      p_val <- pf(f_val, df1, df2, lower.tail = FALSE)
+      
+      list(f_stat = f_val, p_value = p_val)
+    } else {
+      warning("F-statistic not available or malformed")
+      list(f_stat = NA_real_, p_value = NA_real_)
+    }
+  }, error = function(e) {
+    warning("Error extracting F-statistic: ", e$message)
+    list(f_stat = NA_real_, p_value = NA_real_)
+  })
+  
+  # Extract number of observations directly from model frame
+  n_obs <- tryCatch({
+    as.integer(nrow(model.frame(model_obj)))
+  }, error = function(e) {
+    warning("Failed to extract n_observations from model frame")
+    return(NA_integer_)
+  })
+  
+  # Extract AIC and BIC
+  aic_val <- tryCatch({
+    as.numeric(AIC(model_obj))
+  }, error = function(e) {
+    warning("Failed to extract AIC")
+    return(NA_real_)
+  })
+  
+  bic_val <- tryCatch({
+    as.numeric(BIC(model_obj))
+  }, error = function(e) {
+    warning("Failed to extract BIC")
+    return(NA_real_)
+  })
+  
+  # Return safely constructed list
+  return(list(
+    r_squared = r_sq,
+    adj_r_squared = adj_r_sq,
+    f_statistic = f_stat$f_stat,
+    p_value = f_stat$p_value,
+    n_observations = n_obs,
+    aic = aic_val,
+    bic = bic_val
+  ))
+}
+
+# HELPER FUNCTION: Calculate omega-squared effect size
+calculate_omega_squared <- function(model_obj) {
+  
+  tryCatch({
+    anova_tbl <- anova(model_obj)
+    
+    if (nrow(anova_tbl) < 2) {
+      warning("Insufficient ANOVA table rows for omega-squared calculation")
+      return(NA_real_)
+    }
+    
+    # SS_total = sum of all sum of squares
+    ss_total <- sum(anova_tbl[, "Sum Sq"], na.rm = TRUE)
+    
+    # SS_regression = sum of all except residual row
+    ss_regression <- sum(anova_tbl[-nrow(anova_tbl), "Sum Sq"], na.rm = TRUE)
+    
+    # MS_residual = residual sum of squares / residual degrees of freedom
+    residual_row <- nrow(anova_tbl)
+    ms_residual <- anova_tbl[residual_row, "Sum Sq"] / anova_tbl[residual_row, "Df"]
+    
+    # Number of predictors (all rows except residual)
+    n_predictors <- nrow(anova_tbl) - 1
+    
+    # ω² = (SS_reg - k*MS_res) / (SS_total + MS_res)
+    omega_sq <- (ss_regression - n_predictors * ms_residual) / (ss_total + ms_residual)
+    
+    # Ensure non-negative value
+    return(max(0, as.numeric(omega_sq)))
+    
+  }, error = function(e) {
+    warning("Error calculating omega-squared: ", e$message)
+    return(NA_real_)
+  })
+}
+
+# ==============================================================================
+# MAIN ITERATION LOOP
+# ==============================================================================
+
+for (outcome in numeric_vars) {
+  
+  # Get remaining numeric variables as predictors
+  predictor_candidates <- setdiff(numeric_vars, outcome)
+  
+  if (length(predictor_candidates) < 2) {
+    cat("Skipping outcome '", outcome, "': Insufficient predictors\n")
+    next
+  }
+  
+  # Generate all 2-predictor combinations
+  predictor_combos <- combn(predictor_candidates, 2, simplify = FALSE)
+  
+  cat("\n", rep("=", 80), "\n", sep = "")
+  cat("OUTCOME VARIABLE: ", outcome, " | Combinations: ", 
+      length(predictor_combos), "\n")
+  cat(rep("=", 80), "\n\n", sep = "")
+  
+  for (pred_idx in seq_along(predictor_combos)) {
+    
+    predictors <- predictor_combos[[pred_idx]]
+    predictor_label <- paste(predictors, collapse = " + ")
+    
+    # Generate all demographic combinations (including NULL)
+    demo_combo_list <- list(list(size = 0, combos = list(character(0))))
+    
+    # Add demographic combinations of size 1, 2, 3
+    for (demo_size in 1:min(3, length(categorical_vars))) {
+      demo_combos_k <- combn(categorical_vars, demo_size, simplify = FALSE)
+      demo_combo_list[[demo_size + 1]] <- list(size = demo_size, combos = demo_combos_k)
+    }
+    
+    # Flatten the list
+    all_demo_combos <- unlist(
+      lapply(demo_combo_list, function(x) x$combos),
+      recursive = FALSE
+    )
+    
+    for (demo_idx in seq_along(all_demo_combos)) {
+      
+      demographics <- all_demo_combos[[demo_idx]]
+      demographic_label <- if (length(demographics) == 0) 
+        "None" else paste(demographics, collapse = " + ")
+      
+      # Execute regression analysis with robust error handling
+      model_results <- tryCatch({
+        
+        analy_SCFA$perform_comprehensive_regression_analysis(
+          outcome_var = outcome,
+          predictors = predictors,
+          demographic_predictors = if (length(demographics) > 0) demographics else NULL,
+          interaction_terms = TRUE,
+          include_logistic = TRUE
+        )
+        
+      }, error = function(e) {
+        cat("  ⚠ Regression Error (", demographic_label, "): ", 
+            e$message, "\n", sep = "")
+        return(NULL)
+      })
+      
+      # Process successful regression models
+      if (!is.null(model_results) && !is.null(model_results$multiple)) {
+        
+        model_obj <- model_results$multiple$model
+        model_summary <- summary(model_obj)
+        
+        # Extract all metrics using safe helper function
+        metrics <- extract_model_metrics(model_obj, model_summary)
+        
+        if (!is.null(metrics)) {
+          
+          # Calculate omega-squared
+          omega_sq <- calculate_omega_squared(model_obj)
+          
+          # Construct results row with validated data
+          results_row <- data.frame(
+            Outcome_Var = outcome,
+            Predictor_Vars = predictor_label,
+            Demographic_Vars = demographic_label,
+            Model_Type = "Multiple Linear Regression",
+            R_Squared = metrics$r_squared,
+            Adjusted_R_Squared = metrics$adj_r_squared,
+            Omega_Squared = omega_sq,
+            F_Statistic = metrics$f_statistic,
+            P_Value = metrics$p_value,
+            N_Observations = metrics$n_observations,
+            AIC = metrics$aic,
+            BIC = metrics$bic,
+            stringsAsFactors = FALSE
+          )
+          
+          # Append to consolidated results
+          comprehensive_reg_results <- rbind(comprehensive_reg_results, results_row)
+          
+          # Store model object
+          model_key <- paste(outcome, "|", predictor_label, "|", 
+                             demographic_label, sep = "")
+          all_regression_models[[model_key]] <- list(
+            model = model_obj,
+            summary = model_summary,
+            metrics = metrics
+          )
+          
+          cat("  ✓ Success | ω² = ", round(omega_sq, 4), 
+              " | R² = ", round(metrics$r_squared, 4), 
+              " | n = ", metrics$n_observations, "\n", sep = "")
+        }
+      }
+    }
+  }
+}
+
+# ==============================================================================
+# POST-PROCESSING AND RESULTS EXPORT
+# ==============================================================================
+
+cat("\n\n", rep("=", 80), "\n", sep = "")
+cat("CONSOLIDATED REGRESSION RESULTS SUMMARY\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+# Validate results data frame
+if (nrow(comprehensive_reg_results) > 0) {
+  
+  # Sort by omega-squared (effect size)
+  comprehensive_reg_results_sorted <- comprehensive_reg_results[
+    order(-comprehensive_reg_results$Omega_Squared, na.last = TRUE), 
+  ]
+  
+  print(head(comprehensive_reg_results_sorted, 15))
+  
+  # Export to CSV
+  write.csv(
+    comprehensive_reg_results_sorted,
+    file = "comprehensive_regression_results.csv",
+    row.names = FALSE,
+    na = ""
+  )
+  
+  cat("\n✓ Results exported: comprehensive_regression_results.csv\n")
+  cat("Total valid models:", nrow(comprehensive_reg_results), "\n")
+  cat("Models with ω² > 0.10:", 
+      sum(comprehensive_reg_results_sorted$Omega_Squared > 0.10, na.rm = TRUE), "\n")
+  
+} else {
+  
+  cat("\n⚠ WARNING: No valid regression results were generated.\n")
+  cat("Please verify data structure and variable availability.\n")
+}
+
+# Display top models
+if (nrow(comprehensive_reg_results_sorted) > 0) {
+  cat("\n=== TOP MODELS BY EFFECT SIZE (ω²) ===\n")
+  top_10 <- head(comprehensive_reg_results_sorted, 10)
+  print(top_10[, c("Outcome_Var", "Predictor_Vars", "Demographic_Vars", 
+                   "Omega_Squared", "R_Squared", "P_Value", "N_Observations")])
+}
+# sink()
+
+#==============================================================================
+# AUTOMATED T-TEST ANALYSIS WITH EFFECT SIZE EXTRACTION
+# Purpose: Iterate over all numeric and categorical variables, perform t-tests,
+#          extract effect sizes, and export comprehensive results
+#==============================================================================
+
+# Step 1: Create output directory if it doesn't exist
+output_dir <- "./regression_result"
+if (!dir.exists(output_dir)) {
+  dir.create(output_dir, recursive = TRUE)
+  cat("Output directory created:", output_dir, "\n")
+}
+
+#==============================================================================
+# Step 2: Initialize comprehensive results data frame
+#==============================================================================
+ttest_results <- data.frame(
+  Test_ID = character(),
+  Outcome_Variable = character(),
+  Grouping_Variable = character(),
+  Test_Type = character(),
+  Sample_Size_Total = integer(),
+  Sample_Size_Group1 = integer(),
+  Sample_Size_Group2 = integer(),
+  Mean_Group1 = numeric(),
+  Mean_Group2 = numeric(),
+  SD_Group1 = numeric(),
+  SD_Group2 = numeric(),
+  T_Statistic = numeric(),
+  Degrees_of_Freedom = numeric(),
+  P_Value = numeric(),
+  Cohen_d = numeric(),
+  Effect_Size_Interpretation = character(),
+  Confidence_Interval_Lower = numeric(),
+  Confidence_Interval_Upper = numeric(),
+  Significance_Level = character(),
+  stringsAsFactors = FALSE
 )
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_Sens_ageGen <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Sensitivity",
-  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
-  demographic_predictors = c("Gender", "age"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
+#==============================================================================
+# Step 3: Helper function to calculate Cohen's d
+#==============================================================================
+calculate_cohens_d <- function(mean1, mean2, sd1, sd2, n1, n2) {
+  # Pooled standard deviation
+  pooled_sd <- sqrt(((n1 - 1) * sd1^2 + (n2 - 1) * sd2^2) / (n1 + n2 - 2))
+  
+  # Cohen's d
+  cohens_d <- abs(mean1 - mean2) / pooled_sd
+  return(cohens_d)
+}
+
+#==============================================================================
+# Helper function to interpret Cohen's d
+#==============================================================================
+interpret_cohens_d <- function(d) {
+  if (is.na(d)) return("N/A")
+  if (d < 0.2) return("Negligible")
+  else if (d < 0.5) return("Small")
+  else if (d < 0.8) return("Medium")
+  else if (d < 1.2) return("Large")
+  else return("Very Large")
+}
+
+#==============================================================================
+# Helper function to determine significance level
+#==============================================================================
+determine_significance <- function(p_value) {
+  if (p_value < 0.001) return("***")
+  else if (p_value < 0.01) return("**")
+  else if (p_value < 0.05) return("*")
+  else return("ns")
+}
+
+#==============================================================================
+# Step 4: Extract numeric and categorical variable names
+#==============================================================================
+numeric_vars <- analy_SCFA$numeric_cols
+categorical_vars <- analy_SCFA$categorical_cols
+
+cat("\n=== T-TEST AUTOMATION INITIATED ===\n")
+cat("Numeric variables found:", length(numeric_vars), "\n")
+cat("Categorical variables found:", length(categorical_vars), "\n")
+cat("Total combination tests to perform:", length(numeric_vars) * length(categorical_vars), "\n\n")
+
+#==============================================================================
+# Step 5: Main iteration loop - Independent t-tests
+#==============================================================================
+test_counter <- 0
+
+for (outcome_var in numeric_vars) {
+  for (group_var in categorical_vars) {
+    
+    # Check if grouping variable has exactly 2 levels (for t-test)
+    unique_groups <- unique(na.omit(analy_SCFA$data[[group_var]]))
+    
+    if (length(unique_groups) == 2) {
+      
+      test_counter <- test_counter + 1
+      
+      cat("Test", test_counter, ": Comparing", outcome_var, "by", group_var, "\n")
+      
+      # Perform t-test
+      ttest_result <- tryCatch({
+        analy_SCFA$perform_t_test(
+          outcome = outcome_var,
+          group_column = group_var,
+          type = "independent",
+          plot = FALSE  # Suppress plots in batch mode
+        )
+      }, error = function(e) {
+        cat("  Error:", e$message, "\n")
+        return(NULL)
+      })
+      
+      # Extract results if successful
+      if (!is.null(ttest_result)) {
+        
+        # Get raw data for detailed statistics
+        group1_name <- unique_groups[1]
+        group2_name <- unique_groups[2]
+        
+        group1_data <- na.omit(analy_SCFA$data[[outcome_var]][analy_SCFA$data[[group_var]] == group1_name])
+        group2_data <- na.omit(analy_SCFA$data[[outcome_var]][analy_SCFA$data[[group_var]] == group2_name])
+        
+        # Calculate statistics
+        n1 <- length(group1_data)
+        n2 <- length(group2_data)
+        n_total <- n1 + n2
+        
+        mean1 <- mean(group1_data, na.rm = TRUE)
+        mean2 <- mean(group2_data, na.rm = TRUE)
+        
+        sd1 <- sd(group1_data, na.rm = TRUE)
+        sd2 <- sd(group2_data, na.rm = TRUE)
+        
+        # Calculate Cohen's d
+        cohens_d_val <- calculate_cohens_d(mean1, mean2, sd1, sd2, n1, n2)
+        effect_interpretation <- interpret_cohens_d(cohens_d_val)
+        
+        # Determine significance
+        sig_level <- determine_significance(ttest_result$p_value)
+        
+        # Extract CI bounds (from t-test result)
+        ci_lower <- ttest_result$confidence_interval[1]
+        ci_upper <- ttest_result$confidence_interval[2]
+        
+        # Append to results data frame
+        ttest_results <- rbind(ttest_results, data.frame(
+          Test_ID = paste0("T", sprintf("%03d", test_counter)),
+          Outcome_Variable = outcome_var,
+          Grouping_Variable = group_var,
+          Test_Type = "Independent t-test",
+          Sample_Size_Total = n_total,
+          Sample_Size_Group1 = n1,
+          Sample_Size_Group2 = n2,
+          Mean_Group1 = round(mean1, 4),
+          Mean_Group2 = round(mean2, 4),
+          SD_Group1 = round(sd1, 4),
+          SD_Group2 = round(sd2, 4),
+          T_Statistic = round(as.numeric(ttest_result$t_statistic), 4),
+          Degrees_of_Freedom = round(n1 + n2 - 2),
+          P_Value = round(ttest_result$p_value, 6),
+          Cohen_d = round(cohens_d_val, 4),
+          Effect_Size_Interpretation = effect_interpretation,
+          Confidence_Interval_Lower = round(ci_lower, 4),
+          Confidence_Interval_Upper = round(ci_upper, 4),
+          Significance_Level = sig_level,
+          stringsAsFactors = FALSE
+        ))
+        
+        cat("  ✓ Completed | t =", 
+            round(as.numeric(ttest_result$t_statistic), 3),
+            "| p =", 
+            round(ttest_result$p_value, 4),
+            "| d =",
+            round(cohens_d_val, 3), "\n")
+      }
+      
+    } else if (length(unique_groups) > 2) {
+      cat("  Note: Skipped (", group_var, "has", length(unique_groups), "groups - requires ANOVA)\n")
+    } else {
+      cat("  Note: Skipped (insufficient groups for t-test)\n")
+    }
+  }
+}
+
+#==============================================================================
+# Step 6: Export results to CSV file
+#==============================================================================
+csv_filename <- file.path(output_dir, "t_test_results.csv")
+
+write.csv(ttest_results, 
+          file = csv_filename, 
+          row.names = FALSE, 
+          quote = TRUE)
+
+cat("\n✓ CSV export completed:", csv_filename, "\n")
+
+#==============================================================================
+# Step 7: Create comprehensive TXT report
+#==============================================================================
+txt_filename <- file.path(output_dir, "t_test_results.txt")
+
+# sink(txt_filename)  # Redirect output to file
+
+cat("================================================================================\n")
+cat("COMPREHENSIVE T-TEST ANALYSIS REPORT\n")
+cat("Indoor Environmental Quality & Work Performance Study\n")
+cat("================================================================================\n\n")
+
+cat("ANALYSIS METADATA\n")
+cat("Date Generated:", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
+cat("Data Source:", analy_SCFA$data_source, "\n")
+cat("Total Sample Size:", nrow(analy_SCFA$data), "\n")
+cat("Number of Numeric Variables Tested:", length(numeric_vars), "\n")
+cat("Number of Grouping Variables:", length(categorical_vars), "\n")
+cat("Total Tests Performed:", test_counter, "\n\n")
+
+cat("================================================================================\n")
+cat("STATISTICAL TEST SUMMARY\n")
+cat("================================================================================\n\n")
+
+# Summary statistics
+significant_tests <- sum(ttest_results$P_Value < 0.05, na.rm = TRUE)
+p_001_tests <- sum(ttest_results$P_Value < 0.001, na.rm = TRUE)
+p_01_tests <- sum(ttest_results$P_Value < 0.01, na.rm = TRUE)
+p_05_tests <- sum(ttest_results$P_Value < 0.05, na.rm = TRUE)
+
+cat("Significant Tests (p < 0.05):", significant_tests, "/", test_counter, "\n")
+cat("Highly Significant (p < 0.01):", p_01_tests, "\n")
+cat("Very Highly Significant (p < 0.001):", p_001_tests, "\n")
+
+# Effect size distribution
+effect_counts <- table(ttest_results$Effect_Size_Interpretation)
+cat("\nEffect Size Distribution:\n")
+for (effect in names(effect_counts)) {
+  cat(sprintf("  %s: %d tests\n", effect, effect_counts[effect]))
+}
+
+cat("\n================================================================================\n")
+cat("DETAILED RESULTS BY OUTCOME VARIABLE\n")
+cat("================================================================================\n\n")
+
+# Sort and display by outcome variable
+for (outcome in unique(ttest_results$Outcome_Variable)) {
+  subset_results <- ttest_results[ttest_results$Outcome_Variable == outcome, ]
+  
+  cat("─── OUTCOME VARIABLE:", outcome, "───\n\n")
+  
+  for (i in 1:nrow(subset_results)) {
+    row <- subset_results[i, ]
+    
+    cat(sprintf("Test ID: %s\n", row$Test_ID))
+    cat(sprintf("Grouping Variable: %s\n", row$Grouping_Variable))
+    cat(sprintf("Sample Sizes: Total = %d | %s = %d, %s = %d\n",
+                row$Sample_Size_Total,
+                unique_groups[1], row$Sample_Size_Group1,
+                unique_groups[2], row$Sample_Size_Group2))
+    cat(sprintf("Descriptives: Mean(G1) = %.4f ± %.4f | Mean(G2) = %.4f ± %.4f\n",
+                row$Mean_Group1, row$SD_Group1,
+                row$Mean_Group2, row$SD_Group2))
+    cat(sprintf("t-Test Results: t(%.0f) = %.4f, p = %.6f %s\n",
+                row$Degrees_of_Freedom,
+                row$T_Statistic,
+                row$P_Value,
+                row$Significance_Level))
+    cat(sprintf("Effect Size: Cohen's d = %.4f (%s)\n",
+                row$Cohen_d,
+                row$Effect_Size_Interpretation))
+    cat(sprintf("95%% CI: [%.4f, %.4f]\n",
+                row$Confidence_Interval_Lower,
+                row$Confidence_Interval_Upper))
+    cat("\n")
+  }
+  
+  cat("═══════════════════════════════════════════════════════════\n\n")
+}
+
+cat("\n================================================================================\n")
+cat("INTERPRETATION GUIDELINES\n")
+cat("================================================================================\n\n")
+
+cat("Effect Size (Cohen's d):\n")
+cat("  Negligible: d < 0.2\n")
+cat("  Small:      0.2 ≤ d < 0.5\n")
+cat("  Medium:     0.5 ≤ d < 0.8\n")
+cat("  Large:      0.8 ≤ d < 1.2\n")
+cat("  Very Large: d ≥ 1.2\n\n")
+
+cat("Statistical Significance:\n")
+cat("  *** p < 0.001 (Very highly significant)\n")
+cat("  **  p < 0.01  (Highly significant)\n")
+cat("  *   p < 0.05  (Significant)\n")
+cat("  ns  p ≥ 0.05  (Not significant)\n\n")
+
+cat("================================================================================\n")
+cat("TECHNICAL NOTES\n")
+cat("================================================================================\n\n")
+
+cat("Test Method: Welch's t-test (independent samples)\n")
+cat("- Does NOT assume equal variances (more conservative)\n")
+cat("- Recommended for unequal sample sizes or variances\n")
+cat("- Degrees of freedom adjusted using Welch-Satterthwaite equation\n\n")
+
+cat("Effect Size Calculation: Cohen's d (pooled)\n")
+cat("  d = |M1 - M2| / SDpooled\n")
+cat("  Where SDpooled = sqrt[((n1-1)*SD1² + (n2-1)*SD2²) / (n1+n2-2)]\n\n")
+
+cat("Confidence Intervals: 95% coverage probability\n")
+cat("- Computed using t-distribution with Welch-Satterthwaite df\n\n")
+
+cat("================================================================================\n")
+cat("END OF REPORT\n")
+cat("================================================================================\n")
+
+# sink()  # Return output to console
+
+cat("\n✓ TXT report generated:", txt_filename, "\n")
+
+#==============================================================================
+# Step 8: Create summary statistics table
+#==============================================================================
+summary_stats <- data.frame(
+  Metric = c(
+    "Total Tests Performed",
+    "Significant Tests (p < 0.05)",
+    "Highly Significant (p < 0.01)",
+    "Very Highly Significant (p < 0.001)",
+    "Mean Effect Size (Cohen's d)",
+    "Median Effect Size",
+    "Min Cohen's d",
+    "Max Cohen's d"
+  ),
+  Value = c(
+    test_counter,
+    significant_tests,
+    p_01_tests,
+    p_001_tests,
+    round(mean(ttest_results$Cohen_d, na.rm = TRUE), 4),
+    round(median(ttest_results$Cohen_d, na.rm = TRUE), 4),
+    round(min(ttest_results$Cohen_d, na.rm = TRUE), 4),
+    round(max(ttest_results$Cohen_d, na.rm = TRUE), 4)
+  ),
+  stringsAsFactors = FALSE
 )
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_Sens_LocOcc <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Sensitivity",
-  predictors             = c("Th_AQ_Effect", "Li_So_Effect"),
-  demographic_predictors = c("Location.of.Leaving", "Occupation"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
-)
-#------------------------------------------------------------------------------
-# Simple + multiple only Th_AQ_Effect as outcome and others as predictor
-res_regrission_BCFA_numaric_ThAq <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var = "Th_AQ_Effect",
-  predictors  = c("Sensitivity", "Li_So_Effect", "Performance")
+summary_filename <- file.path(output_dir, "t_test_summary_stats.csv")
+write.csv(summary_stats, file = summary_filename, row.names = FALSE, quote = TRUE)
+
+cat("✓ Summary statistics exported:", summary_filename, "\n\n")
+
+#==============================================================================
+# Step 9: Display results summary in console
+#==============================================================================
+cat("═══════════════════════════════════════════════════════════════════════════════\n")
+cat("T-TEST ANALYSIS COMPLETE\n")
+cat("═══════════════════════════════════════════════════════════════════════════════\n\n")
+
+cat("FILES GENERATED:\n")
+cat("1.", csv_filename, "\n")
+cat("2.", txt_filename, "\n")
+cat("3.", summary_filename, "\n\n")
+
+cat("SUMMARY STATISTICS:\n")
+print(summary_stats)
+
+cat("\nTop 10 Significant Tests (Ranked by Effect Size):\n")
+top_tests <- ttest_results[order(-ttest_results$Cohen_d), ][1:min(10, nrow(ttest_results)), ]
+print(top_tests[, c("Test_ID", "Outcome_Variable", "Grouping_Variable", "P_Value", "Cohen_d", "Effect_Size_Interpretation")])
+
+cat("\n✓ ANALYSIS WORKFLOW COMPLETED SUCCESSFULLY\n")
+
+###----------------------------------Kruskal-Wallis H test----------------------------------------###
+# ==============================================================================
+# SECTION 1: INITIALIZE CONSOLIDATED RESULT STORAGE STRUCTURES
+# ==============================================================================
+
+# --- Summary tables for Kruskal-Wallis H tests (omnibus tests across ≥3 groups) ---
+kw_summary_df <- data.frame(
+  Outcome_Variable = character(),
+  Grouping_Variable = character(),
+  H_Statistic = numeric(),
+  Degrees_of_Freedom = numeric(),
+  P_Value = numeric(),
+  Significant = logical(),
+  N_Groups = integer(),
+  N_Observations = integer(),
+  stringsAsFactors = FALSE
 )
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_ThAq_LenWheigh <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Th_AQ_Effect",
-  predictors             = c("Sensitivity", "Li_So_Effect", "Performance"),
-  demographic_predictors = c("Length", "Weight"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
+# --- Summary tables for pairwise Mann-Whitney U tests (post-hoc comparisons) ---
+mw_pairwise_summary <- data.frame(
+  Outcome_Variable = character(),
+  Grouping_Variable = character(),
+  Group_1 = character(),
+  Group_2 = character(),
+  U_Statistic = numeric(),
+  P_Value = numeric(),
+  P_Value_Adjusted = numeric(),
+  Significant = logical(),
+  Effect_Size_R = numeric(),
+  stringsAsFactors = FALSE
 )
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_ThAq_ageGen <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Th_AQ_Effect",
-  predictors             = c("Sensitivity", "Li_So_Effect", "Performance"),
-  demographic_predictors = c("Gender", "age"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
+# --- Summary tables for Anderson-Darling K-sample distributional tests ---
+ad_ksample_summary <- data.frame(
+  Outcome_Variable = character(),
+  Grouping_Variable = character(),
+  Test_Statistic = numeric(),
+  P_Value = numeric(),
+  Significant = logical(),
+  Test_Type = character(),
+  Interpretation = character(),
+  stringsAsFactors = FALSE
 )
 
-# Full pipeline with demographics and interactions
-res_regre_BCFA_full_ThAq_LocOcc <- analy_SCFA$perform_comprehensive_regression_analysis(
-  outcome_var            = "Th_AQ_Effect",
-  predictors             = c("Sensitivity", "Li_So_Effect", "Performance"),
-  demographic_predictors = c("Location.of.Leaving", "Occupation"),
-  interaction_terms      = TRUE,
-  include_logistic       = TRUE
+# --- Master list to store all detailed results for later access ---
+kruskal_wallis_detailed_results <- list()
+anderson_darling_detailed_results <- list()
+mannwhitney_detailed_results <- list()
+
+cat("\n", rep("=", 80), "\n", sep = "")
+cat("INITIALIZING AUTOMATED NON-PARAMETRIC TESTING PIPELINE\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+# ==============================================================================
+# SECTION 2: EXTRACT VARIABLE NAMES AND GENERATE COMBINATIONS
+# ==============================================================================
+
+# Retrieve numeric and categorical variable names from the regrissorClass object
+numeric_outcomes <- analy_SCFA$numeric_cols
+categorical_grouping_vars <- analy_SCFA$categorical_cols
+
+cat("Numeric outcome variables identified:", length(numeric_outcomes), "\n")
+print(numeric_outcomes)
+
+cat("\nCategorical grouping variables identified:", length(categorical_grouping_vars), "\n")
+print(categorical_grouping_vars)
+
+# Generate all unique combinations of (outcome × grouping_variable)
+outcome_grouping_combinations <- expand.grid(
+  outcome = numeric_outcomes,
+  grouping = categorical_grouping_vars,
+  stringsAsFactors = FALSE
 )
+
+n_combinations <- nrow(outcome_grouping_combinations)
+cat("\nTotal unique outcome × grouping combinations to test:", n_combinations, "\n\n")
+
+# ==============================================================================
+# SECTION 3: AUTOMATED KRUSKAL-WALLIS H TEST LOOP
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("STAGE 1: KRUSKAL-WALLIS H TESTS (Omnibus Tests Across ≥3 Groups)\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+for (idx in seq_len(nrow(outcome_grouping_combinations))) {
+  outcome_var <- outcome_grouping_combinations[idx, "outcome"]
+  grouping_var <- outcome_grouping_combinations[idx, "grouping"]
+  
+  # Verify variable exists and grouping variable has ≥3 unique levels
+  if (!outcome_var %in% names(analy_SCFA$data) || !grouping_var %in% names(analy_SCFA$data)) {
+    cat("WARNING: Skipping", outcome_var, "×", grouping_var, "- variable not found\n")
+    next
+  }
+  
+  n_groups <- length(unique(na.omit(analy_SCFA$data[[grouping_var]])))
+  
+  # Kruskal-Wallis requires ≥3 groups; skip if < 3 unique values
+  if (n_groups < 3) {
+    cat("  Skipping", outcome_var, "×", grouping_var, "(n_groups =", n_groups, ")\n")
+    next
+  }
+  
+  cat("Testing:", outcome_var, "across", grouping_var, 
+      sprintf("(%d groups, n=%d)\n", n_groups, nrow(analy_SCFA$data)))
+  
+  # Execute Kruskal-Wallis test
+  kw_result <- tryCatch({
+    analy_SCFA$perform_kruskal_wallis(outcome = outcome_var, 
+                                      group_column = grouping_var, 
+                                      plot = FALSE)  # Suppress plots in loop
+  }, error = function(e) {
+    cat("    ERROR:", e$message, "\n")
+    return(NULL)
+  })
+  
+  # Extract and store results
+  if (!is.null(kw_result)) {
+    result_row <- data.frame(
+      Outcome_Variable = outcome_var,
+      Grouping_Variable = grouping_var,
+      H_Statistic = kw_result$h_statistic,
+      Degrees_of_Freedom = kw_result$degrees_of_freedom,
+      P_Value = kw_result$p_value,
+      Significant = kw_result$p_value < 0.05,
+      N_Groups = n_groups,
+      N_Observations = nrow(analy_SCFA$data),
+      stringsAsFactors = FALSE
+    )
+    
+    kw_summary_df <- rbind(kw_summary_df, result_row)
+    
+    # Store full result object for detailed inspection
+    result_key <- paste(outcome_var, grouping_var, sep = "_X_")
+    kruskal_wallis_detailed_results[[result_key]] <- kw_result
+    
+    # Print inline summary
+    cat(sprintf("    H = %.4f, df = %d, p = %.6f %s\n", 
+                kw_result$h_statistic, 
+                kw_result$degrees_of_freedom,
+                kw_result$p_value,
+                ifelse(kw_result$p_value < 0.05, "***", "")))
+  }
+}
+
+cat("\n")
+cat("Kruskal-Wallis testing completed.\n")
+cat("Total significant findings (p < 0.05):", sum(kw_summary_df$Significant), "\n\n")
+
+# ==============================================================================
+# SECTION 4: AUTOMATED PAIRWISE MANN-WHITNEY U TESTS (Post-Hoc)
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("STAGE 2: PAIRWISE MANN-WHITNEY U TESTS (Post-Hoc Comparisons)\n")
+cat("(Applied only to Kruskal-Wallis significant results)\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+# Bonferroni correction: adjust alpha for multiple comparisons
+bonferroni_alpha <- 0.05 / nrow(kw_summary_df)
+cat("Bonferroni-corrected significance threshold: α =", round(bonferroni_alpha, 6), "\n\n")
+
+for (idx in seq_len(nrow(kw_summary_df))) {
+  kw_row <- kw_summary_df[idx, ]
+  
+  # Only conduct pairwise tests if Kruskal-Wallis was significant
+  if (!kw_row$Significant) {
+    next
+  }
+  
+  outcome_var <- kw_row$Outcome_Variable
+  grouping_var <- kw_row$Grouping_Variable
+  
+  cat("Conducting pairwise Mann-Whitney U tests for:",
+      outcome_var, "×", grouping_var, "\n")
+  
+  # Call the perform_kw_then_pairwise_mw() function
+  pairwise_results <- tryCatch({
+    perform_kw_then_pairwise_mw(analy_SCFA, 
+                                outcome_var, 
+                                grouping_var, 
+                                plot = FALSE)
+  }, error = function(e) {
+    cat("    ERROR in pairwise Mann-Whitney:", e$message, "\n")
+    return(NULL)
+  })
+  
+  # Extract pairwise comparisons from results (structure depends on perform_kw_then_pairwise_mw implementation)
+  if (!is.null(pairwise_results) && !is.null(pairwise_results$pairwise_comparisons)) {
+    pairwise_df <- pairwise_results$pairwise_comparisons
+    
+    # Add outcome and grouping variable columns
+    pairwise_df$Outcome_Variable <- outcome_var
+    pairwise_df$Grouping_Variable <- grouping_var
+    
+    # Apply Bonferroni correction to p-values
+    pairwise_df$P_Value_Adjusted <- p.adjust(pairwise_df$P_Value, method = "bonferroni")
+    pairwise_df$Significant <- pairwise_df$P_Value_Adjusted < 0.05
+    
+    # Calculate effect size (rank-biserial correlation: r = 1 - (2U / (n1 * n2)))
+    if ("U_Statistic" %in% names(pairwise_df) && "N1" %in% names(pairwise_df)) {
+      pairwise_df$Effect_Size_R <- 1 - (2 * pairwise_df$U_Statistic) / 
+        (pairwise_df$N1 * pairwise_df$N2)
+    }
+    
+    # Append to master pairwise summary
+    mw_pairwise_summary <- rbind(mw_pairwise_summary, pairwise_df)
+    
+    # Store detailed results
+    result_key <- paste(outcome_var, grouping_var, "pairwise", sep = "_X_")
+    mannwhitney_detailed_results[[result_key]] <- pairwise_results
+    
+    cat(sprintf("    Completed %d pairwise comparisons\n", nrow(pairwise_df)))
+  }
+}
+
+cat("\n")
+cat("Pairwise Mann-Whitney U testing completed.\n")
+cat("Total pairwise comparisons executed:", nrow(mw_pairwise_summary), "\n")
+cat("Significant pairwise findings (Bonferroni-corrected):", 
+    sum(mw_pairwise_summary$Significant), "\n\n")
+
+# ==============================================================================
+# SECTION 5: AUTOMATED ANDERSON-DARLING K-SAMPLE DISTRIBUTIONAL TESTS
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("STAGE 3: ANDERSON-DARLING K-SAMPLE DISTRIBUTIONAL TESTS\n")
+cat("(Assesses whether distributions are equivalent across demographic groups)\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+for (idx in seq_len(nrow(outcome_grouping_combinations))) {
+  outcome_var <- outcome_grouping_combinations[idx, "outcome"]
+  grouping_var <- outcome_grouping_combinations[idx, "grouping"]
+  
+  # Validate variables
+  if (!outcome_var %in% names(analy_SCFA$data) || !grouping_var %in% names(analy_SCFA$data)) {
+    next
+  }
+  
+  n_groups <- length(unique(na.omit(analy_SCFA$data[[grouping_var]])))
+  
+  # Anderson-Darling K-sample test requires ≥2 groups
+  if (n_groups < 2) {
+    next
+  }
+  
+  cat("Testing distributional equivalence for:", outcome_var, "by", grouping_var, "\n")
+  
+  # Execute Anderson-Darling K-sample test
+  ad_result <- tryCatch({
+    analy_SCFA$perform_levene_anderson(outcome = outcome_var,
+                                       group_column = grouping_var,
+                                       type = "anderson_darling_k",
+                                       plot = FALSE)  # Suppress plots
+  }, error = function(e) {
+    cat("    ERROR:", e$message, "\n")
+    return(NULL)
+  })
+  
+  # Extract and store results
+  if (!is.null(ad_result)) {
+    # Interpret Anderson-Darling result
+    interpretation <- ifelse(ad_result$p_value < 0.05,
+                             "Distributions differ significantly across groups",
+                             "No significant distributional differences detected")
+    
+    result_row <- data.frame(
+      Outcome_Variable = outcome_var,
+      Grouping_Variable = grouping_var,
+      Test_Statistic = ad_result$statistic,
+      P_Value = ad_result$p_value,
+      Significant = ad_result$p_value < 0.05,
+      Test_Type = "Anderson-Darling K-Sample",
+      Interpretation = interpretation,
+      stringsAsFactors = FALSE
+    )
+    
+    ad_ksample_summary <- rbind(ad_ksample_summary, result_row)
+    
+    # Store full result
+    result_key <- paste(outcome_var, grouping_var, "AD_K", sep = "_X_")
+    anderson_darling_detailed_results[[result_key]] <- ad_result
+    
+    cat(sprintf("    A² = %.4f, p = %.6f %s\n", 
+                ad_result$statistic,
+                ad_result$p_value,
+                ifelse(ad_result$p_value < 0.05, "***", "")))
+  }
+}
+
+cat("\n")
+cat("Anderson-Darling K-sample testing completed.\n")
+cat("Total significant findings:", sum(ad_ksample_summary$Significant), "\n\n")
+
+# ==============================================================================
+# SECTION 6: EXTRACT EFFECT SIZES FROM cfTestClass METHODS
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("SECTION 6: EXTRACT EFFECT SIZES AND STANDARDIZED METRICS\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+# Initialize effect size consolidation table
+effect_size_summary <- data.frame(
+  Outcome_Variable = character(),
+  Grouping_Variable = character(),
+  Test_Type = character(),
+  Effect_Size_Value = numeric(),
+  Effect_Size_Type = character(),
+  Effect_Size_Interpretation = character(),
+  stringsAsFactors = FALSE
+)
+
+# Extract Cramér's V from Chi-Square tests (if categorical outcomes were analyzed)
+# This is a placeholder; adapt if chi-square tests are conducted separately
+cat("Effect size extraction from test results:\n\n")
+
+# For Mann-Whitney U results, calculate effect sizes (rank-biserial r)
+if (nrow(mw_pairwise_summary) > 0 && "Effect_Size_R" %in% names(mw_pairwise_summary)) {
+  for (idx in seq_len(nrow(mw_pairwise_summary))) {
+    row <- mw_pairwise_summary[idx, ]
+    
+    if (!is.na(row$Effect_Size_R)) {
+      # Interpret effect size (Cohen's conventions for rank-biserial r)
+      if (abs(row$Effect_Size_R) < 0.1) {
+        interpretation <- "Negligible"
+      } else if (abs(row$Effect_Size_R) < 0.3) {
+        interpretation <- "Small"
+      } else if (abs(row$Effect_Size_R) < 0.5) {
+        interpretation <- "Medium"
+      } else {
+        interpretation <- "Large"
+      }
+      
+      effect_size_row <- data.frame(
+        Outcome_Variable = row$Outcome_Variable,
+        Grouping_Variable = row$Grouping_Variable,
+        Test_Type = "Mann-Whitney U (Pairwise)",
+        Effect_Size_Value = row$Effect_Size_R,
+        Effect_Size_Type = "Rank-Biserial r",
+        Effect_Size_Interpretation = interpretation,
+        stringsAsFactors = FALSE
+      )
+      
+      effect_size_summary <- rbind(effect_size_summary, effect_size_row)
+    }
+  }
+}
+
+cat("Effect sizes extracted:", nrow(effect_size_summary), "\n")
+cat("Mean effect size magnitude:", round(mean(abs(effect_size_summary$Effect_Size_Value), 
+                                              na.rm = TRUE), 4), "\n\n")
+
+# ==============================================================================
+# SECTION 7: CONSOLIDATE AND DISPLAY SUMMARY TABLES
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("CONSOLIDATED RESULTS: SUMMARY TABLES\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+# --- KRUSKAL-WALLIS SUMMARY TABLE ---
+cat("TABLE 1: KRUSKAL-WALLIS H TESTS (Omnibus Tests)\n")
+cat(rep("-", 80), "\n")
+
+# Sort by p-value for clarity
+kw_summary_sorted <- kw_summary_df[order(kw_summary_df$P_Value), ]
+
+# Display with formatted p-values
+print(kw_summary_sorted, digits = 6)
+cat("\n")
+
+# --- MANN-WHITNEY U PAIRWISE SUMMARY (Significant Results Only) ---
+cat("\nTABLE 2: MANN-WHITNEY U PAIRWISE COMPARISONS (Significant Results Only, p < 0.05)\n")
+cat(rep("-", 80), "\n")
+
+significant_mw <- mw_pairwise_summary[mw_pairwise_summary$Significant, ]
+
+if (nrow(significant_mw) > 0) {
+  mw_display <- significant_mw[order(significant_mw$P_Value_Adjusted), 
+                               c("Outcome_Variable", "Grouping_Variable", "Group_1", 
+                                 "Group_2", "U_Statistic", "P_Value_Adjusted", 
+                                 "Effect_Size_R")]
+  print(mw_display, digits = 6)
+} else {
+  cat("No significant pairwise comparisons detected (after Bonferroni correction).\n")
+}
+cat("\n")
+
+# --- ANDERSON-DARLING SUMMARY TABLE ---
+cat("\nTABLE 3: ANDERSON-DARLING K-SAMPLE DISTRIBUTIONAL TESTS\n")
+cat(rep("-", 80), "\n")
+
+ad_summary_sorted <- ad_ksample_summary[order(ad_ksample_summary$P_Value), ]
+print(ad_summary_sorted, digits = 6)
+cat("\n")
+
+# --- EFFECT SIZES SUMMARY TABLE ---
+cat("\nTABLE 4: STANDARDIZED EFFECT SIZES\n")
+cat(rep("-", 80), "\n")
+
+if (nrow(effect_size_summary) > 0) {
+  effect_sorted <- effect_size_summary[order(abs(effect_size_summary$Effect_Size_Value), 
+                                             decreasing = TRUE), ]
+  print(effect_sorted, digits = 6)
+} else {
+  cat("No standardized effect sizes computed in this iteration.\n")
+}
+cat("\n")
+
+# ==============================================================================
+# SECTION 8: EXPORT RESULTS TO CSV FILES FOR PUBLICATION
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("EXPORTING RESULTS TO OUTPUT FILES\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+output_dir <- "Statistical_Results"
+if (!dir.exists(output_dir)) {
+  dir.create(output_dir)
+}
+
+# Write Kruskal-Wallis results
+write.csv(kw_summary_df, 
+          file.path(output_dir, "01_Kruskal_Wallis_Summary.csv"),
+          row.names = FALSE)
+cat("✓ Exported: Kruskal-Wallis summary to CSV\n")
+
+# Write Mann-Whitney U pairwise results
+write.csv(mw_pairwise_summary, 
+          file.path(output_dir, "02_Mann_Whitney_Pairwise_Summary.csv"),
+          row.names = FALSE)
+cat("✓ Exported: Mann-Whitney U pairwise comparisons to CSV\n")
+
+# Write Anderson-Darling results
+write.csv(ad_ksample_summary, 
+          file.path(output_dir, "03_Anderson_Darling_Summary.csv"),
+          row.names = FALSE)
+cat("✓ Exported: Anderson-Darling K-sample results to CSV\n")
+
+# Write effect sizes
+write.csv(effect_size_summary, 
+          file.path(output_dir, "04_Effect_Sizes_Summary.csv"),
+          row.names = FALSE)
+cat("✓ Exported: Effect sizes to CSV\n")
+
+cat("\n")
+cat("All results exported to directory:", getwd(), "/", output_dir, "\n\n")
+
+# ==============================================================================
+# SECTION 9: OPTIONAL – GENERATE PUBLICATION-READY SUMMARY REPORT
+# ==============================================================================
+
+cat(rep("=", 80), "\n", sep = "")
+cat("GENERATING CONSOLIDATED STATISTICAL REPORT\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+report_text <- sprintf(
+  "
+STATISTICAL ANALYSIS REPORT: NON-PARAMETRIC TESTS
+Generated: %s
+
+EXECUTIVE SUMMARY
+─────────────────────────────────────────────────────────────────────────────
+
+Total Outcome × Grouping Variable Combinations Tested: %d
+
+KRUSKAL-WALLIS H TESTS (Omnibus):
+  • Total tests executed: %d
+  • Significant findings (p < 0.05): %d (%.1f%%)
+  • Mean H-statistic: %.4f
+
+MANN-WHITNEY U PAIRWISE TESTS:
+  • Total pairwise comparisons: %d
+  • Significant findings (Bonferroni-corrected): %d (%.1f%%)
+  • Mean effect size (rank-biserial r): %.4f
+
+ANDERSON-DARLING K-SAMPLE TESTS:
+  • Total distributional tests: %d
+  • Significant differences: %d (%.1f%%)
+
+KEY FINDINGS
+─────────────────────────────────────────────────────────────────────────────
+
+1. OUTCOMES WITH SIGNIFICANT HETEROGENEITY (Kruskal-Wallis p < 0.05):
+%s
+
+2. MOST PRONOUNCED PAIRWISE DIFFERENCES (Largest Effect Sizes):
+%s
+
+3. DISTRIBUTIONAL EQUIVALENCE STATUS (Anderson-Darling):
+%s
+
+INTERPRETATION NOTES
+─────────────────────────────────────────────────────────────────────────────
+- Kruskal-Wallis H tests assess whether outcome distributions differ across 
+  demographic/categorical groups (omnibus test; ≥3 groups required).
+- Mann-Whitney U pairwise tests follow significant Kruskal-Wallis results,
+  with Bonferroni correction applied for multiple comparisons.
+- Anderson-Darling K-sample tests determine whether entire distributions are
+  equivalent across strata, not just means or medians.
+- Rank-biserial r effect sizes are interpreted: small (0.1), medium (0.3),
+  large (0.5) per Cohen conventions for non-parametric rank tests.
+
+RECOMMENDATIONS FOR PUBLICATION
+─────────────────────────────────────────────────────────────────────────────
+1. Present Kruskal-Wallis results alongside effect sizes (not typically reported).
+2. For significant omnibus results, emphasize pairwise comparisons with 
+   Bonferroni or FDR-corrected p-values.
+3. Discuss Anderson-Darling findings in context of location shifts vs. 
+   shape differences in distributions.
+4. Report medians and IQRs alongside statistical tests (not means for 
+   non-parametric data).
+
+─────────────────────────────────────────────────────────────────────────────
+Report compiled on: %s
+Data source: cfa_Second_factors_outout_data.csv (n = %d)
+",
+  Sys.time(),
+  nrow(outcome_grouping_combinations),
+  nrow(kw_summary_df),
+  sum(kw_summary_df$Significant),
+  100 * sum(kw_summary_df$Significant) / nrow(kw_summary_df),
+  mean(kw_summary_df$H_Statistic),
+  nrow(mw_pairwise_summary),
+  sum(mw_pairwise_summary$Significant, na.rm = TRUE),
+  ifelse(nrow(mw_pairwise_summary) > 0, 
+         100 * sum(mw_pairwise_summary$Significant, na.rm = TRUE) / nrow(mw_pairwise_summary),
+         0),
+  mean(mw_pairwise_summary$Effect_Size_R, na.rm = TRUE),
+  nrow(ad_ksample_summary),
+  sum(ad_ksample_summary$Significant),
+  100 * sum(ad_ksample_summary$Significant) / nrow(ad_ksample_summary),
+  # Significant KW outcomes
+  ifelse(sum(kw_summary_df$Significant) > 0,
+         paste("  •", kw_summary_df[kw_summary_df$Significant, "Outcome_Variable"], 
+               "×", kw_summary_df[kw_summary_df$Significant, "Grouping_Variable"],
+               "(p =", round(kw_summary_df[kw_summary_df$Significant, "P_Value"], 6), ")",
+               collapse = "\n"),
+         "  (None detected)"),
+  # Top effect sizes
+  ifelse(nrow(effect_size_summary) > 0,
+         paste("  •", 
+               head(effect_size_summary$Outcome_Variable, 3),
+               "vs",
+               head(effect_size_summary$Grouping_Variable, 3),
+               "(r =", round(head(effect_size_summary$Effect_Size_Value, 3), 4), ")",
+               collapse = "\n"),
+         "  (None computed)"),
+  # AD interpretation
+  ifelse(sum(ad_ksample_summary$Significant) > 0,
+         paste("  •", ad_ksample_summary[ad_ksample_summary$Significant, "Outcome_Variable"],
+               "×", ad_ksample_summary[ad_ksample_summary$Significant, "Grouping_Variable"],
+               collapse = "\n"),
+         "  All distributions appear equivalent"),
+  Sys.time(),
+  nrow(analy_SCFA$data)
+)
+
+# Write report to file
+report_filename <- file.path(output_dir, "Statistical_Analysis_Report.txt")
+writeLines(report_text, con = report_filename)
+cat("✓ Comprehensive statistical report exported to:", report_filename, "\n\n")
+
+# Print report to console
+cat(report_text)
+
+cat(rep("=", 80), "\n", sep = "")
+cat("AUTOMATED TESTING PIPELINE COMPLETED SUCCESSFULLY\n")
+cat(rep("=", 80), "\n")
 
 ##========================================================================
 ## perform cluster analysis or k-mean clustering on continuous factor data.
@@ -915,7 +2062,7 @@ summary_df <- data.frame(
 
 
 # extract the name of categorical variables from the class:
-categorical_vars <- conf_Analyzer$categorical_cols
+categorical_vars <- scfa_conf_Analyzer$categorical_cols
 print(categorical_vars)
 #iterate over all variables and made chi-square test and Fisher test between them (15) iteration
 for (i in c(1:(length(categorical_vars)-1))){
@@ -925,7 +2072,7 @@ for (i in c(1:(length(categorical_vars)-1))){
     var_1 <- categorical_vars[i]
     var_2 <- categorical_vars[j]
     # Test independence between var1 and var2
-    chi_results <- conf_Analyzer$perform_chi_square_test(var1 = var_1, 
+    chi_results <- scfa_conf_Analyzer$perform_chi_square_test(var1 = var_1, 
                                                          var2 = var_2
                                                          )
     
@@ -1002,8 +2149,8 @@ all_stratified_results <- list()
 
 for (i in categorical_vars){
         # Example usage:
-        stratified_results <- conf_Analyzer$perform_stratified_analysis(
-          data            = conf_Analyzer$data,
+        stratified_results <- scfa_conf_Analyzer$perform_stratified_analysis(
+          data            = scfa_conf_Analyzer$data,
           outcome = "Performance",
           predictors = c("Sensitivity", "Th_AQ_Effect", "Li_So_Effect"),
           stratify_by_var = i
@@ -1025,7 +2172,7 @@ for (i in categorical_vars){
           ))
         }
         # 5. Extract effect sizes from stratified analysis
-        stratum_effect_sizes <- conf_Analyzer$extract_effect_sizes(
+        stratum_effect_sizes <- scfa_conf_Analyzer$extract_effect_sizes(
           list(r.squared = stratified_results[[stratum_name]]$r_squared),
           "regression"
         )
@@ -1054,8 +2201,8 @@ print(sratfied_summary_df, row.names = FALSE)
 
 # Mediation Analysis Example
 # Run the Lavaan mediation analysis
-lavaan_med_results <- conf_Analyzer$perform_lavaan_mediation(
-  data = conf_Analyzer$data,
+lavaan_med_results <- scfa_conf_Analyzer$perform_lavaan_mediation(
+  data = scfa_conf_Analyzer$data,
   demographic_var = "age",             # Categorical variable!
   outcome_var = "Performance",
   mediator_var = "Th_AQ_Effect",
@@ -1069,8 +2216,8 @@ lavaan_med_results <- conf_Analyzer$perform_lavaan_mediation(
 print(lavaan_med_results)
 
 # If you want to include Moderation Analysis
-moderation_results <- conf_Analyzer$perform_mediation_moderation_analysis(
-  data = conf_Analyzer$data,
+moderation_results <- scfa_conf_Analyzer$perform_mediation_moderation_analysis(
+  data = scfa_conf_Analyzer$data,
   demographic_var = "Sensitivity",
   outcome_var = "Performance", 
   mediator_var = "Th_AQ_Effect",
@@ -1085,7 +2232,7 @@ print(moderation_results )
 # The following tests include 
 #     - Effect Size Calculation and Standardized Reporting
 #     - Sensitivity Analysis and Robustness Testing
-sensitivity_results_perf = conf_Analyzer$perform_sensitivity_analysis(data =  conf_Analyzer$data, 
+sensitivity_results_perf = scfa_conf_Analyzer$perform_sensitivity_analysis(data =  scfa_conf_Analyzer$data, 
                                                model_type = "linear",
                                                dependent_var = "Performance",
                                                independent_vars = c("Sensitivity", "Th_AQ_Effect", "Li_So_Effect"),
@@ -1108,18 +2255,13 @@ print(sensitivity_results_perf$subgroup_analysis)
 ###=============================================================================
 ###=============================================================================
 analy_SCFA$list_all_methods()
-conf_Analyzer$list_all_methods()
+scfa_conf_Analyzer$list_all_methods()
 ###=============================================================================
 ###=============================================================================
 ###=============================================================================
 ###=============================================================================
 ###=============================================================================
-##Create new two objects  analy_BOr  which is the regressor class instant, and  
-## analy_BOr_conf which is the cfTestClass instant
-analy_BOr = regrissorClass$new(data_BOrRank)
-analy_BOr_conf = cfTestClass$new(input=data_BOrRank,
-                                 file_sep = ",", 
-                                 header = TRUE)
+
 
 #perform the rest on the ranked discrete data
 # Mann-Whitney U test (e.g., distribution of performance_decrease between two groups)

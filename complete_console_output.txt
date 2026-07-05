@@ -4621,4 +4621,31 @@ If Fishers_P_Value is present, the Chi-Square approximation was unreliable (expe
            used  (Mb) gc trigger  (Mb) max used  (Mb)
 Ncells 10964937 585.6   16508029 881.7 16508029 881.7
 Vcells 24710162 188.6   44947622 343.0 44947622 343.0
-
+-/                                                                                                                       /                                                                                                                       -                                                                                                                       -/                                                                                                                       /                                                                                                                       -                                                                                                                       -/                                                                                                                       /                                                                                                                       -                                                                                                                       Data provided as data.frame
+DataAnalyzer initialized with 212 rows and 23 columns
+Numeric columns: 6 | Categorical columns: 17 
+Data source: Direct data.frame 
+Data provided as data.frame
+DataAnalyzer initialized with 212 rows and 23 columns
+Numeric columns: 6 | Categorical columns: 17 
+Data source: Direct data.frame 
+Data provided as data.frame
+DataAnalyzer initialized with 219 rows and 41 columns
+Numeric columns: 22 | Categorical columns: 19 
+Data source: Direct data.frame 
+Data provided as data.frame
+DataAnalyzer initialized with 219 rows and 41 columns
+Numeric columns: 22 | Categorical columns: 19 
+Data source: Direct data.frame 
+ [1] "Language"                                               "Gender"                                                
+ [3] "height"                                                 "Age"                                                   
+ [5] "Weight"                                                 "How_long_in_this_role_environment"                     
+ [7] "Typical_daily_work_schedule"                            "Does_your_work_involve_high_cognitive_load"            
+ [9] "Actively_adjust_environment_during_IEQ_fluctuations"    "More_sensitive_to_IEQ_changes_due_to_health_conditions"
+[11] "How_quickly_notice_IEQ_parameter_change"                "Typical_response_to_IEQ_discomfort"                    
+[13] "Ever_requested_workplace_modifications"                 "Headache_sleepy_at_work_enough_sleep_due_to_light_air" 
+[15] "IEQ_training_receivedWilling_to_join_IEQ_programs"      "Country"                                               
+[17] "profession"                                            
+[1] "productivity"                               "Work_effectively"                          
+[3] "performance_decrease_under_thermal_and_Air" "Sensitivity"                               
+[5] "performance_decrease_under_noise_and_light" "Combined_Effect_of_Air_thermal_noise_light"
