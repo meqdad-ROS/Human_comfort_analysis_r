@@ -23,3 +23,5 @@ regression_results/detailed_logistic_regression_models.txt
 regression_results/detailed_logistic_regression_models.txt
 regression_results/*.txt
 regression_results/detailed_logistic_regression_models.txt
+regression_results/*.txt
+regression_results/detailed_logistic_regression_models.txt
