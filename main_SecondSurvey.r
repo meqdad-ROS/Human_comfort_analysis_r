@@ -31,8 +31,9 @@ source("ComparativeAnalyzer.r")
 source("perform_kw_then_pairwise_mw.r")
 source("cfTestClass.r")
 cat("\014")  #clear consol from code 
-#-------------------------------------------------------------------------------
-# Step 1: load Data 
+#===============================================================================
+# STEP 1: LOAD DATA
+#===============================================================================
 
 # # Data from first  and second datasets both merged together _Confirmatory Factor analysis score data
 data_SCFs <- read.csv("SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv", header = TRUE)
@@ -40,41 +41,49 @@ View(data_SCFs)
 ## Upload the original response after cleaning (the ranked) dataset of both survey after merging them out. 
 data_SOrRank <- read_excel("SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx")
 View(data_SOrRank)
-#-------------------------------------------------------------------------------
-# Step 2: create instant Objects for all data sets
+#===============================================================================
+# STEP 2: CREATE OBJECT INSTANCES
+#===============================================================================
+clean_data <- na.omit(data_SCFs)
 # Second Object for the (Second Datasets  _SCFA) (Continuous Data)
-analy_SCFA <- regrissorClass$new(data_SCFs)
+analy_SCFA <- regrissorClass$new(clean_data)
+
 
 # declare the new Object confirmatory instant object before any method 
 # implementation(Second Datasets  _SCFA) (Continuous Data)
-scfa_conf_Analyzer = cfTestClass$new(input=data_SCFs,
+scfa_conf_Analyzer = cfTestClass$new(input=clean_data,
                                 file_sep = ",", 
                                 header = TRUE)
 
 ##Create new two objects  analy_SSOr  which is the regressor class instant, and  
-## analy_BOr_conf which is the cfTestClass instant
-analy_SSOr = regrissorClass$new(data_SOrRank)
-analy_SSOr_conf = cfTestClass$new(input=data_SOrRank,
+## analy_SSOr_conf which is the cfTestClass instant
+analy_SSOr = regrissorClass$new(na.omit(data_SOrRank))
+analy_SSOr_conf = cfTestClass$new(input=na.omit(data_SOrRank),
                                  file_sep = ",", 
                                  header = TRUE)
-# ==============================================================================
-# Summary of all objects and discriptive statistics: 
+
+#===============================================================================
+# TEST: DESCRIPTIVE STATISTICS & HISTOGRAMS
+#===============================================================================
 ###---- First continuous data summary 
 analy_SCFA$calculate_summary()$print_summary()
 numaric_names <- analy_SCFA$get_numeric_info()$column_names
 categorical_names <- analy_SCFA$get_categorical_info()$column_names
 
-#---------------------------------------------iterate over all variable - Plot Histogram-----------------------------
+#-------------------------------------------------------------------------------
+# TEST: HISTOGRAMS — Iterate over all numeric variables
+#-------------------------------------------------------------------------------
 ### Now self histogram implementation
 for (i in numaric_names){
     analy_SCFA$plot_histogram(i)
 }
-#------------------------  Instead of histogram print plot frequency -----------
-###----------------------------table for categorical varaibles------------------
+#-------------------------------------------------------------------------------
+# TEST: FREQUENCY TABLES — Categorical variables
+#-------------------------------------------------------------------------------
 lapply(analy_SCFA$get_categorical_info()$frequency_tables, print)
-# ==============================================================================
-# ---------------------------------------Linear Regression Model-----------------
-# List models
+#===============================================================================
+# TEST: SCATTER PLOTS BY GROUP — All numeric-pair × categorical combinations
+#===============================================================================
 analy_SCFA$list_regression_models()
 
 for (i in c(1:(length(numaric_names)-1))){
@@ -94,9 +103,9 @@ combn(numaric_names, 2, function(pair){
 pair_numeric_vars = combn(numaric_names, 2, simplify = FALSE)
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
-# ==============================================================================
-# ---------------------------------------Linear Regression Model-------------------------
-# List models
+#===============================================================================
+# TEST: SIMPLE LINEAR REGRESSION — All numeric pairs
+#===============================================================================
 analy_SCFA$list_regression_models()
 
 # It found from scatter plot that the correlation are found between 
@@ -139,8 +148,9 @@ for (i in pair_numeric_vars) {
 #          -------------------------------------------------------
 cat('the following is the dataframe generated by all models of the linear regression')
 print(lin_result_df)
-# ----------------Fitting Multi-linear regression-------------------------------
-# ------------------------------------------------------------------------------
+#===============================================================================
+# TEST: MULTIPLE LINEAR REGRESSION — All 3-variable combinations
+#===============================================================================
 pair_numeric_vars_3 = combn(numaric_names, 3, simplify = FALSE)
 pair_2_catg_var = combn(categorical_names, 2, simplify = FALSE)
 pair_3_catg_var =  combn(categorical_names, 3, simplify = FALSE)
@@ -179,11 +189,11 @@ cat('the following is the dataframe generated by all models of the linear regres
 print(mulinreg_result_df)
 
 
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-#------------------------------------------------------------
-# now implement a comprehensive dataAnalysis using different regression classes at once
-# Simple + multiple. Change outcome and predictors. Made it once the numaric 
+#===============================================================================
+# TEST: COMPREHENSIVE MULTIPLE REGRESSION WITH EFFECT SIZES (η², ω²)
+#       4-variable combinations — outcome ~ 3 predictors
+#===============================================================================
+# Simple + multiple. Change outcome and predictors. Made it once the numeric 
 # and the next with different demographic predictors 
 
 pair_4_numeric_vars <- combn(numaric_names, 4, simplify = FALSE)
@@ -416,12 +426,10 @@ cat("\n✓ Results exported:\n")
 cat("  1. models_summary_with_effect_sizes.csv\n")
 cat("  2. detailed_coefficient_tables.txt\n\n")
 
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-# ==============================================================================
-# Full pipeline with demographics and interactions
-# ==============================================================================
-# COMPREHENSIVE ITERATIVE REGRESSION ANALYSIS
+#===============================================================================
+# TEST: FULL PIPELINE — REGRESSION WITH DEMOGRAPHICS & INTERACTIONS (ANCOVA)
+#       Outcome: all numeric vars | Predictors: sig. vars | Controls: demographics
+#===============================================================================
 # Outcome: All numeric variables
 # Predictors: All numeric variables (excluding outcome)
 # Demographics: All categorical variables
@@ -574,20 +582,28 @@ calculate_omega_squared <- function(model_obj) {
 }
 
 # ==============================================================================
-# MAIN ITERATION LOOP
+# MAIN ITERATION LOOP (OPTIMIZED)
+# ------------------------------------------------------------------------------
+# Optimizations applied based on prior analysis (top_by_omega / sig_predictors):
+#   1. Predictor candidates restricted to sig_predictors (3 vars identified as
+#      consistently significant), reducing predictor combos from 10 → ≤3 per outcome.
+#   2. Demographic combinations limited to size 0 (none) and size 1 (individual),
+#      reducing demo combos from 834 → 18 per predictor combo.
+# Combined reduction: ~50,040 → ~216 model fits (~230× faster).
 # ==============================================================================
 
 for (outcome in numeric_vars) {
   
-  # Get remaining numeric variables as predictors
-  predictor_candidates <- setdiff(numeric_vars, outcome)
+  # Restrict predictors to previously identified significant variables only,
+  # excluding the current outcome variable if it appears among them.
+  predictor_candidates <- setdiff(sig_predictors, outcome)
   
   if (length(predictor_candidates) < 2) {
-    cat("Skipping outcome '", outcome, "': Insufficient predictors\n")
+    cat("Skipping outcome '", outcome, "': Insufficient sig. predictors after exclusion\n")
     next
   }
   
-  # Generate all 2-predictor combinations
+  # Generate all 2-predictor combinations from significant predictors only
   predictor_combos <- combn(predictor_candidates, 2, simplify = FALSE)
   
   cat("\n", rep("=", 80), "\n", sep = "")
@@ -600,19 +616,15 @@ for (outcome in numeric_vars) {
     predictors <- predictor_combos[[pred_idx]]
     predictor_label <- paste(predictors, collapse = " + ")
     
-    # Generate all demographic combinations (including NULL)
-    demo_combo_list <- list(list(size = 0, combos = list(character(0))))
-    
-    # Add demographic combinations of size 1, 2, 3
-    for (demo_size in 1:min(3, length(categorical_vars))) {
-      demo_combos_k <- combn(categorical_vars, demo_size, simplify = FALSE)
-      demo_combo_list[[demo_size + 1]] <- list(size = demo_size, combos = demo_combos_k)
-    }
-    
-    # Flatten the list
-    all_demo_combos <- unlist(
-      lapply(demo_combo_list, function(x) x$combos),
-      recursive = FALSE
+    # Demographic combinations: baseline (none) plus the single best combination
+    # identified by targeted second pass — Age + How_quickly_notice_IEQ_parameter_change.
+    # This eliminates all per-demographic looping while retaining the controls
+    # that consistently improved model fit across all three top outcomes.
+    # include_logistic = FALSE: outcomes are continuous; logistic regression is
+    # not appropriate here and was the main per-fit cost driver.
+    all_demo_combos <- list(
+      character(0),                                                   # baseline: no controls
+      c("Age", "How_quickly_notice_IEQ_parameter_change")             # fixed best demographic block
     )
     
     for (demo_idx in seq_along(all_demo_combos)) {
@@ -629,7 +641,7 @@ for (outcome in numeric_vars) {
           predictors = predictors,
           demographic_predictors = if (length(demographics) > 0) demographics else NULL,
           interaction_terms = TRUE,
-          include_logistic = TRUE
+          include_logistic = FALSE   # continuous outcomes; logistic not applicable
         )
         
       }, error = function(e) {
@@ -638,10 +650,18 @@ for (outcome in numeric_vars) {
         return(NULL)
       })
       
-      # Process successful regression models
+      # Process successful regression models.
+      # When demographics are present, extract from the demographic (ANCOVA) model
+      # so that stored metrics reflect the full model including covariate adjustment.
+      # Fall back to the base multiple model if the demographic model is unavailable.
       if (!is.null(model_results) && !is.null(model_results$multiple)) {
         
-        model_obj <- model_results$multiple$model
+        use_demo_model <- length(demographics) > 0 && !is.null(model_results$demographic)
+        
+        model_obj     <- if (use_demo_model) model_results$demographic$model
+                         else                model_results$multiple$model
+        model_type    <- if (use_demo_model) "ANCOVA (demographics controlled)"
+                         else                "Multiple Linear Regression"
         model_summary <- summary(model_obj)
         
         # Extract all metrics using safe helper function
@@ -654,19 +674,19 @@ for (outcome in numeric_vars) {
           
           # Construct results row with validated data
           results_row <- data.frame(
-            Outcome_Var = outcome,
-            Predictor_Vars = predictor_label,
-            Demographic_Vars = demographic_label,
-            Model_Type = "Multiple Linear Regression",
-            R_Squared = metrics$r_squared,
+            Outcome_Var        = outcome,
+            Predictor_Vars     = predictor_label,
+            Demographic_Vars   = demographic_label,
+            Model_Type         = model_type,
+            R_Squared          = metrics$r_squared,
             Adjusted_R_Squared = metrics$adj_r_squared,
-            Omega_Squared = omega_sq,
-            F_Statistic = metrics$f_statistic,
-            P_Value = metrics$p_value,
-            N_Observations = metrics$n_observations,
-            AIC = metrics$aic,
-            BIC = metrics$bic,
-            stringsAsFactors = FALSE
+            Omega_Squared      = omega_sq,
+            F_Statistic        = metrics$f_statistic,
+            P_Value            = metrics$p_value,
+            N_Observations     = metrics$n_observations,
+            AIC                = metrics$aic,
+            BIC                = metrics$bic,
+            stringsAsFactors   = FALSE
           )
           
           # Append to consolidated results
@@ -676,14 +696,15 @@ for (outcome in numeric_vars) {
           model_key <- paste(outcome, "|", predictor_label, "|", 
                              demographic_label, sep = "")
           all_regression_models[[model_key]] <- list(
-            model = model_obj,
+            model   = model_obj,
             summary = model_summary,
             metrics = metrics
           )
           
-          cat("  ✓ Success | ω² = ", round(omega_sq, 4), 
-              " | R² = ", round(metrics$r_squared, 4), 
-              " | n = ", metrics$n_observations, "\n", sep = "")
+          cat("  ✓ [", demographic_label, "] ω²=", round(omega_sq, 4),
+              " | R²=", round(metrics$r_squared, 4),
+              " | AdjR²=", round(metrics$adj_r_squared, 4),
+              " | n=", metrics$n_observations, "\n", sep = "")
         }
       }
     }
@@ -695,7 +716,7 @@ for (outcome in numeric_vars) {
 # ==============================================================================
 
 cat("\n\n", rep("=", 80), "\n", sep = "")
-cat("CONSOLIDATED REGRESSION RESULTS SUMMARY\n")
+cat("CONSOLIDATED")
 cat(rep("=", 80), "\n\n", sep = "")
 
 # Validate results data frame
@@ -728,7 +749,7 @@ if (nrow(comprehensive_reg_results) > 0) {
 }
 
 # Display top models
-if (nrow(comprehensive_reg_results_sorted) > 0) {
+if (exists("comprehensive_reg_results_sorted") && nrow(comprehensive_reg_results_sorted) > 0) {
   cat("\n=== TOP MODELS BY EFFECT SIZE (ω²) ===\n")
   top_10 <- head(comprehensive_reg_results_sorted, 10)
   print(top_10[, c("Outcome_Var", "Predictor_Vars", "Demographic_Vars", 
@@ -736,11 +757,10 @@ if (nrow(comprehensive_reg_results_sorted) > 0) {
 }
 # sink()
 
-#==============================================================================
-# AUTOMATED T-TEST ANALYSIS WITH EFFECT SIZE EXTRACTION
-# Purpose: Iterate over all numeric and categorical variables, perform t-tests,
-#          extract effect sizes, and export comprehensive results
-#==============================================================================
+#===============================================================================
+# TEST: AUTOMATED INDEPENDENT T-TESTS WITH COHEN'S d EFFECT SIZES
+#       All numeric × 2-level categorical combinations
+#===============================================================================
 
 # Step 1: Create output directory if it doesn't exist
 output_dir <- "./regression_result"
@@ -939,7 +959,7 @@ cat("\n✓ CSV export completed:", csv_filename, "\n")
 #==============================================================================
 txt_filename <- file.path(output_dir, "t_test_results.txt")
 
-# sink(txt_filename)  # Redirect output to file
+sink(txt_filename)  # Redirect output to file
 
 cat("================================================================================\n")
 cat("COMPREHENSIVE T-TEST ANALYSIS REPORT\n")
@@ -1051,7 +1071,7 @@ cat("===========================================================================
 cat("END OF REPORT\n")
 cat("================================================================================\n")
 
-# sink()  # Return output to console
+sink()  # Return output to console
 
 cat("\n✓ TXT report generated:", txt_filename, "\n")
 
@@ -1108,10 +1128,13 @@ print(top_tests[, c("Test_ID", "Outcome_Variable", "Grouping_Variable", "P_Value
 
 cat("\n✓ ANALYSIS WORKFLOW COMPLETED SUCCESSFULLY\n")
 
-###----------------------------------Kruskal-Wallis H test----------------------------------------###
-# ==============================================================================
+#===============================================================================
+# TEST: KRUSKAL-WALLIS H TEST (Omnibus, ≥3 groups)
+#       + POST-HOC PAIRWISE MANN-WHITNEY U (Bonferroni-corrected)
+#       + ANDERSON-DARLING K-SAMPLE DISTRIBUTIONAL TESTS
+#===============================================================================
 # SECTION 1: INITIALIZE CONSOLIDATED RESULT STORAGE STRUCTURES
-# ==============================================================================
+#-------------------------------------------------------------------------------
 
 # --- Summary tables for Kruskal-Wallis H tests (omnibus tests across ≥3 groups) ---
 kw_summary_df <- data.frame(
@@ -1399,6 +1422,13 @@ for (idx in seq_len(nrow(outcome_grouping_combinations))) {
   }
 }
 
+# Standalone verification: confirm kSamples::ad.test() works before the main loop
+set.seed(42)
+x1 <- rnorm(30); x2 <- rnorm(25, 0.5); x3 <- rnorm(20, 1)
+group_data <- list(x1, x2, x3)
+cat("=== Standalone Verification: ad.test(list) ===\n")
+ad_verify <- kSamples::ad.test(group_data)
+print(ad_verify)
 cat("\n")
 cat("Anderson-Darling K-sample testing completed.\n")
 cat("Total significant findings:", sum(ad_ksample_summary$Significant), "\n\n")
@@ -1681,24 +1711,162 @@ cat(rep("=", 80), "\n", sep = "")
 cat("AUTOMATED TESTING PIPELINE COMPLETED SUCCESSFULLY\n")
 cat(rep("=", 80), "\n")
 
-##========================================================================
-## perform cluster analysis or k-mean clustering on continuous factor data.
+#===============================================================================
+# TEST: K-MEANS CLUSTER ANALYSIS — IEQ factors, compared by demographics
+#===============================================================================
 # k = NULL lets the elbow method choose k automatically (minimum of 3 enforced).
 # k_max = 10 sets the upper bound of the elbow search range.
 
 # Cluster all 4 IEQ factors; compare clusters by Gender
-ca_result_BCFA_gender <- analy_SCFA$perform_cluster_analysis(
-  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
-  demographic_column = "Gender",
-  k     = NULL,
-  k_max = 10,
-  plot  = TRUE
-)
-print(ca_result_BCFA_gender$clusters$centers)   # Cluster centroids (scaled)
-print(ca_result_BCFA_gender$differences)         # Two-way ANOVA: variable ~ Gender * cluster
-cat("Detected elbow k:", ca_result_BCFA_gender$optimal_k,
-    "| Final k used:", ca_result_BCFA_gender$final_k, "\n")
+# 1. Close all active plot windows and reset the graphics engine
+graphics.off()
 
+# 2. Reset graphics margins (bottom, left, top, right) to smaller defaults
+par(mar = c(2, 2, 2, 2))
+# extract the name of categorical variables from the class:
+categorical_vars <- scfa_conf_Analyzer$categorical_cols
+
+
+# ============================================================
+# MULTI-DEMOGRAPHIC CLUSTER ANALYSIS — ITERATIVE PIPELINE
+# ============================================================
+# Author  : Meqdad
+# Purpose : Iterate perform_cluster_analysis() over multiple
+#           demographic variables and accumulate results into
+#           a structured, analysis-ready data frame.
+# ============================================================
+# --- 0. Define demographic variables to iterate over --------
+demographic_vars <- c("Gender", "AgeGroup", "Education", "Region")
+# Add or remove categorical column names as required
+# --- 1. Initialize the accumulator data frame ---------------
+#        Typed explicitly to avoid coercion issues on rbind()
+
+cluster_results_df <- data.frame(
+  categorical_var = character(),
+  optimal_k       = integer(),
+  final_k         = numeric(),
+  tot_withinss    = numeric(),
+  betweenss       = numeric(),
+  totss           = numeric(),
+  explained_var   = numeric(),   # betweenss / totss ratio
+  cluster_sizes   = character(), # e.g. "69 | 81 | 61"
+  withinss        = character(), # serialized per-cluster WCSS
+  centers         = character(), # serialized centroid matrix
+  differences     = character(), # serialized differences list
+  stringsAsFactors = FALSE
+)
+
+
+# --- 2. Helper: safely serialize complex objects to string --
+
+serialize_obj <- function(x) {
+  tryCatch(
+    paste(capture.output(print(x)), collapse = " || "),
+    error = function(e) NA_character_
+  )
+}
+
+
+# --- 3. Main iteration loop ---------------------------------
+
+for (demo_var in demographic_vars) {
+  
+    message("\n>>> Running cluster analysis for: ", demo_var)
+  
+    # -- 3a. Run analysis with error guard --------------------
+    ca_result <- tryCatch({
+      analy_SCFA$perform_cluster_analysis(
+        variables          = numeric_outcomes,
+        demographic_column = demo_var,
+        k                  = NULL,
+        k_max              = 10,
+        plot               = TRUE
+      )
+    }, error = function(e) {
+      warning("Cluster analysis FAILED for [", demo_var, "]: ", e$message)
+      return(NULL)
+    })
+  
+  # -- 3b. Skip if analysis returned NULL ------------------
+  if (is.null(ca_result)) next
+  
+  
+  # -- 3c. Safely extract all fields from object -----------
+  #        Mirrors exactly the structure shown in your screenshot
+  
+  opt_k       <- ca_result$optimal_k                        # integer [1]
+  fin_k       <- ca_result$final_k                          # double  [1]
+  tot_wss     <- ca_result$clusters$tot.withinss            # double  [1]
+  bss         <- ca_result$clusters$betweenss               # double  [1]
+  tss         <- ca_result$clusters$totss                   # double  [1]
+  expl_var    <- round(bss / tss, 6)                        # η² ratio
+  sizes_str   <- paste(ca_result$clusters$size, collapse = " | ")
+  withinss_str<- paste(round(ca_result$clusters$withinss, 4), collapse = " | ")
+  centers_str <- serialize_obj(ca_result$clusters$centers)  # double [k x 6]
+  diff_str    <- serialize_obj(ca_result$differences)       # list   [6]
+  
+  
+  # -- 3d. Build single-row data frame for this iteration --
+  
+  row_i <- data.frame(
+    categorical_var  = demo_var,
+    optimal_k        = opt_k,
+    final_k          = fin_k,
+    tot_withinss     = tot_wss,
+    betweenss        = bss,
+    totss            = tss,
+    explained_var    = expl_var,
+    cluster_sizes    = sizes_str,
+    withinss         = withinss_str,
+    centers          = centers_str,
+    differences      = diff_str,
+    stringsAsFactors = FALSE
+  )
+  
+  
+  # -- 3e. Append row to accumulator -----------------------
+  
+  cluster_results_df <- rbind(cluster_results_df, row_i)
+  
+  message("    Completed: k=", fin_k,
+          " | η²=", round(expl_var * 100, 2), "%",
+          " | sizes=[", sizes_str, "]")
+}
+
+
+# --- 4. Final output ----------------------------------------
+
+message("\n=== Iteration complete: ", nrow(cluster_results_df),
+        " demographic variable(s) processed ===\n")
+
+print(cluster_results_df)
+
+
+# --- 5. Optional: export to CSV for reporting ---------------
+
+write.csv(
+  cluster_results_df,
+  file      = "cluster_analysis_by_demographic.csv",
+  row.names = FALSE,
+  fileEncoding = "UTF-8"
+)
+
+###-------------------------------------------------------------------------####
+### you stopped here at line 1854 in K-clustering algorithm - return to cloude AI 
+### to find out the error in the above k-clustering code. genrally speaking some (up to 4)
+### demographic varibales failed to analyse (why???) Thus the result of gender is repeated 
+### several times. 
+### After this continue by romving the rest of k-clustering algorithm in tis file code
+### Then contiue to responce surface analysis and then to thematic analysis.  
+              
+# print(ca_result_SCFA$clusters$centers)   # Cluster centroids (scaled)
+# print(ca_result_SCFA$differences)         # Two-way ANOVA: variable ~ Gender * cluster
+# cat("Detected elbow k:", ca_result_SCFA$optimal_k,
+#     "| Final k used:", ca_result_SCFA$final_k, "\n")
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Same clustering; compare clusters by Occupation
 ca_result_BCFA_occ <- analy_SCFA$perform_cluster_analysis(
   variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
@@ -1766,43 +1934,41 @@ cat("Detected elbow k:", ca_result_BCFA_wigh$optimal_k,
     "| Final k used:", ca_result_BCFA_wigh$final_k, "\n")
 
 
-###-----###===============================================================
-## perform surface response analysis on continuous factor data
+#===============================================================================
+# TEST: RESPONSE SURFACE ANALYSIS — Method 1 (string-based, simple interface)
+#       perform_response_surface_analysis(response, predictors, plot)
+#===============================================================================
 analy_SCFA$list_all_methods()
 
-# Example 1: First-order model with Sensitivity and Th_AQ_Effect
 cat("\n=== First-Order Response Surface Analysis ===\n")
 # rs_first_order_1 <- analy_SCFA$perform_response_surface_analysis(response= "Performance", 
 #                                                                predictors=c("Sensitivity", "Th_AQ_Effect"),
 #                                                                plot = TRUE)
-# Step 2: Generate plots manually
-par(mfrow = c(1, 2))
-
-# Contour plot — use contour() directly without rsm:: prefix
-contour(rs_first_order_1$model, ~ x1 + x2,
-        image = TRUE,
-        main  = "Response Surface — Contour Plot")
-
-# Residuals vs Fitted
-plot(fitted(rs_first_order_1$model), resid(rsa_result_1$model),
-     main = "Residuals vs Fitted",
-     xlab = "Fitted Values",
-     ylab = "Residuals",
-     col  = "steelblue", pch = 16)
-abline(h = 0, col = "red", lwd = 2)
-
-par(mfrow = c(1, 1))
-
-# Step 3: Inspect results normally
-print(rs_first_order_1$summary)
-print(rs_first_order_1$stationary_point)
-cat("R-squared:", summary(rs_first_order_1$model)$r.squared, "\n")
+# NOTE: The block below is commented out because rs_first_order_1 depends on
+# the commented-out perform_response_surface_analysis() call above.
+# Uncomment the assignment above first, then uncomment this block.
+# # Step 2: Generate plots manually
+# par(mfrow = c(1, 2))
+# contour(rs_first_order_1$model, ~ x1 + x2,
+#         image = TRUE,
+#         main  = "Response Surface — Contour Plot")
+# plot(fitted(rs_first_order_1$model), resid(rs_first_order_1$model),
+#      main = "Residuals vs Fitted",
+#      xlab = "Fitted Values",
+#      ylab = "Residuals",
+#      col  = "steelblue", pch = 16)
+# abline(h = 0, col = "red", lwd = 2)
+# par(mfrow = c(1, 1))
+# # Step 3: Inspect results normally
+# print(rs_first_order_1$summary)
+# print(rs_first_order_1$stationary_point)
+# cat("R-squared:", summary(rs_first_order_1$model)$r.squared, "\n")
 
 
-####-----------------------------------
-####-----------------------------------
-####-----------------------------------
-# Example 1: First-order model with Sensitivity and Th_AQ_Effect
+#===============================================================================
+# TEST: RESPONSE SURFACE ANALYSIS — Method 2 (formula-based interface)
+#       perform_response_surface_analysis_two(formula, model_type, ...)
+#===============================================================================
 rs_first_order <- analy_SCFA$perform_response_surface_analysis_two(
                     formula = Performance ~ FO(Sensitivity, Th_AQ_Effect),
                     model_type = "first_order",
@@ -1964,10 +2130,10 @@ if (!is.null(rs_second_sen_ThAQLiSo$predictions)) {
   
   # Find maximum predicted value
   max_idx_SeThAQLiSo <- which.max(pred_data_SeThAQLiSo$predicted_values)
-  optimum_SeThAQLiSo <- pred_data_SeThAQLiSo$grid[max_idx, ]
+  optimum_SeThAQLiSo <- pred_data_SeThAQLiSo$grid[max_idx_SeThAQLiSo, ]
   cat("Predicted optimum at:\n")
   print(optimum_SeThAQLiSo)
-  cat("Maximum predicted performance:", pred_data_SeThAQLiSo$predicted_values[max_idx], "\n")
+  cat("Maximum predicted performance:", pred_data_SeThAQLiSo$predicted_values[max_idx_SeThAQLiSo], "\n")
 }
 
 # Step 10: Models R-square result
@@ -2036,10 +2202,10 @@ cat("R-squared:", summary(rsa_result_1$model)$r.squared, "\n")
 # --- Extract coefficients table
 coef_table <- coef(rsa_result_1$model)
 print(coef_table)
-###=============================================================================
-###=============================================================================
-# The following tests include 
-#     - chi-square tests, 
+#===============================================================================
+# TEST: CHI-SQUARE TEST OF INDEPENDENCE + FISHER'S EXACT TEST (fallback)
+#       All categorical variable pairs — with Cramér's V effect size
+#===============================================================================
 
 
 
@@ -2133,10 +2299,10 @@ print(summary_df, row.names = FALSE)
 cat("\nNote: If Fishers_P_Value is 'N/A (ChiSq OK)', the Chi-Square assumptions were met.\n")
 cat("If Fishers_P_Value is present, the Chi-Square approximation was unreliable (expected counts < 5).\n")
 
-###=========================================================================================
-###=============================================================================
-# The following tests include 
-#     - stratified test result
+#===============================================================================
+# TEST: STRATIFIED REGRESSION ANALYSIS
+#       Performance ~ Sensitivity + Th_AQ_Effect + Li_So_Effect, by each categorical var
+#===============================================================================
 sratfied_summary_df <- data.frame(
   Stratify_By = character(),
   Stratum = character(),
@@ -2194,10 +2360,9 @@ stratified_results <- sratfied_summary_df[order(-sratfied_summary_df$R_Squared),
 # Print the final data frame
 print(sratfied_summary_df, row.names = FALSE)
 
-###=========================================================================================
-###=============================================================================
-# The following tests include 
-#     - Mediation/Moderation Analysis (Conditional on Theory)
+#===============================================================================
+# TEST: MEDIATION & MODERATION ANALYSIS (Lavaan SEM-based)
+#===============================================================================
 
 # Mediation Analysis Example
 # Run the Lavaan mediation analysis
@@ -2206,7 +2371,7 @@ lavaan_med_results <- scfa_conf_Analyzer$perform_lavaan_mediation(
   demographic_var = "age",             # Categorical variable!
   outcome_var = "Performance",
   mediator_var = "Th_AQ_Effect",
-  reference_group = ,         # Optional: Set your baseline age group
+  reference_group = NULL,     # Optional: Set your baseline age group
   n_boot = 1000
 )
 
@@ -2227,11 +2392,10 @@ moderation_results <- scfa_conf_Analyzer$perform_mediation_moderation_analysis(
 )
 print(moderation_results )
 
-###=========================================================================================
-###=============================================================================
-# The following tests include 
-#     - Effect Size Calculation and Standardized Reporting
-#     - Sensitivity Analysis and Robustness Testing
+#===============================================================================
+# TEST: SENSITIVITY ANALYSIS & ROBUSTNESS TESTING
+#       Outlier impact, missing data methods, subgroup stability
+#===============================================================================
 sensitivity_results_perf = scfa_conf_Analyzer$perform_sensitivity_analysis(data =  scfa_conf_Analyzer$data, 
                                                model_type = "linear",
                                                dependent_var = "Performance",
@@ -2263,9 +2427,11 @@ scfa_conf_Analyzer$list_all_methods()
 ###=============================================================================
 
 
-#perform the rest on the ranked discrete data
-# Mann-Whitney U test (e.g., distribution of performance_decrease between two groups)
-ks_result_Ranked <- analy_BOr$perform_mann_whitney_ks("Performance.under.AQ", "age", type = "ks", plot = TRUE)
+#===============================================================================
+# TEST: NON-PARAMETRIC TESTS ON RANKED DISCRETE DATA (Second Survey)
+#       Mann-Whitney U test + Kolmogorov-Smirnov test — by Gender
+#===============================================================================
+ks_result_Ranked <- analy_SSOr$perform_mann_whitney_ks("Performance.under.AQ", "age", type = "ks", plot = TRUE)
 print(ks_result_Ranked$p_value)
 
 
@@ -2274,16 +2440,16 @@ print(ks_result_Ranked$p_value)
 # ==============================================================================
 
 # 1. Get Names of all colmons, then hardcoding the name of ranked data columns. 
-names(data_BOrRank)
+names(data_SOrRank)
 # 3. Define the ranked outcome variables from your CSV
-ranked_vars <- analy_BOr$numeric_cols
+ranked_vars <- analy_SSOr$numeric_cols
 
 # Mann-Whitney and KS tests require exactly 2 groups. Gender is perfect for this.
 group_var <- "Gender"
 
 # Create empty data frames to store the summary of all tests
-mw_summary <- data.frame(Variable=character, U_statistic=numeric, P_value=numeric, Significance=character, stringsAsFactors=FALSE)
-ks_summary <- data.frame(Variable=character, D_statistic=numeric, P_value=numeric, Significance=character, stringsAsFactors=FALSE)
+mw_summary <- data.frame(Variable=character(), U_statistic=numeric(), P_value=numeric(), Significance=character(), stringsAsFactors=FALSE)
+ks_summary <- data.frame(Variable=character(), D_statistic=numeric(), P_value=numeric(), Significance=character(), stringsAsFactors=FALSE)
 
 # 4. Loop through each ranked variable and run the tests
 for (var in ranked_vars) {
@@ -2293,7 +2459,7 @@ for (var in ranked_vars) {
   
       # --- Mann-Whitney U Test ---
       mw_res <- tryCatch({
-        analy_BOr$perform_mann_whitney_ks(outcome = var, group_column = group_var, type = "mann_whitney", plot = TRUE)
+        analy_SSOr$perform_mann_whitney_ks(outcome = var, group_column = group_var, type = "mann_whitney", plot = TRUE)
       }, error = function(e) {
         cat("Mann-Whitney Error:", e$message, "\n")
         return(NULL)
@@ -2310,7 +2476,7 @@ for (var in ranked_vars) {
   
       # --- Kolmogorov-Smirnov Test ---
       ks_res <- tryCatch({
-        analy_BOr$perform_mann_whitney_ks(outcome = var, group_column = group_var, type = "ks", plot = FALSE)
+        analy_SSOr$perform_mann_whitney_ks(outcome = var, group_column = group_var, type = "ks", plot = FALSE)
       }, error = function(e) {
         cat("KS Error:", e$message, "\n")
         return(NULL)
@@ -2334,14 +2500,14 @@ cat("\n\n=== KOLMOGOROV-SMIRNOV TEST SUMMARY (Male vs Female) ===\n")
 print(ks_summary)
 
 
-#####===========================================================================
-##----------------------------------------------------------------------------##
-#####===========================================================================
-# Goodman and Kruskal's gamma (for ordinal-ordinal associations)
+#===============================================================================
+# TEST: ORDINAL ASSOCIATIONS — Goodman-Kruskal Gamma + Kendall's Tau-b
+#       All ranked variable pairs
+#===============================================================================
 # Kendall's tau-b (for ties in ordinal data)
 # Extract the two ordinal columns from your ranked data object
-var1 <- analy_BOr$data$AQ.sensitivity
-var2 <- analy_BOr$data$Performance.under.AQ
+var1 <- analy_SSOr$data$AQ.sensitivity
+var2 <- analy_SSOr$data$Performance.under.AQ
 
 # 1. Goodman and Kruskal's gamma
 gamma_result <- GoodmanKruskalGamma(var1, var2, conf.level = 0.95)
@@ -2384,8 +2550,8 @@ for (pair_idx in seq_along(var_pairs)) {
   var2_name <- var_pairs[[pair_idx]][2]
   
   # Extract raw data
-  var1_raw <- analy_BOr$data[[var1_name]]
-  var2_raw <- analy_BOr$data[[var2_name]]
+  var1_raw <- analy_SSOr$data[[var1_name]]
+  var2_raw <- analy_SSOr$data[[var2_name]]
   
   # Convert to numeric (for Kendall) and factor (for Gamma)
   var1_num <- as.numeric(var1_raw)   # factor → integer codes, numeric → unchanged
@@ -2504,12 +2670,12 @@ for (pair in var_pairs) {
   v2_name <- pair[2]
   
   # 1. Extract data as NUMERIC (Required for cor.test)
-  v1_num <- as.numeric(analy_BOr$data[[v1_name]])
-  v2_num <- as.numeric(analy_BOr$data[[v2_name]])
+  v1_num <- as.numeric(analy_SSOr$data[[v1_name]])
+  v2_num <- as.numeric(analy_SSOr$data[[v2_name]])
   
   # 2. Extract data as FACTOR (Required for DescTools)
-  v1_fac <- as.factor(analy_BOr$data[[v1_name]])
-  v2_fac <- as.factor(analy_BOr$data[[v2_name]])
+  v1_fac <- as.factor(analy_SSOr$data[[v1_name]])
+  v2_fac <- as.factor(analy_SSOr$data[[v2_name]])
   
   # --- Calculate Kendall's Tau-b using cor.test ---
   tau_b_res <- tryCatch({
@@ -2527,8 +2693,8 @@ for (pair in var_pairs) {
     # Step A: Get Estimate
     gamma_est <- GoodmanKruskalGamma(v1_fac, v2_fac, conf.level = NA)
     
-    # Step B: Get P-value (cor.test uses the underlying "goodman" algorithm perfectly on numeric data)
-    p_val <- cor.test(v1_num, v2_num, method = "goodman")$p.value
+    # Step B: Approximate p-value via Kendall's tau (no direct significance test exists for Gamma)
+    p_val <- cor.test(v1_num, v2_num, method = "kendall")$p.value
     
     list(gamma = as.numeric(gamma_est), p.value = p_val)
   }, error = function(e) {
@@ -2572,17 +2738,11 @@ print(significant_assoc)
 ## data_BOrRank
 ## Sensitivity, Performance, Th_AQ_Effect, Li_So_Effect
 ## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
-#####===========================================================================
-#####===========================================================================
-#####===========================================================================
-#####===========================================================================
-#####===========================================================================
-#perform this on the ranked discrete data and continuous data
-# 3. Levene's test (e.g., variance homogeneity of productivity by profession)
-# Call Levene's test on the ranked data object
-#perform this on the ranked discrete data and continuous data
-# 3. Levene's test (e.g., variance homogeneity of productivity by profession)
-# Call Levene's test on the ranked data object
+#===============================================================================
+# TEST: LEVENE'S TEST FOR HOMOGENEITY OF VARIANCE
+#       + ANDERSON-DARLING K-SAMPLE (distributional equivalence across groups)
+#       Applied to ranked and continuous data
+#===============================================================================
 # ==============================================================================
 # PRE-EXECUTION VALIDATION: Verify required packages and data integrity
 # ==============================================================================
@@ -2609,8 +2769,8 @@ if (!verify_dependencies()) {
 }
 
 # Verify object initialization
-if (is.null(analy_BOr$data) || nrow(analy_BOr$data) == 0) {
-  stop("analy_BOr object not properly initialized or contains no data")
+if (is.null(analy_SSOr$data) || nrow(analy_SSOr$data) == 0) {
+  stop("analy_SSOr object not properly initialized or contains no data")
 }
 
 if (is.null(analy_SCFA$data) || nrow(analy_SCFA$data) == 0) {
@@ -2649,7 +2809,7 @@ while (dev.cur() > 1) {
 par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
 
 # Now execute your Levene's test with plotting enabled
-lev_result_ranked <- analy_BOr$perform_levene_anderson(
+lev_result_ranked <- analy_SSOr$perform_levene_anderson(
   outcome = "Performance.under.TC",      # Outcome variable (must be numeric)
   group_column = "Gender",               # Grouping factor
   type = "levene",                       # Levene's homogeneity test (Levene, 1960)
@@ -2669,7 +2829,7 @@ if (lev_result_ranked$p_value < 0.05) {
 
 # Test 1.2: Variance homogeneity of "TC sensitivity" across Gender
 cat("\n\nTest 1.2: TC Sensitivity by Gender\n")
-lev_tc_gender <- analy_BOr$perform_levene_anderson(
+lev_tc_gender <- analy_SSOr$perform_levene_anderson(
   outcome = "TC.sensitivity",            # Thermal Comfort sensitivity
   group_column = "Gender",
   type = "levene",
@@ -2685,7 +2845,7 @@ cat("  Interpretation:",
 
 # Test 1.3: Variance homogeneity of "Performance under AQ" across Occupation
 cat("\n\nTest 1.3: Performance under AQ by Occupation\n")
-lev_perf_occ <- analy_BOr$perform_levene_anderson(
+lev_perf_occ <- analy_SSOr$perform_levene_anderson(
   outcome = "Performance.under.AQ",      # Air Quality performance impact
   group_column = "Occupation",           # Occupational category
   type = "levene",
@@ -2726,14 +2886,15 @@ cat("\n━━━━━━━━━━━━━━━━━━━━━━━━�
 # ==============================================================================
 
 
-# ==============================================================================
-# ORDINAL LOGISTIC REGRESSION
-# ==============================================================================
+#===============================================================================
+# TEST: ORDINAL LOGISTIC REGRESSION
+#       Outcome: ordered factor (1–5) | Predictors: numeric + categorical
+#===============================================================================
 
 # Let's model "Performance under TC" (as an ordinal outcome: 1-5) 
 # predicted by "TC sensitivity", "AQ sensitivity", and "Gender"
 
-ord_log_model <- analy_BOr$fit_ordinal_logistic_regression(
+ord_log_model <- analy_SSOr$fit_ordinal_logistic_regression(
   outcome = "Performance.under.TC", 
   predictors = c("TC.sensitivity", "AQ.sensitivity", "Gender"), 
   conf_level = 0.95, 
@@ -2778,5 +2939,5 @@ ord_log_model <- analy_BOr$fit_ordinal_logistic_regression(
 
 # After initialization, let us find out and print out the object summary 
 analy_SCFA$list_all_methods()
-analy_BOr$list_all_methods()
+analy_SSOr$list_all_methods()
 

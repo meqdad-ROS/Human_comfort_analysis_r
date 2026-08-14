@@ -1,0 +1,9 @@
+"Metric","Value"
+"Total Tests Performed",12
+"Significant Tests (p < 0.05)",1
+"Highly Significant (p < 0.01)",1
+"Very Highly Significant (p < 0.001)",1
+"Mean Effect Size (Cohen's d)",0.188
+"Median Effect Size",0.166
+"Min Cohen's d",0.0247
+"Max Cohen's d",0.573

@@ -1,0 +1,187 @@
+================================================================================
+COMPREHENSIVE T-TEST ANALYSIS REPORT
+Indoor Environmental Quality & Work Performance Study
+================================================================================
+
+ANALYSIS METADATA
+Date Generated: 2026-08-12 09:15:46 
+Data Source: Direct data.frame 
+Total Sample Size: 211 
+Number of Numeric Variables Tested: 6 
+Number of Grouping Variables: 17 
+Total Tests Performed: 12 
+
+================================================================================
+STATISTICAL TEST SUMMARY
+================================================================================
+
+Significant Tests (p < 0.05): 1 / 12 
+Highly Significant (p < 0.01): 1 
+Very Highly Significant (p < 0.001): 1 
+
+Effect Size Distribution:
+  Medium: 1 tests
+  Negligible: 8 tests
+  Small: 3 tests
+
+================================================================================
+DETAILED RESULTS BY OUTCOME VARIABLE
+================================================================================
+
+─── OUTCOME VARIABLE: productivity ───
+
+Test ID: T001
+Grouping Variable: Language
+Sample Sizes: Total = 211 | Active-work = 168, Office-work = 43
+Descriptives: Mean(G1) = 0.0377 ± 0.8237 | Mean(G2) = -0.1474 ± 0.8494
+t-Test Results: t(209) = 1.3067, p = 0.192738 ns
+Effect Size: Cohen's d = 0.2233 (Small)
+95% CI: [-0.0942, 0.4644]
+
+Test ID: T002
+Grouping Variable: Gender
+Sample Sizes: Total = 211 | Active-work = 146, Office-work = 65
+Descriptives: Mean(G1) = -0.0316 ± 0.8472 | Mean(G2) = 0.0711 ± 0.7931
+t-Test Results: t(209) = 0.8289, p = 0.408114 ns
+Effect Size: Cohen's d = 0.1236 (Negligible)
+95% CI: [-0.1416, 0.3470]
+
+═══════════════════════════════════════════════════════════
+
+─── OUTCOME VARIABLE: Work_effectively ───
+
+Test ID: T003
+Grouping Variable: Language
+Sample Sizes: Total = 211 | Active-work = 168, Office-work = 43
+Descriptives: Mean(G1) = 0.0442 ± 1.0476 | Mean(G2) = -0.1725 ± 0.9145
+t-Test Results: t(209) = 1.2402, p = 0.216301 ns
+Effect Size: Cohen's d = 0.2120 (Small)
+95% CI: [-0.1277, 0.5611]
+
+Test ID: T004
+Grouping Variable: Gender
+Sample Sizes: Total = 211 | Active-work = 146, Office-work = 65
+Descriptives: Mean(G1) = 0.0394 ± 1.0272 | Mean(G2) = -0.0884 ± 1.0177
+t-Test Results: t(209) = -0.8364, p = 0.403867 ns
+Effect Size: Cohen's d = 0.1247 (Negligible)
+95% CI: [-0.4289, 0.1733]
+
+═══════════════════════════════════════════════════════════
+
+─── OUTCOME VARIABLE: performance_decrease_under_thermal_and_Air ───
+
+Test ID: T005
+Grouping Variable: Language
+Sample Sizes: Total = 211 | Active-work = 168, Office-work = 43
+Descriptives: Mean(G1) = 0.0784 ± 0.6600 | Mean(G2) = -0.3063 ± 0.7144
+t-Test Results: t(209) = 3.3528, p = 0.000950 ***
+Effect Size: Cohen's d = 0.5730 (Medium)
+95% CI: [0.1585, 0.6108]
+
+Test ID: T006
+Grouping Variable: Gender
+Sample Sizes: Total = 211 | Active-work = 146, Office-work = 65
+Descriptives: Mean(G1) = 0.0052 ± 0.7010 | Mean(G2) = -0.0118 ± 0.6612
+t-Test Results: t(209) = -0.1655, p = 0.868698 ns
+Effect Size: Cohen's d = 0.0247 (Negligible)
+95% CI: [-0.2196, 0.1856]
+
+═══════════════════════════════════════════════════════════
+
+─── OUTCOME VARIABLE: Sensitivity ───
+
+Test ID: T007
+Grouping Variable: Language
+Sample Sizes: Total = 211 | Active-work = 168, Office-work = 43
+Descriptives: Mean(G1) = 0.0285 ± 0.8082 | Mean(G2) = -0.1112 ± 0.7966
+t-Test Results: t(209) = 1.0137, p = 0.311890 ns
+Effect Size: Cohen's d = 0.1732 (Negligible)
+95% CI: [-0.1319, 0.4111]
+
+Test ID: T008
+Grouping Variable: Gender
+Sample Sizes: Total = 211 | Active-work = 146, Office-work = 65
+Descriptives: Mean(G1) = -0.0250 ± 0.8106 | Mean(G2) = 0.0562 ± 0.7987
+t-Test Results: t(209) = 0.6749, p = 0.500516 ns
+Effect Size: Cohen's d = 0.1006 (Negligible)
+95% CI: [-0.1560, 0.3184]
+
+═══════════════════════════════════════════════════════════
+
+─── OUTCOME VARIABLE: performance_decrease_under_noise_and_light ───
+
+Test ID: T009
+Grouping Variable: Language
+Sample Sizes: Total = 211 | Active-work = 168, Office-work = 43
+Descriptives: Mean(G1) = 0.0310 ± 0.5904 | Mean(G2) = -0.1209 ± 0.6114
+t-Test Results: t(209) = 1.4943, p = 0.136604 ns
+Effect Size: Cohen's d = 0.2554 (Small)
+95% CI: [-0.0485, 0.3522]
+
+Test ID: T010
+Grouping Variable: Gender
+Sample Sizes: Total = 211 | Active-work = 146, Office-work = 65
+Descriptives: Mean(G1) = 0.0167 ± 0.5810 | Mean(G2) = -0.0375 ± 0.6328
+t-Test Results: t(209) = -0.6092, p = 0.543063 ns
+Effect Size: Cohen's d = 0.0908 (Negligible)
+95% CI: [-0.2298, 0.1213]
+
+═══════════════════════════════════════════════════════════
+
+─── OUTCOME VARIABLE: Combined_Effect_of_Air_thermal_noise_light ───
+
+Test ID: T011
+Grouping Variable: Language
+Sample Sizes: Total = 211 | Active-work = 168, Office-work = 43
+Descriptives: Mean(G1) = 0.0333 ± 0.8286 | Mean(G2) = -0.1300 ± 0.8596
+t-Test Results: t(209) = 1.1443, p = 0.253828 ns
+Effect Size: Cohen's d = 0.1956 (Negligible)
+95% CI: [-0.1180, 0.4446]
+
+Test ID: T012
+Grouping Variable: Gender
+Sample Sizes: Total = 211 | Active-work = 146, Office-work = 65
+Descriptives: Mean(G1) = -0.0409 ± 0.8659 | Mean(G2) = 0.0918 ± 0.7615
+t-Test Results: t(209) = 1.0647, p = 0.288228 ns
+Effect Size: Cohen's d = 0.1588 (Negligible)
+95% CI: [-0.1129, 0.3782]
+
+═══════════════════════════════════════════════════════════
+
+
+================================================================================
+INTERPRETATION GUIDELINES
+================================================================================
+
+Effect Size (Cohen's d):
+  Negligible: d < 0.2
+  Small:      0.2 ≤ d < 0.5
+  Medium:     0.5 ≤ d < 0.8
+  Large:      0.8 ≤ d < 1.2
+  Very Large: d ≥ 1.2
+
+Statistical Significance:
+  *** p < 0.001 (Very highly significant)
+  **  p < 0.01  (Highly significant)
+  *   p < 0.05  (Significant)
+  ns  p ≥ 0.05  (Not significant)
+
+================================================================================
+TECHNICAL NOTES
+================================================================================
+
+Test Method: Welch's t-test (independent samples)
+- Does NOT assume equal variances (more conservative)
+- Recommended for unequal sample sizes or variances
+- Degrees of freedom adjusted using Welch-Satterthwaite equation
+
+Effect Size Calculation: Cohen's d (pooled)
+  d = |M1 - M2| / SDpooled
+  Where SDpooled = sqrt[((n1-1)*SD1² + (n2-1)*SD2²) / (n1+n2-2)]
+
+Confidence Intervals: 95% coverage probability
+- Computed using t-distribution with Welch-Satterthwaite df
+
+================================================================================
+END OF REPORT
+================================================================================

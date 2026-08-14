@@ -931,11 +931,22 @@ regrissorClass <- R6Class("regrissorClass",
                     if (!requireNamespace("kSamples", quietly = TRUE)) {
                       stop("Package 'kSamples' required for K-sample Anderson-Darling test. Install with install.packages('kSamples')")
                     }
-                    # Prepare data as a list of vectors (one per group)
-                    group_data <- split(self$data[[outcome]], self$data[[group_column]])
-                    result <- kSamples::ad.test(group_data)  # K-sample test
-                    statistic <- result$statistic
-                    p_value <- result$p.value
+                    # Remove NAs from both outcome and grouping variable before splitting,
+                    # so no NA group is passed to ad.test as a real group.
+                    clean_idx  <- !is.na(self$data[[outcome]]) & !is.na(self$data[[group_column]])
+                    clean_out  <- self$data[[outcome]][clean_idx]
+                    clean_grp  <- self$data[[group_column]][clean_idx]
+                    group_data <- split(clean_out, clean_grp)
+                    # Drop any groups with fewer than 2 observations (ad.test requirement)
+                    group_data <- group_data[sapply(group_data, length) >= 2]
+                    if (length(group_data) < 2) {
+                      stop("Anderson-Darling K-sample test requires at least 2 groups with n >= 2")
+                    }
+                    result <- do.call(kSamples::ad.test, group_data)
+                    # $ad is a 2×3 matrix: rows = version 1/2, cols = AD, T.AD, asympt. P-value
+                    # Use version 1 (continuous distribution assumption).
+                    statistic <- result$ad[1, "AD"]
+                    p_value   <- result$ad[1, " asympt. P-value"]
                   } else {
                     stop("Type must be 'levene', 'anderson_darling_nor', or 'anderson_darling_k'")
                   }

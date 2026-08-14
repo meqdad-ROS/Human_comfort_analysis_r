@@ -1,0 +1,13 @@
+"Outcome","Predictors","Demographics","Base_AdjR2","Demo_AdjR2","Interaction_AdjR2","AdjR2_Gain","Base_Omega","Demo_Omega","Omega_Gain"
+"performance_decrease_under_thermal_and_Air","Sensitivity + performance_decrease_under_noise_and_light","Age + How_long_in_this_role_environment",0.7143,0.711,0.7318,-0.0032,0.7133,0.7156,0.0023
+"performance_decrease_under_thermal_and_Air","Sensitivity + performance_decrease_under_noise_and_light","Age + How_quickly_notice_IEQ_parameter_change",0.7143,0.7269,0.753,0.0127,0.7133,0.7312,0.0179
+"performance_decrease_under_thermal_and_Air","Sensitivity + performance_decrease_under_noise_and_light","How_long_in_this_role_environment + How_quickly_notice_IEQ_parameter_change",0.7143,0.7223,0.7413,0.008,0.7133,0.7266,0.0133
+"performance_decrease_under_thermal_and_Air","Sensitivity + performance_decrease_under_noise_and_light","Age + How_long_in_this_role_environment + How_quickly_notice_IEQ_parameter_change",0.7143,0.7229,0.7466,0.0086,0.7133,0.73,0.0167
+"productivity","Sensitivity + performance_decrease_under_noise_and_light","Age + How_long_in_this_role_environment",0.6185,0.6157,0.6209,-0.0028,0.6174,0.622,0.0046
+"productivity","Sensitivity + performance_decrease_under_noise_and_light","Age + How_quickly_notice_IEQ_parameter_change",0.6185,0.6228,0.6131,0.0042,0.6174,0.6288,0.0114
+"productivity","Sensitivity + performance_decrease_under_noise_and_light","How_long_in_this_role_environment + How_quickly_notice_IEQ_parameter_change",0.6185,0.6159,0.625,-0.0027,0.6174,0.6221,0.0047
+"productivity","Sensitivity + performance_decrease_under_noise_and_light","Age + How_long_in_this_role_environment + How_quickly_notice_IEQ_parameter_change",0.6185,0.6166,0.6177,-0.002,0.6174,0.6265,0.0091
+"Work_effectively","Sensitivity + performance_decrease_under_noise_and_light","Age + How_long_in_this_role_environment",0.045,0.0884,0.0845,0.0433,0.0448,0.1055,0.0607
+"Work_effectively","Sensitivity + performance_decrease_under_noise_and_light","Age + How_quickly_notice_IEQ_parameter_change",0.045,0.0893,0.0818,0.0443,0.0448,0.1062,0.0614
+"Work_effectively","Sensitivity + performance_decrease_under_noise_and_light","How_long_in_this_role_environment + How_quickly_notice_IEQ_parameter_change",0.045,0.0796,0.0819,0.0346,0.0448,0.097,0.0522
+"Work_effectively","Sensitivity + performance_decrease_under_noise_and_light","Age + How_long_in_this_role_environment + How_quickly_notice_IEQ_parameter_change",0.045,0.0871,0.082,0.042,0.0448,0.113,0.0682

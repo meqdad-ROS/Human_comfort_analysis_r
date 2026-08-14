@@ -1,0 +1,101 @@
+
+STATISTICAL ANALYSIS REPORT: NON-PARAMETRIC TESTS
+Generated: 2026-08-12 09:17:26
+
+EXECUTIVE SUMMARY
+─────────────────────────────────────────────────────────────────────────────
+
+Total Outcome × Grouping Variable Combinations Tested: 102
+
+KRUSKAL-WALLIS H TESTS (Omnibus):
+  • Total tests executed: 90
+  • Significant findings (p < 0.05): 20 (22.2%)
+  • Mean H-statistic: 5.0181
+
+MANN-WHITNEY U PAIRWISE TESTS:
+  • Total pairwise comparisons: 0
+  • Significant findings (Bonferroni-corrected): 0 (0.0%)
+  • Mean effect size (rank-biserial r): NaN
+
+ANDERSON-DARLING K-SAMPLE TESTS:
+  • Total distributional tests: 102
+  • Significant differences: 23 (22.5%)
+
+KEY FINDINGS
+─────────────────────────────────────────────────────────────────────────────
+
+1. OUTCOMES WITH SIGNIFICANT HETEROGENEITY (Kruskal-Wallis p < 0.05):
+  • Work_effectively × Age (p = 0.006581 )
+  • Work_effectively × How_long_in_this_role_environment (p = 0.003475 )
+  • Combined_Effect_of_Air_thermal_noise_light × Does_your_work_involve_high_cognitive_load (p = 0.03236 )
+  • performance_decrease_under_thermal_and_Air × Actively_adjust_environment_during_IEQ_fluctuations (p = 0.016551 )
+  • Combined_Effect_of_Air_thermal_noise_light × Actively_adjust_environment_during_IEQ_fluctuations (p = 0.003182 )
+  • productivity × More_sensitive_to_IEQ_changes_due_to_health_conditions (p = 0.015936 )
+  • performance_decrease_under_thermal_and_Air × More_sensitive_to_IEQ_changes_due_to_health_conditions (p = 0.002457 )
+  • Sensitivity × More_sensitive_to_IEQ_changes_due_to_health_conditions (p = 0.038499 )
+  • performance_decrease_under_noise_and_light × More_sensitive_to_IEQ_changes_due_to_health_conditions (p = 0.034593 )
+  • Combined_Effect_of_Air_thermal_noise_light × More_sensitive_to_IEQ_changes_due_to_health_conditions (p = 0.026786 )
+  • performance_decrease_under_thermal_and_Air × How_quickly_notice_IEQ_parameter_change (p = 0.027036 )
+  • Combined_Effect_of_Air_thermal_noise_light × How_quickly_notice_IEQ_parameter_change (p = 0.010422 )
+  • productivity × Ever_requested_workplace_modifications (p = 0.036855 )
+  • performance_decrease_under_thermal_and_Air × Ever_requested_workplace_modifications (p = 0.008654 )
+  • performance_decrease_under_noise_and_light × Ever_requested_workplace_modifications (p = 0.040718 )
+  • Combined_Effect_of_Air_thermal_noise_light × Ever_requested_workplace_modifications (p = 0.018026 )
+  • Work_effectively × Headache_sleepy_at_work_enough_sleep_due_to_light_air (p = 0.020273 )
+  • performance_decrease_under_noise_and_light × Headache_sleepy_at_work_enough_sleep_due_to_light_air (p = 0.040289 )
+  • Combined_Effect_of_Air_thermal_noise_light × Headache_sleepy_at_work_enough_sleep_due_to_light_air (p = 0.002523 )
+  • Sensitivity × IEQ_training_receivedWilling_to_join_IEQ_programs (p = 0.025957 )
+
+2. MOST PRONOUNCED PAIRWISE DIFFERENCES (Largest Effect Sizes):
+  (None computed)
+
+3. DISTRIBUTIONAL EQUIVALENCE STATUS (Anderson-Darling):
+  • performance_decrease_under_thermal_and_Air × Language
+  • Work_effectively × Age
+  • Work_effectively × How_long_in_this_role_environment
+  • Combined_Effect_of_Air_thermal_noise_light × Does_your_work_involve_high_cognitive_load
+  • performance_decrease_under_thermal_and_Air × Actively_adjust_environment_during_IEQ_fluctuations
+  • Combined_Effect_of_Air_thermal_noise_light × Actively_adjust_environment_during_IEQ_fluctuations
+  • productivity × More_sensitive_to_IEQ_changes_due_to_health_conditions
+  • performance_decrease_under_thermal_and_Air × More_sensitive_to_IEQ_changes_due_to_health_conditions
+  • Sensitivity × More_sensitive_to_IEQ_changes_due_to_health_conditions
+  • performance_decrease_under_noise_and_light × More_sensitive_to_IEQ_changes_due_to_health_conditions
+  • Combined_Effect_of_Air_thermal_noise_light × More_sensitive_to_IEQ_changes_due_to_health_conditions
+  • productivity × How_quickly_notice_IEQ_parameter_change
+  • performance_decrease_under_thermal_and_Air × How_quickly_notice_IEQ_parameter_change
+  • Combined_Effect_of_Air_thermal_noise_light × How_quickly_notice_IEQ_parameter_change
+  • productivity × Typical_response_to_IEQ_discomfort
+  • productivity × Ever_requested_workplace_modifications
+  • performance_decrease_under_thermal_and_Air × Ever_requested_workplace_modifications
+  • performance_decrease_under_noise_and_light × Ever_requested_workplace_modifications
+  • Combined_Effect_of_Air_thermal_noise_light × Ever_requested_workplace_modifications
+  • Work_effectively × Headache_sleepy_at_work_enough_sleep_due_to_light_air
+  • performance_decrease_under_noise_and_light × Headache_sleepy_at_work_enough_sleep_due_to_light_air
+  • Combined_Effect_of_Air_thermal_noise_light × Headache_sleepy_at_work_enough_sleep_due_to_light_air
+  • Sensitivity × IEQ_training_receivedWilling_to_join_IEQ_programs
+
+INTERPRETATION NOTES
+─────────────────────────────────────────────────────────────────────────────
+- Kruskal-Wallis H tests assess whether outcome distributions differ across 
+  demographic/categorical groups (omnibus test; ≥3 groups required).
+- Mann-Whitney U pairwise tests follow significant Kruskal-Wallis results,
+  with Bonferroni correction applied for multiple comparisons.
+- Anderson-Darling K-sample tests determine whether entire distributions are
+  equivalent across strata, not just means or medians.
+- Rank-biserial r effect sizes are interpreted: small (0.1), medium (0.3),
+  large (0.5) per Cohen conventions for non-parametric rank tests.
+
+RECOMMENDATIONS FOR PUBLICATION
+─────────────────────────────────────────────────────────────────────────────
+1. Present Kruskal-Wallis results alongside effect sizes (not typically reported).
+2. For significant omnibus results, emphasize pairwise comparisons with 
+   Bonferroni or FDR-corrected p-values.
+3. Discuss Anderson-Darling findings in context of location shifts vs. 
+   shape differences in distributions.
+4. Report medians and IQRs alongside statistical tests (not means for 
+   non-parametric data).
+
+─────────────────────────────────────────────────────────────────────────────
+Report compiled on: 2026-08-12 09:17:26
+Data source: cfa_Second_factors_outout_data.csv (n = 211)
+
