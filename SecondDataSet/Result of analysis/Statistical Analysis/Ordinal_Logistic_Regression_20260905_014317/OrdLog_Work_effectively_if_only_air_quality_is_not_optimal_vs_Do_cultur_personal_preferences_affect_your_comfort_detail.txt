@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Do_cultur_personal_preferences_affect_your_comfort 
+                                        0.06435341 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.5424958 -0.5708889  0.6298112  1.7290020 
+
+Residual Deviance: 634.2478 
+AIC: 644.2478 
+
+$coefficients
+                                                Term    Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1 Do_cultur_personal_preferences_affect_your_comfort  0.06435341 0.1045001  0.6158218 0.5380121630  1.0664692
+2                                                1|2 -1.54249577 0.4342093 -3.5524243 0.0003816988  0.2138467
+3                                                2|3 -0.57088890 0.4126944 -1.3833213 0.1665663753  0.5650230
+4                                                3|4  0.62981121 0.4109675  1.5325085 0.1253969913  1.8772561
+5                                                4|5  1.72900204 0.4313107  4.0087155 0.0000610499  5.6350276
+
+$proportional_odds_test
+                                                         X2 df probability
+Omnibus                                            3.421592  3   0.3310746
+Do_cultur_personal_preferences_affect_your_comfort 3.421592  3   0.3310746
+

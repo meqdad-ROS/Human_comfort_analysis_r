@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : Sensitivity 
+Mediator  : performance_decrease_under_thermal_and_Air 
+Moderator : IEQ_training_receivedWilling_to_join_IEQ_programs 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.1019784   p = 0.4125 
+
+--- Interaction Coefficients ---
+  Sensitivity:IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.: coef = -0.2395, p = 0.2693 
+  Sensitivity:IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.: coef = -0.0016, p = 0.9954 
+  Sensitivity:IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.: coef = -0.0874, p = 0.8071 
+
+Moderation significant: FALSE 

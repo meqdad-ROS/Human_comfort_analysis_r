@@ -1,0 +1,34 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+        How_long_in_this_role_environment3-5 years  How_long_in_this_role_environmentLess than 1 year 
+                                        -0.1106044                                          0.5867279 
+How_long_in_this_role_environmentMore than 5 years 
+                                         0.4663100 
+
+Intercepts:
+        1|2         2|3         3|4         4|5 
+-2.44177668 -1.49435542 -0.06625166  1.32839323 
+
+Residual Deviance: 580.0789 
+AIC: 594.0789 
+
+$coefficients
+                                                Term    Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1         How_long_in_this_role_environment3-5 years -0.11060441 0.4004240 -0.2762182 7.823804e-01 0.89529285
+2  How_long_in_this_role_environmentLess than 1 year  0.58672792 0.5409958  1.0845332 2.781285e-01 1.79809526
+3 How_long_in_this_role_environmentMore than 5 years  0.46630997 0.3351965  1.3911541 1.641787e-01 1.59410104
+4                                                1|2 -2.44177668 0.3807879 -6.4124319 1.432163e-10 0.08700613
+5                                                2|3 -1.49435542 0.3229131 -4.6277317 3.696925e-06 0.22439320
+6                                                3|4 -0.06625166 0.2916926 -0.2271283 8.203239e-01 0.93589531
+7                                                4|5  1.32839323 0.3030743  4.3830614 1.170231e-05 3.77497300
+
+$proportional_odds_test
+                                                          X2 df probability
+Omnibus                                            17.155058  9  0.04634244
+How_long_in_this_role_environment3-5 years          5.814088  3  0.12101402
+How_long_in_this_role_environmentLess than 1 year   5.772599  3  0.12321341
+How_long_in_this_role_environmentMore than 5 years  9.368519  3  0.02477203
+

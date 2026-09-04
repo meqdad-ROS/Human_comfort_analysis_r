@@ -1,0 +1,24 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Gender 
+
+--- Lavaan Estimates ---
+                                         lhs op                                        rhs   est ci.lower ci.upper
+1 performance_decrease_under_thermal_and_Air  ~                                Gender_Male 0.017   -0.186    0.231
+2                           Work_effectively  ~                                Gender_Male 0.126   -0.171    0.410
+3                           Work_effectively  ~ performance_decrease_under_thermal_and_Air 0.119   -0.089    0.345
+4 performance_decrease_under_thermal_and_Air ~~ performance_decrease_under_thermal_and_Air 0.470    0.365    0.573
+5                           Work_effectively ~~                           Work_effectively 1.033    0.869    1.164
+6                                Gender_Male ~~                                Gender_Male 0.213    0.213    0.213
+7                            ind_Gender_Male :=                                       a1*b 0.002   -0.037    0.039
+  pvalue
+1  0.869
+2  0.387
+3  0.285
+4  0.000
+5  0.000
+6     NA
+7  0.904

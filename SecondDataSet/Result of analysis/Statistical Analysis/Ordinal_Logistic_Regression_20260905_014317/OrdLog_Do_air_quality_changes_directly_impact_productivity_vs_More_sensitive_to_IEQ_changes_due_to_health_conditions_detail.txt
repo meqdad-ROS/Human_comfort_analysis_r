@@ -1,0 +1,39 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+More_sensitive_to_IEQ_changes_due_to_health_conditionsPrefer not to say 
+                                                             -0.8379722 
+              More_sensitive_to_IEQ_changes_due_to_health_conditionsYes 
+                                                              0.6196742 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.3243950 -2.0197368 -0.2172793  1.1883231 
+
+Residual Deviance: 530.7159 
+AIC: 542.7159 
+
+$coefficients
+                                                                     Term   Estimate Std_Error    Z_Value
+1 More_sensitive_to_IEQ_changes_due_to_health_conditionsPrefer not to say -0.8379722 0.6397726 -1.3097971
+2               More_sensitive_to_IEQ_changes_due_to_health_conditionsYes  0.6196742 0.3523178  1.7588500
+3                                                                     1|2 -3.3243950 0.5304132 -6.2675572
+4                                                                     2|3 -2.0197368 0.3775135 -5.3501047
+5                                                                     3|4 -0.2172793 0.3265404 -0.6653978
+6                                                                     4|5  1.1883231 0.3358771  3.5379698
+       P_Value Odds_Ratio
+1 1.902645e-01 0.43258682
+2 7.860299e-02 1.85832246
+3 3.667560e-10 0.03599429
+4 8.790338e-08 0.13269038
+5 5.057961e-01 0.80470521
+6 4.032162e-04 3.28157356
+
+$proportional_odds_test
+                                                                              X2 df probability
+Omnibus                                                                 6.679700  6   0.3514863
+More_sensitive_to_IEQ_changes_due_to_health_conditionsPrefer not to say 2.772882  3   0.4279834
+More_sensitive_to_IEQ_changes_due_to_health_conditionsYes               2.967052  3   0.3967330
+

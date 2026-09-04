@@ -1,0 +1,24 @@
+Stratification Variable: IEQ_training_receivedWilling_to_join_IEQ_programs 
+Stratum: IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs. 
+R-squared: 0.7372575 
+
+$n_obs
+[1] 54
+
+$r_squared
+[1] 0.7372575
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.01035                                    -0.33600  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.07374                                     0.90650  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.44036                                     0.29554  
+
+

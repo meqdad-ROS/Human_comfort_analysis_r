@@ -1,0 +1,5 @@
+"","No, I have not received training, and I am not interested in participating in workplace programs.","No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.","Yes, I have received training on this topic, and it has greatly benefited my work.","Yes, I have received training on this topic; however, it has had no impact on my work performance."
+"4 - 6 hours",0.261261261261261,0.036902286902287,-0.45074106364429,-0.189189189189189
+"6 - 8 hours",0.0606060606060606,-0.00874125874125871,0.10850439882698,-0.272727272727273
+"Less than 4 hours",1.59259259259259,-1,-1,2.33333333333333
+"More than 8 hours",-0.351851851851852,0.0432692307692307,0.129032258064516,0.5

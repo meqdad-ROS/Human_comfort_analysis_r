@@ -1,0 +1,96 @@
+=== FULL ORDINAL ASSOCIATIONS (all pairs) ===
+                                                                         Variable D_statistic    P_value
+                               Do_cultur_personal_preferences_affect_your_comfort  0.15396173 0.06119536
+                                                 Sensitive_to_air_quality_changes  0.12912412 0.42016765
+                                           Sensitive_to_thermal_condition_changes  0.06569128 0.98803569
+                                                 Sensitive_to_noise_sound_changes  0.16005499 0.18448382
+                                                 Sensitive_to_light_level_changes  0.14945012 0.25004638
+                              Work_effectively_if_only_air_quality_is_not_optimal  0.08189317 0.91407888
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal  0.10241555 0.71390024
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences  0.11380597 0.58351618
+                                    Work_Effective_even_if_noise_sound_isnt_ideal  0.03790259 0.99999991
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor  0.10938727 0.63400522
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work  0.08837392 0.86076176
+                            Performance_decrease_if_lighting_not_in_comfort_range  0.04929301 0.99986489
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range  0.03750982 0.99999994
+                                      Performance_decrease_if_air_quality_is_poor  0.04399057 0.99999071
+                      Performance_decrease_if_excessive_noise_or_complete_silence  0.12107227 0.50307156
+                              Do_air_quality_changes_directly_impact_productivity  0.08149254 0.91813406
+                                  Do_thermal_changes_directly_impact_productivity  0.08179497 0.91478940
+                                    Do_noise_changes_directly_impact_productivity  0.03407306 1.00000000
+                                 Do_lighting_changes_directly_impact_productivity  0.12431265 0.46879004
+                                               IEQ_improvement_boosts_performance  0.15131040 0.05093987
+                                                    Informed_about_IEQ_parameters  0.07930348 0.93279061
+                                              If_yes_how_much_does_it_affect_work  0.08866850 0.85806175
+    Significance
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+
+
+=== SIGNIFICANT ASSOCIATIONS ONLY (p < 0.05) ===
+                                                                         Variable U_statistic    P_value
+                               Do_cultur_personal_preferences_affect_your_comfort      5394.0 0.32478706
+                                                 Sensitive_to_air_quality_changes      5796.5 0.08988640
+                                           Sensitive_to_thermal_condition_changes      5505.5 0.31693618
+                                                 Sensitive_to_noise_sound_changes      5852.0 0.06687927
+                                                 Sensitive_to_light_level_changes      5807.5 0.08428801
+                              Work_effectively_if_only_air_quality_is_not_optimal      4951.0 0.73861724
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal      4925.0 0.69314223
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences      4719.0 0.37656331
+                                    Work_Effective_even_if_noise_sound_isnt_ideal      5081.5 0.98112633
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor      5636.0 0.18963278
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work      5614.5 0.20521298
+                            Performance_decrease_if_lighting_not_in_comfort_range      4781.0 0.45061730
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range      5086.0 0.98937243
+                                      Performance_decrease_if_air_quality_is_poor      4767.0 0.43335511
+                      Performance_decrease_if_excessive_noise_or_complete_silence      4450.0 0.12177390
+                              Do_air_quality_changes_directly_impact_productivity      5372.5 0.39500292
+                                  Do_thermal_changes_directly_impact_productivity      5590.0 0.22484641
+                                    Do_noise_changes_directly_impact_productivity      5258.0 0.68979709
+                                 Do_lighting_changes_directly_impact_productivity      5605.0 0.21551583
+                                               IEQ_improvement_boosts_performance      5567.5 0.06134922
+                                                    Informed_about_IEQ_parameters      4449.0 0.16236668
+                                              If_yes_how_much_does_it_affect_work      5374.5 0.49663011
+    Significance
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant
+ Not Significant

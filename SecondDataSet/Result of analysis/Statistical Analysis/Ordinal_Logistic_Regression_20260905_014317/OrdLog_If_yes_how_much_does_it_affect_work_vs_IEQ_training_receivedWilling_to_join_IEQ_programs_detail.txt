@@ -1,0 +1,54 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ. 
+                                                                                                                                              -0.1570707 
+                     IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work. 
+                                                                                                                                               0.5175224 
+     IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance. 
+                                                                                                                                              -0.3301479 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-2.4978833 -1.7093280 -0.1284445  1.5350331 
+
+Residual Deviance: 575.1301 
+AIC: 589.1301 
+
+$coefficients
+                                                                                                                                                      Term
+1 IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.
+2                      IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.
+3      IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.
+4                                                                                                                                                      1|2
+5                                                                                                                                                      2|3
+6                                                                                                                                                      3|4
+7                                                                                                                                                      4|5
+    Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1 -0.1570707 0.2964126 -0.5299055 5.961775e-01 0.85464365
+2  0.5175224 0.4255090  1.2162432 2.238923e-01 1.67786543
+3 -0.3301479 0.4928663 -0.6698529 5.029516e-01 0.71881739
+4 -2.4978833 0.3302432 -7.5637696 3.907985e-14 0.08225893
+5 -1.7093280 0.2760366 -6.1923967 5.925620e-10 0.18098738
+6 -0.1284445 0.2378523 -0.5400179 5.891847e-01 0.87946235
+7  1.5350331 0.2711402  5.6613999 1.501431e-08 4.64147911
+
+$proportional_odds_test
+                                                                                                                                                                X2
+Omnibus                                                                                                                                                  16.308086
+IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.  7.598949
+IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.                      10.534881
+IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.       4.693730
+                                                                                                                                                         df
+Omnibus                                                                                                                                                   9
+IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.  3
+IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.                       3
+IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.       3
+                                                                                                                                                         probability
+Omnibus                                                                                                                                                   0.06072010
+IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.  0.05506980
+IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.                       0.01452614
+IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.       0.19564739
+

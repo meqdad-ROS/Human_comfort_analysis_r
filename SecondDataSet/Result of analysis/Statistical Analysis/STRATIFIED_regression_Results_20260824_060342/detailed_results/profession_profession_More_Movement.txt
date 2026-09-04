@@ -1,0 +1,24 @@
+Stratification Variable: profession 
+Stratum: profession_More-Movement 
+R-squared: 0.7308222 
+
+$n_obs
+[1] 93
+
+$r_squared
+[1] 0.7308222
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.00245                                    -0.06571  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.14920                                     0.75091  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.23668                                     0.21511  
+
+

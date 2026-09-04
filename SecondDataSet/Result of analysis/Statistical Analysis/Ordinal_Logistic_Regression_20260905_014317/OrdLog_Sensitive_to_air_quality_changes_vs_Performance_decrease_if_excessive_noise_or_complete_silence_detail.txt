@@ -1,0 +1,34 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Performance_decrease_if_excessive_noise_or_complete_silence 
+                                                  0.0403954 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-2.9106393 -1.7133180 -0.3476423  1.1517354 
+
+Residual Deviance: 570.7211 
+AIC: 580.7211 
+
+$coefficients
+                                                         Term   Estimate Std_Error    Z_Value      P_Value
+1 Performance_decrease_if_excessive_noise_or_complete_silence  0.0403954 0.1312428  0.3077912 7.582412e-01
+2                                                         1|2 -2.9106393 0.5930363 -4.9080292 9.199614e-07
+3                                                         2|3 -1.7133180 0.5283990 -3.2424704 1.184983e-03
+4                                                         3|4 -0.3476423 0.5081295 -0.6841609 4.938736e-01
+5                                                         4|5  1.1517354 0.5140041  2.2407123 2.504471e-02
+  Odds_Ratio
+1 1.04122239
+2 0.05444091
+3 0.18026668
+4 0.70635148
+5 3.16367832
+
+$proportional_odds_test
+                                                                  X2 df probability
+Omnibus                                                     1.436169  3   0.6970789
+Performance_decrease_if_excessive_noise_or_complete_silence 1.436169  3   0.6970789
+

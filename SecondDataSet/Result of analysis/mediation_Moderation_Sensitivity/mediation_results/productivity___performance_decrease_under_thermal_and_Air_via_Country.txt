@@ -1,0 +1,94 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Country 
+
+--- Lavaan Estimates ---
+                                          lhs op                                        rhs    est ci.lower
+1  performance_decrease_under_thermal_and_Air  ~                         Country_East.Europ -0.440   -0.888
+2  performance_decrease_under_thermal_and_Air  ~                                Country_GCC -0.151   -0.268
+3  performance_decrease_under_thermal_and_Air  ~                      Country_Mediterranean -0.259   -0.495
+4  performance_decrease_under_thermal_and_Air  ~                      Country_North.America -0.660   -1.835
+5  performance_decrease_under_thermal_and_Air  ~                              Country_Sudan  0.428    0.309
+6  performance_decrease_under_thermal_and_Air  ~                              Country_Yemen -1.002   -1.121
+7                                productivity  ~                         Country_East.Europ  0.096   -0.160
+8                                productivity  ~                                Country_GCC  0.023   -0.075
+9                                productivity  ~                      Country_Mediterranean -0.106   -0.437
+10                               productivity  ~                      Country_North.America -0.024   -0.377
+11                               productivity  ~                              Country_Sudan  0.409    0.308
+12                               productivity  ~                              Country_Yemen -0.097   -0.229
+13                               productivity  ~ performance_decrease_under_thermal_and_Air  0.902    0.770
+14 performance_decrease_under_thermal_and_Air ~~ performance_decrease_under_thermal_and_Air  0.438    0.343
+15                               productivity ~~                               productivity  0.313    0.229
+16                         Country_East.Europ ~~                         Country_East.Europ  0.063    0.063
+17                         Country_East.Europ ~~                                Country_GCC -0.048   -0.048
+18                         Country_East.Europ ~~                      Country_Mediterranean -0.012   -0.012
+19                         Country_East.Europ ~~                      Country_North.America -0.002   -0.002
+20                         Country_East.Europ ~~                              Country_Sudan  0.000    0.000
+21                         Country_East.Europ ~~                              Country_Yemen  0.000    0.000
+22                                Country_GCC ~~                                Country_GCC  0.203    0.203
+23                                Country_GCC ~~                      Country_Mediterranean -0.124   -0.124
+24                                Country_GCC ~~                      Country_North.America -0.021   -0.021
+25                                Country_GCC ~~                              Country_Sudan -0.003   -0.003
+26                                Country_GCC ~~                              Country_Yemen -0.003   -0.003
+27                      Country_Mediterranean ~~                      Country_Mediterranean  0.143    0.143
+28                      Country_Mediterranean ~~                      Country_North.America -0.005   -0.005
+29                      Country_Mediterranean ~~                              Country_Sudan -0.001   -0.001
+30                      Country_Mediterranean ~~                              Country_Yemen -0.001   -0.001
+31                      Country_North.America ~~                      Country_North.America  0.028    0.028
+32                      Country_North.America ~~                              Country_Sudan  0.000    0.000
+33                      Country_North.America ~~                              Country_Yemen  0.000    0.000
+34                              Country_Sudan ~~                              Country_Sudan  0.005    0.005
+35                              Country_Sudan ~~                              Country_Yemen  0.000    0.000
+36                              Country_Yemen ~~                              Country_Yemen  0.005    0.005
+37                     ind_Country_East.Europ :=                                       a1*b -0.396   -0.801
+38                            ind_Country_GCC :=                                       a2*b -0.136   -0.265
+39                  ind_Country_Mediterranean :=                                       a3*b -0.234   -0.451
+40                  ind_Country_North.America :=                                       a4*b -0.595   -1.633
+41                          ind_Country_Sudan :=                                       a5*b  0.386    0.275
+42                          ind_Country_Yemen :=                                       a6*b -0.904   -1.082
+   ci.upper pvalue
+1    -0.025  0.042
+2    -0.006  0.021
+3    -0.020  0.031
+4     0.146  0.196
+5     0.566  0.000
+6    -0.864  0.000
+7     0.363  0.444
+8     0.105  0.617
+9     0.155  0.447
+10    0.245  0.862
+11    0.495  0.000
+12    0.027  0.113
+13    1.037  0.000
+14    0.496  0.000
+15    0.375  0.000
+16    0.063     NA
+17   -0.048     NA
+18   -0.012     NA
+19   -0.002     NA
+20    0.000     NA
+21    0.000     NA
+22    0.203     NA
+23   -0.124     NA
+24   -0.021     NA
+25   -0.003     NA
+26   -0.003     NA
+27    0.143     NA
+28   -0.005     NA
+29   -0.001     NA
+30   -0.001     NA
+31    0.028     NA
+32    0.000     NA
+33    0.000     NA
+34    0.005     NA
+35    0.000     NA
+36    0.005     NA
+37   -0.019  0.048
+38   -0.005  0.028
+39   -0.020  0.029
+40    0.126  0.187
+41    0.518  0.000
+42   -0.715  0.000

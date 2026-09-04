@@ -1,0 +1,337 @@
+"Stratify_By","Stratum","R_Squared"
+"Language","Language_Arabic",0.647938661667325
+"Language","Language_English",0.788203840579852
+"Language","Language_Arabic",0.146045569743092
+"Language","Language_English",0.134975420367424
+"Language","Language_Arabic",0.800808001581073
+"Language","Language_English",0.89053215079
+"Language","Language_Arabic",0.634396001151316
+"Language","Language_English",0.654425643405099
+"Language","Language_Arabic",0.600676729652263
+"Language","Language_English",0.744292746716312
+"Language","Language_Arabic",0.740111294838724
+"Language","Language_English",0.862708508746138
+"Gender","Gender_Male",0.644411878442169
+"Gender","Gender_Female",0.741822720883833
+"Gender","Gender_Male",0.15778564041362
+"Gender","Gender_Female",0.113880072557123
+"Gender","Gender_Male",0.835282036921416
+"Gender","Gender_Female",0.784729595956425
+"Gender","Gender_Male",0.632901226147078
+"Gender","Gender_Female",0.635156697121268
+"Gender","Gender_Male",0.693892279343734
+"Gender","Gender_Female",0.526468187636507
+"Gender","Gender_Male",0.774774445760038
+"Gender","Gender_Female",0.728272815721438
+"height","height_170 - 180",0.735456293584061
+"height","height_150 - 160",0.758450693940185
+"height","height_160 - 170",0.564145545965858
+"height","height_180 - 190",0.745262932301768
+"height","height_170 - 180",0.0667746966509927
+"height","height_150 - 160",0.185183797817801
+"height","height_160 - 170",0.289585399212996
+"height","height_180 - 190",0.361360722444157
+"height","height_170 - 180",0.832715384100471
+"height","height_150 - 160",0.762384949790908
+"height","height_160 - 170",0.867073726900457
+"height","height_180 - 190",0.837932920865072
+"height","height_170 - 180",0.681244587210023
+"height","height_150 - 160",0.626476867177376
+"height","height_160 - 170",0.660544477489287
+"height","height_180 - 190",0.626747956128047
+"height","height_170 - 180",0.619196319308569
+"height","height_150 - 160",0.575485175713318
+"height","height_160 - 170",0.742353417771292
+"height","height_180 - 190",0.697541820660357
+"height","height_170 - 180",0.765262324491856
+"height","height_150 - 160",0.690227743799202
+"height","height_160 - 170",0.813537415970263
+"height","height_180 - 190",0.810685596766686
+"Age","Age_30 - 45",0.722040202496942
+"Age","Age_45 - 60",0.520162491659379
+"Age","Age_18 - 30",0.657122569113202
+"Age","Age_30 - 45",0.254526589544678
+"Age","Age_45 - 60",0.194897190863287
+"Age","Age_18 - 30",0.134856035543775
+"Age","Age_30 - 45",0.87576803867635
+"Age","Age_45 - 60",0.762713465016231
+"Age","Age_18 - 30",0.825726575687946
+"Age","Age_30 - 45",0.682036008728892
+"Age","Age_45 - 60",0.569517325923705
+"Age","Age_18 - 30",0.675964954826343
+"Age","Age_30 - 45",0.790553630137651
+"Age","Age_45 - 60",0.608640576669124
+"Age","Age_18 - 30",0.474250473948869
+"Age","Age_30 - 45",0.822591538263039
+"Age","Age_45 - 60",0.717466808015118
+"Age","Age_18 - 30",0.738300305476406
+"Weight","Weight_56-70 kg",0.787769697576204
+"Weight","Weight_101-115 kg",0.53078652990223
+"Weight","Weight_86-100 kg",0.693424402742023
+"Weight","Weight_71-85 kg",0.59605896807584
+"Weight","Weight_<=55 kg",0.770241821727433
+"Weight","Weight_56-70 kg",0.302902902844955
+"Weight","Weight_101-115 kg",0.103501897922489
+"Weight","Weight_86-100 kg",0.137350038591546
+"Weight","Weight_71-85 kg",0.144253558095435
+"Weight","Weight_<=55 kg",0.359347384328525
+"Weight","Weight_56-70 kg",0.858036964049788
+"Weight","Weight_101-115 kg",0.717121059802416
+"Weight","Weight_86-100 kg",0.834053288270552
+"Weight","Weight_71-85 kg",0.831754044055391
+"Weight","Weight_<=55 kg",0.824043794105841
+"Weight","Weight_56-70 kg",0.64884023235713
+"Weight","Weight_101-115 kg",0.597056231277348
+"Weight","Weight_86-100 kg",0.694650069331419
+"Weight","Weight_71-85 kg",0.589851582697515
+"Weight","Weight_<=55 kg",0.840444130762951
+"Weight","Weight_56-70 kg",0.646187907126446
+"Weight","Weight_101-115 kg",0.549613762390822
+"Weight","Weight_86-100 kg",0.643448018391316
+"Weight","Weight_71-85 kg",0.711857999989001
+"Weight","Weight_<=55 kg",0.551569777924639
+"Weight","Weight_56-70 kg",0.814435718294611
+"Weight","Weight_101-115 kg",0.67223123647225
+"Weight","Weight_86-100 kg",0.760543827256848
+"Weight","Weight_71-85 kg",0.837819324270014
+"Weight","Weight_<=55 kg",0.666188933691063
+"How_long_in_this_role_environment","How_long_in_this_role_environment_1-3 years",0.813145325920151
+"How_long_in_this_role_environment","How_long_in_this_role_environment_More than 5 years",0.754911332418574
+"How_long_in_this_role_environment","How_long_in_this_role_environment_3-5 years",0.279485283814069
+"How_long_in_this_role_environment","How_long_in_this_role_environment_Less than 1 year",0.877127837146269
+"How_long_in_this_role_environment","How_long_in_this_role_environment_1-3 years",0.234483861463324
+"How_long_in_this_role_environment","How_long_in_this_role_environment_More than 5 years",0.162653004714999
+"How_long_in_this_role_environment","How_long_in_this_role_environment_3-5 years",0.153118430287016
+"How_long_in_this_role_environment","How_long_in_this_role_environment_Less than 1 year",0.0682128664583927
+"How_long_in_this_role_environment","How_long_in_this_role_environment_1-3 years",0.789599302687575
+"How_long_in_this_role_environment","How_long_in_this_role_environment_More than 5 years",0.853462810278704
+"How_long_in_this_role_environment","How_long_in_this_role_environment_3-5 years",0.748365637811691
+"How_long_in_this_role_environment","How_long_in_this_role_environment_Less than 1 year",0.880568735822943
+"How_long_in_this_role_environment","How_long_in_this_role_environment_1-3 years",0.807827851190517
+"How_long_in_this_role_environment","How_long_in_this_role_environment_More than 5 years",0.650544668654302
+"How_long_in_this_role_environment","How_long_in_this_role_environment_3-5 years",0.319522844651755
+"How_long_in_this_role_environment","How_long_in_this_role_environment_Less than 1 year",0.892030322648762
+"How_long_in_this_role_environment","How_long_in_this_role_environment_1-3 years",0.56032661770273
+"How_long_in_this_role_environment","How_long_in_this_role_environment_More than 5 years",0.727825546122185
+"How_long_in_this_role_environment","How_long_in_this_role_environment_3-5 years",0.556518117745768
+"How_long_in_this_role_environment","How_long_in_this_role_environment_Less than 1 year",0.756336042538866
+"How_long_in_this_role_environment","How_long_in_this_role_environment_1-3 years",0.748859164103584
+"How_long_in_this_role_environment","How_long_in_this_role_environment_More than 5 years",0.791809343998639
+"How_long_in_this_role_environment","How_long_in_this_role_environment_3-5 years",0.707735754325167
+"How_long_in_this_role_environment","How_long_in_this_role_environment_Less than 1 year",0.876015449771431
+"Typical_daily_work_schedule","Typical_daily_work_schedule_6 - 8 hours",0.715391565916115
+"Typical_daily_work_schedule","Typical_daily_work_schedule_More than 8 hours",0.656059784928149
+"Typical_daily_work_schedule","Typical_daily_work_schedule_4 - 6 hours",0.663630440737296
+"Typical_daily_work_schedule","Typical_daily_work_schedule_6 - 8 hours",0.173783803283667
+"Typical_daily_work_schedule","Typical_daily_work_schedule_More than 8 hours",0.245269179202702
+"Typical_daily_work_schedule","Typical_daily_work_schedule_4 - 6 hours",0.108356052054172
+"Typical_daily_work_schedule","Typical_daily_work_schedule_6 - 8 hours",0.827044110007093
+"Typical_daily_work_schedule","Typical_daily_work_schedule_More than 8 hours",0.810216516841294
+"Typical_daily_work_schedule","Typical_daily_work_schedule_4 - 6 hours",0.766443545145743
+"Typical_daily_work_schedule","Typical_daily_work_schedule_6 - 8 hours",0.663815144825308
+"Typical_daily_work_schedule","Typical_daily_work_schedule_More than 8 hours",0.560131261675395
+"Typical_daily_work_schedule","Typical_daily_work_schedule_4 - 6 hours",0.716150799100553
+"Typical_daily_work_schedule","Typical_daily_work_schedule_6 - 8 hours",0.607430910288729
+"Typical_daily_work_schedule","Typical_daily_work_schedule_More than 8 hours",0.636774367166943
+"Typical_daily_work_schedule","Typical_daily_work_schedule_4 - 6 hours",0.659040349246493
+"Typical_daily_work_schedule","Typical_daily_work_schedule_6 - 8 hours",0.7572026222301
+"Typical_daily_work_schedule","Typical_daily_work_schedule_More than 8 hours",0.785608267543022
+"Typical_daily_work_schedule","Typical_daily_work_schedule_4 - 6 hours",0.76931710169602
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, moderately",0.66921924592587
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_No, my work is mostly routine",0.790429952217853
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, heavily",0.692937181203441
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, moderately",0.0921546935868938
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_No, my work is mostly routine",0.457015274713495
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, heavily",0.184948057580577
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, moderately",0.809425037476722
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_No, my work is mostly routine",0.900518657863646
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, heavily",0.796766796196894
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, moderately",0.674571706038414
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_No, my work is mostly routine",0.657635405846702
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, heavily",0.621696547707015
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, moderately",0.582729855613
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_No, my work is mostly routine",0.868862865692777
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, heavily",0.5896076677018
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, moderately",0.768925944379311
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_No, my work is mostly routine",0.849588012658759
+"Does_your_work_involve_high_cognitive_load","Does_your_work_involve_high_cognitive_load_Yes, heavily",0.72696700500161
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Always",0.505581674186035
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Sometimes",0.713624903756315
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Rarely",0.917053424984616
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Always",0.127624553814109
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Sometimes",0.156034707612456
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Rarely",0.511096635039231
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Always",0.776893618968755
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Sometimes",0.801013367141672
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Rarely",0.950047392276457
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Always",0.511046977833326
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Sometimes",0.694809448470118
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Rarely",0.712917020159429
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Always",0.59937844905804
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Sometimes",0.677554254019946
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Rarely",0.915516126818857
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Always",0.741178275734102
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Sometimes",0.745220378439707
+"Actively_adjust_environment_during_IEQ_fluctuations","Actively_adjust_environment_during_IEQ_fluctuations_Rarely",0.88342293811435
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes",0.601634870144398
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_No",0.834849740023768
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer not to say",0.810672724750643
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes",0.153420074134702
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_No",0.0850247413122437
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer not to say",0.372136240630876
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes",0.770019164635811
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_No",0.921408848209683
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer not to say",0.577754346378769
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes",0.609065712711258
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_No",0.715881775378779
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer not to say",0.882088509096033
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes",0.567729905140028
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_No",0.837467463659243
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer not to say",0.497552824309418
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes",0.720185193463166
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_No",0.938579331950772
+"More_sensitive_to_IEQ_changes_due_to_health_conditions","More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer not to say",0.731436981450068
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_Instantly",0.607194600405303
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After a short while",0.633644340743047
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After an extended period",0.941364615427151
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_Instantly",0.176759517381576
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After a short while",0.228174274251907
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After an extended period",0.438495279110473
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_Instantly",0.728664022605071
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After a short while",0.829047642499534
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After an extended period",0.928428779124425
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_Instantly",0.547596462232058
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After a short while",0.652763586264786
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After an extended period",0.890610802450396
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_Instantly",0.657790912010493
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After a short while",0.53818564756104
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After an extended period",0.928453365047889
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_Instantly",0.714034788313388
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After a short while",0.759977621605614
+"How_quickly_notice_IEQ_parameter_change","How_quickly_notice_IEQ_parameter_change_After an extended period",0.910704127708952
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I take a break",0.674439639451225
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I attempt to adjust my environment",0.669467242146201
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I continue working but feel less productive",0.762239857961089
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I take a break",0.15487711042724
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I attempt to adjust my environment",0.16101190982371
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I continue working but feel less productive",0.23009805789991
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I take a break",0.722543451052457
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I attempt to adjust my environment",0.801939605511484
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I continue working but feel less productive",0.8867529538275
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I take a break",0.495679473586339
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I attempt to adjust my environment",0.638467771052709
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I continue working but feel less productive",0.721356261312102
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I take a break",0.309585847800281
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I attempt to adjust my environment",0.652134260125467
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I continue working but feel less productive",0.812668100912041
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I take a break",0.593403804749571
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I attempt to adjust my environment",0.754351191196929
+"Typical_response_to_IEQ_discomfort","Typical_response_to_IEQ_discomfort_I continue working but feel less productive",0.813547010468621
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, frequently",0.585586924828254
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, but I have considered it",0.845541463304709
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, occasionally",0.708006401741866
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, I have never needed to",0.605430822887887
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, frequently",0.1443831303802
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, but I have considered it",0.214586516797426
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, occasionally",0.148276122621487
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, I have never needed to",0.309584261232743
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, frequently",0.783352126758753
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, but I have considered it",0.935804359042712
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, occasionally",0.774477440034099
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, I have never needed to",0.836381522417066
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, frequently",0.571933049951772
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, but I have considered it",0.651535840483335
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, occasionally",0.658387207837291
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, I have never needed to",0.753491618516069
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, frequently",0.620938903644083
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, but I have considered it",0.586645534156431
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, occasionally",0.61661822234799
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, I have never needed to",0.839804308880346
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, frequently",0.716989131910363
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, but I have considered it",0.887209977109917
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_Yes, occasionally",0.736731989328419
+"Ever_requested_workplace_modifications","Ever_requested_workplace_modifications_No, I have never needed to",0.85313609938888
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case",0.648903637629166
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_No, I do not",0.825154238917059
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_I do not remember if it happened.",0.443867660562029
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case",0.074205895885035
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_No, I do not",0.376996162043292
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_I do not remember if it happened.",0.115097284217576
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case",0.819718317983281
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_No, I do not",0.877449425558726
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_I do not remember if it happened.",0.784812785081155
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case",0.574234566114515
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_No, I do not",0.770927135430091
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_I do not remember if it happened.",0.603560644201677
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case",0.529426034987156
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_No, I do not",0.788990937790525
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_I do not remember if it happened.",0.693934773433011
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case",0.756746919706526
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_No, I do not",0.803560123436901
+"Headache_sleepy_at_work_enough_sleep_due_to_light_air","Headache_sleepy_at_work_enough_sleep_due_to_light_air_I do not remember if it happened.",0.754582410852312
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.",0.737238340062384
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic, and it has greatly benefited my work.",0.517216619677217
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs.",0.761661002513874
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance.",0.804936321684029
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.",0.19769584238675
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic, and it has greatly benefited my work.",0.124797528515964
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs.",0.169059537151772
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance.",0.417006714913007
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.",0.812731572872128
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic, and it has greatly benefited my work.",0.800147463006384
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs.",0.803660016152955
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance.",0.892073209372268
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.",0.599314827701717
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic, and it has greatly benefited my work.",0.695680518413312
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs.",0.699320528122386
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance.",0.809632390311215
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.",0.668446753446495
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic, and it has greatly benefited my work.",0.573489369031227
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs.",0.487398820248761
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance.",0.873366004814959
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.",0.76085731511513
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic, and it has greatly benefited my work.",0.773267421134497
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_No, I have not received training, and I am not interested in participating in workplace programs.",0.737257539070942
+"IEQ_training_receivedWilling_to_join_IEQ_programs","IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance.",0.890993972453405
+"Country","Country_Mediterranean",0.582546646959449
+"Country","Country_East Europ",0.942261859401669
+"Country","Country_GCC",0.668519224276254
+"Country","Country_Mediterranean",0.346650865918252
+"Country","Country_East Europ",0.360866828079952
+"Country","Country_GCC",0.130200164695466
+"Country","Country_Mediterranean",0.868583159393521
+"Country","Country_East Europ",0.917323263897327
+"Country","Country_GCC",0.778460479311304
+"Country","Country_Mediterranean",0.698978665308477
+"Country","Country_East Europ",0.797417868008905
+"Country","Country_GCC",0.606402819989676
+"Country","Country_Mediterranean",0.868555146249245
+"Country","Country_East Europ",0.928354430285538
+"Country","Country_GCC",0.499872847120099
+"Country","Country_Mediterranean",0.758352359101953
+"Country","Country_East Europ",0.955749124375338
+"Country","Country_GCC",0.699446539604072
+"profession","profession_Active-work",0.651569590680006
+"profession","profession_Office-work",0.921912662279993
+"profession","profession_More-Movement",0.685951811410716
+"profession","profession_office-work",0.669239653954878
+"profession","profession_Active-work",0.212273518453066
+"profession","profession_Office-work",0.676850637950181
+"profession","profession_More-Movement",0.176943771924775
+"profession","profession_office-work",0.133222619423236
+"profession","profession_Active-work",0.811413221535747
+"profession","profession_Office-work",0.990045221126222
+"profession","profession_More-Movement",0.808619631466628
+"profession","profession_office-work",0.770655936155971
+"profession","profession_Active-work",0.576955666848933
+"profession","profession_Office-work",0.788309185250047
+"profession","profession_More-Movement",0.618778744011268
+"profession","profession_office-work",0.742472742816251
+"profession","profession_Active-work",0.606732549586125
+"profession","profession_Office-work",0.921983478751906
+"profession","profession_More-Movement",0.600411231443223
+"profession","profession_office-work",0.607514804505787
+"profession","profession_Active-work",0.780536752345354
+"profession","profession_Office-work",0.986945763600149
+"profession","profession_More-Movement",0.730822198190841
+"profession","profession_office-work",0.798630988385799

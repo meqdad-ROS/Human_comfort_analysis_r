@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+GenderMale 
+-0.6690007 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-5.1139259 -3.5742864 -2.2088921 -0.9855886 
+
+Residual Deviance: 411.9962 
+AIC: 421.9962 
+
+$coefficients
+        Term   Estimate Std_Error   Z_Value      P_Value  Odds_Ratio
+1 GenderMale -0.6690007 0.3333206 -2.007079 4.474129e-02 0.512220200
+2        1|2 -5.1139259 0.7645522 -6.688786 2.250289e-11 0.006012433
+3        2|3 -3.5742864 0.4326129 -8.262089 2.220446e-16 0.028035425
+4        3|4 -2.2088921 0.3264231 -6.766960 1.315170e-11 0.109822253
+5        4|5 -0.9855886 0.2905016 -3.392713 6.920402e-04 0.373219476
+
+$proportional_odds_test
+                 X2 df probability
+Omnibus    1.879699  3   0.5977469
+GenderMale 1.879699  3   0.5977469
+

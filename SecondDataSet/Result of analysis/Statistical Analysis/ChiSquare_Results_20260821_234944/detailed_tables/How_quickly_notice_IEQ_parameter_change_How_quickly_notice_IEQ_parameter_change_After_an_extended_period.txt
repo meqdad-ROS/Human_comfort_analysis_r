@@ -1,0 +1,24 @@
+Stratification Variable: How_quickly_notice_IEQ_parameter_change 
+Stratum: How_quickly_notice_IEQ_parameter_change_After an extended period 
+R-squared: 0.9107041 
+
+$n_obs
+[1] 12
+
+$r_squared
+[1] 0.9107041
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  -0.40739                                     0.05148  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.30357                                     0.09651  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.40974                                     0.60633  
+
+

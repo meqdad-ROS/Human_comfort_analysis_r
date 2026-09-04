@@ -1,0 +1,76 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Weight 
+
+--- Lavaan Estimates ---
+                                          lhs op                                        rhs    est ci.lower
+1  performance_decrease_under_thermal_and_Air  ~                            Weight_..131.kg -0.864   -2.622
+2  performance_decrease_under_thermal_and_Air  ~                          Weight_101.115.kg  0.234   -0.054
+3  performance_decrease_under_thermal_and_Air  ~                            Weight_56.70.kg  0.101   -0.195
+4  performance_decrease_under_thermal_and_Air  ~                            Weight_71.85.kg  0.071   -0.224
+5  performance_decrease_under_thermal_and_Air  ~                           Weight_86.100.kg  0.097   -0.207
+6                            Work_effectively  ~                            Weight_..131.kg  0.779   -0.950
+7                            Work_effectively  ~                          Weight_101.115.kg  0.380   -0.266
+8                            Work_effectively  ~                            Weight_56.70.kg  0.168   -0.378
+9                            Work_effectively  ~                            Weight_71.85.kg  0.272   -0.331
+10                           Work_effectively  ~                           Weight_86.100.kg  0.172   -0.383
+11                           Work_effectively  ~ performance_decrease_under_thermal_and_Air  0.127   -0.089
+12 performance_decrease_under_thermal_and_Air ~~ performance_decrease_under_thermal_and_Air  0.454    0.353
+13                           Work_effectively ~~                           Work_effectively  1.022    0.837
+14                            Weight_..131.kg ~~                            Weight_..131.kg  0.014    0.014
+15                            Weight_..131.kg ~~                          Weight_101.115.kg -0.002   -0.002
+16                            Weight_..131.kg ~~                            Weight_56.70.kg -0.004   -0.004
+17                            Weight_..131.kg ~~                            Weight_71.85.kg -0.003   -0.003
+18                            Weight_..131.kg ~~                           Weight_86.100.kg -0.004   -0.004
+19                          Weight_101.115.kg ~~                          Weight_101.115.kg  0.119    0.119
+20                          Weight_101.115.kg ~~                            Weight_56.70.kg -0.036   -0.036
+21                          Weight_101.115.kg ~~                            Weight_71.85.kg -0.030   -0.030
+22                          Weight_101.115.kg ~~                           Weight_86.100.kg -0.038   -0.038
+23                            Weight_56.70.kg ~~                            Weight_56.70.kg  0.195    0.195
+24                            Weight_56.70.kg ~~                            Weight_71.85.kg -0.058   -0.058
+25                            Weight_56.70.kg ~~                           Weight_86.100.kg -0.074   -0.074
+26                            Weight_71.85.kg ~~                            Weight_71.85.kg  0.170    0.170
+27                            Weight_71.85.kg ~~                           Weight_86.100.kg -0.061   -0.061
+28                           Weight_86.100.kg ~~                           Weight_86.100.kg  0.201    0.201
+29                        ind_Weight_..131.kg :=                                       a1*b -0.110   -0.629
+30                      ind_Weight_101.115.kg :=                                       a2*b  0.030   -0.025
+31                        ind_Weight_56.70.kg :=                                       a3*b  0.013   -0.037
+32                        ind_Weight_71.85.kg :=                                       a4*b  0.009   -0.047
+33                       ind_Weight_86.100.kg :=                                       a5*b  0.012   -0.034
+   ci.upper pvalue
+1     0.173  0.285
+2     0.574  0.160
+3     0.403  0.519
+4     0.402  0.660
+5     0.435  0.553
+6     2.284  0.351
+7     0.981  0.198
+8     0.686  0.534
+9     0.815  0.332
+10    0.651  0.518
+11    0.343  0.240
+12    0.526  0.000
+13    1.146  0.000
+14    0.014     NA
+15   -0.002     NA
+16   -0.004     NA
+17   -0.003     NA
+18   -0.004     NA
+19    0.119     NA
+20   -0.036     NA
+21   -0.030     NA
+22   -0.038     NA
+23    0.195     NA
+24   -0.058     NA
+25   -0.074     NA
+26    0.170     NA
+27   -0.061     NA
+28    0.201     NA
+29    0.075  0.541
+30    0.141  0.463
+31    0.087  0.679
+32    0.083  0.768
+33    0.107  0.705

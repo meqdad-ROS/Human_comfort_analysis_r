@@ -1,0 +1,34 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 
+                                                              0.6809691 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-0.4669094  0.6027157  2.0086999  3.2596084 
+
+Residual Deviance: 551.2233 
+AIC: 561.2233 
+
+$coefficients
+                                                                     Term   Estimate Std_Error    Z_Value
+1 How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor  0.6809691 0.1264403  5.3856958
+2                                                                     1|2 -0.4669094 0.5022999 -0.9295431
+3                                                                     2|3  0.6027157 0.4653937  1.2950662
+4                                                                     3|4  2.0086999 0.4774205  4.2074019
+5                                                                     4|5  3.2596084 0.5119994  6.3664307
+       P_Value Odds_Ratio
+1 7.216492e-08  1.9757915
+2 3.526077e-01  0.6269369
+3 1.952974e-01  1.8270739
+4 2.583235e-05  7.4536204
+5 1.934777e-10 26.0393377
+
+$proportional_odds_test
+                                                                              X2 df probability
+Omnibus                                                                 5.210303  3   0.1570298
+How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 5.210303  3   0.1570298
+

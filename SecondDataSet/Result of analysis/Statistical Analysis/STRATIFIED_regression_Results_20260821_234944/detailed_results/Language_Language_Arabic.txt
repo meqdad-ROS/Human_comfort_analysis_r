@@ -1,0 +1,24 @@
+Stratification Variable: Language 
+Stratum: Language_Arabic 
+R-squared: 0.7401113 
+
+$n_obs
+[1] 168
+
+$r_squared
+[1] 0.7401113
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  -0.03311                                    -0.04838  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.12679                                     0.74322  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.29788                                     0.22838  
+
+

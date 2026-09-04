@@ -1,0 +1,24 @@
+Stratification Variable: Weight 
+Stratum: Weight_101-115 kg 
+R-squared: 0.6722312 
+
+$n_obs
+[1] 29
+
+$r_squared
+[1] 0.6722312
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  -0.21135                                    -0.03469  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.10537                                     0.81084  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.40598                                     0.22237  
+
+

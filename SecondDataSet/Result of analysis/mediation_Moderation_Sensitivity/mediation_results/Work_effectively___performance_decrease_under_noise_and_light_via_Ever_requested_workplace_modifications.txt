@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Ever_requested_workplace_modifications 
+
+--- Lavaan Estimates ---
+                                                                     lhs op
+1                             performance_decrease_under_noise_and_light  ~
+2                             performance_decrease_under_noise_and_light  ~
+3                             performance_decrease_under_noise_and_light  ~
+4                                                       Work_effectively  ~
+5                                                       Work_effectively  ~
+6                                                       Work_effectively  ~
+7                                                       Work_effectively  ~
+8                             performance_decrease_under_noise_and_light ~~
+9                                                       Work_effectively ~~
+10     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+11     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+12     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+13                Ever_requested_workplace_modifications_Yes..frequently ~~
+14                Ever_requested_workplace_modifications_Yes..frequently ~~
+15              Ever_requested_workplace_modifications_Yes..occasionally ~~
+16 ind_Ever_requested_workplace_modifications_No..I.have.never.needed.to :=
+17            ind_Ever_requested_workplace_modifications_Yes..frequently :=
+18          ind_Ever_requested_workplace_modifications_Yes..occasionally :=
+                                                                 rhs    est ci.lower ci.upper pvalue
+1  Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.441    0.088    0.811  0.017
+2             Ever_requested_workplace_modifications_Yes..frequently  0.430    0.123    0.738  0.005
+3           Ever_requested_workplace_modifications_Yes..occasionally  0.341    0.070    0.624  0.014
+4  Ever_requested_workplace_modifications_No..I.have.never.needed.to -0.051   -0.742    0.600  0.876
+5             Ever_requested_workplace_modifications_Yes..frequently -0.059   -0.585    0.390  0.813
+6           Ever_requested_workplace_modifications_Yes..occasionally -0.077   -0.621    0.330  0.733
+7                         performance_decrease_under_noise_and_light -0.056   -0.325    0.226  0.683
+8                         performance_decrease_under_noise_and_light  0.338    0.266    0.403  0.000
+9                                                   Work_effectively  1.041    0.871    1.156  0.000
+10 Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.086    0.086    0.086     NA
+11            Ever_requested_workplace_modifications_Yes..frequently -0.032   -0.032   -0.032     NA
+12          Ever_requested_workplace_modifications_Yes..occasionally -0.044   -0.044   -0.044     NA
+13            Ever_requested_workplace_modifications_Yes..frequently  0.223    0.223    0.223     NA
+14          Ever_requested_workplace_modifications_Yes..occasionally -0.156   -0.156   -0.156     NA
+15          Ever_requested_workplace_modifications_Yes..occasionally  0.249    0.249    0.249     NA
+16                                                              a1*b -0.025   -0.186    0.125  0.725
+17                                                              a2*b -0.024   -0.167    0.124  0.712
+18                                                              a3*b -0.019   -0.134    0.094  0.717

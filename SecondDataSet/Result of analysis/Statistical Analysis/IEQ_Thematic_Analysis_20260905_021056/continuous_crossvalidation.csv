@@ -1,0 +1,7 @@
+"Variable","Dominant_Theme","Cluster","Cluster_Aligned","Agrees"
+"Combined_Effect_of_Air_thermal_noise_light","Theme_1","Cluster_1","Theme_1",TRUE
+"performance_decrease_under_noise_and_light","Theme_1","Cluster_1","Theme_1",TRUE
+"performance_decrease_under_thermal_and_Air","Theme_1","Cluster_1","Theme_1",TRUE
+"productivity","Theme_2","Cluster_1","Theme_1",FALSE
+"Sensitivity","Theme_2","Cluster_1","Theme_1",FALSE
+"Work_effectively","Theme_2","Cluster_2","Theme_2",TRUE

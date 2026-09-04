@@ -1,0 +1,7 @@
+"","No, I have not received training, and I am not interested in participating in workplace programs.","No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.","Yes, I have received training on this topic, and it has greatly benefited my work.","Yes, I have received training on this topic; however, it has had no impact on my work performance."
+"<=55 kg",1.16049382716049,-0.439102564102564,-0.247311827956989,-0.444444444444444
+">=131 kg",-1,1.01923076923077,-1,-1
+"101-115 kg",0.206896551724138,0.0444297082228116,-0.299221357063404,-0.310344827586207
+"56-70 kg",0.0416666666666667,-0.0625,0.209677419354839,-0.107142857142857
+"71-85 kg",-0.239130434782609,0.0974080267558528,0.0308555399719495,0.0869565217391305
+"86-100 kg",-0.262452107279693,0.0444297082228116,0.0511679644048944,0.379310344827586

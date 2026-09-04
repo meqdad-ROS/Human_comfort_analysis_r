@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+LanguageEnglish 
+      -1.060585 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.7926335 -2.2988676 -0.6609055  0.9254012 
+
+Residual Deviance: 547.5958 
+AIC: 557.5958 
+
+$coefficients
+             Term   Estimate Std_Error   Z_Value      P_Value Odds_Ratio
+1 LanguageEnglish -1.0605848 0.3166073 -3.349843 8.085741e-04 0.34625327
+2             1|2 -3.7926335 0.4292238 -8.836029 0.000000e+00 0.02253617
+3             2|3 -2.2988676 0.2420516 -9.497428 0.000000e+00 0.10037244
+4             3|4 -0.6609055 0.1652372 -3.999738 6.341255e-05 0.51638353
+5             4|5  0.9254012 0.1719156  5.382880 7.330342e-08 2.52288026
+
+$proportional_odds_test
+                      X2 df probability
+Omnibus         3.187167  3   0.3636582
+LanguageEnglish 3.187167  3   0.3636582
+

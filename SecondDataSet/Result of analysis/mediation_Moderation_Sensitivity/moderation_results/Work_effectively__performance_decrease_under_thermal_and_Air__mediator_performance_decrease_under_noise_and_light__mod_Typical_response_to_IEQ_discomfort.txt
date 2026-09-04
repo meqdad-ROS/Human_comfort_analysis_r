@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : performance_decrease_under_thermal_and_Air 
+Mediator  : performance_decrease_under_noise_and_light 
+Moderator : Typical_response_to_IEQ_discomfort 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.3526044   p = 0.0424 
+
+--- Interaction Coefficients ---
+  performance_decrease_under_thermal_and_Air:Typical_response_to_IEQ_discomfortI continue working but feel less productive: coef = -0.1532, p = 0.5499 
+  performance_decrease_under_thermal_and_Air:Typical_response_to_IEQ_discomfortI take a break: coef = -0.1190, p = 0.7293 
+  performance_decrease_under_thermal_and_Air:Typical_response_to_IEQ_discomfortIt does not affect me: coef = 0.6982, p = 0.1684 
+
+Moderation significant: FALSE 

@@ -1,0 +1,47 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+
+--- Lavaan Estimates ---
+                                                                                         lhs op
+1                                                 Combined_Effect_of_Air_thermal_noise_light  ~
+2                                                 Combined_Effect_of_Air_thermal_noise_light  ~
+3                                                                                Sensitivity  ~
+4                                                                                Sensitivity  ~
+5                                                                                Sensitivity  ~
+6                                                 Combined_Effect_of_Air_thermal_noise_light ~~
+7                                                                                Sensitivity ~~
+8                         Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not ~~
+9                         Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not ~~
+10     Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case ~~
+11                    ind_Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not :=
+12 ind_Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case :=
+                                                                                     rhs    est ci.lower ci.upper
+1                     Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not -0.475   -0.818   -0.130
+2  Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case -0.015   -0.260    0.254
+3                     Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not -0.115   -0.359    0.155
+4  Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case -0.195   -0.383    0.002
+5                                             Combined_Effect_of_Air_thermal_noise_light  0.574    0.463    0.694
+6                                             Combined_Effect_of_Air_thermal_noise_light  0.653    0.518    0.798
+7                                                                            Sensitivity  0.416    0.308    0.515
+8                     Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not  0.195    0.195    0.195
+9  Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case -0.152   -0.152   -0.152
+10 Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case  0.245    0.245    0.245
+11                                                                                  a1*b -0.273   -0.469   -0.078
+12                                                                                  a2*b -0.009   -0.149    0.149
+   pvalue
+1   0.006
+2   0.913
+3   0.358
+4   0.059
+5   0.000
+6   0.000
+7   0.000
+8      NA
+9      NA
+10     NA
+11  0.007
+12  0.914

@@ -1,0 +1,84 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: IEQ_training_receivedWilling_to_join_IEQ_programs 
+
+--- Lavaan Estimates ---
+                                                                                                                                                             lhs
+1                                                                                                                     Combined_Effect_of_Air_thermal_noise_light
+2                                                                                                                     Combined_Effect_of_Air_thermal_noise_light
+3                                                                                                                     Combined_Effect_of_Air_thermal_noise_light
+4                                                                                                                                                   productivity
+5                                                                                                                                                   productivity
+6                                                                                                                                                   productivity
+7                                                                                                                                                   productivity
+8                                                                                                                     Combined_Effect_of_Air_thermal_noise_light
+9                                                                                                                                                   productivity
+10     IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+11     IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+12     IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+13                          IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+14                          IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+15          IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+16 ind_IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+17                      ind_IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+18      ind_IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+   op
+1   ~
+2   ~
+3   ~
+4   ~
+5   ~
+6   ~
+7   ~
+8  ~~
+9  ~~
+10 ~~
+11 ~~
+12 ~~
+13 ~~
+14 ~~
+15 ~~
+16 :=
+17 :=
+18 :=
+                                                                                                                                                         rhs
+1  IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+2                       IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+3       IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+4  IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+5                       IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+6       IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+7                                                                                                                 Combined_Effect_of_Air_thermal_noise_light
+8                                                                                                                 Combined_Effect_of_Air_thermal_noise_light
+9                                                                                                                                               productivity
+10 IEQ_training_receivedWilling_to_join_IEQ_programs_No..I.have.not.received.training..but.I.am.willing.to.participate.in.workplace.programs.to.improve.IEQ.
+11                      IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+12      IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+13                      IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..and.it.has.greatly.benefited.my.work.
+14      IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+15      IEQ_training_receivedWilling_to_join_IEQ_programs_Yes..I.have.received.training.on.this.topic..however..it.has.had.no.impact.on.my.work.performance.
+16                                                                                                                                                      a1*b
+17                                                                                                                                                      a2*b
+18                                                                                                                                                      a3*b
+      est ci.lower ci.upper pvalue
+1  -0.216   -0.462    0.018  0.083
+2   0.125   -0.234    0.495  0.500
+3  -0.343   -0.860    0.139  0.158
+4  -0.171   -0.371    0.008  0.076
+5  -0.163   -0.483    0.170  0.344
+6  -0.010   -0.340    0.304  0.951
+7   0.648    0.517    0.780  0.000
+8   0.675    0.533    0.792  0.000
+9   0.384    0.280    0.467  0.000
+10  0.250    0.250    0.250     NA
+11 -0.073   -0.073   -0.073     NA
+12 -0.050   -0.050   -0.050     NA
+13  0.126    0.126    0.126     NA
+14 -0.015   -0.015   -0.015     NA
+15  0.090    0.090    0.090     NA
+16 -0.140   -0.310    0.012  0.094
+17  0.081   -0.145    0.353  0.510
+18 -0.223   -0.561    0.097  0.165

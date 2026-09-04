@@ -1,0 +1,24 @@
+Stratification Variable: How_long_in_this_role_environment 
+Stratum: How_long_in_this_role_environment_3-5 years 
+R-squared: 0.7077358 
+
+$n_obs
+[1] 45
+
+$r_squared
+[1] 0.7077358
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.07381                                     0.06329  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.11451                                     0.78579  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.05461                                     0.18055  
+
+

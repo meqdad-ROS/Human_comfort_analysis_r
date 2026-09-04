@@ -590,9 +590,9 @@ analy_BCFA$list_all_methods()
 
 # Example 1: First-order model with Sensitivity and Th_AQ_Effect
 cat("\n=== First-Order Response Surface Analysis ===\n")
-# rs_first_order_1 <- analy_BCFA$perform_response_surface_analysis(response= "Performance", 
-#                                                                predictors=c("Sensitivity", "Th_AQ_Effect"),
-#                                                                plot = TRUE)
+rs_first_order_1 <- analy_BCFA$perform_response_surface_analysis(response= "Performance",
+                                                               predictors=c("Sensitivity", "Th_AQ_Effect"),
+                                                               plot = TRUE)
 # Step 2: Generate plots manually
 par(mfrow = c(1, 2))
 

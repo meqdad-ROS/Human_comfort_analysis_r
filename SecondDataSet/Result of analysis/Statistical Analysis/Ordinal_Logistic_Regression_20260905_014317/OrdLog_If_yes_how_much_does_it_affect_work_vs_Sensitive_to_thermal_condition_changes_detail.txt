@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Sensitive_to_thermal_condition_changes 
+                             0.2257958 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.6015097 -0.8059380  0.7937925  2.4531247 
+
+Residual Deviance: 574.8259 
+AIC: 584.8259 
+
+$coefficients
+                                    Term   Estimate Std_Error   Z_Value      P_Value Odds_Ratio
+1 Sensitive_to_thermal_condition_changes  0.2257958 0.1184139  1.906835 5.654197e-02  1.2533197
+2                                    1|2 -1.6015097 0.5090616 -3.146003 1.655180e-03  0.2015919
+3                                    2|3 -0.8059380 0.4850829 -1.661444 9.662435e-02  0.4466688
+4                                    3|4  0.7937925 0.4844049  1.638696 1.012766e-01  2.2117687
+5                                    4|5  2.4531247 0.5096909  4.812966 1.487067e-06 11.6246134
+
+$proportional_odds_test
+                                             X2 df probability
+Omnibus                                5.004846  3   0.1714427
+Sensitive_to_thermal_condition_changes 5.004846  3   0.1714427
+

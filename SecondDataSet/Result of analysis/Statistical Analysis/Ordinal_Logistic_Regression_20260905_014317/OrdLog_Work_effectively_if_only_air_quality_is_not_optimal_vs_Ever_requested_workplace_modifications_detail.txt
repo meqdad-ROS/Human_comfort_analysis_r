@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Ever_requested_workplace_modificationsNo, I have never needed to 
+                                                     -0.02189765 
+           Ever_requested_workplace_modificationsYes, frequently 
+                                                      0.02467352 
+         Ever_requested_workplace_modificationsYes, occasionally 
+                                                     -0.10944047 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.8249535 -0.8524071  0.3489232  1.4466270 
+
+Residual Deviance: 634.3891 
+AIC: 648.3891 
+
+$coefficients
+                                                              Term    Estimate Std_Error     Z_Value      P_Value
+1 Ever_requested_workplace_modificationsNo, I have never needed to -0.02189765 0.5321197 -0.04115173 9.671749e-01
+2            Ever_requested_workplace_modificationsYes, frequently  0.02467352 0.4158193  0.05933712 9.526836e-01
+3          Ever_requested_workplace_modificationsYes, occasionally -0.10944047 0.3974719 -0.27534143 7.830539e-01
+4                                                              1|2 -1.82495350 0.3893689 -4.68695233 2.773035e-06
+5                                                              2|3 -0.85240713 0.3628218 -2.34938213 1.880460e-02
+6                                                              3|4  0.34892316 0.3561981  0.97957629 3.272953e-01
+7                                                              4|5  1.44662698 0.3761997  3.84536994 1.203707e-04
+  Odds_Ratio
+1  0.9783404
+2  1.0249804
+3  0.8963355
+4  0.1612251
+5  0.4263873
+6  1.4175403
+7  4.2487591
+
+$proportional_odds_test
+                                                                        X2 df probability
+Omnibus                                                          10.154587  9  0.33811620
+Ever_requested_workplace_modificationsNo, I have never needed to  3.956463  3  0.26620393
+Ever_requested_workplace_modificationsYes, frequently             7.519480  3  0.05706003
+Ever_requested_workplace_modificationsYes, occasionally           4.428390  3  0.21876738
+

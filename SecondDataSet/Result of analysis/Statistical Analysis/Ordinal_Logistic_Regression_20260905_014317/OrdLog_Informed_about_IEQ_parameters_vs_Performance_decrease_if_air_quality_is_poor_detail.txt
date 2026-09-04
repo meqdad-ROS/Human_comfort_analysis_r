@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Performance_decrease_if_air_quality_is_poor 
+                                  0.5999294 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-0.6194645  0.3378998  1.8624464  3.3777125 
+
+Residual Deviance: 562.0947 
+AIC: 572.0947 
+
+$coefficients
+                                         Term   Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1 Performance_decrease_if_air_quality_is_poor  0.5999294 0.1297072  4.6252605 3.741279e-06  1.8219902
+2                                         1|2 -0.6194645 0.5178996 -1.1961091 2.316540e-01  0.5382326
+3                                         2|3  0.3378998 0.4823051  0.7005933 4.835568e-01  1.4020000
+4                                         3|4  1.8624464 0.4955265  3.7585205 1.709211e-04  6.4394708
+5                                         4|5  3.3777125 0.5367242  6.2931990 3.109892e-10 29.3036632
+
+$proportional_odds_test
+                                                  X2 df probability
+Omnibus                                     3.292663  3   0.3486651
+Performance_decrease_if_air_quality_is_poor 3.292663  3   0.3486651
+

@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Sensitivity 
+Predictor : performance_decrease_under_noise_and_light 
+Mediator  : Combined_Effect_of_Air_thermal_noise_light 
+Moderator : How_quickly_notice_IEQ_parameter_change 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): 0.7614293   p = 0 
+
+--- Interaction Coefficients ---
+  performance_decrease_under_noise_and_light:How_quickly_notice_IEQ_parameter_changeAfter an extended period: coef = 0.8404, p = 0.0223 [*]
+  performance_decrease_under_noise_and_light:How_quickly_notice_IEQ_parameter_changeI don’t notice at all: coef = 0.7892, p = 0.1892 
+  performance_decrease_under_noise_and_light:How_quickly_notice_IEQ_parameter_changeInstantly: coef = -0.2948, p = 0.1242 
+
+Moderation significant: TRUE 

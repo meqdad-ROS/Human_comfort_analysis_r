@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : performance_decrease_under_thermal_and_Air 
+Mediator  : performance_decrease_under_noise_and_light 
+Moderator : height 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.3526044   p = 0.0424 
+
+--- Interaction Coefficients ---
+  performance_decrease_under_thermal_and_Air:height160 - 170: coef = 0.7539, p = 0.0200 [*]
+  performance_decrease_under_thermal_and_Air:height170 - 180: coef = 0.6261, p = 0.0434 [*]
+  performance_decrease_under_thermal_and_Air:height180 - 190: coef = 0.9185, p = 0.0122 [*]
+
+Moderation significant: TRUE 

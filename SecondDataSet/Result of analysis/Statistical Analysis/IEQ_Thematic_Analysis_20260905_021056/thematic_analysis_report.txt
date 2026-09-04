@@ -1,0 +1,216 @@
+================================================================================
+THEMATIC ANALYSIS REPORT
+Test name: IEQ_Thematic_Analysis 
+Generated: 2026-09-05 02:11:53 
+Data source: Direct data.frame 
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION: CONTINUOUS VARIABLES (PEARSON correlations)
+--------------------------------------------------------------------------------
+
+Variables analysed: productivity, Work_effectively, performance_decrease_under_thermal_and_Air, Sensitivity, performance_decrease_under_noise_and_light, Combined_Effect_of_Air_thermal_noise_light 
+
+Factorability diagnostics:
+  KMO = 0.7757 (Middling) | Bartlett chi-sq = 803.1194, df = 15, p = 0.000000
+
+Number of themes retained: 2 
+
+EFA theme assignment (dominant loading per variable):
+                                   Variable Dominant_Theme Loading Loading_Strength
+                               productivity        Theme_2  0.5625           Strong
+                           Work_effectively        Theme_2  0.3252             Weak
+ performance_decrease_under_thermal_and_Air        Theme_1  0.8227      Very strong
+                                Sensitivity        Theme_2  0.9490      Very strong
+ performance_decrease_under_noise_and_light        Theme_1  0.9219      Very strong
+ Combined_Effect_of_Air_thermal_noise_light        Theme_1  0.7797      Very strong
+
+Variance explained per theme:
+   Theme SS_Loadings Proportion_Variance Cumulative_Variance
+ Theme_1      2.4696              0.4116              0.4116
+ Theme_2      1.5900              0.2650              0.6766
+
+Hierarchical clustering assignment (2 clusters, ward.D2 linkage):
+                                   Variable   Cluster
+                               productivity Cluster_1
+                           Work_effectively Cluster_2
+ performance_decrease_under_thermal_and_Air Cluster_1
+                                Sensitivity Cluster_1
+ performance_decrease_under_noise_and_light Cluster_1
+ Combined_Effect_of_Air_thermal_noise_light Cluster_1
+
+Cross-validation of EFA themes vs. clusters:
+                                   Variable Dominant_Theme Cluster_Aligned Agrees
+ Combined_Effect_of_Air_thermal_noise_light        Theme_1         Theme_1   TRUE
+ performance_decrease_under_noise_and_light        Theme_1         Theme_1   TRUE
+ performance_decrease_under_thermal_and_Air        Theme_1         Theme_1   TRUE
+                               productivity        Theme_2         Theme_1  FALSE
+                                Sensitivity        Theme_2         Theme_1  FALSE
+                           Work_effectively        Theme_2         Theme_2   TRUE
+
+  Percentage agreement: 66.67%
+  Adjusted Rand Index:  0.0000 (Slight agreement)
+
+--------------------------------------------------------------------------------
+SECTION: ORDINAL VARIABLES (POLYCHORIC correlations)
+--------------------------------------------------------------------------------
+
+Variables analysed: Do_cultur_personal_preferences_affect_your_comfort, Sensitive_to_air_quality_changes, Sensitive_to_thermal_condition_changes, Sensitive_to_noise_sound_changes, Sensitive_to_light_level_changes, Work_effectively_if_only_air_quality_is_not_optimal, Work_effectively_if_only_thermal_comfort_is_not_optimal, Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences, Work_Effective_even_if_noise_sound_isnt_ideal, How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor, When_thermal_lighting_discomfort_combined_how_does_this_impact_work, Performance_decrease_if_lighting_not_in_comfort_range, Performance_decrease_if_thermal_conditions_not_in_comfort_range, Performance_decrease_if_air_quality_is_poor, Performance_decrease_if_excessive_noise_or_complete_silence, Do_air_quality_changes_directly_impact_productivity, Do_thermal_changes_directly_impact_productivity, Do_noise_changes_directly_impact_productivity, Do_lighting_changes_directly_impact_productivity, IEQ_improvement_boosts_performance, Informed_about_IEQ_parameters, If_yes_how_much_does_it_affect_work 
+
+Factorability diagnostics:
+  KMO = 0.8020 (Meritorious) | Bartlett chi-sq = 3761.7619, df = 231, p = 0.000000
+
+Number of themes retained: 5 
+
+EFA theme assignment (dominant loading per variable):
+                                                                         Variable Dominant_Theme Loading
+                               Do_cultur_personal_preferences_affect_your_comfort        Theme_1  0.4982
+                                                 Sensitive_to_air_quality_changes        Theme_4  0.6664
+                                           Sensitive_to_thermal_condition_changes        Theme_4  0.7937
+                                                 Sensitive_to_noise_sound_changes        Theme_4  0.7891
+                                                 Sensitive_to_light_level_changes        Theme_4  0.7489
+                              Work_effectively_if_only_air_quality_is_not_optimal        Theme_3  0.8515
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal        Theme_3  0.9376
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences        Theme_3  0.8657
+                                    Work_Effective_even_if_noise_sound_isnt_ideal        Theme_3  0.8136
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor        Theme_1  0.6668
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work        Theme_1  0.6121
+                            Performance_decrease_if_lighting_not_in_comfort_range        Theme_1  0.6604
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range        Theme_1  0.6631
+                                      Performance_decrease_if_air_quality_is_poor        Theme_1  0.7841
+                      Performance_decrease_if_excessive_noise_or_complete_silence        Theme_1  0.6793
+                              Do_air_quality_changes_directly_impact_productivity        Theme_2  0.7808
+                                  Do_thermal_changes_directly_impact_productivity        Theme_2  0.7986
+                                    Do_noise_changes_directly_impact_productivity        Theme_2  0.7925
+                                 Do_lighting_changes_directly_impact_productivity        Theme_2  0.8377
+                                               IEQ_improvement_boosts_performance        Theme_1  0.4914
+                                                    Informed_about_IEQ_parameters        Theme_1  0.3624
+                                              If_yes_how_much_does_it_affect_work        Theme_1  0.5436
+ Loading_Strength
+         Moderate
+           Strong
+      Very strong
+      Very strong
+      Very strong
+      Very strong
+      Very strong
+      Very strong
+      Very strong
+           Strong
+           Strong
+           Strong
+           Strong
+      Very strong
+           Strong
+      Very strong
+      Very strong
+      Very strong
+      Very strong
+         Moderate
+             Weak
+         Moderate
+
+Variance explained per theme:
+   Theme SS_Loadings Proportion_Variance Cumulative_Variance
+ Theme_1      4.2148              0.1916              0.1916
+ Theme_2      3.2891              0.1495              0.3411
+ Theme_3      3.1252              0.1421              0.4831
+ Theme_4      2.9198              0.1327              0.6159
+ Theme_5      1.0181              0.0463              0.6621
+
+Hierarchical clustering assignment (5 clusters, ward.D2 linkage):
+                                                                         Variable   Cluster
+                               Do_cultur_personal_preferences_affect_your_comfort Cluster_1
+                                                 Sensitive_to_air_quality_changes Cluster_2
+                                           Sensitive_to_thermal_condition_changes Cluster_2
+                                                 Sensitive_to_noise_sound_changes Cluster_2
+                                                 Sensitive_to_light_level_changes Cluster_2
+                              Work_effectively_if_only_air_quality_is_not_optimal Cluster_3
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal Cluster_3
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences Cluster_3
+                                    Work_Effective_even_if_noise_sound_isnt_ideal Cluster_3
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor Cluster_1
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work Cluster_1
+                            Performance_decrease_if_lighting_not_in_comfort_range Cluster_1
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range Cluster_1
+                                      Performance_decrease_if_air_quality_is_poor Cluster_1
+                      Performance_decrease_if_excessive_noise_or_complete_silence Cluster_1
+                              Do_air_quality_changes_directly_impact_productivity Cluster_4
+                                  Do_thermal_changes_directly_impact_productivity Cluster_4
+                                    Do_noise_changes_directly_impact_productivity Cluster_4
+                                 Do_lighting_changes_directly_impact_productivity Cluster_4
+                                               IEQ_improvement_boosts_performance Cluster_1
+                                                    Informed_about_IEQ_parameters Cluster_5
+                                              If_yes_how_much_does_it_affect_work Cluster_1
+
+Cross-validation of EFA themes vs. clusters:
+                                                                         Variable Dominant_Theme Cluster_Aligned
+                              Do_air_quality_changes_directly_impact_productivity        Theme_2         Theme_2
+                               Do_cultur_personal_preferences_affect_your_comfort        Theme_1         Theme_1
+                                 Do_lighting_changes_directly_impact_productivity        Theme_2         Theme_2
+                                    Do_noise_changes_directly_impact_productivity        Theme_2         Theme_2
+                                  Do_thermal_changes_directly_impact_productivity        Theme_2         Theme_2
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor        Theme_1         Theme_1
+                                               IEQ_improvement_boosts_performance        Theme_1         Theme_1
+                                              If_yes_how_much_does_it_affect_work        Theme_1         Theme_1
+                                                    Informed_about_IEQ_parameters        Theme_1       Cluster_5
+                                      Performance_decrease_if_air_quality_is_poor        Theme_1         Theme_1
+                      Performance_decrease_if_excessive_noise_or_complete_silence        Theme_1         Theme_1
+                            Performance_decrease_if_lighting_not_in_comfort_range        Theme_1         Theme_1
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range        Theme_1         Theme_1
+                                                 Sensitive_to_air_quality_changes        Theme_4         Theme_4
+                                                 Sensitive_to_light_level_changes        Theme_4         Theme_4
+                                                 Sensitive_to_noise_sound_changes        Theme_4         Theme_4
+                                           Sensitive_to_thermal_condition_changes        Theme_4         Theme_4
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work        Theme_1         Theme_1
+                                    Work_Effective_even_if_noise_sound_isnt_ideal        Theme_3         Theme_3
+                              Work_effectively_if_only_air_quality_is_not_optimal        Theme_3         Theme_3
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal        Theme_3         Theme_3
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences        Theme_3         Theme_3
+ Agrees
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+  FALSE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+   TRUE
+
+  Percentage agreement: 95.45%
+  Adjusted Rand Index:  0.8972 (Almost perfect agreement)
+
+================================================================================
+METHODOLOGICAL NOTES
+================================================================================
+- Continuous variables: Pearson correlations feed the EFA and the clustering
+  distance metric (1 - |r|), appropriate for approximately interval-scaled data
+  such as CFA/BCFA factor scores.
+- Ordinal variables: Polychoric correlations are used instead of Pearson, since
+  Likert-type items are ordered categories rather than continuous measurements;
+  polychoric correlations estimate the correlation between the assumed latent
+  continuous variables underlying the observed ordinal responses (Olsson, 1979).
+- The number of themes/factors is chosen via parallel analysis (Horn, 1965),
+  which retains factors whose eigenvalues exceed those from randomly generated
+  data of the same dimensions, avoiding both over- and under-extraction.
+- Oblique (oblimin) rotation is used by default because psychological/behavioural
+  themes are rarely uncorrelated in reality.
+- The Adjusted Rand Index (Hubert & Arabie, 1985) corrects the raw agreement rate
+  for the agreement expected by chance alone, given the size of each theme/cluster.
+================================================================================
+END OF REPORT
+================================================================================

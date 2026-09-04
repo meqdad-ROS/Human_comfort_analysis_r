@@ -1,0 +1,8 @@
+"","No, but I have considered it","No, I have never needed to","Yes, frequently","Yes, occasionally","Row_Total"
+"<=55 kg",2,4,4,8,18
+">=131 kg",1,0,0,2,3
+"101-115 kg",4,2,10,13,29
+"56-70 kg",10,7,16,23,56
+"71-85 kg",1,4,18,23,46
+"86-100 kg",4,3,23,29,59
+"Column_Total",22,20,71,98,211

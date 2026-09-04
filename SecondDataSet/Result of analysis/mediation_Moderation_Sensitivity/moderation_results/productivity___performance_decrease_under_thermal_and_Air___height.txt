@@ -1,0 +1,23 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Outcome variable: productivity 
+Predictor variable: performance_decrease_under_thermal_and_Air 
+Moderator variable: height 
+
+--- Model Summary ---
+NULL
+
+--- Interaction Coefficients ---
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Predictor variable: performance_decrease_under_thermal_and_Air 
+Moderator variable: height 
+
+--- Model Summary ---
+NULL
+
+--- Interaction Coefficients ---

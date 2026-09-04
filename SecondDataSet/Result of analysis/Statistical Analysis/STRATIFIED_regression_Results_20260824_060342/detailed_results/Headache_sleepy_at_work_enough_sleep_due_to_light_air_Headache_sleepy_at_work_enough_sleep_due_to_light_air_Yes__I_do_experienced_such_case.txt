@@ -1,0 +1,24 @@
+Stratification Variable: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+Stratum: Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes, I do experienced such case 
+R-squared: 0.7567469 
+
+$n_obs
+[1] 121
+
+$r_squared
+[1] 0.7567469
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.05455                                    -0.09621  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.06942                                     0.88190  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.15242                                     0.21944  
+
+

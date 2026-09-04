@@ -1,0 +1,24 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Language 
+
+--- Lavaan Estimates ---
+                                         lhs op                                        rhs    est ci.lower
+1 Combined_Effect_of_Air_thermal_noise_light  ~                           Language_English -0.163   -0.479
+2                                Sensitivity  ~                           Language_English -0.047   -0.263
+3                                Sensitivity  ~ Combined_Effect_of_Air_thermal_noise_light  0.568    0.452
+4 Combined_Effect_of_Air_thermal_noise_light ~~ Combined_Effect_of_Air_thermal_noise_light  0.691    0.559
+5                                Sensitivity ~~                                Sensitivity  0.420    0.310
+6                           Language_English ~~                           Language_English  0.162    0.162
+7                       ind_Language_English :=                                       a1*b -0.093   -0.283
+  ci.upper pvalue
+1    0.103  0.254
+2    0.196  0.678
+3    0.698  0.000
+4    0.829  0.000
+5    0.528  0.000
+6    0.162     NA
+7    0.056  0.270

@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : Sensitivity 
+Mediator  : performance_decrease_under_noise_and_light 
+Moderator : How_quickly_notice_IEQ_parameter_change 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.1578902   p = 0.1865 
+
+--- Interaction Coefficients ---
+  Sensitivity:How_quickly_notice_IEQ_parameter_changeAfter an extended period: coef = -0.2516, p = 0.4421 
+  Sensitivity:How_quickly_notice_IEQ_parameter_changeI don’t notice at all: coef = -0.5843, p = 0.3858 
+  Sensitivity:How_quickly_notice_IEQ_parameter_changeInstantly: coef = 0.0490, p = 0.7897 
+
+Moderation significant: FALSE 

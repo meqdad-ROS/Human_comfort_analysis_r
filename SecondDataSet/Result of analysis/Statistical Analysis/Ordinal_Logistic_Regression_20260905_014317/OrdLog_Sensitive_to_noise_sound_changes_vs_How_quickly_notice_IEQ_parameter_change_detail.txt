@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+How_quickly_notice_IEQ_parameter_changeAfter an extended period 
+                                                     -0.8404964 
+   How_quickly_notice_IEQ_parameter_changeI don’t notice at all 
+                                                     -1.9103513 
+               How_quickly_notice_IEQ_parameter_changeInstantly 
+                                                      0.1419595 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.2861138 -1.9095441 -0.7250507  0.5260768 
+
+Residual Deviance: 557.3587 
+AIC: 571.3587 
+
+$coefficients
+                                                             Term   Estimate Std_Error   Z_Value      P_Value
+1 How_quickly_notice_IEQ_parameter_changeAfter an extended period -0.8404964 0.5398786 -1.556825 1.195121e-01
+2    How_quickly_notice_IEQ_parameter_changeI don’t notice at all -1.9103513 0.8574253 -2.228009 2.587990e-02
+3                How_quickly_notice_IEQ_parameter_changeInstantly  0.1419595 0.2708464  0.524133 6.001861e-01
+4                                                             1|2 -3.2861138 0.3882709 -8.463457 0.000000e+00
+5                                                             2|3 -1.9095441 0.2448214 -7.799743 6.217249e-15
+6                                                             3|4 -0.7250507 0.1948601 -3.720878 1.985313e-04
+7                                                             4|5  0.5260768 0.1921653  2.737627 6.188431e-03
+  Odds_Ratio
+1 0.43149626
+2 0.14802837
+3 1.15253002
+4 0.03739891
+5 0.14814791
+6 0.48430002
+7 1.69228014
+
+$proportional_odds_test
+                                                                        X2 df probability
+Omnibus                                                         21.9026369  9 0.009192723
+How_quickly_notice_IEQ_parameter_changeAfter an extended period  0.1481255  3 0.985494045
+How_quickly_notice_IEQ_parameter_changeI don’t notice at all     7.4293326  3 0.059402272
+How_quickly_notice_IEQ_parameter_changeInstantly                 2.9707229  3 0.396161193
+

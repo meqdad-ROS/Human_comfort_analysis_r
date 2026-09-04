@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Sensitivity 
+Predictor : Combined_Effect_of_Air_thermal_noise_light 
+Mediator  : performance_decrease_under_noise_and_light 
+Moderator : IEQ_training_receivedWilling_to_join_IEQ_programs 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.3979912   p = 1e-04 
+
+--- Interaction Coefficients ---
+  Combined_Effect_of_Air_thermal_noise_light:IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.: coef = -0.0967, p = 0.5163 
+  Combined_Effect_of_Air_thermal_noise_light:IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.: coef = 0.0509, p = 0.7878 
+  Combined_Effect_of_Air_thermal_noise_light:IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.: coef = -0.2506, p = 0.2006 
+
+Moderation significant: FALSE 

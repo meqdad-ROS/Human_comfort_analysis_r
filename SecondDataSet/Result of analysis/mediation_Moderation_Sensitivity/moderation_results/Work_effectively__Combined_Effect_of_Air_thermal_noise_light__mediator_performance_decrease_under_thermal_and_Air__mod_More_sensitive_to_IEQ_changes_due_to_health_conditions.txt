@@ -1,0 +1,16 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : Combined_Effect_of_Air_thermal_noise_light 
+Mediator  : performance_decrease_under_thermal_and_Air 
+Moderator : More_sensitive_to_IEQ_changes_due_to_health_conditions 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): 0.6275595   p = 7e-04 
+
+--- Interaction Coefficients ---
+  Combined_Effect_of_Air_thermal_noise_light:More_sensitive_to_IEQ_changes_due_to_health_conditionsPrefer not to say: coef = -0.3245, p = 0.5961 
+  Combined_Effect_of_Air_thermal_noise_light:More_sensitive_to_IEQ_changes_due_to_health_conditionsYes: coef = 0.0648, p = 0.7444 
+
+Moderation significant: FALSE 

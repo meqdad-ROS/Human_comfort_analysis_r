@@ -1,0 +1,430 @@
+                                                                             Var1
+                              Do_air_quality_changes_directly_impact_productivity
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                                    Do_noise_changes_directly_impact_productivity
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                              Do_air_quality_changes_directly_impact_productivity
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                                                 Sensitive_to_noise_sound_changes
+                                  Do_thermal_changes_directly_impact_productivity
+                                  Do_thermal_changes_directly_impact_productivity
+                                                 Sensitive_to_air_quality_changes
+                              Do_air_quality_changes_directly_impact_productivity
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                              Work_effectively_if_only_air_quality_is_not_optimal
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                                           Sensitive_to_thermal_condition_changes
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                           Sensitive_to_thermal_condition_changes
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                           Sensitive_to_thermal_condition_changes
+                                  Do_thermal_changes_directly_impact_productivity
+                                                 Sensitive_to_air_quality_changes
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                              Do_air_quality_changes_directly_impact_productivity
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                                                 Sensitive_to_noise_sound_changes
+                                      Performance_decrease_if_air_quality_is_poor
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                      Performance_decrease_if_air_quality_is_poor
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                           Sensitive_to_thermal_condition_changes
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                                 Sensitive_to_air_quality_changes
+                                 Do_lighting_changes_directly_impact_productivity
+                                      Performance_decrease_if_air_quality_is_poor
+                                    Do_noise_changes_directly_impact_productivity
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_air_quality_changes
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                           Sensitive_to_thermal_condition_changes
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                                 Sensitive_to_noise_sound_changes
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                                 Sensitive_to_noise_sound_changes
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                                               IEQ_improvement_boosts_performance
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                                 Sensitive_to_air_quality_changes
+                                           Sensitive_to_thermal_condition_changes
+                                      Performance_decrease_if_air_quality_is_poor
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                                 Do_lighting_changes_directly_impact_productivity
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                                 Sensitive_to_noise_sound_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                                                 Sensitive_to_light_level_changes
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                              Do_air_quality_changes_directly_impact_productivity
+                                                 Sensitive_to_light_level_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_noise_sound_changes
+                                      Performance_decrease_if_air_quality_is_poor
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+                                                 Sensitive_to_air_quality_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                           Sensitive_to_thermal_condition_changes
+                                                 Sensitive_to_noise_sound_changes
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_light_level_changes
+                                      Performance_decrease_if_air_quality_is_poor
+                                                 Sensitive_to_air_quality_changes
+                                    Do_noise_changes_directly_impact_productivity
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range
+                                                 Sensitive_to_light_level_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_air_quality_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                  Do_thermal_changes_directly_impact_productivity
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+                                  Do_thermal_changes_directly_impact_productivity
+                                                 Sensitive_to_air_quality_changes
+                                               IEQ_improvement_boosts_performance
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_air_quality_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_light_level_changes
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                                 Sensitive_to_light_level_changes
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                      Performance_decrease_if_air_quality_is_poor
+                                      Performance_decrease_if_air_quality_is_poor
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_light_level_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                           Sensitive_to_thermal_condition_changes
+                              Do_air_quality_changes_directly_impact_productivity
+                                                 Sensitive_to_air_quality_changes
+                      Performance_decrease_if_excessive_noise_or_complete_silence
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                 Do_lighting_changes_directly_impact_productivity
+                                                 Sensitive_to_air_quality_changes
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                                 Sensitive_to_air_quality_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                           Sensitive_to_thermal_condition_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_noise_sound_changes
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                                                             Var2     Tau_b        Tau_p     Gamma
+                                  Do_thermal_changes_directly_impact_productivity 0.6705922 9.191291e-31 0.8327859
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal 0.7146551 3.829174e-39 0.8309616
+                                 Do_lighting_changes_directly_impact_productivity 0.6774894 1.348018e-32 0.8154376
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work 0.6170765 3.683288e-27 0.7756331
+                                    Work_Effective_even_if_noise_sound_isnt_ideal 0.6585891 1.318506e-33 0.7740975
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences 0.6299664 8.194184e-31 0.7460815
+                                 Do_lighting_changes_directly_impact_productivity 0.5999794 2.300993e-25 0.7449960
+                                    Work_Effective_even_if_noise_sound_isnt_ideal 0.6248388 1.623509e-30 0.7412954
+                                                 Sensitive_to_light_level_changes 0.5880667 4.556772e-25 0.7386127
+                                    Do_noise_changes_directly_impact_productivity 0.5823782 4.025705e-24 0.7244831
+                                 Do_lighting_changes_directly_impact_productivity 0.5722246 2.283950e-23 0.7211836
+                                           Sensitive_to_thermal_condition_changes 0.5509822 3.319780e-22 0.6992012
+                                    Do_noise_changes_directly_impact_productivity 0.5540095 7.613359e-22 0.6965027
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences 0.5699555 1.993553e-25 0.6836266
+                                    Do_noise_changes_directly_impact_productivity 0.4975673 2.868030e-18 0.6539011
+                                      Performance_decrease_if_air_quality_is_poor 0.5057780 1.064699e-18 0.6537514
+                                    Work_Effective_even_if_noise_sound_isnt_ideal 0.5338932 1.227716e-22 0.6430253
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.4979409 2.464029e-18 0.6422140
+                                                 Sensitive_to_noise_sound_changes 0.4986939 1.859936e-18 0.6421503
+                                  Do_thermal_changes_directly_impact_productivity 0.4808466 7.947409e-17 0.6351751
+                                                 Sensitive_to_light_level_changes 0.4885863 1.053693e-17 0.6345436
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.4767709 1.149370e-16 0.6316318
+                                  Do_thermal_changes_directly_impact_productivity 0.4733979 2.517324e-16 0.6314963
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.4677708 2.673100e-16 0.6236435
+                                  Do_thermal_changes_directly_impact_productivity 0.4711283 2.551538e-16 0.6148080
+                                               IEQ_improvement_boosts_performance 0.4184305 3.889298e-12 0.6058129
+                                                 Sensitive_to_light_level_changes 0.4645300 2.981891e-16 0.5942261
+                                      Performance_decrease_if_air_quality_is_poor 0.4405125 1.394139e-14 0.5792595
+                                               IEQ_improvement_boosts_performance 0.3834932 2.326875e-10 0.5691857
+                                    Do_noise_changes_directly_impact_productivity 0.4217143 1.306425e-13 0.5561417
+                                    Do_noise_changes_directly_impact_productivity 0.4246029 8.279709e-14 0.5525691
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.4170893 2.719821e-13 0.5498640
+                                               IEQ_improvement_boosts_performance 0.3655281 9.842459e-10 0.5479186
+                                               IEQ_improvement_boosts_performance 0.3732809 4.923037e-10 0.5451707
+                                               IEQ_improvement_boosts_performance 0.3647503 1.020710e-09 0.5435313
+                              Do_air_quality_changes_directly_impact_productivity 0.4007513 4.685000e-12 0.5358737
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work 0.4013986 2.380105e-12 0.5339821
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.3926578 7.558081e-12 0.5235436
+                                                 Sensitive_to_noise_sound_changes 0.3976713 2.318802e-12 0.5192522
+                                               IEQ_improvement_boosts_performance 0.3475964 6.030042e-09 0.5191089
+                              Do_air_quality_changes_directly_impact_productivity 0.3896632 1.482275e-11 0.5186030
+                                               IEQ_improvement_boosts_performance 0.3513797 4.245037e-09 0.5165343
+                              Do_air_quality_changes_directly_impact_productivity 0.3845171 3.450779e-11 0.5157474
+                                      Performance_decrease_if_air_quality_is_poor 0.3864440 1.145180e-11 0.5134519
+                                      Performance_decrease_if_air_quality_is_poor 0.3807482 2.509582e-11 0.5102862
+                                              If_yes_how_much_does_it_affect_work 0.3861759 1.033304e-11 0.5096852
+                            Performance_decrease_if_lighting_not_in_comfort_range 0.3840320 1.608527e-11 0.5084293
+                                               IEQ_improvement_boosts_performance 0.3409098 1.119368e-08 0.5080301
+                                              If_yes_how_much_does_it_affect_work 0.3810049 1.962787e-11 0.5065092
+                                               IEQ_improvement_boosts_performance 0.3354174 2.324151e-08 0.5063909
+                                 Do_lighting_changes_directly_impact_productivity 0.3884798 9.194064e-12 0.5052177
+                              Do_air_quality_changes_directly_impact_productivity 0.3753026 6.728340e-11 0.5017660
+                                              If_yes_how_much_does_it_affect_work 0.3842072 1.189909e-11 0.4985621
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.3684505 1.209083e-10 0.4924844
+                                 Do_lighting_changes_directly_impact_productivity 0.3663886 1.344378e-10 0.4920684
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.3735958 7.394977e-11 0.4914121
+                                 Do_lighting_changes_directly_impact_productivity 0.3666838 1.283614e-10 0.4893289
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.3632808 2.329062e-10 0.4890693
+                                    Do_noise_changes_directly_impact_productivity 0.3648683 1.836440e-10 0.4878369
+                                  Do_thermal_changes_directly_impact_productivity 0.3619083 2.763883e-10 0.4785687
+                                              If_yes_how_much_does_it_affect_work 0.3553840 4.360510e-10 0.4757401
+                                 Do_lighting_changes_directly_impact_productivity 0.3569064 3.408570e-10 0.4686375
+                                  Do_thermal_changes_directly_impact_productivity 0.3418919 2.604450e-09 0.4639355
+                                                    Informed_about_IEQ_parameters 0.3114606 1.567996e-07 0.4622708
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.3469193 1.415815e-09 0.4606759
+                                  Do_thermal_changes_directly_impact_productivity 0.3416943 2.485313e-09 0.4575428
+                              Do_air_quality_changes_directly_impact_productivity 0.3381611 4.635519e-09 0.4572115
+                                              If_yes_how_much_does_it_affect_work 0.3408530 1.859754e-09 0.4521024
+                                 Do_lighting_changes_directly_impact_productivity 0.3359202 4.307371e-09 0.4520825
+                                              If_yes_how_much_does_it_affect_work 0.3377262 2.568273e-09 0.4509923
+                              Do_air_quality_changes_directly_impact_productivity 0.3326859 7.935314e-09 0.4460176
+                                    Do_noise_changes_directly_impact_productivity 0.3299243 7.408196e-09 0.4451272
+                              Do_air_quality_changes_directly_impact_productivity 0.3277118 1.227648e-08 0.4384640
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work 0.3266937 1.210476e-08 0.4339209
+                                                    Informed_about_IEQ_parameters 0.3205243 2.060785e-08 0.4292383
+                                  Do_thermal_changes_directly_impact_productivity 0.3166010 3.618043e-08 0.4271539
+                                 Do_lighting_changes_directly_impact_productivity 0.3138978 4.222132e-08 0.4225922
+                                              If_yes_how_much_does_it_affect_work 0.3188618 2.226447e-08 0.4211444
+                                              If_yes_how_much_does_it_affect_work 0.3130209 5.040841e-08 0.4210568
+                                    Do_noise_changes_directly_impact_productivity 0.3142384 3.538554e-08 0.4181707
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 0.3156668 3.144336e-08 0.4180328
+                                               IEQ_improvement_boosts_performance 0.2805909 2.528594e-06 0.4151457
+                                  Do_thermal_changes_directly_impact_productivity 0.3034180 1.299920e-07 0.4141833
+                            Performance_decrease_if_lighting_not_in_comfort_range 0.3055917 9.604221e-08 0.4130520
+                                 Do_lighting_changes_directly_impact_productivity 0.3070370 6.863712e-08 0.4122167
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work 0.3062950 7.977492e-08 0.4119923
+                                              If_yes_how_much_does_it_affect_work 0.3091797 5.279388e-08 0.4086409
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.3003812 1.662318e-07 0.4042351
+                                               IEQ_improvement_boosts_performance 0.2653983 9.039347e-06 0.3976770
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 0.2961340 1.855357e-07 0.3961401
+                              Do_air_quality_changes_directly_impact_productivity 0.2904730 5.048177e-07 0.3940804
+                                               IEQ_improvement_boosts_performance 0.2625939 1.045160e-05 0.3900954
+                              Do_air_quality_changes_directly_impact_productivity 0.2897865 5.038213e-07 0.3894837
+                                                    Informed_about_IEQ_parameters 0.2932385 2.519131e-07 0.3884184
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.2827025 7.457157e-07 0.3816320
+                                              If_yes_how_much_does_it_affect_work 0.2830870 6.021339e-07 0.3789482
+                                    Do_noise_changes_directly_impact_productivity 0.2773022 1.301069e-06 0.3751756
+                            Performance_decrease_if_lighting_not_in_comfort_range 0.2706939 2.091911e-06 0.3670866
+                                                 Sensitive_to_noise_sound_changes 0.2750907 1.413969e-06 0.3656832
+                                               IEQ_improvement_boosts_performance 0.2376456 6.955238e-05 0.3618968
+                                               IEQ_improvement_boosts_performance 0.2412994 5.089935e-05 0.3613257
+                                    Do_noise_changes_directly_impact_productivity 0.2656626 3.195156e-06 0.3574024
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 0.2642050 3.518816e-06 0.3564786
+                                              If_yes_how_much_does_it_affect_work 0.2602068 5.371699e-06 0.3559699
+                                  Do_thermal_changes_directly_impact_productivity 0.2565824 8.265494e-06 0.3532154
+                                                    Informed_about_IEQ_parameters 0.2581827 6.795428e-06 0.3496259
+                                      Performance_decrease_if_air_quality_is_poor 0.2601693 4.699655e-06 0.3495673
+                                              If_yes_how_much_does_it_affect_work 0.2292615 1.154299e-04 0.3495397
+                            Performance_decrease_if_lighting_not_in_comfort_range 0.2546202 8.321349e-06 0.3434279
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work 0.2549472 7.999367e-06 0.3425230
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.2493298 1.347850e-05 0.3393601
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 0.2477681 1.274979e-05 0.3320116
+                                           Sensitive_to_thermal_condition_changes 0.2462961 1.639444e-05 0.3300268
+                                                    Informed_about_IEQ_parameters 0.2476416 1.258586e-05 0.3290686
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.2415029 2.222126e-05 0.3236352
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor 0.2400620 2.482664e-05 0.3234682
+                              Do_air_quality_changes_directly_impact_productivity 0.2357745 4.530827e-05 0.3234164
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work 0.2379127 3.221681e-05 0.3210580
+                                               IEQ_improvement_boosts_performance 0.2031868 6.737435e-04 0.3148325
+                                    Do_noise_changes_directly_impact_productivity 0.2330959 4.336353e-05 0.3140566
+                                 Do_lighting_changes_directly_impact_productivity 0.2270878 6.731061e-05 0.3056156
+                      Performance_decrease_if_excessive_noise_or_complete_silence 0.2252279 8.161466e-05 0.3015178
+                                                 Sensitive_to_light_level_changes 0.2235446 9.154483e-05 0.2993181
+                                    Do_noise_changes_directly_impact_productivity 0.2178923 1.362005e-04 0.2910523
+                                              If_yes_how_much_does_it_affect_work 0.2150687 1.493650e-04 0.2896895
+                                                 Sensitive_to_air_quality_changes 0.2171326 1.367467e-04 0.2896472
+                                 Do_lighting_changes_directly_impact_productivity 0.2124269 1.941293e-04 0.2890142
+                                                    Informed_about_IEQ_parameters 0.2133801 2.117832e-04 0.2872809
+                                 Do_lighting_changes_directly_impact_productivity 0.2136599 1.692052e-04 0.2844886
+                                                    Informed_about_IEQ_parameters 0.2137046 1.748416e-04 0.2824183
+                                      Performance_decrease_if_air_quality_is_poor 0.2063738 3.010361e-04 0.2775420
+                                                    Informed_about_IEQ_parameters 0.2067953 2.760171e-04 0.2757904
+                                    Do_noise_changes_directly_impact_productivity 0.2029168 3.570326e-04 0.2723521
+                                  Do_thermal_changes_directly_impact_productivity 0.1931571 7.875625e-04 0.2691961
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences 0.2041456 2.448614e-04 0.2643547
+                                  Do_thermal_changes_directly_impact_productivity 0.1931053 7.992749e-04 0.2629188
+                                                    Informed_about_IEQ_parameters 0.1929135 7.005160e-04 0.2580070
+                                      Performance_decrease_if_air_quality_is_poor 0.1883878 9.552126e-04 0.2577320
+                                    Work_Effective_even_if_noise_sound_isnt_ideal 0.1970454 3.840029e-04 0.2547223
+                  Performance_decrease_if_thermal_conditions_not_in_comfort_range 0.1869072 1.074926e-03 0.2539906
+                                                    Informed_about_IEQ_parameters 0.1879407 9.236637e-04 0.2493680
+                              Do_air_quality_changes_directly_impact_productivity 0.1910937 6.902533e-04 0.2465055
+  Gamma_low Gamma_high
+ 0.75809348  0.9074783
+ 0.76079144  0.9011318
+ 0.73836034  0.8925149
+ 0.68569057  0.8655757
+ 0.68127754  0.8669175
+ 0.65252819  0.8396348
+ 0.64132515  0.8486668
+ 0.65180237  0.8307884
+ 0.64250074  0.8347247
+ 0.62212513  0.8268411
+ 0.61561812  0.8267490
+ 0.58909785  0.8093045
+ 0.58999141  0.8030139
+ 0.58006945  0.7871838
+ 0.55237024  0.7554320
+ 0.53651118  0.7709916
+ 0.53204226  0.7540083
+ 0.53170471  0.7527233
+ 0.52649951  0.7578012
+ 0.52173536  0.7486148
+ 0.51661456  0.7524726
+ 0.51222338  0.7510402
+ 0.51085039  0.7521422
+ 0.50974642  0.7375406
+ 0.49821098  0.7314051
+ 0.47440977  0.7372160
+ 0.46034917  0.7281031
+ 0.45511209  0.7034069
+ 0.43006453  0.7083068
+ 0.43698177  0.6753016
+ 0.42658346  0.6785546
+ 0.41934589  0.6803821
+ 0.40947507  0.6863621
+ 0.40602172  0.6843197
+ 0.40602936  0.6810333
+ 0.40378302  0.6679644
+ 0.40921014  0.6587540
+ 0.38443666  0.6626505
+ 0.38412313  0.6543812
+ 0.37534330  0.6628746
+ 0.38161526  0.6555908
+ 0.37177561  0.6612930
+ 0.37647166  0.6550231
+ 0.38635073  0.6405531
+ 0.37877692  0.6417954
+ 0.37565762  0.6437128
+ 0.36301916  0.6538395
+ 0.35865677  0.6574034
+ 0.38221058  0.6308079
+ 0.35471176  0.6580701
+ 0.36218782  0.6482475
+ 0.37069060  0.6328413
+ 0.36272788  0.6343962
+ 0.35332228  0.6316465
+ 0.36763043  0.6165063
+ 0.34741634  0.6354078
+ 0.34364556  0.6350123
+ 0.35950218  0.6186365
+ 0.35323838  0.6224354
+ 0.34200977  0.6151276
+ 0.33743484  0.6140454
+ 0.33347131  0.6038036
+ 0.32993394  0.5979370
+ 0.31359840  0.6109431
+ 0.31260187  0.6087499
+ 0.31834819  0.5967373
+ 0.31818493  0.5962381
+ 0.31157159  0.5926331
+ 0.31568722  0.5884778
+ 0.31762492  0.5843597
+ 0.30465041  0.5873847
+ 0.29855509  0.5916992
+ 0.30266472  0.5742632
+ 0.30105297  0.5667888
+ 0.29171798  0.5667586
+ 0.28224423  0.5720635
+ 0.27579494  0.5693894
+ 0.27224966  0.5700391
+ 0.27575370  0.5663599
+ 0.27369630  0.5626452
+ 0.27952263  0.5565429
+ 0.26386250  0.5664289
+ 0.27374361  0.5546229
+ 0.25722416  0.5688799
+ 0.27515021  0.5492831
+ 0.26929028  0.5546942
+ 0.27577701  0.5415049
+ 0.26775924  0.5407109
+ 0.24220739  0.5531467
+ 0.25825907  0.5340210
+ 0.24511405  0.5430467
+ 0.24148964  0.5387011
+ 0.23839447  0.5405729
+ 0.25484201  0.5219948
+ 0.23459987  0.5286642
+ 0.23990723  0.5179891
+ 0.22510795  0.5252433
+ 0.21773112  0.5164421
+ 0.22870438  0.5026621
+ 0.19542178  0.5283719
+ 0.19373375  0.5289177
+ 0.20789071  0.5069141
+ 0.21184558  0.5011116
+ 0.21355958  0.4983801
+ 0.20653584  0.4998950
+ 0.20233401  0.4969177
+ 0.20648288  0.4926518
+ 0.18338319  0.5156962
+ 0.19200004  0.4948558
+ 0.18929936  0.4957467
+ 0.18964382  0.4890764
+ 0.18546677  0.4785564
+ 0.18360393  0.4764496
+ 0.18480786  0.4733294
+ 0.17229433  0.4749762
+ 0.17848627  0.4684501
+ 0.15781686  0.4890160
+ 0.16775520  0.4743607
+ 0.14054156  0.4891235
+ 0.16424684  0.4638663
+ 0.15483224  0.4563989
+ 0.15612941  0.4469061
+ 0.14603808  0.4525982
+ 0.14257410  0.4395306
+ 0.14458778  0.4347913
+ 0.14330767  0.4359866
+ 0.14196927  0.4360591
+ 0.13620949  0.4383523
+ 0.12501908  0.4439582
+ 0.12228606  0.4425506
+ 0.13255209  0.4225320
+ 0.12380905  0.4277718
+ 0.11450752  0.4301967
+ 0.10487507  0.4335171
+ 0.11872390  0.4099856
+ 0.11367819  0.4121594
+ 0.10649329  0.4095207
+ 0.11425993  0.4012040
+ 0.11633153  0.3931131
+ 0.09991852  0.4080627
+ 0.10202292  0.3967130
+ 0.10243051  0.3905806
+ [ reached 'max' / getOption("max.print") -- omitted 89 rows ]

@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Work_effectively_if_only_air_quality_is_not_optimal 
+                                          0.1542426 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.7257317 -1.8537453  0.0455327  1.5748533 
+
+Residual Deviance: 533.8928 
+AIC: 543.8928 
+
+$coefficients
+                                                 Term   Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1 Work_effectively_if_only_air_quality_is_not_optimal  0.1542426 0.1014012  1.5211130 1.282315e-01 1.16677394
+2                                                 1|2 -3.7257317 0.6553734 -5.6848994 1.308897e-08 0.02409546
+3                                                 2|3 -1.8537453 0.3913051 -4.7373405 2.165412e-06 0.15664936
+4                                                 3|4  0.0455327 0.3470944  0.1311825 8.956309e-01 1.04658523
+5                                                 4|5  1.5748533 0.3676057  4.2840823 1.834949e-05 4.83003285
+
+$proportional_odds_test
+                                                          X2 df probability
+Omnibus                                             3.208096  3   0.3606402
+Work_effectively_if_only_air_quality_is_not_optimal 3.208096  3   0.3606402
+

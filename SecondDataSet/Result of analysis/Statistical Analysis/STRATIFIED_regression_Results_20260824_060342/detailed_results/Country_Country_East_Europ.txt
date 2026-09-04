@@ -1,0 +1,24 @@
+Stratification Variable: Country 
+Stratum: Country_East Europ 
+R-squared: 0.9557491 
+
+$n_obs
+[1] 14
+
+$r_squared
+[1] 0.9557491
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.09579                                     0.18119  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                   0.07196                                     0.29301  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.24825                                     0.61794  
+
+

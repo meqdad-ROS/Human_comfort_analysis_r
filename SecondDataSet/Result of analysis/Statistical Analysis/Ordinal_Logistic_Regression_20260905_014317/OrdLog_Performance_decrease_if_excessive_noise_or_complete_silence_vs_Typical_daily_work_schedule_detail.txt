@@ -1,0 +1,34 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+      Typical_daily_work_schedule6 - 8 hours Typical_daily_work_scheduleLess than 4 hours 
+                                  -0.8011563                                   -1.2977807 
+Typical_daily_work_scheduleMore than 8 hours 
+                                  -1.2356809 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-5.0528083 -2.8937463 -1.0704985  0.2502432 
+
+Residual Deviance: 540.8699 
+AIC: 554.8699 
+
+$coefficients
+                                          Term   Estimate Std_Error    Z_Value      P_Value  Odds_Ratio
+1       Typical_daily_work_schedule6 - 8 hours -0.8011563 0.3571777 -2.2430187 2.489561e-02 0.448809711
+2 Typical_daily_work_scheduleLess than 4 hours -1.2977807 0.9324948 -1.3917297 1.640043e-01 0.273137305
+3 Typical_daily_work_scheduleMore than 8 hours -1.2356809 0.3994817 -3.0932101 1.980039e-03 0.290636804
+4                                          1|2 -5.0528083 0.6582589 -7.6760199 1.643130e-14 0.006391359
+5                                          2|3 -2.8937463 0.3760699 -7.6947037 1.421085e-14 0.055368398
+6                                          3|4 -1.0704985 0.3226233 -3.3181067 9.062986e-04 0.342837560
+7                                          4|5  0.2502432 0.3141545  0.7965607 4.257062e-01 1.284337685
+
+$proportional_odds_test
+                                                     X2 df  probability
+Omnibus                                      75.7590250  9 1.118931e-12
+Typical_daily_work_schedule6 - 8 hours        1.1015714  3 7.766947e-01
+Typical_daily_work_scheduleLess than 4 hours 12.3493916  3 6.277281e-03
+Typical_daily_work_scheduleMore than 8 hours  0.8262156  3 8.431869e-01
+

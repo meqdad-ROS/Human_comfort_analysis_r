@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Ever_requested_workplace_modifications 
+
+--- Lavaan Estimates ---
+                                                                     lhs op
+1                             performance_decrease_under_thermal_and_Air  ~
+2                             performance_decrease_under_thermal_and_Air  ~
+3                             performance_decrease_under_thermal_and_Air  ~
+4                                                            Sensitivity  ~
+5                                                            Sensitivity  ~
+6                                                            Sensitivity  ~
+7                                                            Sensitivity  ~
+8                             performance_decrease_under_thermal_and_Air ~~
+9                                                            Sensitivity ~~
+10     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+11     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+12     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+13                Ever_requested_workplace_modifications_Yes..frequently ~~
+14                Ever_requested_workplace_modifications_Yes..frequently ~~
+15              Ever_requested_workplace_modifications_Yes..occasionally ~~
+16 ind_Ever_requested_workplace_modifications_No..I.have.never.needed.to :=
+17            ind_Ever_requested_workplace_modifications_Yes..frequently :=
+18          ind_Ever_requested_workplace_modifications_Yes..occasionally :=
+                                                                 rhs    est ci.lower ci.upper pvalue
+1  Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.364   -0.092    0.818  0.110
+2             Ever_requested_workplace_modifications_Yes..frequently  0.571    0.218    0.961  0.001
+3           Ever_requested_workplace_modifications_Yes..occasionally  0.338    0.031    0.733  0.051
+4  Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.075   -0.355    0.447  0.711
+5             Ever_requested_workplace_modifications_Yes..frequently -0.006   -0.377    0.343  0.975
+6           Ever_requested_workplace_modifications_Yes..occasionally -0.081   -0.414    0.253  0.628
+7                         performance_decrease_under_thermal_and_Air  0.684    0.538    0.822  0.000
+8                         performance_decrease_under_thermal_and_Air  0.442    0.347    0.529  0.000
+9                                                        Sensitivity  0.422    0.309    0.525  0.000
+10 Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.086    0.086    0.086     NA
+11            Ever_requested_workplace_modifications_Yes..frequently -0.032   -0.032   -0.032     NA
+12          Ever_requested_workplace_modifications_Yes..occasionally -0.044   -0.044   -0.044     NA
+13            Ever_requested_workplace_modifications_Yes..frequently  0.223    0.223    0.223     NA
+14          Ever_requested_workplace_modifications_Yes..occasionally -0.156   -0.156   -0.156     NA
+15          Ever_requested_workplace_modifications_Yes..occasionally  0.249    0.249    0.249     NA
+16                                                              a1*b  0.249   -0.066    0.567  0.115
+17                                                              a2*b  0.391    0.140    0.687  0.003
+18                                                              a3*b  0.231    0.019    0.486  0.056

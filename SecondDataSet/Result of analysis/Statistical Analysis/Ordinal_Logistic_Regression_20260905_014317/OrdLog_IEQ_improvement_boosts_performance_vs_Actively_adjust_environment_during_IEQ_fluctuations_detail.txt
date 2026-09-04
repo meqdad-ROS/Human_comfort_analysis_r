@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+    Actively_adjust_environment_during_IEQ_fluctuationsNever 
+                                                  13.1716523 
+   Actively_adjust_environment_during_IEQ_fluctuationsRarely 
+                                                  -1.3521773 
+Actively_adjust_environment_during_IEQ_fluctuationsSometimes 
+                                                  -0.7866598 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-5.1605268 -3.6025103 -2.2150993 -0.9681474 
+
+Residual Deviance: 403.546 
+AIC: 417.546 
+
+$coefficients
+                                                          Term   Estimate    Std_Error       Z_Value      P_Value
+1     Actively_adjust_environment_during_IEQ_fluctuationsNever 13.1716523 1.968557e-07  6.691019e+07 0.000000e+00
+2    Actively_adjust_environment_during_IEQ_fluctuationsRarely -1.3521773 6.390068e-01 -2.116061e+00 3.433963e-02
+3 Actively_adjust_environment_during_IEQ_fluctuationsSometimes -0.7866598 3.075861e-01 -2.557527e+00 1.054193e-02
+4                                                          1|2 -5.1605268 7.444065e-01 -6.932404e+00 4.137579e-12
+5                                                          2|3 -3.6025103 4.040779e-01 -8.915385e+00 0.000000e+00
+6                                                          3|4 -2.2150993 2.854151e-01 -7.760976e+00 8.437695e-15
+7                                                          4|5 -0.9681474 2.427965e-01 -3.987485e+00 6.677742e-05
+    Odds_Ratio
+1 5.252619e+05
+2 2.586764e-01
+3 4.553633e-01
+4 5.738676e-03
+5 2.725522e-02
+6 1.091427e-01
+7 3.797860e-01
+
+$proportional_odds_test
+                                                                       X2 df probability
+Omnibus                                                      7.550723e+00  9   0.5799769
+Actively_adjust_environment_during_IEQ_fluctuationsNever     1.406749e-06  3   1.0000000
+Actively_adjust_environment_during_IEQ_fluctuationsRarely    4.338190e+00  3   0.2271855
+Actively_adjust_environment_during_IEQ_fluctuationsSometimes 4.190797e-01  3   0.9362735
+

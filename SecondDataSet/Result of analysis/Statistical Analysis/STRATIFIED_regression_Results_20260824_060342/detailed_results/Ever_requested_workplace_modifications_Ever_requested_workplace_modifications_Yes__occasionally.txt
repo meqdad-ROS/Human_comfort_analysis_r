@@ -1,0 +1,24 @@
+Stratification Variable: Ever_requested_workplace_modifications 
+Stratum: Ever_requested_workplace_modifications_Yes, occasionally 
+R-squared: 0.736732 
+
+$n_obs
+[1] 98
+
+$r_squared
+[1] 0.736732
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                 -0.008655                                    0.096412  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                 -0.137790                                    0.479295  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                  0.286682                                    0.403560  
+
+

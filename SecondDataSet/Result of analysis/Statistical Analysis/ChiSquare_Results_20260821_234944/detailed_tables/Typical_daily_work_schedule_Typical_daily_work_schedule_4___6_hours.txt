@@ -1,0 +1,24 @@
+Stratification Variable: Typical_daily_work_schedule 
+Stratum: Typical_daily_work_schedule_4 - 6 hours 
+R-squared: 0.7693171 
+
+$n_obs
+[1] 38
+
+$r_squared
+[1] 0.7693171
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  0.001121                                   -0.118031  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                 -0.084334                                    0.504404  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                  0.449330                                    0.348471  
+
+

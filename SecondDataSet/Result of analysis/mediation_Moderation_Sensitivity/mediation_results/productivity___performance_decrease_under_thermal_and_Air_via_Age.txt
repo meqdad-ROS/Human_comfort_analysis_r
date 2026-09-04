@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Age 
+
+--- Lavaan Estimates ---
+                                          lhs op                                        rhs    est ci.lower
+1  performance_decrease_under_thermal_and_Air  ~                                Age_30...45 -0.033   -0.250
+2  performance_decrease_under_thermal_and_Air  ~                                Age_45...60  0.106   -0.128
+3  performance_decrease_under_thermal_and_Air  ~                               Age_Above.60  0.123   -0.333
+4                                productivity  ~                                Age_30...45 -0.088   -0.278
+5                                productivity  ~                                Age_45...60 -0.027   -0.250
+6                                productivity  ~                               Age_Above.60 -0.124   -0.480
+7                                productivity  ~ performance_decrease_under_thermal_and_Air  0.876    0.745
+8  performance_decrease_under_thermal_and_Air ~~ performance_decrease_under_thermal_and_Air  0.467    0.358
+9                                productivity ~~                               productivity  0.322    0.241
+10                                Age_30...45 ~~                                Age_30...45  0.249    0.249
+11                                Age_30...45 ~~                                Age_45...60 -0.118   -0.118
+12                                Age_30...45 ~~                               Age_Above.60 -0.020   -0.020
+13                                Age_45...60 ~~                                Age_45...60  0.188    0.188
+14                                Age_45...60 ~~                               Age_Above.60 -0.011   -0.011
+15                               Age_Above.60 ~~                               Age_Above.60  0.041    0.041
+16                            ind_Age_30...45 :=                                       a1*b -0.029   -0.220
+17                            ind_Age_45...60 :=                                       a2*b  0.093   -0.108
+18                           ind_Age_Above.60 :=                                       a3*b  0.108   -0.290
+   ci.upper pvalue
+1     0.189  0.774
+2     0.353  0.385
+3     0.600  0.613
+4     0.122  0.391
+5     0.191  0.818
+6     0.380  0.568
+7     0.989  0.000
+8     0.563  0.000
+9     0.397  0.000
+10    0.249     NA
+11   -0.118     NA
+12   -0.020     NA
+13    0.188     NA
+14   -0.011     NA
+15    0.041     NA
+16    0.170  0.775
+17    0.311  0.392
+18    0.564  0.615

@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Sensitivity 
+Predictor : Combined_Effect_of_Air_thermal_noise_light 
+Mediator  : performance_decrease_under_noise_and_light 
+Moderator : height 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.3979912   p = 1e-04 
+
+--- Interaction Coefficients ---
+  Combined_Effect_of_Air_thermal_noise_light:height160 - 170: coef = -0.0202, p = 0.9050 
+  Combined_Effect_of_Air_thermal_noise_light:height170 - 180: coef = 0.2169, p = 0.1859 
+  Combined_Effect_of_Air_thermal_noise_light:height180 - 190: coef = 0.1822, p = 0.3234 
+
+Moderation significant: FALSE 

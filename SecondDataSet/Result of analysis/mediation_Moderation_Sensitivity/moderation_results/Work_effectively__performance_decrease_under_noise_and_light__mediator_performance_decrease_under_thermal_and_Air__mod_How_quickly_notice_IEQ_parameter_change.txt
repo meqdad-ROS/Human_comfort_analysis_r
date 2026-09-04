@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : performance_decrease_under_noise_and_light 
+Mediator  : performance_decrease_under_thermal_and_Air 
+Moderator : How_quickly_notice_IEQ_parameter_change 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): 0.3446043   p = 0.0224 
+
+--- Interaction Coefficients ---
+  performance_decrease_under_noise_and_light:How_quickly_notice_IEQ_parameter_changeAfter an extended period: coef = -0.1958, p = 0.6849 
+  performance_decrease_under_noise_and_light:How_quickly_notice_IEQ_parameter_changeI don’t notice at all: coef = -0.7193, p = 0.3642 
+  performance_decrease_under_noise_and_light:How_quickly_notice_IEQ_parameter_changeInstantly: coef = -0.6887, p = 0.0069 [*]
+
+Moderation significant: TRUE 

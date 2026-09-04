@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+IEQ_improvement_boosts_performance 
+                        0.08279165 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.1307516 -0.2052333  0.9207124  1.8522825 
+
+Residual Deviance: 640.3126 
+AIC: 650.3126 
+
+$coefficients
+                                Term    Estimate Std_Error    Z_Value     P_Value Odds_Ratio
+1 IEQ_improvement_boosts_performance  0.08279165 0.1369699  0.6044513 0.545543657  1.0863154
+2                                1|2 -1.13075159 0.6191506 -1.8262948 0.067805872  0.3227906
+3                                2|3 -0.20523327 0.6071767 -0.3380124 0.735353822  0.8144573
+4                                3|4  0.92071240 0.6126087  1.5029372 0.132855243  2.5110787
+5                                4|5  1.85228245 0.6291160  2.9442624 0.003237254  6.3743521
+
+$proportional_odds_test
+                                         X2 df probability
+Omnibus                            8.849381  3  0.03136194
+IEQ_improvement_boosts_performance 8.849381  3  0.03136194
+

@@ -1,0 +1,3026 @@
+=== LEVENE'S TEST FOR VARIANCE HOMOGENEITY (AUTOMATED) ===
+Run: 20260905_002102 
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Language 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Language 
+  F-statistic: 4.8976 
+  p-value: 0.028 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Gender 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Gender 
+  F-statistic: 5.3663 
+  p-value: 0.0215 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: height 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by height 
+  F-statistic: 3.1484 
+  p-value: 0.0092 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Age 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Age 
+  F-statistic: 0.9896 
+  p-value: 0.3986 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Weight 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Weight 
+  F-statistic: 1.52 
+  p-value: 0.1848 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: How_long_in_this_role_environment 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by How_long_in_this_role_environment 
+  F-statistic: 0.8333 
+  p-value: 0.4769 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Typical_daily_work_schedule 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Typical_daily_work_schedule 
+  F-statistic: 0.3388 
+  p-value: 0.7973 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.2715 
+  p-value: 0.8459 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.2992 
+  p-value: 0.826 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 3.2721 
+  p-value: 0.0398 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 2.2111 
+  p-value: 0.0878 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.0267 
+  p-value: 0.3817 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Ever_requested_workplace_modifications 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Ever_requested_workplace_modifications 
+  F-statistic: 2.2348 
+  p-value: 0.0852 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 3.3394 
+  p-value: 0.0373 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.5355 
+  p-value: 0.6584 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: Country 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by Country 
+  F-statistic: 1.5144 
+  p-value: 0.1749 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_cultur_personal_preferences_affect_your_comfort | Group: profession 
+levene test completed for Do_cultur_personal_preferences_affect_your_comfort by profession 
+  F-statistic: 1.6964 
+  p-value: 0.1234 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Language 
+levene test completed for Sensitive_to_air_quality_changes by Language 
+  F-statistic: 0.3713 
+  p-value: 0.543 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Gender 
+levene test completed for Sensitive_to_air_quality_changes by Gender 
+  F-statistic: 0.104 
+  p-value: 0.7474 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: height 
+levene test completed for Sensitive_to_air_quality_changes by height 
+  F-statistic: 1.0084 
+  p-value: 0.4137 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Age 
+levene test completed for Sensitive_to_air_quality_changes by Age 
+  F-statistic: 1.1957 
+  p-value: 0.3123 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Weight 
+levene test completed for Sensitive_to_air_quality_changes by Weight 
+  F-statistic: 0.7401 
+  p-value: 0.5942 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: How_long_in_this_role_environment 
+levene test completed for Sensitive_to_air_quality_changes by How_long_in_this_role_environment 
+  F-statistic: 0.3025 
+  p-value: 0.8236 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Typical_daily_work_schedule 
+levene test completed for Sensitive_to_air_quality_changes by Typical_daily_work_schedule 
+  F-statistic: 1.6175 
+  p-value: 0.1863 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Sensitive_to_air_quality_changes by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.2869 
+  p-value: 0.2798 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Sensitive_to_air_quality_changes by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.5997 
+  p-value: 0.6159 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Sensitive_to_air_quality_changes by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 0.4674 
+  p-value: 0.6273 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Sensitive_to_air_quality_changes by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.9752 
+  p-value: 0.4053 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Sensitive_to_air_quality_changes by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.2645 
+  p-value: 0.2875 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Ever_requested_workplace_modifications 
+levene test completed for Sensitive_to_air_quality_changes by Ever_requested_workplace_modifications 
+  F-statistic: 3.2926 
+  p-value: 0.0215 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Sensitive_to_air_quality_changes by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.0798 
+  p-value: 0.9233 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Sensitive_to_air_quality_changes by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.2701 
+  p-value: 0.8469 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: Country 
+levene test completed for Sensitive_to_air_quality_changes by Country 
+  F-statistic: 2.3184 
+  p-value: 0.0346 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Sensitive_to_air_quality_changes | Group: profession 
+levene test completed for Sensitive_to_air_quality_changes by profession 
+  F-statistic: 0.2334 
+  p-value: 0.9653 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Language 
+levene test completed for Sensitive_to_thermal_condition_changes by Language 
+  F-statistic: 0.1831 
+  p-value: 0.6692 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Gender 
+levene test completed for Sensitive_to_thermal_condition_changes by Gender 
+  F-statistic: 0 
+  p-value: 0.9979 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: height 
+levene test completed for Sensitive_to_thermal_condition_changes by height 
+  F-statistic: 1.1535 
+  p-value: 0.3333 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Age 
+levene test completed for Sensitive_to_thermal_condition_changes by Age 
+  F-statistic: 1.7653 
+  p-value: 0.1548 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Weight 
+levene test completed for Sensitive_to_thermal_condition_changes by Weight 
+  F-statistic: 0.664 
+  p-value: 0.6511 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: How_long_in_this_role_environment 
+levene test completed for Sensitive_to_thermal_condition_changes by How_long_in_this_role_environment 
+  F-statistic: 0.3769 
+  p-value: 0.7698 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Typical_daily_work_schedule 
+levene test completed for Sensitive_to_thermal_condition_changes by Typical_daily_work_schedule 
+  F-statistic: 3.7687 
+  p-value: 0.0115 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Sensitive_to_thermal_condition_changes by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.4245 
+  p-value: 0.2366 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Sensitive_to_thermal_condition_changes by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.3768 
+  p-value: 0.7698 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Sensitive_to_thermal_condition_changes by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 2.2782 
+  p-value: 0.105 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Sensitive_to_thermal_condition_changes by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 2.2102 
+  p-value: 0.0879 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Sensitive_to_thermal_condition_changes by Typical_response_to_IEQ_discomfort 
+  F-statistic: 3.4686 
+  p-value: 0.0171 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Ever_requested_workplace_modifications 
+levene test completed for Sensitive_to_thermal_condition_changes by Ever_requested_workplace_modifications 
+  F-statistic: 1.3003 
+  p-value: 0.2753 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Sensitive_to_thermal_condition_changes by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.5204 
+  p-value: 0.595 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Sensitive_to_thermal_condition_changes by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.3939 
+  p-value: 0.7575 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: Country 
+levene test completed for Sensitive_to_thermal_condition_changes by Country 
+  F-statistic: 1.8217 
+  p-value: 0.0964 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_thermal_condition_changes | Group: profession 
+levene test completed for Sensitive_to_thermal_condition_changes by profession 
+  F-statistic: 0.8689 
+  p-value: 0.5186 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Language 
+levene test completed for Sensitive_to_noise_sound_changes by Language 
+  F-statistic: 4e-04 
+  p-value: 0.9834 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Gender 
+levene test completed for Sensitive_to_noise_sound_changes by Gender 
+  F-statistic: 0.5182 
+  p-value: 0.4724 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: height 
+levene test completed for Sensitive_to_noise_sound_changes by height 
+  F-statistic: 0.5681 
+  p-value: 0.7244 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Age 
+levene test completed for Sensitive_to_noise_sound_changes by Age 
+  F-statistic: 3.5059 
+  p-value: 0.0162 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Weight 
+levene test completed for Sensitive_to_noise_sound_changes by Weight 
+  F-statistic: 1.2289 
+  p-value: 0.2966 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: How_long_in_this_role_environment 
+levene test completed for Sensitive_to_noise_sound_changes by How_long_in_this_role_environment 
+  F-statistic: 0.2952 
+  p-value: 0.8289 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Typical_daily_work_schedule 
+levene test completed for Sensitive_to_noise_sound_changes by Typical_daily_work_schedule 
+  F-statistic: 0.7889 
+  p-value: 0.5013 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Sensitive_to_noise_sound_changes by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.5823 
+  p-value: 0.6273 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Sensitive_to_noise_sound_changes by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.3847 
+  p-value: 0.7641 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Sensitive_to_noise_sound_changes by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 1.6579 
+  p-value: 0.193 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Sensitive_to_noise_sound_changes by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.2628 
+  p-value: 0.2881 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Sensitive_to_noise_sound_changes by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.6908 
+  p-value: 0.17 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Ever_requested_workplace_modifications 
+levene test completed for Sensitive_to_noise_sound_changes by Ever_requested_workplace_modifications 
+  F-statistic: 1.0004 
+  p-value: 0.3936 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Sensitive_to_noise_sound_changes by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 2.3489 
+  p-value: 0.0979 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Sensitive_to_noise_sound_changes by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.7636 
+  p-value: 0.1552 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: Country 
+levene test completed for Sensitive_to_noise_sound_changes by Country 
+  F-statistic: 1.3132 
+  p-value: 0.2527 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_noise_sound_changes | Group: profession 
+levene test completed for Sensitive_to_noise_sound_changes by profession 
+  F-statistic: 0.8233 
+  p-value: 0.553 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Language 
+levene test completed for Sensitive_to_light_level_changes by Language 
+  F-statistic: 0.1103 
+  p-value: 0.7401 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Gender 
+levene test completed for Sensitive_to_light_level_changes by Gender 
+  F-statistic: 0.6817 
+  p-value: 0.4099 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: height 
+levene test completed for Sensitive_to_light_level_changes by height 
+  F-statistic: 1.1735 
+  p-value: 0.3233 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Age 
+levene test completed for Sensitive_to_light_level_changes by Age 
+  F-statistic: 0.8853 
+  p-value: 0.4495 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Weight 
+levene test completed for Sensitive_to_light_level_changes by Weight 
+  F-statistic: 0.805 
+  p-value: 0.5472 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: How_long_in_this_role_environment 
+levene test completed for Sensitive_to_light_level_changes by How_long_in_this_role_environment 
+  F-statistic: 0.6069 
+  p-value: 0.6112 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Typical_daily_work_schedule 
+levene test completed for Sensitive_to_light_level_changes by Typical_daily_work_schedule 
+  F-statistic: 0.9595 
+  p-value: 0.4128 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Sensitive_to_light_level_changes by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.776 
+  p-value: 0.5086 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Sensitive_to_light_level_changes by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 1.7919 
+  p-value: 0.1497 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Sensitive_to_light_level_changes by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 4.0301 
+  p-value: 0.0191 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Sensitive_to_light_level_changes by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 2.1454 
+  p-value: 0.0955 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Sensitive_to_light_level_changes by Typical_response_to_IEQ_discomfort 
+  F-statistic: 2.0529 
+  p-value: 0.1075 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Ever_requested_workplace_modifications 
+levene test completed for Sensitive_to_light_level_changes by Ever_requested_workplace_modifications 
+  F-statistic: 2.3076 
+  p-value: 0.0775 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Sensitive_to_light_level_changes by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.0632 
+  p-value: 0.9388 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Sensitive_to_light_level_changes by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.1113 
+  p-value: 0.9534 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: Country 
+levene test completed for Sensitive_to_light_level_changes by Country 
+  F-statistic: 1.8368 
+  p-value: 0.0935 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Sensitive_to_light_level_changes | Group: profession 
+levene test completed for Sensitive_to_light_level_changes by profession 
+  F-statistic: 0.9673 
+  p-value: 0.4484 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Language 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Language 
+  F-statistic: 6.6121 
+  p-value: 0.0108 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Gender 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Gender 
+  F-statistic: 1.1515 
+  p-value: 0.2844 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: height 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by height 
+  F-statistic: 0.9854 
+  p-value: 0.4276 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Age 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Age 
+  F-statistic: 0.6469 
+  p-value: 0.5857 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Weight 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Weight 
+  F-statistic: 1.6478 
+  p-value: 0.1487 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: How_long_in_this_role_environment 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by How_long_in_this_role_environment 
+  F-statistic: 0.1258 
+  p-value: 0.9447 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Typical_daily_work_schedule 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Typical_daily_work_schedule 
+  F-statistic: 1.2179 
+  p-value: 0.3041 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 3.0256 
+  p-value: 0.0305 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 2.2609 
+  p-value: 0.0824 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 3.08 
+  p-value: 0.048 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.6205 
+  p-value: 0.1856 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Typical_response_to_IEQ_discomfort 
+  F-statistic: 2.2474 
+  p-value: 0.0838 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Ever_requested_workplace_modifications 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Ever_requested_workplace_modifications 
+  F-statistic: 1.8706 
+  p-value: 0.1355 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 2.4443 
+  p-value: 0.0892 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.4844 
+  p-value: 0.2198 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: Country 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by Country 
+  F-statistic: 0.9757 
+  p-value: 0.4427 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_air_quality_is_not_optimal | Group: profession 
+levene test completed for Work_effectively_if_only_air_quality_is_not_optimal by profession 
+  F-statistic: 1.0682 
+  p-value: 0.3828 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Language 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Language 
+  F-statistic: 1.8516 
+  p-value: 0.175 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Gender 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Gender 
+  F-statistic: 1.6857 
+  p-value: 0.1955 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: height 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by height 
+  F-statistic: 1.4771 
+  p-value: 0.1985 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Age 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Age 
+  F-statistic: 0.1316 
+  p-value: 0.9412 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Weight 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Weight 
+  F-statistic: 0.9005 
+  p-value: 0.4816 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: How_long_in_this_role_environment 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by How_long_in_this_role_environment 
+  F-statistic: 0.7881 
+  p-value: 0.5017 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Typical_daily_work_schedule 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Typical_daily_work_schedule 
+  F-statistic: 0.4317 
+  p-value: 0.7305 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.5511 
+  p-value: 0.2024 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 1.7802 
+  p-value: 0.1519 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 1.7186 
+  p-value: 0.1818 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.7365 
+  p-value: 0.5313 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.8366 
+  p-value: 0.4751 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Ever_requested_workplace_modifications 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Ever_requested_workplace_modifications 
+  F-statistic: 2.159 
+  p-value: 0.0939 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 1.4386 
+  p-value: 0.2395 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.0343 
+  p-value: 0.3783 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: Country 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by Country 
+  F-statistic: 1.0932 
+  p-value: 0.3677 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_effectively_if_only_thermal_comfort_is_not_optimal | Group: profession 
+levene test completed for Work_effectively_if_only_thermal_comfort_is_not_optimal by profession 
+  F-statistic: 1.2725 
+  p-value: 0.2714 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Language 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Language 
+  F-statistic: 0.0702 
+  p-value: 0.7912 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Gender 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Gender 
+  F-statistic: 3.4341 
+  p-value: 0.0652 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: height 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by height 
+  F-statistic: 0.7959 
+  p-value: 0.5536 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Age 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Age 
+  F-statistic: 1.0052 
+  p-value: 0.3914 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Weight 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Weight 
+  F-statistic: 0.4126 
+  p-value: 0.8397 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: How_long_in_this_role_environment 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by How_long_in_this_role_environment 
+  F-statistic: 1.2696 
+  p-value: 0.2858 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Typical_daily_work_schedule 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Typical_daily_work_schedule 
+  F-statistic: 0.4661 
+  p-value: 0.7062 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.3281 
+  p-value: 0.2662 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 1.2292 
+  p-value: 0.3 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 4.8506 
+  p-value: 0.0087 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.267 
+  p-value: 0.8491 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.7757 
+  p-value: 0.1528 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Ever_requested_workplace_modifications 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Ever_requested_workplace_modifications 
+  F-statistic: 0.6636 
+  p-value: 0.5752 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 2.531 
+  p-value: 0.0819 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.2177 
+  p-value: 0.884 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: Country 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by Country 
+  F-statistic: 0.904 
+  p-value: 0.493 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences | Group: profession 
+levene test completed for Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences by profession 
+  F-statistic: 0.3365 
+  p-value: 0.917 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Language 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Language 
+  F-statistic: 0.1101 
+  p-value: 0.7404 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Gender 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Gender 
+  F-statistic: 0.0562 
+  p-value: 0.8128 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: height 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by height 
+  F-statistic: 1.1854 
+  p-value: 0.3174 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Age 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Age 
+  F-statistic: 0.8898 
+  p-value: 0.4472 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Weight 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Weight 
+  F-statistic: 0.2411 
+  p-value: 0.9439 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: How_long_in_this_role_environment 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by How_long_in_this_role_environment 
+  F-statistic: 1.591 
+  p-value: 0.1926 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Typical_daily_work_schedule 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Typical_daily_work_schedule 
+  F-statistic: 2.2564 
+  p-value: 0.0828 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 2.1125 
+  p-value: 0.0997 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 2.3994 
+  p-value: 0.0689 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 3.3149 
+  p-value: 0.0382 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.8097 
+  p-value: 0.1464 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.8185 
+  p-value: 0.4849 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Ever_requested_workplace_modifications 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Ever_requested_workplace_modifications 
+  F-statistic: 0.2787 
+  p-value: 0.8407 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 1.6752 
+  p-value: 0.1897 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.4418 
+  p-value: 0.7234 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: Country 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by Country 
+  F-statistic: 0.9519 
+  p-value: 0.459 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Work_Effective_even_if_noise_sound_isnt_ideal | Group: profession 
+levene test completed for Work_Effective_even_if_noise_sound_isnt_ideal by profession 
+  F-statistic: 0.9374 
+  p-value: 0.4691 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Language 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Language 
+  F-statistic: 0.2285 
+  p-value: 0.6331 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Gender 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Gender 
+  F-statistic: 1.6976 
+  p-value: 0.194 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: height 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by height 
+  F-statistic: 0.5568 
+  p-value: 0.733 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Age 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Age 
+  F-statistic: 0.6961 
+  p-value: 0.5553 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Weight 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Weight 
+  F-statistic: 0.728 
+  p-value: 0.6032 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: How_long_in_this_role_environment 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by How_long_in_this_role_environment 
+  F-statistic: 2.205 
+  p-value: 0.0886 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Typical_daily_work_schedule 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Typical_daily_work_schedule 
+  F-statistic: 0.2972 
+  p-value: 0.8274 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.1655 
+  p-value: 0.9195 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.4784 
+  p-value: 0.6976 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 0.1734 
+  p-value: 0.841 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.4308 
+  p-value: 0.2348 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.3392 
+  p-value: 0.2626 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Ever_requested_workplace_modifications 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Ever_requested_workplace_modifications 
+  F-statistic: 2.1934 
+  p-value: 0.0898 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 1.4718 
+  p-value: 0.2318 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.1773 
+  p-value: 0.3193 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: Country 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by Country 
+  F-statistic: 0.6845 
+  p-value: 0.6623 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor | Group: profession 
+levene test completed for How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor by profession 
+  F-statistic: 0.6311 
+  p-value: 0.7053 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Language 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Language 
+  F-statistic: 0.9796 
+  p-value: 0.3234 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Gender 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Gender 
+  F-statistic: 0.0024 
+  p-value: 0.9612 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: height 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by height 
+  F-statistic: 0.755 
+  p-value: 0.5832 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Age 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Age 
+  F-statistic: 0.1402 
+  p-value: 0.9358 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Weight 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Weight 
+  F-statistic: 1.0642 
+  p-value: 0.3813 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: How_long_in_this_role_environment 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by How_long_in_this_role_environment 
+  F-statistic: 0.4423 
+  p-value: 0.723 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Typical_daily_work_schedule 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Typical_daily_work_schedule 
+  F-statistic: 1.6083 
+  p-value: 0.1885 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.8077 
+  p-value: 0.4908 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.283 
+  p-value: 0.8376 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 0.155 
+  p-value: 0.8565 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.5189 
+  p-value: 0.2106 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.9334 
+  p-value: 0.1251 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Ever_requested_workplace_modifications 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Ever_requested_workplace_modifications 
+  F-statistic: 1.4739 
+  p-value: 0.2226 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.486 
+  p-value: 0.6157 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.3458 
+  p-value: 0.7922 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: Country 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by Country 
+  F-statistic: 1.0219 
+  p-value: 0.4121 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: When_thermal_lighting_discomfort_combined_how_does_this_impact_work | Group: profession 
+levene test completed for When_thermal_lighting_discomfort_combined_how_does_this_impact_work by profession 
+  F-statistic: 0.6581 
+  p-value: 0.6835 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Language 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Language 
+  F-statistic: 0.359 
+  p-value: 0.5497 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Gender 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Gender 
+  F-statistic: 0.1387 
+  p-value: 0.7099 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: height 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by height 
+  F-statistic: 0.9996 
+  p-value: 0.4189 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Age 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Age 
+  F-statistic: 1.9936 
+  p-value: 0.1159 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Weight 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Weight 
+  F-statistic: 1.5273 
+  p-value: 0.1825 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: How_long_in_this_role_environment 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by How_long_in_this_role_environment 
+  F-statistic: 0.2015 
+  p-value: 0.8953 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Typical_daily_work_schedule 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Typical_daily_work_schedule 
+  F-statistic: 0.2526 
+  p-value: 0.8594 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.4491 
+  p-value: 0.2296 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 1.4982 
+  p-value: 0.216 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 1.0863 
+  p-value: 0.3393 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.1757 
+  p-value: 0.9127 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.5577 
+  p-value: 0.6435 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Ever_requested_workplace_modifications 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Ever_requested_workplace_modifications 
+  F-statistic: 2.6664 
+  p-value: 0.0487 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.3177 
+  p-value: 0.7282 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.4514 
+  p-value: 0.2289 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: Country 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by Country 
+  F-statistic: 0.6973 
+  p-value: 0.6521 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_lighting_not_in_comfort_range | Group: profession 
+levene test completed for Performance_decrease_if_lighting_not_in_comfort_range by profession 
+  F-statistic: 1.3245 
+  p-value: 0.2475 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Language 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Language 
+  F-statistic: 0.1296 
+  p-value: 0.7192 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Gender 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Gender 
+  F-statistic: 0.5447 
+  p-value: 0.4613 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: height 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by height 
+  F-statistic: 0.6561 
+  p-value: 0.6572 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Age 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Age 
+  F-statistic: 0.5487 
+  p-value: 0.6496 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Weight 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Weight 
+  F-statistic: 0.4859 
+  p-value: 0.7866 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: How_long_in_this_role_environment 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by How_long_in_this_role_environment 
+  F-statistic: 0.4763 
+  p-value: 0.6991 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Typical_daily_work_schedule 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Typical_daily_work_schedule 
+  F-statistic: 0.5154 
+  p-value: 0.6721 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 3.1139 
+  p-value: 0.0272 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.5706 
+  p-value: 0.6349 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 2.5162 
+  p-value: 0.0832 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.5067 
+  p-value: 0.6781 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.8158 
+  p-value: 0.4864 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Ever_requested_workplace_modifications 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Ever_requested_workplace_modifications 
+  F-statistic: 0.5519 
+  p-value: 0.6474 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 2.5645 
+  p-value: 0.0793 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 2.2415 
+  p-value: 0.0845 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: Country 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by Country 
+  F-statistic: 1.0866 
+  p-value: 0.3716 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_thermal_conditions_not_in_comfort_range | Group: profession 
+levene test completed for Performance_decrease_if_thermal_conditions_not_in_comfort_range by profession 
+  F-statistic: 0.7474 
+  p-value: 0.6121 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Language 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Language 
+  F-statistic: 1.4402 
+  p-value: 0.2314 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Gender 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Gender 
+  F-statistic: 0.5878 
+  p-value: 0.4441 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: height 
+levene test completed for Performance_decrease_if_air_quality_is_poor by height 
+  F-statistic: 1.4807 
+  p-value: 0.1973 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Age 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Age 
+  F-statistic: 2.4318 
+  p-value: 0.0661 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Weight 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Weight 
+  F-statistic: 0.4835 
+  p-value: 0.7884 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: How_long_in_this_role_environment 
+levene test completed for Performance_decrease_if_air_quality_is_poor by How_long_in_this_role_environment 
+  F-statistic: 0.1812 
+  p-value: 0.909 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Typical_daily_work_schedule 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Typical_daily_work_schedule 
+  F-statistic: 0.1134 
+  p-value: 0.9522 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.3105 
+  p-value: 0.2719 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.351 
+  p-value: 0.7884 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Performance_decrease_if_air_quality_is_poor by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 0.028 
+  p-value: 0.9724 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Performance_decrease_if_air_quality_is_poor by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.2435 
+  p-value: 0.8659 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.6357 
+  p-value: 0.5928 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Ever_requested_workplace_modifications 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Ever_requested_workplace_modifications 
+  F-statistic: 0.4974 
+  p-value: 0.6845 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 3.0695 
+  p-value: 0.0485 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Performance_decrease_if_air_quality_is_poor by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 3.7311 
+  p-value: 0.0121 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: Country 
+levene test completed for Performance_decrease_if_air_quality_is_poor by Country 
+  F-statistic: 1.0344 
+  p-value: 0.4041 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_air_quality_is_poor | Group: profession 
+levene test completed for Performance_decrease_if_air_quality_is_poor by profession 
+  F-statistic: 0.72 
+  p-value: 0.6339 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Language 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Language 
+  F-statistic: 0.0501 
+  p-value: 0.8231 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Gender 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Gender 
+  F-statistic: 1.961 
+  p-value: 0.1628 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: height 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by height 
+  F-statistic: 1.5001 
+  p-value: 0.191 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Age 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Age 
+  F-statistic: 0.9167 
+  p-value: 0.4337 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Weight 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Weight 
+  F-statistic: 1.5014 
+  p-value: 0.1906 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: How_long_in_this_role_environment 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by How_long_in_this_role_environment 
+  F-statistic: 0.7607 
+  p-value: 0.5173 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Typical_daily_work_schedule 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Typical_daily_work_schedule 
+  F-statistic: 1.041 
+  p-value: 0.3753 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.1111 
+  p-value: 0.3456 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.1816 
+  p-value: 0.9088 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 2.0252 
+  p-value: 0.1345 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.5914 
+  p-value: 0.6212 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.2493 
+  p-value: 0.8618 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Ever_requested_workplace_modifications 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Ever_requested_workplace_modifications 
+  F-statistic: 0.4182 
+  p-value: 0.7401 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.3727 
+  p-value: 0.6893 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.4717 
+  p-value: 0.2232 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: Country 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by Country 
+  F-statistic: 0.8938 
+  p-value: 0.5004 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Performance_decrease_if_excessive_noise_or_complete_silence | Group: profession 
+levene test completed for Performance_decrease_if_excessive_noise_or_complete_silence by profession 
+  F-statistic: 0.3293 
+  p-value: 0.921 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Language 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Language 
+  F-statistic: 0.0179 
+  p-value: 0.8938 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Gender 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Gender 
+  F-statistic: 0.2416 
+  p-value: 0.6235 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: height 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by height 
+  F-statistic: 1.4158 
+  p-value: 0.2198 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Age 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Age 
+  F-statistic: 0.3922 
+  p-value: 0.7587 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Weight 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Weight 
+  F-statistic: 0.9353 
+  p-value: 0.459 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: How_long_in_this_role_environment 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by How_long_in_this_role_environment 
+  F-statistic: 0.3977 
+  p-value: 0.7548 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Typical_daily_work_schedule 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Typical_daily_work_schedule 
+  F-statistic: 0.6076 
+  p-value: 0.6108 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.5534 
+  p-value: 0.6464 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 1.6324 
+  p-value: 0.1829 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 1.6055 
+  p-value: 0.2032 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.9075 
+  p-value: 0.1294 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.9743 
+  p-value: 0.4057 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Ever_requested_workplace_modifications 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Ever_requested_workplace_modifications 
+  F-statistic: 3.8094 
+  p-value: 0.0109 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 1.2716 
+  p-value: 0.2825 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.5244 
+  p-value: 0.666 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: Country 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by Country 
+  F-statistic: 1.5243 
+  p-value: 0.1717 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_air_quality_changes_directly_impact_productivity | Group: profession 
+levene test completed for Do_air_quality_changes_directly_impact_productivity by profession 
+  F-statistic: 0.6712 
+  p-value: 0.673 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Language 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Language 
+  F-statistic: 0.4936 
+  p-value: 0.4831 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Gender 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Gender 
+  F-statistic: 0.2219 
+  p-value: 0.638 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: height 
+levene test completed for Do_thermal_changes_directly_impact_productivity by height 
+  F-statistic: 1.0627 
+  p-value: 0.3821 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Age 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Age 
+  F-statistic: 0.7787 
+  p-value: 0.507 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Weight 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Weight 
+  F-statistic: 0.921 
+  p-value: 0.4682 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: How_long_in_this_role_environment 
+levene test completed for Do_thermal_changes_directly_impact_productivity by How_long_in_this_role_environment 
+  F-statistic: 0.3097 
+  p-value: 0.8184 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Typical_daily_work_schedule 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Typical_daily_work_schedule 
+  F-statistic: 1.8733 
+  p-value: 0.1351 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.3269 
+  p-value: 0.8059 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 1.5073 
+  p-value: 0.2136 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Do_thermal_changes_directly_impact_productivity by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 2.2338 
+  p-value: 0.1096 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Do_thermal_changes_directly_impact_productivity by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 2.1696 
+  p-value: 0.0926 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.6498 
+  p-value: 0.5839 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Ever_requested_workplace_modifications 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Ever_requested_workplace_modifications 
+  F-statistic: 1.5734 
+  p-value: 0.1968 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.6989 
+  p-value: 0.4983 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Do_thermal_changes_directly_impact_productivity by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.7263 
+  p-value: 0.5373 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: Country 
+levene test completed for Do_thermal_changes_directly_impact_productivity by Country 
+  F-statistic: 0.9207 
+  p-value: 0.481 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_thermal_changes_directly_impact_productivity | Group: profession 
+levene test completed for Do_thermal_changes_directly_impact_productivity by profession 
+  F-statistic: 1.1075 
+  p-value: 0.3591 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Language 
+levene test completed for Do_noise_changes_directly_impact_productivity by Language 
+  F-statistic: 0.1806 
+  p-value: 0.6712 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Gender 
+levene test completed for Do_noise_changes_directly_impact_productivity by Gender 
+  F-statistic: 0.0776 
+  p-value: 0.7808 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: height 
+levene test completed for Do_noise_changes_directly_impact_productivity by height 
+  F-statistic: 0.6618 
+  p-value: 0.6529 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Age 
+levene test completed for Do_noise_changes_directly_impact_productivity by Age 
+  F-statistic: 1.7254 
+  p-value: 0.1628 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Weight 
+levene test completed for Do_noise_changes_directly_impact_productivity by Weight 
+  F-statistic: 0.7637 
+  p-value: 0.5769 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: How_long_in_this_role_environment 
+levene test completed for Do_noise_changes_directly_impact_productivity by How_long_in_this_role_environment 
+  F-statistic: 0.3803 
+  p-value: 0.7673 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Typical_daily_work_schedule 
+levene test completed for Do_noise_changes_directly_impact_productivity by Typical_daily_work_schedule 
+  F-statistic: 1.8279 
+  p-value: 0.1431 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Do_noise_changes_directly_impact_productivity by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.2417 
+  p-value: 0.8672 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Do_noise_changes_directly_impact_productivity by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 2.0879 
+  p-value: 0.1028 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Do_noise_changes_directly_impact_productivity by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 1.3939 
+  p-value: 0.2503 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Do_noise_changes_directly_impact_productivity by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.0301 
+  p-value: 0.3802 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Do_noise_changes_directly_impact_productivity by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.1226 
+  p-value: 0.9467 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Ever_requested_workplace_modifications 
+levene test completed for Do_noise_changes_directly_impact_productivity by Ever_requested_workplace_modifications 
+  F-statistic: 1.6215 
+  p-value: 0.1854 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Do_noise_changes_directly_impact_productivity by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.8198 
+  p-value: 0.4419 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Do_noise_changes_directly_impact_productivity by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.0761 
+  p-value: 0.9728 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: Country 
+levene test completed for Do_noise_changes_directly_impact_productivity by Country 
+  F-statistic: 2.0482 
+  p-value: 0.0609 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_noise_changes_directly_impact_productivity | Group: profession 
+levene test completed for Do_noise_changes_directly_impact_productivity by profession 
+  F-statistic: 0.5146 
+  p-value: 0.7969 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Language 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Language 
+  F-statistic: 0.28 
+  p-value: 0.5973 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Gender 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Gender 
+  F-statistic: 0.2406 
+  p-value: 0.6243 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: height 
+levene test completed for Do_lighting_changes_directly_impact_productivity by height 
+  F-statistic: 0.5218 
+  p-value: 0.7596 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Age 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Age 
+  F-statistic: 0.8256 
+  p-value: 0.481 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Weight 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Weight 
+  F-statistic: 0.8596 
+  p-value: 0.5092 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: How_long_in_this_role_environment 
+levene test completed for Do_lighting_changes_directly_impact_productivity by How_long_in_this_role_environment 
+  F-statistic: 0.9087 
+  p-value: 0.4377 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Typical_daily_work_schedule 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Typical_daily_work_schedule 
+  F-statistic: 0.4847 
+  p-value: 0.6932 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.3892 
+  p-value: 0.7609 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 3.3393 
+  p-value: 0.0202 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Do_lighting_changes_directly_impact_productivity by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 1.534 
+  p-value: 0.218 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Do_lighting_changes_directly_impact_productivity by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 1.2717 
+  p-value: 0.285 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.3467 
+  p-value: 0.7916 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Ever_requested_workplace_modifications 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Ever_requested_workplace_modifications 
+  F-statistic: 2.4901 
+  p-value: 0.0613 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 0.7362 
+  p-value: 0.4801 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Do_lighting_changes_directly_impact_productivity by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.3966 
+  p-value: 0.7556 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: Country 
+levene test completed for Do_lighting_changes_directly_impact_productivity by Country 
+  F-statistic: 0.9598 
+  p-value: 0.4536 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Do_lighting_changes_directly_impact_productivity | Group: profession 
+levene test completed for Do_lighting_changes_directly_impact_productivity by profession 
+  F-statistic: 0.2404 
+  p-value: 0.9627 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Language 
+levene test completed for IEQ_improvement_boosts_performance by Language 
+  F-statistic: 0.3948 
+  p-value: 0.5305 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Gender 
+levene test completed for IEQ_improvement_boosts_performance by Gender 
+  F-statistic: 1.6967 
+  p-value: 0.1941 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: height 
+levene test completed for IEQ_improvement_boosts_performance by height 
+  F-statistic: 0.7948 
+  p-value: 0.5545 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Age 
+levene test completed for IEQ_improvement_boosts_performance by Age 
+  F-statistic: 0.6504 
+  p-value: 0.5835 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Weight 
+levene test completed for IEQ_improvement_boosts_performance by Weight 
+  F-statistic: 1.824 
+  p-value: 0.1095 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: How_long_in_this_role_environment 
+levene test completed for IEQ_improvement_boosts_performance by How_long_in_this_role_environment 
+  F-statistic: 0.2596 
+  p-value: 0.8544 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Typical_daily_work_schedule 
+levene test completed for IEQ_improvement_boosts_performance by Typical_daily_work_schedule 
+  F-statistic: 0.5222 
+  p-value: 0.6675 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for IEQ_improvement_boosts_performance by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.9111 
+  p-value: 0.4365 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for IEQ_improvement_boosts_performance by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 4.8028 
+  p-value: 0.0029 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for IEQ_improvement_boosts_performance by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 3.1162 
+  p-value: 0.0464 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for IEQ_improvement_boosts_performance by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 2.2445 
+  p-value: 0.0842 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for IEQ_improvement_boosts_performance by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.1051 
+  p-value: 0.348 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Ever_requested_workplace_modifications 
+levene test completed for IEQ_improvement_boosts_performance by Ever_requested_workplace_modifications 
+  F-statistic: 4.8568 
+  p-value: 0.0027 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for IEQ_improvement_boosts_performance by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 2.4022 
+  p-value: 0.093 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for IEQ_improvement_boosts_performance by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.4873 
+  p-value: 0.219 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: Country 
+levene test completed for IEQ_improvement_boosts_performance by Country 
+  F-statistic: 0.6849 
+  p-value: 0.662 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: IEQ_improvement_boosts_performance | Group: profession 
+levene test completed for IEQ_improvement_boosts_performance by profession 
+  F-statistic: 0.9556 
+  p-value: 0.4565 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Language 
+levene test completed for Informed_about_IEQ_parameters by Language 
+  F-statistic: 8.7993 
+  p-value: 0.0034 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Gender 
+levene test completed for Informed_about_IEQ_parameters by Gender 
+  F-statistic: 0.7548 
+  p-value: 0.3859 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: height 
+levene test completed for Informed_about_IEQ_parameters by height 
+  F-statistic: 0.7231 
+  p-value: 0.6068 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Age 
+levene test completed for Informed_about_IEQ_parameters by Age 
+  F-statistic: 1.3951 
+  p-value: 0.2453 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Weight 
+levene test completed for Informed_about_IEQ_parameters by Weight 
+  F-statistic: 0.9832 
+  p-value: 0.4289 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: How_long_in_this_role_environment 
+levene test completed for Informed_about_IEQ_parameters by How_long_in_this_role_environment 
+  F-statistic: 1.5395 
+  p-value: 0.2053 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Typical_daily_work_schedule 
+levene test completed for Informed_about_IEQ_parameters by Typical_daily_work_schedule 
+  F-statistic: 0.3561 
+  p-value: 0.7848 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for Informed_about_IEQ_parameters by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 1.3229 
+  p-value: 0.2679 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for Informed_about_IEQ_parameters by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.1691 
+  p-value: 0.9171 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for Informed_about_IEQ_parameters by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 0.8284 
+  p-value: 0.4382 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for Informed_about_IEQ_parameters by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.4289 
+  p-value: 0.7325 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for Informed_about_IEQ_parameters by Typical_response_to_IEQ_discomfort 
+  F-statistic: 0.2245 
+  p-value: 0.8793 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Ever_requested_workplace_modifications 
+levene test completed for Informed_about_IEQ_parameters by Ever_requested_workplace_modifications 
+  F-statistic: 0.4495 
+  p-value: 0.7179 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for Informed_about_IEQ_parameters by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 3.0462 
+  p-value: 0.0496 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for Informed_about_IEQ_parameters by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 0.8835 
+  p-value: 0.4505 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: Country 
+levene test completed for Informed_about_IEQ_parameters by Country 
+  F-statistic: 3.3809 
+  p-value: 0.0034 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: Informed_about_IEQ_parameters | Group: profession 
+levene test completed for Informed_about_IEQ_parameters by profession 
+  F-statistic: 1.3642 
+  p-value: 0.2305 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Language 
+levene test completed for If_yes_how_much_does_it_affect_work by Language 
+  F-statistic: 0.3144 
+  p-value: 0.5756 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Gender 
+levene test completed for If_yes_how_much_does_it_affect_work by Gender 
+  F-statistic: 0.0579 
+  p-value: 0.8101 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: height 
+levene test completed for If_yes_how_much_does_it_affect_work by height 
+  F-statistic: 2.0054 
+  p-value: 0.0791 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Age 
+levene test completed for If_yes_how_much_does_it_affect_work by Age 
+  F-statistic: 1.0419 
+  p-value: 0.3749 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Weight 
+levene test completed for If_yes_how_much_does_it_affect_work by Weight 
+  F-statistic: 1.1659 
+  p-value: 0.3271 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: How_long_in_this_role_environment 
+levene test completed for If_yes_how_much_does_it_affect_work by How_long_in_this_role_environment 
+  F-statistic: 1.9513 
+  p-value: 0.1224 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Typical_daily_work_schedule 
+levene test completed for If_yes_how_much_does_it_affect_work by Typical_daily_work_schedule 
+  F-statistic: 0.468 
+  p-value: 0.7049 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Does_your_work_involve_high_cognitive_load 
+levene test completed for If_yes_how_much_does_it_affect_work by Does_your_work_involve_high_cognitive_load 
+  F-statistic: 0.8645 
+  p-value: 0.4603 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Actively_adjust_environment_during_IEQ_fluctuations 
+levene test completed for If_yes_how_much_does_it_affect_work by Actively_adjust_environment_during_IEQ_fluctuations 
+  F-statistic: 0.6474 
+  p-value: 0.5854 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+levene test completed for If_yes_how_much_does_it_affect_work by More_sensitive_to_IEQ_changes_due_to_health_conditions 
+  F-statistic: 0.1536 
+  p-value: 0.8577 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: How_quickly_notice_IEQ_parameter_change 
+levene test completed for If_yes_how_much_does_it_affect_work by How_quickly_notice_IEQ_parameter_change 
+  F-statistic: 0.948 
+  p-value: 0.4183 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Typical_response_to_IEQ_discomfort 
+levene test completed for If_yes_how_much_does_it_affect_work by Typical_response_to_IEQ_discomfort 
+  F-statistic: 1.2569 
+  p-value: 0.2901 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Ever_requested_workplace_modifications 
+levene test completed for If_yes_how_much_does_it_affect_work by Ever_requested_workplace_modifications 
+  F-statistic: 0.1223 
+  p-value: 0.9469 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+levene test completed for If_yes_how_much_does_it_affect_work by Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+  F-statistic: 5.9634 
+  p-value: 0.003 
+  Interpretation: SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: IEQ_training_receivedWilling_to_join_IEQ_programs 
+levene test completed for If_yes_how_much_does_it_affect_work by IEQ_training_receivedWilling_to_join_IEQ_programs 
+  F-statistic: 1.9891 
+  p-value: 0.1166 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: Country 
+levene test completed for If_yes_how_much_does_it_affect_work by Country 
+  F-statistic: 0.8218 
+  p-value: 0.5541 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+---------------------------------------------
+Outcome: If_yes_how_much_does_it_affect_work | Group: profession 
+levene test completed for If_yes_how_much_does_it_affect_work by profession 
+  F-statistic: 0.2069 
+  p-value: 0.9744 
+  Interpretation: NOT significantly different -> standard equal-variance test OK
+
+
+=== FULL SUMMARY TABLE ===
+                                                                          Outcome
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                               Do_cultur_personal_preferences_affect_your_comfort
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                                 Sensitive_to_air_quality_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                           Sensitive_to_thermal_condition_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_noise_sound_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                                                 Sensitive_to_light_level_changes
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                              Work_effectively_if_only_air_quality_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+                          Work_effectively_if_only_thermal_comfort_is_not_optimal
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+ Work_Effictive_if_high_low_lighting_levels_not_optimal_despite_other_differences
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+                                    Work_Effective_even_if_noise_sound_isnt_ideal
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+          How_does_poor_air_quality_noise_impact_work_compared_to_a_single_factor
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+              When_thermal_lighting_discomfort_combined_how_does_this_impact_work
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                            Performance_decrease_if_lighting_not_in_comfort_range
+                                                  Group       F_stat     p_value Significant
+                                               Language 4.897580e+00 0.027950810        TRUE
+                                                 Gender 5.366266e+00 0.021476013        TRUE
+                                                 height 3.148430e+00 0.009201947        TRUE
+                                                    Age 9.896284e-01 0.398580940       FALSE
+                                                 Weight 1.519976e+00 0.184837730       FALSE
+                      How_long_in_this_role_environment 8.333363e-01 0.476901229       FALSE
+                            Typical_daily_work_schedule 3.388201e-01 0.797279538       FALSE
+             Does_your_work_involve_high_cognitive_load 2.714553e-01 0.845943421       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 2.991820e-01 0.825968598       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 3.272114e+00 0.039841182        TRUE
+                How_quickly_notice_IEQ_parameter_change 2.211140e+00 0.087823689       FALSE
+                     Typical_response_to_IEQ_discomfort 1.026712e+00 0.381687059       FALSE
+                 Ever_requested_workplace_modifications 2.234841e+00 0.085191266       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 3.339371e+00 0.037325202        TRUE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 5.354947e-01 0.658442003       FALSE
+                                                Country 1.514357e+00 0.174922940       FALSE
+                                             profession 1.696374e+00 0.123371846       FALSE
+                                               Language 3.712671e-01 0.542951801       FALSE
+                                                 Gender 1.040056e-01 0.747385149       FALSE
+                                                 height 1.008356e+00 0.413691958       FALSE
+                                                    Age 1.195706e+00 0.312331766       FALSE
+                                                 Weight 7.401168e-01 0.594177535       FALSE
+                      How_long_in_this_role_environment 3.025222e-01 0.823554208       FALSE
+                            Typical_daily_work_schedule 1.617488e+00 0.186310789       FALSE
+             Does_your_work_involve_high_cognitive_load 1.286915e+00 0.279840841       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 5.996689e-01 0.615882878       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 4.673722e-01 0.627284946       FALSE
+                How_quickly_notice_IEQ_parameter_change 9.751722e-01 0.405328305       FALSE
+                     Typical_response_to_IEQ_discomfort 1.264488e+00 0.287500477       FALSE
+                 Ever_requested_workplace_modifications 3.292573e+00 0.021492931        TRUE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 7.979351e-02 0.923334187       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 2.701476e-01 0.846881837       FALSE
+                                                Country 2.318391e+00 0.034600810        TRUE
+                                             profession 2.333850e-01 0.965306907       FALSE
+                                               Language 1.830597e-01 0.669181188       FALSE
+                                                 Gender 6.836770e-06 0.997916158       FALSE
+                                                 height 1.153516e+00 0.333305726       FALSE
+                                                    Age 1.765327e+00 0.154782620       FALSE
+                                                 Weight 6.640334e-01 0.651138389       FALSE
+                      How_long_in_this_role_environment 3.768602e-01 0.769782802       FALSE
+                            Typical_daily_work_schedule 3.768738e+00 0.011500630        TRUE
+             Does_your_work_involve_high_cognitive_load 1.424484e+00 0.236599544       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 3.768007e-01 0.769824502       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 2.278157e+00 0.104952894       FALSE
+                How_quickly_notice_IEQ_parameter_change 2.210212e+00 0.087912998       FALSE
+                     Typical_response_to_IEQ_discomfort 3.468607e+00 0.017054635        TRUE
+                 Ever_requested_workplace_modifications 1.300301e+00 0.275293920       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 5.204039e-01 0.595023627       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 3.939374e-01 0.757491999       FALSE
+                                                Country 1.821676e+00 0.096387128       FALSE
+                                             profession 8.689418e-01 0.518609920       FALSE
+                                               Language 4.358987e-04 0.983362011       FALSE
+                                                 Gender 5.182233e-01 0.472375179       FALSE
+                                                 height 5.680940e-01 0.724407092       FALSE
+                                                    Age 3.505886e+00 0.016238612        TRUE
+                                                 Weight 1.228877e+00 0.296622128       FALSE
+                      How_long_in_this_role_environment 2.951579e-01 0.828874657       FALSE
+                            Typical_daily_work_schedule 7.889050e-01 0.501279989       FALSE
+             Does_your_work_involve_high_cognitive_load 5.822693e-01 0.627252946       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 3.847387e-01 0.764106001       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 1.657909e+00 0.192974723       FALSE
+                How_quickly_notice_IEQ_parameter_change 1.262818e+00 0.288108181       FALSE
+                     Typical_response_to_IEQ_discomfort 1.690831e+00 0.169961487       FALSE
+                 Ever_requested_workplace_modifications 1.000418e+00 0.393570336       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 2.348904e+00 0.097908208       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 1.763645e+00 0.155158785       FALSE
+                                                Country 1.313170e+00 0.252665129       FALSE
+                                             profession 8.232717e-01 0.553011037       FALSE
+                                               Language 1.103321e-01 0.740086968       FALSE
+                                                 Gender 6.817337e-01 0.409897168       FALSE
+                                                 height 1.173482e+00 0.323254921       FALSE
+                                                    Age 8.853046e-01 0.449522980       FALSE
+                                                 Weight 8.050221e-01 0.547184731       FALSE
+                      How_long_in_this_role_environment 6.069493e-01 0.611176570       FALSE
+                            Typical_daily_work_schedule 9.595266e-01 0.412751101       FALSE
+             Does_your_work_involve_high_cognitive_load 7.760079e-01 0.508551850       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 1.791932e+00 0.149713972       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 4.030129e+00 0.019137873        TRUE
+                How_quickly_notice_IEQ_parameter_change 2.145358e+00 0.095535864       FALSE
+                     Typical_response_to_IEQ_discomfort 2.052890e+00 0.107492231       FALSE
+                 Ever_requested_workplace_modifications 2.307624e+00 0.077534549       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 6.315089e-02 0.938819130       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 1.113220e-01 0.953416813       FALSE
+                                                Country 1.836847e+00 0.093510557       FALSE
+                                             profession 9.673300e-01 0.448384545       FALSE
+                                               Language 6.612118e+00 0.010796993        TRUE
+                                                 Gender 1.151519e+00 0.284423192       FALSE
+                                                 height 9.853995e-01 0.427581385       FALSE
+                                                    Age 6.469443e-01 0.585667971       FALSE
+                                                 Weight 1.647835e+00 0.148665318       FALSE
+                      How_long_in_this_role_environment 1.258293e-01 0.944739551       FALSE
+                            Typical_daily_work_schedule 1.217950e+00 0.304123123       FALSE
+             Does_your_work_involve_high_cognitive_load 3.025570e+00 0.030530796        TRUE
+    Actively_adjust_environment_during_IEQ_fluctuations 2.260928e+00 0.082367458       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 3.080022e+00 0.048001382        TRUE
+                How_quickly_notice_IEQ_parameter_change 1.620513e+00 0.185609441       FALSE
+                     Typical_response_to_IEQ_discomfort 2.247375e+00 0.083785244       FALSE
+                 Ever_requested_workplace_modifications 1.870626e+00 0.135519188       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 2.444260e+00 0.089187791       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 1.484386e+00 0.219778461       FALSE
+                                                Country 9.757039e-01 0.442723391       FALSE
+                                             profession 1.068191e+00 0.382773958       FALSE
+                                               Language 1.851593e+00 0.175009809       FALSE
+                                                 Gender 1.685694e+00 0.195547770       FALSE
+                                                 height 1.477147e+00 0.198490926       FALSE
+                                                    Age 1.316219e-01 0.941187156       FALSE
+                                                 Weight 9.005195e-01 0.481637316       FALSE
+                      How_long_in_this_role_environment 7.881426e-01 0.501727359       FALSE
+                            Typical_daily_work_schedule 4.317210e-01 0.730495375       FALSE
+             Does_your_work_involve_high_cognitive_load 1.551072e+00 0.202370134       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 1.780218e+00 0.151939647       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 1.718602e+00 0.181782146       FALSE
+                How_quickly_notice_IEQ_parameter_change 7.365401e-01 0.531282253       FALSE
+                     Typical_response_to_IEQ_discomfort 8.366234e-01 0.475088797       FALSE
+                 Ever_requested_workplace_modifications 2.158987e+00 0.093851727       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 1.438631e+00 0.239516302       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 1.034275e+00 0.378318041       FALSE
+                                                Country 1.093171e+00 0.367654506       FALSE
+                                             profession 1.272510e+00 0.271359475       FALSE
+                                               Language 7.024329e-02 0.791234467       FALSE
+                                                 Gender 3.434126e+00 0.065219976       FALSE
+                                                 height 7.959446e-01 0.553649307       FALSE
+                                                    Age 1.005237e+00 0.391363036       FALSE
+                                                 Weight 4.125920e-01 0.839736824       FALSE
+                      How_long_in_this_role_environment 1.269572e+00 0.285805795       FALSE
+                            Typical_daily_work_schedule 4.661159e-01 0.706228428       FALSE
+             Does_your_work_involve_high_cognitive_load 1.328071e+00 0.266198363       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 1.229244e+00 0.300017866       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 4.850587e+00 0.008705013        TRUE
+                How_quickly_notice_IEQ_parameter_change 2.670343e-01 0.849114727       FALSE
+                     Typical_response_to_IEQ_discomfort 1.775703e+00 0.152774067       FALSE
+                 Ever_requested_workplace_modifications 6.636310e-01 0.575249228       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 2.530986e+00 0.081938647       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 2.177455e-01 0.884020665       FALSE
+                                                Country 9.039742e-01 0.492988898       FALSE
+                                             profession 3.365213e-01 0.917042062       FALSE
+                                               Language 1.100728e-01 0.740381517       FALSE
+                                                 Gender 5.621805e-02 0.812800210       FALSE
+                                                 height 1.185378e+00 0.317380865       FALSE
+                                                    Age 8.898350e-01 0.447201980       FALSE
+                                                 Weight 2.411244e-01 0.943850373       FALSE
+                      How_long_in_this_role_environment 1.591017e+00 0.192603517       FALSE
+                            Typical_daily_work_schedule 2.256437e+00 0.082844529       FALSE
+             Does_your_work_involve_high_cognitive_load 2.112496e+00 0.099655402       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 2.399444e+00 0.068902771       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 3.314894e+00 0.038212903        TRUE
+                How_quickly_notice_IEQ_parameter_change 1.809693e+00 0.146398682       FALSE
+                     Typical_response_to_IEQ_discomfort 8.184906e-01 0.484905582       FALSE
+                 Ever_requested_workplace_modifications 2.786950e-01 0.840742302       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 1.675205e+00 0.189693498       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 4.417951e-01 0.723354938       FALSE
+                                                Country 9.519100e-01 0.459044853       FALSE
+                                             profession 9.374043e-01 0.469132252       FALSE
+                                               Language 2.285236e-01 0.633101940       FALSE
+                                                 Gender 1.697600e+00 0.193983042       FALSE
+                                                 height 5.567801e-01 0.733049253       FALSE
+                                                    Age 6.961142e-01 0.555342244       FALSE
+                                                 Weight 7.279552e-01 0.603165121       FALSE
+                      How_long_in_this_role_environment 2.204994e+00 0.088550393       FALSE
+                            Typical_daily_work_schedule 2.971629e-01 0.827427443       FALSE
+             Does_your_work_involve_high_cognitive_load 1.655425e-01 0.919503049       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 4.784255e-01 0.697628523       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 1.733531e-01 0.840958642       FALSE
+                How_quickly_notice_IEQ_parameter_change 1.430788e+00 0.234759678       FALSE
+                     Typical_response_to_IEQ_discomfort 1.339170e+00 0.262582826       FALSE
+                 Ever_requested_workplace_modifications 2.193352e+00 0.089805439       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 1.471787e+00 0.231807391       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 1.177334e+00 0.319320507       FALSE
+                                                Country 6.845304e-01 0.662326798       FALSE
+                                             profession 6.310900e-01 0.705284902       FALSE
+                                               Language 9.795755e-01 0.323405927       FALSE
+                                                 Gender 2.376755e-03 0.961161800       FALSE
+                                                 height 7.550192e-01 0.583237298       FALSE
+                                                    Age 1.402351e-01 0.935814494       FALSE
+                                                 Weight 1.064150e+00 0.381268381       FALSE
+                      How_long_in_this_role_environment 4.423067e-01 0.722995308       FALSE
+                            Typical_daily_work_schedule 1.608285e+00 0.188459836       FALSE
+             Does_your_work_involve_high_cognitive_load 8.077242e-01 0.490830915       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 2.830329e-01 0.837619391       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 1.550401e-01 0.856476966       FALSE
+                How_quickly_notice_IEQ_parameter_change 1.518850e+00 0.210598099       FALSE
+                     Typical_response_to_IEQ_discomfort 1.933444e+00 0.125145823       FALSE
+                 Ever_requested_workplace_modifications 1.473932e+00 0.222586205       FALSE
+  Headache_sleepy_at_work_enough_sleep_due_to_light_air 4.860326e-01 0.615732763       FALSE
+      IEQ_training_receivedWilling_to_join_IEQ_programs 3.458214e-01 0.792210761       FALSE
+                                                Country 1.021917e+00 0.412076030       FALSE
+                                             profession 6.581337e-01 0.683547910       FALSE
+                                               Language 3.590100e-01 0.549681598       FALSE
+                                                 Gender 1.387125e-01 0.709927832       FALSE
+                                                 height 9.996235e-01 0.418937955       FALSE
+                                                    Age 1.993592e+00 0.115932555       FALSE
+                                                 Weight 1.527289e+00 0.182508432       FALSE
+                      How_long_in_this_role_environment 2.014635e-01 0.895296830       FALSE
+                            Typical_daily_work_schedule 2.526307e-01 0.859408374       FALSE
+             Does_your_work_involve_high_cognitive_load 1.449056e+00 0.229559374       FALSE
+    Actively_adjust_environment_during_IEQ_fluctuations 1.498202e+00 0.216045192       FALSE
+ More_sensitive_to_IEQ_changes_due_to_health_conditions 1.086260e+00 0.339329575       FALSE
+                How_quickly_notice_IEQ_parameter_change 1.757480e-01 0.912737022       FALSE
+                     Typical_response_to_IEQ_discomfort 5.577352e-01 0.643490954       FALSE
+                 Ever_requested_workplace_modifications 2.666405e+00 0.048728713        TRUE
+ [ reached 'max' / getOption("max.print") -- omitted 174 rows ]

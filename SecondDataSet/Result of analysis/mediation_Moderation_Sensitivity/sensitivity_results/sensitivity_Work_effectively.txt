@@ -1,0 +1,244 @@
+SENSITIVITY ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Predictors: performance_decrease_under_thermal_and_Air, performance_decrease_under_noise_and_light, Combined_Effect_of_Air_thermal_noise_light 
+
+--- Outlier Analysis ---
+$performance_decrease_under_thermal_and_Air
+$performance_decrease_under_thermal_and_Air$n_outliers
+[1] 4
+
+$performance_decrease_under_thermal_and_Air$outlier_indices
+[1]   4  56 124 136
+
+$performance_decrease_under_thermal_and_Air$outlier_percentage
+[1] 1.895735
+
+
+$Sensitivity
+$Sensitivity$n_outliers
+[1] 8
+
+$Sensitivity$outlier_indices
+[1]  11  42  58  71  96 131 136 151
+
+$Sensitivity$outlier_percentage
+[1] 3.791469
+
+
+$performance_decrease_under_noise_and_light
+$performance_decrease_under_noise_and_light$n_outliers
+[1] 2
+
+$performance_decrease_under_noise_and_light$outlier_indices
+[1]  4 52
+
+$performance_decrease_under_noise_and_light$outlier_percentage
+[1] 0.9478673
+
+
+$Combined_Effect_of_Air_thermal_noise_light
+$Combined_Effect_of_Air_thermal_noise_light$n_outliers
+[1] 2
+
+$Combined_Effect_of_Air_thermal_noise_light$outlier_indices
+[1]   4 154
+
+$Combined_Effect_of_Air_thermal_noise_light$outlier_percentage
+[1] 0.9478673
+
+
+
+--- Outlier Impact ---
+$original
+$original$r_squared
+[1] 0.1264269
+
+$original$adj_r_squared
+[1] 0.1094643
+
+$original$coefficients
+                                                Estimate Std. Error       t value     Pr(>|t|)
+(Intercept)                                -9.320015e-17 0.06649735 -1.401562e-15 1.000000e+00
+performance_decrease_under_thermal_and_Air  4.729018e-01 0.20908353  2.261784e+00 2.475484e-02
+Sensitivity                                 4.267049e-01 0.11440508  3.729772e+00 2.477429e-04
+performance_decrease_under_noise_and_light  4.637814e-03 0.18184411  2.550434e-02 9.796774e-01
+Combined_Effect_of_Air_thermal_noise_light -6.381893e-01 0.15490908 -4.119767e+00 5.492113e-05
+
+
+$performance_decrease_under_thermal_and_Air_clean
+$performance_decrease_under_thermal_and_Air_clean$r_squared
+[1] 0.1293804
+
+$performance_decrease_under_thermal_and_Air_clean$adj_r_squared
+[1] 0.1121404
+
+$performance_decrease_under_thermal_and_Air_clean$coefficients
+                                               Estimate Std. Error     t value     Pr(>|t|)
+(Intercept)                                -0.010121519 0.06730361 -0.15038597 8.806102e-01
+performance_decrease_under_thermal_and_Air  0.528209438 0.21420971  2.46585196 1.450239e-02
+Sensitivity                                 0.423037234 0.11482465  3.68420237 2.945921e-04
+performance_decrease_under_noise_and_light  0.005032135 0.18215118  0.02762614 9.779876e-01
+Combined_Effect_of_Air_thermal_noise_light -0.636203250 0.15511999 -4.10136219 5.952437e-05
+
+
+$Sensitivity_clean
+$Sensitivity_clean$r_squared
+[1] 0.09931423
+
+$Sensitivity_clean$adj_r_squared
+[1] 0.08111856
+
+$Sensitivity_clean$coefficients
+                                              Estimate Std. Error    t value     Pr(>|t|)
+(Intercept)                                 0.01357283 0.06920177  0.1961341 0.8447063731
+performance_decrease_under_thermal_and_Air  0.53170541 0.22153221  2.4001269 0.0173154667
+Sensitivity                                 0.36058198 0.13215533  2.7284709 0.0069353451
+performance_decrease_under_noise_and_light -0.01890028 0.18635103 -0.1014230 0.9193173217
+Combined_Effect_of_Air_thermal_noise_light -0.64446698 0.16324187 -3.9479270 0.0001094961
+
+
+$performance_decrease_under_noise_and_light_clean
+$performance_decrease_under_noise_and_light_clean$r_squared
+[1] 0.1223919
+
+$performance_decrease_under_noise_and_light_clean$adj_r_squared
+[1] 0.1051839
+
+$performance_decrease_under_noise_and_light_clean$coefficients
+                                              Estimate Std. Error    t value     Pr(>|t|)
+(Intercept)                                -0.01319343 0.06656617 -0.1982002 8.430858e-01
+performance_decrease_under_thermal_and_Air  0.50691917 0.20940891  2.4207144 1.636557e-02
+Sensitivity                                 0.40566705 0.11497600  3.5282759 5.167461e-04
+performance_decrease_under_noise_and_light  0.03834112 0.18282468  0.2097152 8.340992e-01
+Combined_Effect_of_Air_thermal_noise_light -0.61929747 0.15476395 -4.0015615 8.802432e-05
+
+
+$Combined_Effect_of_Air_thermal_noise_light_clean
+$Combined_Effect_of_Air_thermal_noise_light_clean$r_squared
+[1] 0.1280206
+
+$Combined_Effect_of_Air_thermal_noise_light_clean$adj_r_squared
+[1] 0.110923
+
+$Combined_Effect_of_Air_thermal_noise_light_clean$coefficients
+                                               Estimate Std. Error     t value     Pr(>|t|)
+(Intercept)                                -0.010305404 0.06671041 -0.15447970 8.773842e-01
+performance_decrease_under_thermal_and_Air  0.517466566 0.21039172  2.45953867 1.474390e-02
+Sensitivity                                 0.415536327 0.11496562  3.61443988 3.791859e-04
+performance_decrease_under_noise_and_light  0.004893788 0.18187085  0.02690804 9.785594e-01
+Combined_Effect_of_Air_thermal_noise_light -0.622152809 0.15596534 -3.98904541 9.244287e-05
+
+
+
+--- Assumption Validation ---
+$normality
+$normality$test
+[1] "Shapiro-Wilk"
+
+$normality$statistic
+        W 
+0.9803623 
+
+$normality$p_value
+[1] 0.004833552
+
+$normality$normal
+[1] FALSE
+
+
+$homogeneity
+$homogeneity$test
+[1] "Breusch-Pagan"
+
+$homogeneity$statistic
+      BP 
+43.94263 
+
+$homogeneity$p_value
+          BP 
+6.594248e-09 
+
+$homogeneity$homogeneous
+   BP 
+FALSE 
+
+
+$linearity
+$linearity$max_residual_abs
+[1] 2.118348
+
+
+
+--- Subgroup Analysis ---
+$Gender
+$Gender$variable_type
+[1] "categorical"
+
+$Gender$level_models
+$Gender$level_models$Male
+$Gender$level_models$Male$n_obs
+[1] 146
+
+$Gender$level_models$Male$r_squared
+[1] 0.1572117
+
+
+$Gender$level_models$Female
+$Gender$level_models$Female$n_obs
+[1] 65
+
+$Gender$level_models$Female$r_squared
+[1] 0.08269602
+
+
+
+
+$Weight
+$Weight$variable_type
+[1] "categorical"
+
+$Weight$level_models
+$Weight$level_models$`56-70 kg`
+$Weight$level_models$`56-70 kg`$n_obs
+[1] 56
+
+$Weight$level_models$`56-70 kg`$r_squared
+[1] 0.2848164
+
+
+$Weight$level_models$`101-115 kg`
+$Weight$level_models$`101-115 kg`$n_obs
+[1] 29
+
+$Weight$level_models$`101-115 kg`$r_squared
+[1] 0.1030278
+
+
+$Weight$level_models$`86-100 kg`
+$Weight$level_models$`86-100 kg`$n_obs
+[1] 59
+
+$Weight$level_models$`86-100 kg`$r_squared
+[1] 0.1264402
+
+
+$Weight$level_models$`71-85 kg`
+$Weight$level_models$`71-85 kg`$n_obs
+[1] 46
+
+$Weight$level_models$`71-85 kg`$r_squared
+[1] 0.1380169
+
+
+$Weight$level_models$`<=55 kg`
+$Weight$level_models$`<=55 kg`$n_obs
+[1] 18
+
+$Weight$level_models$`<=55 kg`$r_squared
+[1] 0.2530574
+
+
+
+

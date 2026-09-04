@@ -1,0 +1,94 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: profession 
+
+--- Lavaan Estimates ---
+                                          lhs op                                        rhs    est ci.lower
+1  performance_decrease_under_thermal_and_Air  ~                      profession_House.Wife -0.456   -1.199
+2  performance_decrease_under_thermal_and_Air  ~                        profession_Lab.Work -0.293   -0.905
+3  performance_decrease_under_thermal_and_Air  ~                   profession_More.Movement -0.165   -0.383
+4  performance_decrease_under_thermal_and_Air  ~                     profession_office.work -0.041   -0.336
+5  performance_decrease_under_thermal_and_Air  ~                     profession_Office.work -0.455   -0.929
+6  performance_decrease_under_thermal_and_Air  ~                    profession_outdoor.work -0.586   -1.780
+7                                 Sensitivity  ~                      profession_House.Wife  0.108   -0.534
+8                                 Sensitivity  ~                        profession_Lab.Work  0.460   -0.030
+9                                 Sensitivity  ~                   profession_More.Movement  0.024   -0.186
+10                                Sensitivity  ~                     profession_office.work  0.094   -0.167
+11                                Sensitivity  ~                     profession_Office.work -0.072   -0.521
+12                                Sensitivity  ~                    profession_outdoor.work -0.341   -1.357
+13                                Sensitivity  ~ performance_decrease_under_thermal_and_Air  0.680    0.551
+14 performance_decrease_under_thermal_and_Air ~~ performance_decrease_under_thermal_and_Air  0.457    0.350
+15                                Sensitivity ~~                                Sensitivity  0.409    0.290
+16                      profession_House.Wife ~~                      profession_House.Wife  0.033    0.033
+17                      profession_House.Wife ~~                        profession_Lab.Work -0.001   -0.001
+18                      profession_House.Wife ~~                   profession_More.Movement -0.015   -0.015
+19                      profession_House.Wife ~~                     profession_office.work -0.005   -0.005
+20                      profession_House.Wife ~~                     profession_Office.work -0.002   -0.002
+21                      profession_House.Wife ~~                    profession_outdoor.work  0.000    0.000
+22                        profession_Lab.Work ~~                        profession_Lab.Work  0.033    0.033
+23                        profession_Lab.Work ~~                   profession_More.Movement -0.015   -0.015
+24                        profession_Lab.Work ~~                     profession_office.work -0.005   -0.005
+25                        profession_Lab.Work ~~                     profession_Office.work -0.002   -0.002
+26                        profession_Lab.Work ~~                    profession_outdoor.work  0.000    0.000
+27                   profession_More.Movement ~~                   profession_More.Movement  0.247    0.247
+28                   profession_More.Movement ~~                     profession_office.work -0.071   -0.071
+29                   profession_More.Movement ~~                     profession_Office.work -0.026   -0.026
+30                   profession_More.Movement ~~                    profession_outdoor.work -0.006   -0.006
+31                     profession_office.work ~~                     profession_office.work  0.133    0.133
+32                     profession_office.work ~~                     profession_Office.work -0.009   -0.009
+33                     profession_office.work ~~                    profession_outdoor.work -0.002   -0.002
+34                     profession_Office.work ~~                     profession_Office.work  0.054    0.054
+35                     profession_Office.work ~~                    profession_outdoor.work -0.001   -0.001
+36                    profession_outdoor.work ~~                    profession_outdoor.work  0.014    0.014
+37                  ind_profession_House.Wife :=                                       a1*b -0.310   -0.895
+38                    ind_profession_Lab.Work :=                                       a2*b -0.199   -0.623
+39               ind_profession_More.Movement :=                                       a3*b -0.112   -0.267
+40                 ind_profession_office.work :=                                       a4*b -0.028   -0.232
+41                 ind_profession_Office.work :=                                       a5*b -0.310   -0.669
+42                ind_profession_outdoor.work :=                                       a6*b -0.399   -1.219
+   ci.upper pvalue
+1     0.109  0.185
+2     0.297  0.328
+3     0.072  0.150
+4     0.220  0.772
+5     0.070  0.063
+6     0.424  0.297
+7     0.699  0.744
+8     1.011  0.078
+9     0.209  0.816
+10    0.377  0.478
+11    0.304  0.719
+12    0.229  0.415
+13    0.813  0.000
+14    0.548  0.000
+15    0.502  0.000
+16    0.033     NA
+17   -0.001     NA
+18   -0.015     NA
+19   -0.005     NA
+20   -0.002     NA
+21    0.000     NA
+22    0.033     NA
+23   -0.015     NA
+24   -0.005     NA
+25   -0.002     NA
+26    0.000     NA
+27    0.247     NA
+28   -0.071     NA
+29   -0.026     NA
+30   -0.006     NA
+31    0.133     NA
+32   -0.009     NA
+33   -0.002     NA
+34    0.054     NA
+35   -0.001     NA
+36    0.014     NA
+37    0.077  0.201
+38    0.194  0.328
+39    0.051  0.153
+40    0.157  0.774
+41    0.050  0.076
+42    0.281  0.300

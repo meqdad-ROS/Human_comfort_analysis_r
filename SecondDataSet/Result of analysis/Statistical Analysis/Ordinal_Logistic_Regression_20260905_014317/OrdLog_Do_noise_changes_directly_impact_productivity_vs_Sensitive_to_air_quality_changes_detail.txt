@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Sensitive_to_air_quality_changes 
+                       0.5134662 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.9382453 -0.2009092  1.2713560  2.6922393 
+
+Residual Deviance: 539.6554 
+AIC: 549.6554 
+
+$coefficients
+                              Term   Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1 Sensitive_to_air_quality_changes  0.5134662 0.1280020  4.0113927 6.036160e-05  1.6710735
+2                              1|2 -1.9382453 0.6090895 -3.1822012 1.461602e-03  0.1439563
+3                              2|3 -0.2009092 0.4853081 -0.4139828 6.788867e-01  0.8179867
+4                              3|4  1.2713560 0.4919944  2.5840862 9.763739e-03  3.5656845
+5                              4|5  2.6922393 0.5189275  5.1880838 2.124690e-07 14.7647022
+
+$proportional_odds_test
+                                       X2 df probability
+Omnibus                          4.038307  3   0.2573573
+Sensitive_to_air_quality_changes 4.038307  3   0.2573573
+

@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Does_your_work_involve_high_cognitive_load 
+
+--- Lavaan Estimates ---
+                                                                            lhs op
+1                                    performance_decrease_under_noise_and_light  ~
+2                                    performance_decrease_under_noise_and_light  ~
+3                                    performance_decrease_under_noise_and_light  ~
+4                                                                   Sensitivity  ~
+5                                                                   Sensitivity  ~
+6                                                                   Sensitivity  ~
+7                                                                   Sensitivity  ~
+8                                    performance_decrease_under_noise_and_light ~~
+9                                                                   Sensitivity ~~
+10     Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine ~~
+11     Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine ~~
+12     Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine ~~
+13                      Does_your_work_involve_high_cognitive_load_Yes..heavily ~~
+14                      Does_your_work_involve_high_cognitive_load_Yes..heavily ~~
+15                   Does_your_work_involve_high_cognitive_load_Yes..moderately ~~
+16 ind_Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine :=
+17                  ind_Does_your_work_involve_high_cognitive_load_Yes..heavily :=
+18               ind_Does_your_work_involve_high_cognitive_load_Yes..moderately :=
+                                                                        rhs    est ci.lower ci.upper pvalue
+1  Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine -0.236   -0.724    0.171  0.317
+2                   Does_your_work_involve_high_cognitive_load_Yes..heavily  0.068   -0.364    0.436  0.721
+3                Does_your_work_involve_high_cognitive_load_Yes..moderately -0.038   -0.452    0.316  0.843
+4  Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine -0.125   -0.786    0.577  0.718
+5                   Does_your_work_involve_high_cognitive_load_Yes..heavily -0.161   -0.747    0.495  0.613
+6                Does_your_work_involve_high_cognitive_load_Yes..moderately -0.181   -0.753    0.457  0.558
+7                                performance_decrease_under_noise_and_light  0.323    0.126    0.541  0.002
+8                                performance_decrease_under_noise_and_light  0.345    0.278    0.403  0.000
+9                                                               Sensitivity  0.609    0.473    0.718  0.000
+10 Does_your_work_involve_high_cognitive_load_No..my.work.is.mostly.routine  0.097    0.097    0.097     NA
+11                  Does_your_work_involve_high_cognitive_load_Yes..heavily -0.048   -0.048   -0.048     NA
+12               Does_your_work_involve_high_cognitive_load_Yes..moderately -0.046   -0.046   -0.046     NA
+13                  Does_your_work_involve_high_cognitive_load_Yes..heavily  0.246    0.246    0.246     NA
+14               Does_your_work_involve_high_cognitive_load_Yes..moderately -0.186   -0.186   -0.186     NA
+15               Does_your_work_involve_high_cognitive_load_Yes..moderately  0.244    0.244    0.244     NA
+16                                                                     a1*b -0.076   -0.268    0.065  0.365
+17                                                                     a2*b  0.022   -0.119    0.159  0.746
+18                                                                     a3*b -0.012   -0.164    0.114  0.857

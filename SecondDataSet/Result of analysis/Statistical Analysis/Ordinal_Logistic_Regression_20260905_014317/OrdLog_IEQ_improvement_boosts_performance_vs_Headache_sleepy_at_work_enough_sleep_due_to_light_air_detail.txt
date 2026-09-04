@@ -1,0 +1,39 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+                   Headache_sleepy_at_work_enough_sleep_due_to_light_airNo, I do not 
+                                                                          -0.6234718 
+Headache_sleepy_at_work_enough_sleep_due_to_light_airYes, I do experienced such case 
+                                                                           0.1090194 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-4.7584100 -3.2158472 -1.8358393 -0.6024218 
+
+Residual Deviance: 411.0972 
+AIC: 423.0972 
+
+$coefficients
+                                                                                  Term   Estimate Std_Error
+1                    Headache_sleepy_at_work_enough_sleep_due_to_light_airNo, I do not -0.6234718 0.4505666
+2 Headache_sleepy_at_work_enough_sleep_due_to_light_airYes, I do experienced such case  0.1090194 0.4137559
+3                                                                                  1|2 -4.7584100 0.7887506
+4                                                                                  2|3 -3.2158472 0.4835813
+5                                                                                  3|4 -1.8358393 0.3935025
+6                                                                                  4|5 -0.6024218 0.3677739
+     Z_Value      P_Value  Odds_Ratio
+1 -1.3837506 1.664348e-01 0.536080028
+2  0.2634873 7.921750e-01 1.115184021
+3 -6.0328452 1.610977e-09 0.008579239
+4 -6.6500655 2.929634e-11 0.040121328
+5 -4.6653813 3.080452e-06 0.159479600
+6 -1.6380224 1.014170e-01 0.547484116
+
+$proportional_odds_test
+                                                                                            X2 df probability
+Omnibus                                                                              2.8950291  6   0.8219018
+Headache_sleepy_at_work_enough_sleep_due_to_light_airNo, I do not                    0.9189103  3   0.8208621
+Headache_sleepy_at_work_enough_sleep_due_to_light_airYes, I do experienced such case 0.8886363  3   0.8281692
+

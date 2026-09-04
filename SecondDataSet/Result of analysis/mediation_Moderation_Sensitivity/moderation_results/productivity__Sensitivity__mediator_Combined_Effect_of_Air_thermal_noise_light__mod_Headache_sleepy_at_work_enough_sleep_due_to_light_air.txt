@@ -1,0 +1,16 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : productivity 
+Predictor : Sensitivity 
+Mediator  : Combined_Effect_of_Air_thermal_noise_light 
+Moderator : Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): 0.3532011   p = 0 
+
+--- Interaction Coefficients ---
+  Sensitivity:Headache_sleepy_at_work_enough_sleep_due_to_light_airNo, I do not: coef = -0.0118, p = 0.9486 
+  Sensitivity:Headache_sleepy_at_work_enough_sleep_due_to_light_airYes, I do experienced such case: coef = -0.0753, p = 0.6646 
+
+Moderation significant: FALSE 

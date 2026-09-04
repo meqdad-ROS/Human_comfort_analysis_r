@@ -1,0 +1,24 @@
+Stratification Variable: Country 
+Stratum: Country_Mediterranean 
+R-squared: 0.7583524 
+
+$n_obs
+[1] 36
+
+$r_squared
+[1] 0.7583524
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  -0.05621                                    -0.15060  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.07042                                     0.60000  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.34398                                     0.42811  
+
+

@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Ever_requested_workplace_modificationsNo, I have never needed to 
+                                                      -0.2879604 
+           Ever_requested_workplace_modificationsYes, frequently 
+                                                       0.3386452 
+         Ever_requested_workplace_modificationsYes, occasionally 
+                                                       0.4267801 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.2653089 -0.2287022  0.7804329  1.7477168 
+
+Residual Deviance: 641.2389 
+AIC: 655.2389 
+
+$coefficients
+                                                              Term   Estimate Std_Error    Z_Value      P_Value
+1 Ever_requested_workplace_modificationsNo, I have never needed to -0.2879604 0.5364061 -0.5368329 5.913830e-01
+2            Ever_requested_workplace_modificationsYes, frequently  0.3386452 0.4119379  0.8220784 4.110323e-01
+3          Ever_requested_workplace_modificationsYes, occasionally  0.4267801 0.3989800  1.0696780 2.847643e-01
+4                                                              1|2 -1.2653089 0.3714168 -3.4067091 6.575116e-04
+5                                                              2|3 -0.2287022 0.3564502 -0.6416105 5.211261e-01
+6                                                              3|4  0.7804329 0.3617492  2.1573868 3.097554e-02
+7                                                              4|5  1.7477168 0.3806594  4.5912872 4.405206e-06
+  Odds_Ratio
+1  0.7497912
+2  1.4030455
+3  1.5323157
+4  0.2821521
+5  0.7955654
+6  2.1824168
+7  5.7414786
+
+$proportional_odds_test
+                                                                       X2 df probability
+Omnibus                                                          4.862142  9   0.8461563
+Ever_requested_workplace_modificationsNo, I have never needed to 1.062790  3   0.7860635
+Ever_requested_workplace_modificationsYes, frequently            2.063770  3   0.5592771
+Ever_requested_workplace_modificationsYes, occasionally          3.816583  3   0.2819631
+

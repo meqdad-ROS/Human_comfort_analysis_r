@@ -1,0 +1,24 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Language 
+
+--- Lavaan Estimates ---
+                                         lhs op                                        rhs    est ci.lower
+1 performance_decrease_under_noise_and_light  ~                           Language_English -0.152   -0.356
+2                           Work_effectively  ~                           Language_English -0.228   -0.558
+3                           Work_effectively  ~ performance_decrease_under_noise_and_light -0.077   -0.325
+4 performance_decrease_under_noise_and_light ~~ performance_decrease_under_noise_and_light  0.350    0.284
+5                           Work_effectively ~~                           Work_effectively  1.033    0.880
+6                           Language_English ~~                           Language_English  0.162    0.162
+7                       ind_Language_English :=                                       a1*b  0.012   -0.032
+  ci.upper pvalue
+1    0.051  0.137
+2    0.087  0.167
+3    0.194  0.561
+4    0.422  0.000
+5    1.158  0.000
+6    0.162     NA
+7    0.078  0.660

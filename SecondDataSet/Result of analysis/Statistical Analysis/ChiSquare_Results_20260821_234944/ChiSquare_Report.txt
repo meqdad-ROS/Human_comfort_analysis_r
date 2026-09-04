@@ -1,0 +1,33 @@
+================================================================================
+CHI-SQUARE TEST ANALYSIS REPORT
+================================================================================
+Analysis Date: 2026-08-22 17:03:57.274014
+Data Source: Direct data.frame
+Number of Observations: 211
+Number of Categorical Variables: 17
+Number of Tests Performed: 0
+Significant Associations (p < 0.05): 0
+Significant Association Rate: NaN %
+
+--------------------------------------------------------------------------------
+SUMMARY OF FINDINGS
+--------------------------------------------------------------------------------
+No associations with valid Cramér's V found.
+
+--------------------------------------------------------------------------------
+ALL SIGNIFICANT ASSOCIATIONS (p < 0.05)
+--------------------------------------------------------------------------------
+  No significant associations found at p < 0.05
+
+--------------------------------------------------------------------------------
+FILES GENERATED
+--------------------------------------------------------------------------------
+1. Summary CSV: ChiSquare_Summary.csv
+2. Detailed Tables: detailed_tables/
+3. Contingency Tables: contingency_tables/
+4. Percentage Tables: percentage_tables/
+5. Residuals: residuals/
+
+================================================================================
+END OF REPORT
+================================================================================

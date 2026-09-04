@@ -1,0 +1,40 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+   CountryEast Europ           CountryGCC CountryMediterranean CountryNorth America         CountrySudan 
+       -0.6768096597        -0.1813244348        -0.6993236243        -1.4801410038        -0.0001520051 
+        CountryYemen 
+       -0.0001520051 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-4.5614130 -2.6777005 -0.7681848  0.7678331 
+
+Residual Deviance: 531.3102 
+AIC: 551.3102 
+
+$coefficients
+                   Term      Estimate Std_Error       Z_Value     P_Value Odds_Ratio
+1     CountryEast Europ -0.6768096597  1.593531 -0.4247231647 0.671038495 0.50823585
+2            CountryGCC -0.1813244348  1.527423 -0.1187126726 0.905502996 0.83416468
+3  CountryMediterranean -0.6993236243  1.554508 -0.4498680536 0.652805584 0.49692130
+4  CountryNorth America -1.4801410038  1.733417 -0.8538865128 0.393167873 0.22760559
+5          CountrySudan -0.0001520051  2.149280 -0.0000707237 0.999943571 0.99984801
+6          CountryYemen -0.0001520051  2.149280 -0.0000707237 0.999943571 0.99984801
+7                   1|2 -4.5614130085  1.627267 -2.8031120772 0.005061208 0.01044729
+8                   2|3 -2.6777005347  1.538905 -1.7400040830 0.081858301 0.06872099
+9                   3|4 -0.7681848031  1.521907 -0.5047514514 0.613733418 0.46385429
+10                  4|5  0.7678330590  1.521907  0.5045205128 0.613895651 2.15509123
+
+$proportional_odds_test
+                               X2 df probability
+Omnibus              1.158802e+01 18   0.8677616
+CountryEast Europ    9.052332e-05  3   0.9999998
+CountryGCC           8.282224e-05  3   0.9999998
+CountryMediterranean 8.561021e-05  3   0.9999998
+CountryNorth America 1.912749e-05  3   1.0000000
+CountrySudan         2.466811e-23  3   1.0000000
+CountryYemen         3.081574e-23  3   1.0000000
+

@@ -24,6 +24,7 @@ library(R6)
 library(kSamples)
 library(rsm)
 library(DescTools)
+library(gridExtra)
 #-------------------------------------------------------------------------------
 # step 00: source all required classes and files
 source("regrissorClass.r")
@@ -41,6 +42,7 @@ View(data_SCFs)
 ## Upload the original response after cleaning (the ranked) dataset of both survey after merging them out. 
 data_SOrRank <- read_excel("SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx")
 View(data_SOrRank)
+
 #===============================================================================
 # STEP 2: CREATE OBJECT INSTANCES
 #===============================================================================
@@ -87,7 +89,7 @@ lapply(analy_SCFA$get_categorical_info()$frequency_tables, print)
 analy_SCFA$list_regression_models()
 
 for (i in c(1:(length(numaric_names)-1))){
-  for (j in c(i+1:length(numaric_names))){
+  for (j in c((i+1):length(numaric_names))){
     for (k in categorical_names){
         analy_SCFA$plot_scatter_by_group(numaric_names[i], numaric_names[j], k)
     }
@@ -1736,7 +1738,7 @@ categorical_vars <- scfa_conf_Analyzer$categorical_cols
 #           a structured, analysis-ready data frame.
 # ============================================================
 # --- 0. Define demographic variables to iterate over --------
-demographic_vars <- c("Gender", "AgeGroup", "Education", "Region")
+demographic_vars <- categorical_vars 
 # Add or remove categorical column names as required
 # --- 1. Initialize the accumulator data frame ---------------
 #        Typed explicitly to avoid coercion issues on rbind()
@@ -1774,15 +1776,59 @@ for (demo_var in demographic_vars) {
     message("\n>>> Running cluster analysis for: ", demo_var)
   
     # -- 3a. Run analysis with error guard --------------------
-    ca_result <- tryCatch({
-      analy_SCFA$perform_cluster_analysis(
+     tryCatch({
+      cat('Current demographic',demo_var, '\n')
+       ca_result <- analy_SCFA$perform_cluster_analysis(
         variables          = numeric_outcomes,
         demographic_column = demo_var,
         k                  = NULL,
         k_max              = 10,
         plot               = TRUE
       )
-    }, error = function(e) {
+    
+      
+      # -- 3c. Safely extract all fields from object -----------
+      #        Mirrors exactly the structure shown in your screenshot
+      
+      opt_k       <- ca_result$optimal_k                        # integer [1]
+      fin_k       <- ca_result$final_k                          # double  [1]
+      tot_wss     <- ca_result$clusters$tot.withinss            # double  [1]
+      bss         <- ca_result$clusters$betweenss               # double  [1]
+      tss         <- ca_result$clusters$totss                   # double  [1]
+      expl_var    <- round(bss / tss, 6)                        # η² ratio
+      sizes_str   <- paste(ca_result$clusters$size, collapse = " | ")
+      withinss_str<- paste(round(ca_result$clusters$withinss, 4), collapse = " | ")
+      centers_str <- serialize_obj(ca_result$clusters$centers)  # double [k x 6]
+      diff_str    <- serialize_obj(ca_result$differences)       # list   [6]
+      
+      
+      # -- 3d. Build single-row data frame for this iteration --
+      
+      row_i <- data.frame(
+        categorical_var  = demo_var,
+        optimal_k        = opt_k,
+        final_k          = fin_k,
+        tot_withinss     = tot_wss,
+        betweenss        = bss,
+        totss            = tss,
+        explained_var    = expl_var,
+        cluster_sizes    = sizes_str,
+        withinss         = withinss_str,
+        centers          = centers_str,
+        differences      = diff_str,
+        stringsAsFactors = FALSE
+      )
+      
+      
+      # -- 3e. Append row to accumulator -----------------------
+      
+      cluster_results_df <- rbind(cluster_results_df, row_i)
+      
+      message("    Completed: k=", fin_k,
+              " | η²=", round(expl_var * 100, 2), "%",
+              " | sizes=[", sizes_str, "]")
+      
+      }, error = function(e) {
       warning("Cluster analysis FAILED for [", demo_var, "]: ", e$message)
       return(NULL)
     })
@@ -1790,47 +1836,7 @@ for (demo_var in demographic_vars) {
   # -- 3b. Skip if analysis returned NULL ------------------
   if (is.null(ca_result)) next
   
-  
-  # -- 3c. Safely extract all fields from object -----------
-  #        Mirrors exactly the structure shown in your screenshot
-  
-  opt_k       <- ca_result$optimal_k                        # integer [1]
-  fin_k       <- ca_result$final_k                          # double  [1]
-  tot_wss     <- ca_result$clusters$tot.withinss            # double  [1]
-  bss         <- ca_result$clusters$betweenss               # double  [1]
-  tss         <- ca_result$clusters$totss                   # double  [1]
-  expl_var    <- round(bss / tss, 6)                        # η² ratio
-  sizes_str   <- paste(ca_result$clusters$size, collapse = " | ")
-  withinss_str<- paste(round(ca_result$clusters$withinss, 4), collapse = " | ")
-  centers_str <- serialize_obj(ca_result$clusters$centers)  # double [k x 6]
-  diff_str    <- serialize_obj(ca_result$differences)       # list   [6]
-  
-  
-  # -- 3d. Build single-row data frame for this iteration --
-  
-  row_i <- data.frame(
-    categorical_var  = demo_var,
-    optimal_k        = opt_k,
-    final_k          = fin_k,
-    tot_withinss     = tot_wss,
-    betweenss        = bss,
-    totss            = tss,
-    explained_var    = expl_var,
-    cluster_sizes    = sizes_str,
-    withinss         = withinss_str,
-    centers          = centers_str,
-    differences      = diff_str,
-    stringsAsFactors = FALSE
-  )
-  
-  
-  # -- 3e. Append row to accumulator -----------------------
-  
-  cluster_results_df <- rbind(cluster_results_df, row_i)
-  
-  message("    Completed: k=", fin_k,
-          " | η²=", round(expl_var * 100, 2), "%",
-          " | sizes=[", sizes_str, "]")
+
 }
 
 
@@ -1852,88 +1858,9 @@ write.csv(
 )
 
 ###-------------------------------------------------------------------------####
-### you stopped here at line 1854 in K-clustering algorithm - return to cloude AI 
-### to find out the error in the above k-clustering code. genrally speaking some (up to 4)
-### demographic varibales failed to analyse (why???) Thus the result of gender is repeated 
-### several times. 
-### After this continue by romving the rest of k-clustering algorithm in tis file code
-### Then contiue to responce surface analysis and then to thematic analysis.  
-              
-# print(ca_result_SCFA$clusters$centers)   # Cluster centroids (scaled)
-# print(ca_result_SCFA$differences)         # Two-way ANOVA: variable ~ Gender * cluster
-# cat("Detected elbow k:", ca_result_SCFA$optimal_k,
-#     "| Final k used:", ca_result_SCFA$final_k, "\n")
-
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
-# Same clustering; compare clusters by Occupation
-ca_result_BCFA_occ <- analy_SCFA$perform_cluster_analysis(
-  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
-  demographic_column = "Occupation",
-  k     = NULL,
-  k_max = 10,
-  plot  = TRUE
-)
-print(ca_result_BCFA_occ$clusters$centers)
-print(ca_result_BCFA_occ$differences)
-cat("Detected elbow k:", ca_result_BCFA_occ$optimal_k,
-    "| Final k used:", ca_result_BCFA_occ$final_k, "\n")
-
-# Same clustering; compare clusters by Location.of.Leaving
-ca_result_BCFA_LoL <- analy_SCFA$perform_cluster_analysis(
-  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
-  demographic_column = "Location.of.Leaving",
-  k     = NULL,
-  k_max = 10,
-  plot  = TRUE
-)
-print(ca_result_BCFA_LoL$clusters$centers)
-print(ca_result_BCFA_LoL$differences)
-cat("Detected elbow k:", ca_result_BCFA_LoL$optimal_k,
-    "| Final k used:", ca_result_BCFA_LoL$final_k, "\n")
-
-# Same clustering; compare clusters by Age
-ca_result_BCFA_age <- analy_SCFA$perform_cluster_analysis(
-  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
-  demographic_column = "age",
-  k     = NULL,
-  k_max = 10,
-  plot  = TRUE
-)
-print(ca_result_BCFA_age$clusters$centers)
-print(ca_result_BCFA_age$differences)
-cat("Detected elbow k:", ca_result_BCFA_age$optimal_k,
-    "| Final k used:", ca_result_BCFA_age$final_k, "\n")
-
-
-# Same clustering; compare clusters by Length
-ca_result_BCFA_len <- analy_SCFA$perform_cluster_analysis(
-  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
-  demographic_column = "Length",
-  k     = NULL,
-  k_max = 10,
-  plot  = TRUE
-)
-print(ca_result_BCFA_len$clusters$centers)
-print(ca_result_BCFA_len$differences)
-cat("Detected elbow k:", ca_result_BCFA_len$optimal_k,
-    "| Final k used:", ca_result_BCFA_len$final_k, "\n")
-
-# Same clustering; compare clusters by Weight
-ca_result_BCFA_wigh <- analy_SCFA$perform_cluster_analysis(
-  variables          = c("Sensitivity", "Performance", "Th_AQ_Effect", "Li_So_Effect"),
-  demographic_column = "Weight",
-  k     = NULL,
-  k_max = 10,
-  plot  = TRUE
-)
-print(ca_result_BCFA_wigh$clusters$centers)
-print(ca_result_BCFA_wigh$differences)
-cat("Detected elbow k:", ca_result_BCFA_wigh$optimal_k,
-    "| Final k used:", ca_result_BCFA_wigh$final_k, "\n")
-
-
 #===============================================================================
 # TEST: RESPONSE SURFACE ANALYSIS — Method 1 (string-based, simple interface)
 #       perform_response_surface_analysis(response, predictors, plot)
@@ -1941,274 +1868,575 @@ cat("Detected elbow k:", ca_result_BCFA_wigh$optimal_k,
 analy_SCFA$list_all_methods()
 
 cat("\n=== First-Order Response Surface Analysis ===\n")
-# rs_first_order_1 <- analy_SCFA$perform_response_surface_analysis(response= "Performance", 
-#                                                                predictors=c("Sensitivity", "Th_AQ_Effect"),
-#                                                                plot = TRUE)
 # NOTE: The block below is commented out because rs_first_order_1 depends on
 # the commented-out perform_response_surface_analysis() call above.
 # Uncomment the assignment above first, then uncomment this block.
-# # Step 2: Generate plots manually
-# par(mfrow = c(1, 2))
-# contour(rs_first_order_1$model, ~ x1 + x2,
-#         image = TRUE,
-#         main  = "Response Surface — Contour Plot")
-# plot(fitted(rs_first_order_1$model), resid(rs_first_order_1$model),
-#      main = "Residuals vs Fitted",
-#      xlab = "Fitted Values",
-#      ylab = "Residuals",
-#      col  = "steelblue", pch = 16)
-# abline(h = 0, col = "red", lwd = 2)
-# par(mfrow = c(1, 1))
-# # Step 3: Inspect results normally
-# print(rs_first_order_1$summary)
-# print(rs_first_order_1$stationary_point)
-# cat("R-squared:", summary(rs_first_order_1$model)$r.squared, "\n")
-
 
 #===============================================================================
 # TEST: RESPONSE SURFACE ANALYSIS — Method 2 (formula-based interface)
 #       perform_response_surface_analysis_two(formula, model_type, ...)
 #===============================================================================
-rs_first_order <- analy_SCFA$perform_response_surface_analysis_two(
-                    formula = Performance ~ FO(Sensitivity, Th_AQ_Effect),
-                    model_type = "first_order",
-                    data       = analy_SCFA$data,
-                    plot = TRUE,
-                    coded = TRUE,
-                    steepest_ascent = TRUE,
-                    canonical = TRUE,
-                    contour = TRUE) 
+#===============================================================================
+# AUTOMATED RESPONSE SURFACE ANALYSIS — IEQ WORKPLACE PERFORMANCE STUDY
+# Author  : Meqdad (IAU Research Pipeline)
+# Purpose : Fully automated first-order and second-order RSM on all valid
+#           numeric-variable pairs extracted directly from the dataset.
+#           Exports summary tables to CSV and all diagnostic/contour plots to PDF.
+# Version : 3.0  |  No hard-coded variable names  |  Full error isolation
+#===============================================================================
+# ── 1. DISCOVER RESPONSE AND PREDICTOR VARIABLES AUTOMATICALLY ───────────────
+# Strategy: any numeric column with standard deviation > 0 is eligible.
+# Variables that are factor-encoded integers (few unique values ≤ 5) are treated
+# as potential predictors only — not as primary response variables.
+## roaw data and object (#analy_SCFA  -->> current object)
+#current raw data --> data_SCFs
+## numaric culoms --> numeric_vars
+# Remove degenerate columns (zero variance or fewer than 5 complete observations)
+eligible <- Filter(function(col) {
+      vals <- analy_SCFA$data[[col]]
+      vals <- vals[!is.na(vals)]
+      length(vals) >= 10 && sd(vals) > 1e-9
+    }, numeric_vars)
 
+# Heuristic: columns with more than 5 unique values are treated as continuous
+# responses AND predictors; those with ≤ 5 unique values are predictors only.
+n_unique <- sapply(eligible, function(col) length(unique(na.omit(analy_SCFA$data[[col]]))))
 
-# Print the results
-print(rs_first_order)
+response_vars  <- eligible[n_unique >  5]
+predictor_vars <- eligible                   # all eligible columns may serve as predictors
 
-# Example 2: Second-order model with same variables
-cat("\n=== Second-Order Response Surface Analysis ===\n")
-rs_second_order <- analy_SCFA$perform_response_surface_analysis_two(
-                            formula = Performance ~ SO(Sensitivity, Th_AQ_Effect),
-                            model_type = "second_order", 
-                            data       = analy_SCFA$data,
-                            plot = TRUE,
-                            coded = TRUE,
-                            steepest_ascent = TRUE,
-                            canonical = TRUE,
-                            contour = TRUE) 
+cat("[INFO] Candidate response variables  :", length(response_vars),  "\n")
+cat("        →", paste(response_vars, collapse = ", "), "\n")
+cat("[INFO] Candidate predictor variables :", length(predictor_vars), "\n")
+cat("        →", paste(predictor_vars, collapse = ", "), "\n\n")
 
-# Print the results
-print(rs_second_order)
+if (length(predictor_vars) < 2) stop("Need at least 2 numeric predictor variables for RSM.")
+if (length(response_vars)  < 1) stop("Need at least 1 numeric response variable for RSM.")
 
-# Example 3: Second-order model with all four variables
-cat("\n=== Second-Order Analysis with All Variables ===\n")
-rs_full <- analy_SCFA$perform_response_surface_analysis_two(
-                    formula = Performance ~ SO(Sensitivity, Th_AQ_Effect, Li_So_Effect),
-                    model_type = "second_order", 
-                    data       = analy_SCFA$data,
-                    plot = TRUE,
-                    coded = TRUE,
-                    steepest_ascent = TRUE,
-                    canonical = TRUE,
-                    contour = TRUE) 
+# ── 2. GENERATE ALL PREDICTOR PAIRS ──────────────────────────────────────────
+pred_pairs <- combn(predictor_vars, 2, simplify = FALSE)
 
+# Build the full configuration grid:
+# For each response variable × each predictor pair, run both orders.
+configs <- expand.grid(
+  resp_idx = seq_along(response_vars),
+  pair_idx = seq_along(pred_pairs),
+  stringsAsFactors = FALSE
+)
 
-# Print the results
-print(rs_full)
+# Remove configurations where the response is one of the predictors in that pair
+# (would create a trivially perfect fit or singularity)
+configs <- configs[mapply(function(ri, pi) {
+  !response_vars[ri] %in% pred_pairs[[pi]]
+}, configs$resp_idx, configs$pair_idx), ]
 
-# Step 4: Extract and analyze specific results
+cat("[INFO] Valid RSM configurations:", nrow(configs),
+    "(each will run as first-order AND second-order)\n\n")
 
-# Extract coefficients
-coefficients <- rs_second_order$coefficients
-cat("\nModel Coefficients:\n")
-print(coefficients)
+# ── 3. OUTPUT DIRECTORY ───────────────────────────────────────────────────────
+timestamp  <- format(Sys.time(), "%Y%m%d_%H%M%S")
+output_dir <- paste0("RSM_Results_", timestamp)
+dir.create(output_dir,                              showWarnings = FALSE)
+dir.create(file.path(output_dir, "individual_pdf"), showWarnings = FALSE)
 
-# Extract canonical analysis for second-order model
-if (!is.null(rs_second_order$canonical_analysis)) {
-  cat("\nCanonical Analysis:\n")
-  cat("Eigenvalues:", rs_second_order$canonical_analysis$eigenvalues, "\n")
-  cat("Stationary point:", rs_second_order$canonical_analysis$xs, "\n")
+cat("[INFO] Output directory:", output_dir, "\n\n")
+
+# ── 4. HELPER: SAFE FILE-NAME STEM ───────────────────────────────────────────
+make_stem <- function(response, pred1, pred2, order_tag) {
+  sanitise <- function(s) gsub("[^A-Za-z0-9]", "_", s)
+  paste(sanitise(response), sanitise(pred1), sanitise(pred2), order_tag, sep = "__")
 }
 
-# Extract steepest ascent for first-order model
-if (!is.null(rs_first_order$steepest_ascent)) {
-  cat("\nSteepest Ascent Direction:\n")
-  print(rs_first_order$steepest_ascent)
-}
-
-# Step 5: Generate predictions for optimization
-if (!is.null(rs_second_order$predictions)) {
-  pred_data <- rs_second_order$predictions
-  cat("\nOptimization Analysis:\n")
-  cat("Variable names:", pred_data$variable_names, "\n")
+# ── 5. CORE RSM RUNNER ───────────────────────────────────────────────────────
+# Returns a named list with all extracted statistics, or NULL on failure.
+run_rsm <- function(analy_SCFA, response, pred_pair, model_type) {
   
-  # Find maximum predicted value
-  max_idx <- which.max(pred_data$predicted_values)
-  optimum <- pred_data$grid[max_idx, ]
-  cat("Predicted optimum at:\n")
-  print(optimum)
-  cat("Maximum predicted performance:", pred_data$predicted_values[max_idx], "\n")
-}
-
-# Step 6: Compare models
-cat("\n=== Model Comparison ===\n")
-cat("First-order model R-squared:", summary(rs_first_order$model)$r.squared, "\n")
-cat("Second-order model R-squared:", summary(rs_second_order$model)$r.squared, "\n")
-
-# Step 7: Advanced analysis - Response surface for different demographic groups
-demographics <- c("Gender", "Location.of.Leaving", "Occupation")
-
-for (demo in demographics) {
-  if (demo %in% names(data_SCFs)) {
-          cat("\n=== Response Surface Analysis by", demo, "===\n")
-          # Split data by demographic
-          demo_groups <- split(data_SCFs, data_SCFs[[demo]])
-    
-          for (group_name in names(demo_groups)[1:min(3, length(demo_groups))]) {  # Limit to first 3 groups
-                  group_data <- demo_groups[[group_name]]
-                  cat("\nAnalyzing group:", group_name, "\n")
-      
-                  # Create temporary analyzer for this group
-                  temp_analy <- regrissorClass$new(group_data)
-      
-                  # Perform response surface analysis
-                  rs_group <- temp_analy$perform_response_surface_analysis_two(
-                                      formula = Performance ~ SO(Sensitivity, Th_AQ_Effect),
-                                      model_type = "second_order",
-                                      data = group_data,
-                                      plot = FALSE,  # Don't plot for each group
-                                      coded = TRUE,
-                                      canonical = TRUE
-                  )
-
-                  # Extract key results
-                  r_squared <- summary(rs_group$model)$r.squared
-                  cat("R-squared for", group_name, ":", r_squared, "\n")
-
-                  # Extract stationary point if available
-                  if (!is.null(rs_group$stationary_point)) {
-                                cat("Stationary point for", group_name, ":\n")
-                                print(rs_group$stationary_point)
-                    }
-          }
+  p1 <- pred_pair[1]
+  p2 <- pred_pair[2]
+  
+  # Subset to complete cases for this triplet
+  working_df <- na.omit(analy_SCFA$data[, c(response, p1, p2), drop = FALSE])
+  
+  if (nrow(working_df) < 15) {
+    message(sprintf("  [SKIP] %s ~ (%s, %s) %s — only %d complete rows",
+                    response, p1, p2, model_type, nrow(working_df)))
+    return(NULL)
   }
-}
-###-----------------------------------------------------------------------------
-# Example 4: Second-order model with three variables
-cat("\n=== Second-Order Analysis with All Variables ===\n")
-rs_second_sen_ThAQLiSo <- analy_SCFA$perform_response_surface_analysis_two(
-  formula = Sensitivity ~ SO(Th_AQ_Effect, Li_So_Effect),
-  model_type = "second_order", 
-  data       = analy_SCFA$data,
-  plot = TRUE,
-  coded = TRUE,
-  steepest_ascent = TRUE,
-  canonical = TRUE,
-  contour = TRUE) 
-
-
-# Print the results
-print(rs_second_sen_ThAQLiSo)
-
-# Step 8: Extract and analyze specific results
-
-# Extract coefficients
-coefficient_SenThAQLiSo <- rs_second_sen_ThAQLiSo$coefficients
-cat("\nModel Coefficients:\n")
-print(coefficient_SenThAQLiSo)
-
-# Extract canonical analysis for second-order model
-if (!is.null(rs_second_sen_ThAQLiSo$canonical_analysis)) {
-  cat("\nCanonical Analysis:\n")
-  cat("Eigenvalues:", rs_second_sen_ThAQLiSo$canonical_analysis$eigenvalues, "\n")
-  cat("Stationary point:", rs_second_sen_ThAQLiSo$canonical_analysis$xs, "\n")
-}
-
-# Step 9: Generate predictions for optimization
-if (!is.null(rs_second_sen_ThAQLiSo$predictions)) {
-  pred_data_SeThAQLiSo <- rs_second_sen_ThAQLiSo$predictions
-  cat("\nOptimization Analysis:\n")
-  cat("Variable names:", pred_data_SeThAQLiSo$variable_names, "\n")
   
-  # Find maximum predicted value
-  max_idx_SeThAQLiSo <- which.max(pred_data_SeThAQLiSo$predicted_values)
-  optimum_SeThAQLiSo <- pred_data_SeThAQLiSo$grid[max_idx_SeThAQLiSo, ]
-  cat("Predicted optimum at:\n")
-  print(optimum_SeThAQLiSo)
-  cat("Maximum predicted performance:", pred_data_SeThAQLiSo$predicted_values[max_idx_SeThAQLiSo], "\n")
+  # Temporarily create a local analy_SCFA on the clean subset so the class method
+  # receives exactly the data it needs — avoids NA propagation issues.
+  local_analy_SCFA <- regrissorClass$new(working_df)
+  
+  rsm_result <- tryCatch(
+    local_analy_SCFA$perform_response_surface_analysis_two(
+      formula         = as.formula(
+        if (model_type == "first_order")
+          paste(response, "~ FO(", p1, ",", p2, ")")
+        else
+          paste(response, "~ SO(", p1, ",", p2, ")")
+      ),
+      data            = working_df,
+      model_type      = model_type,
+      plot            = FALSE,
+      coded           = TRUE,
+      steepest_ascent = (model_type == "first_order"),
+      canonical       = (model_type == "second_order"),
+      contour         = FALSE
+    ),
+    error = function(e) {
+      message(sprintf("  [ERROR] %s ~ (%s, %s) %s — %s",
+                      response, p1, p2, model_type, e$message))
+      NULL
+    }
+  )
+  
+  if (is.null(rsm_result)) return(NULL)
+  
+  mdl     <- rsm_result$model
+  mdl_sum <- summary(mdl)
+  coefs   <- coef(mdl)
+  
+  # Intercept
+  intercept_val <- coefs[grepl("Intercept", names(coefs))][1]
+  
+  # Extract p-values from the lm-level summary (stored inside rsm summary)
+  pval_table <- tryCatch(coef(mdl_sum), error = function(e) NULL)
+  
+  # Steepest-ascent direction (first-order only)
+  steepest_df <- NULL
+  if (model_type == "first_order" && !is.null(rsm_result$steepest_ascent)) {
+    steepest_df <- as.data.frame(rsm_result$steepest_ascent)
+  }
+  
+  # Stationary point and eigenvalues (second-order only)
+  stat_pt    <- NULL
+  eigenvals  <- NULL
+  surface_type <- NA_character_
+  if (model_type == "second_order") {
+    if (!is.null(rsm_result$stationary_point))
+      stat_pt <- rsm_result$stationary_point
+    
+    if (!is.null(rsm_result$canonical_analysis)) {
+      eigenvals <- rsm_result$canonical_analysis$eigen.val
+      if (!is.null(eigenvals)) {
+        if (all(eigenvals < 0))      surface_type <- "Maximum"
+        else if (all(eigenvals > 0)) surface_type <- "Minimum"
+        else                         surface_type <- "Saddle point"
+      }
+    }
+  }
+  
+  list(
+    response         = response,
+    pred1            = p1,
+    pred2            = p2,
+    model_type       = model_type,
+    stem             = make_stem(response, p1, p2, model_type),
+    model            = mdl,
+    model_summary    = mdl_sum,
+    r_squared        = mdl_sum$r.squared,
+    adj_r_squared    = mdl_sum$adj.r.squared,
+    coefficients     = coefs,
+    intercept        = as.numeric(intercept_val),
+    pval_table       = pval_table,
+    n_obs            = nrow(working_df),
+    working_df       = working_df,
+    steepest         = steepest_df,
+    stationary_point = stat_pt,
+    eigenvalues      = eigenvals,
+    surface_type     = surface_type,
+    predictions      = rsm_result$predictions
+  )
 }
 
-# Step 10: Models R-square result
-cat("Second-order model R-squared:", summary(rs_second_sen_ThAQLiSo$model)$r.squared, "\n")
+# ── 6. RUN ALL CONFIGURATIONS ─────────────────────────────────────────────────
+cat("=== RUNNING ALL RSM CONFIGURATIONS ===\n\n")
 
-# Step 11: Advanced analysis - Response surface for different demographic groups
-demographics <- c("Gender", "Location.of.Leaving", "Occupation")
+all_results       <- list()
+first_order_res   <- list()
+second_order_res  <- list()
 
-for (demo in demographics) {
-  if (demo %in% names(data_SCFs)) {
-    cat("\n=== Response Surface Analysis by", demo, "===\n")
-    # Split data by demographic
-    demo_groups <- split(data_SCFs, data_SCFs[[demo]])
+for (i in seq_len(nrow(configs))) {
+  resp  <- response_vars[ configs$resp_idx[i] ]
+  ppair <- pred_pairs[[   configs$pair_idx[i] ]]
+  
+  for (mtype in c("first_order", "second_order")) {
+    label <- sprintf("%s ~ (%s, %s) [%s]", resp, ppair[1], ppair[2], mtype)
+    cat(sprintf("  [%d/%d] %s\n",
+                (i - 1) * 2 + ifelse(mtype == "first_order", 1, 2),
+                nrow(configs) * 2,
+                label))
     
-    for (group_name in names(demo_groups)[1:min(3, length(demo_groups))]) {  # Limit to first 3 groups
-      group_data <- demo_groups[[group_name]]
-      cat("\nAnalyzing group:", group_name, "\n")
-      
-      # Create temporary analyzer for this group
-      temp_analy <- regrissorClass$new(group_data)
-      
-      # Perform response surface analysis
-      rs_group <- temp_analy$perform_response_surface_analysis_two(
-        formula = Sensitivity ~ SO(Th_AQ_Effect, Li_So_Effect),
-        model_type = "second_order",
-        data = group_data,
-        plot = FALSE,  # Don't plot for each group
-        coded = TRUE,
-        canonical = TRUE
-      )
-      
-      # Extract key results
-      r_squared <- summary(rs_group$model)$r.squared
-      cat("R-squared for", group_name, ":", r_squared, "\n")
-      
-      # Extract stationary point if available
-      if (!is.null(rs_group$stationary_point)) {
-        cat("Stationary point for", group_name, ":\n")
-        print(rs_group$stationary_point)
-      }
+    res <- run_rsm(analy_SCFA, resp, ppair, mtype)
+    
+    if (!is.null(res)) {
+      all_results[[ res$stem ]]      <- res
+      if (mtype == "first_order")
+        first_order_res[[ res$stem ]] <- res
+      else
+        second_order_res[[ res$stem ]] <- res
     }
   }
 }
 
-# ============================================================
-# Response Surface Analysis — Method One (Simple String-Based)
-# perform_response_surface_analysis(response, predictors, plot)
-# CONSTRAINT: exactly 2 predictors required
-# ============================================================
+cat(sprintf("\n[DONE] Successful models: %d (first-order: %d | second-order: %d)\n\n",
+            length(all_results),
+            length(first_order_res),
+            length(second_order_res)))
 
-# --- Call 1: Performance as response, Sensitivity and Th_AQ_Effect as predictors
-rsa_result_1 <- analy_SCFA$perform_response_surface_analysis(
-  response   = "Sensitivity",
-  predictors = c("Th_AQ_Effect", "Li_So_Effect"),
-  plot       = TRUE
-)
+# ── 7. BUILD SUMMARY DATA FRAME ───────────────────────────────────────────────
+cat("=== EXPORTING CSV RESULTS ===\n\n")
 
-# --- Extract and inspect results
-print(rsa_result_1$summary)               # Full RSM model summary (coefficients, F-stats, p-values)
-print(rsa_result_1$stationary_point)      # Optimal (x1, x2) values where response is maximized/minimized
-cat("Method used:", rsa_result_1$method, "\n")
+build_summary_row <- function(res) {
+  coef_names <- names(res$coefficients)
+  non_int    <- res$coefficients[ !grepl("Intercept", coef_names) ]
+  
+  # Extract F-statistic and overall p-value from the model summary
+  fstat   <- tryCatch(res$model_summary$fstatistic[1], error = function(e) NA_real_)
+  df1     <- tryCatch(res$model_summary$fstatistic[2], error = function(e) NA_real_)
+  df2     <- tryCatch(res$model_summary$fstatistic[3], error = function(e) NA_real_)
+  overall_p <- tryCatch(pf(fstat, df1, df2, lower.tail = FALSE), error = function(e) NA_real_)
+  
+  data.frame(
+    Stem           = res$stem,
+    Response       = res$response,
+    Predictor_1    = res$pred1,
+    Predictor_2    = res$pred2,
+    Model_Type     = res$model_type,
+    N_Observations = res$n_obs,
+    R_Squared      = round(res$r_squared,     4),
+    Adj_R_Squared  = round(res$adj_r_squared, 4),
+    F_Statistic    = round(fstat,             4),
+    Overall_p      = round(overall_p,         6),
+    Intercept      = round(res$intercept,     4),
+    N_Coefficients = length(non_int),
+    Surface_Type   = ifelse(is.na(res$surface_type), "N/A", res$surface_type),
+    stringsAsFactors = FALSE
+  )
+}
 
-# --- Manually pull R-squared from the embedded model
-cat("R-squared:", summary(rsa_result_1$model)$r.squared, "\n")
+summary_df <- do.call(rbind, lapply(all_results, build_summary_row))
+rownames(summary_df) <- NULL
 
-# --- Extract coefficients table
-coef_table <- coef(rsa_result_1$model)
-print(coef_table)
+# Save main summary
+csv_summary <- file.path(output_dir, "RSM_Summary.csv")
+write.csv(summary_df, csv_summary, row.names = FALSE)
+cat("[CSV] Summary table →", csv_summary, "\n")
+
+# ── 7a. DETAILED COEFFICIENTS CSV ─────────────────────────────────────────────
+coef_rows <- do.call(rbind, lapply(names(all_results), function(nm) {
+  res  <- all_results[[nm]]
+  ptbl <- res$pval_table
+  cnames <- names(res$coefficients)
+  df <- data.frame(
+    Stem       = nm,
+    Response   = res$response,
+    Model_Type = res$model_type,
+    Term       = cnames,
+    Estimate   = round(res$coefficients, 5),
+    row.names  = NULL,
+    stringsAsFactors = FALSE
+  )
+  # Append SE, t-value, p-value if available
+  if (!is.null(ptbl)) {
+    matched <- match(cnames, rownames(ptbl))
+    df$Std_Error <- ifelse(!is.na(matched), round(ptbl[matched, 2], 5), NA)
+    df$t_value   <- ifelse(!is.na(matched), round(ptbl[matched, 3], 5), NA)
+    df$p_value   <- ifelse(!is.na(matched), round(ptbl[matched, 4], 6), NA)
+    df$Sig       <- ifelse(!is.na(matched),
+                           ifelse(ptbl[matched, 4] < 0.001, "***",
+                                  ifelse(ptbl[matched, 4] < 0.01,  "**",
+                                         ifelse(ptbl[matched, 4] < 0.05,  "*",
+                                                ifelse(ptbl[matched, 4] < 0.1,   ".",  "")))),
+                           NA)
+  }
+  df
+}))
+csv_coefs <- file.path(output_dir, "RSM_Coefficients.csv")
+write.csv(coef_rows, csv_coefs, row.names = FALSE)
+cat("[CSV] Coefficients table →", csv_coefs, "\n")
+
+# ── 7b. STATIONARY POINTS CSV (second-order only) ────────────────────────────
+stat_rows <- do.call(rbind, lapply(names(second_order_res), function(nm) {
+  res <- second_order_res[[nm]]
+  if (is.null(res$stationary_point)) return(NULL)
+  sp  <- res$stationary_point
+  data.frame(
+    Stem         = nm,
+    Response     = res$response,
+    Predictor_1  = res$pred1,
+    Predictor_2  = res$pred2,
+    Surface_Type = res$surface_type,
+    SP_Pred1     = round(sp[res$pred1], 5),
+    SP_Pred2     = round(sp[res$pred2], 5),
+    Eigenvalue_1 = if (!is.null(res$eigenvalues)) round(res$eigenvalues[1], 5) else NA,
+    Eigenvalue_2 = if (!is.null(res$eigenvalues)) round(res$eigenvalues[2], 5) else NA,
+    stringsAsFactors = FALSE, row.names = NULL
+  )
+}))
+if (!is.null(stat_rows) && nrow(stat_rows) > 0) {
+  csv_stat <- file.path(output_dir, "RSM_Stationary_Points.csv")
+  write.csv(stat_rows, csv_stat, row.names = FALSE)
+  cat("[CSV] Stationary points →", csv_stat, "\n")
+}
+
+# ── 7c. STEEPEST-ASCENT CSV (first-order only) ────────────────────────────────
+# Use dplyr::bind_rows() instead of do.call(rbind, ...) because each
+# steepest-ascent path table carries different predictor columns depending
+# on the formula used; bind_rows() fills missing columns with NA automatically.
+
+steep_list <- lapply(names(first_order_res), function(nm) {
+  res <- first_order_res[[nm]]
+  
+  # Guard: skip if steepest is absent or not a data frame
+  if (is.null(res$steepest) || !is.data.frame(res$steepest) || nrow(res$steepest) == 0) {
+    return(NULL)
+  }
+  
+  df            <- res$steepest
+  df$Stem       <- nm
+  df$Response   <- res$response   # tag which response this path belongs to
+  return(df)
+})
+
+# Remove NULLs before binding
+steep_list <- Filter(Negate(is.null), steep_list)
+
+if (length(steep_list) > 0) {
+  # bind_rows fills mismatched columns with NA — safe across all formula variants
+  steep_rows <- dplyr::bind_rows(steep_list)
+  
+  csv_steep <- file.path(output_dir, "RSM_Steepest_Ascent.csv")
+  write.csv(steep_rows, csv_steep, row.names = FALSE)
+  cat("[CSV] Steepest ascent →", csv_steep, "\n")
+} else {
+  cat("[INFO] No steepest-ascent results available to export.\n")
+}
+
+# ── 7d. BEST-MODEL RANKING CSV ────────────────────────────────────────────────
+best_models <- summary_df %>%
+  dplyr::group_by(Response, Model_Type) %>%
+  dplyr::slice_max(order_by = R_Squared, n = 1, with_ties = FALSE) %>%
+  dplyr::ungroup() %>%
+  dplyr::arrange(dplyr::desc(R_Squared))
+
+csv_best <- file.path(output_dir, "RSM_Best_Models.csv")
+write.csv(best_models, csv_best, row.names = FALSE)
+cat("[CSV] Best models →", csv_best, "\n\n")
+
+# ── 8. DIAGNOSTIC PLOT HELPER ────────────────────────────────────────────────
+plot_diagnostics <- function(res, add_title = TRUE) {
+  mdl   <- res$model
+  resids <- residuals(mdl)
+  fitted_vals <- fitted(mdl)
+  title_str <- sprintf("%s\n%s ~ (%s, %s)  |  R² = %.4f",
+                       toupper(gsub("_", " ", res$model_type)),
+                       res$response, res$pred1, res$pred2,
+                       res$r_squared)
+  
+  par(mfrow = c(2, 2), mar = c(4.5, 4.5, 3, 1.5), oma = c(0, 0, 3, 0))
+  
+  # Panel 1: Residuals vs Fitted
+  plot(fitted_vals, resids,
+       main = "Residuals vs Fitted",
+       xlab = "Fitted Values", ylab = "Residuals",
+       col = "#2E86AB", pch = 19, cex = 0.75)
+  abline(h = 0, col = "#E84855", lwd = 2, lty = 2)
+  lines(lowess(fitted_vals, resids), col = "#F9A620", lwd = 2)
+  grid(lty = 3, col = "grey85")
+  
+  # Panel 2: Normal Q-Q
+  qqnorm(resids, main = "Normal Q-Q Plot",
+         col = "#2E86AB", pch = 19, cex = 0.75)
+  qqline(resids, col = "#E84855", lwd = 2)
+  grid(lty = 3, col = "grey85")
+  
+  # Panel 3: Scale-Location
+  plot(fitted_vals, sqrt(abs(resids)),
+       main = "Scale-Location",
+       xlab = "Fitted Values", ylab = expression(sqrt("|Residuals|")),
+       col = "#2E86AB", pch = 19, cex = 0.75)
+  lines(lowess(fitted_vals, sqrt(abs(resids))), col = "#F9A620", lwd = 2)
+  grid(lty = 3, col = "grey85")
+  
+  # Panel 4: Histogram of residuals
+  hist(resids,
+       main = "Residual Distribution",
+       xlab = "Residuals",
+       col  = "#2E86AB", border = "white", breaks = 15)
+  curve(dnorm(x, mean(resids), sd(resids)) * length(resids) * diff(range(resids)) / 15,
+        add = TRUE, col = "#E84855", lwd = 2)
+  grid(lty = 3, col = "grey85")
+  
+  if (add_title)
+    mtext(title_str, outer = TRUE, cex = 0.85, font = 2, line = 1)
+  
+  par(mfrow = c(1, 1), oma = c(0, 0, 0, 0))
+}
+
+# ── 9. CONTOUR PLOT HELPER (second-order) ────────────────────────────────────
+plot_contour <- function(res) {
+  mdl <- res$model
+  p1  <- res$pred1
+  p2  <- res$pred2
+  df  <- res$working_df
+  
+  x_seq <- seq(min(df[[p1]], na.rm = TRUE), max(df[[p1]], na.rm = TRUE), length.out = 50)
+  y_seq <- seq(min(df[[p2]], na.rm = TRUE), max(df[[p2]], na.rm = TRUE), length.out = 50)
+  grid  <- expand.grid(x_seq, y_seq)
+  names(grid) <- c(p1, p2)
+  
+  z <- tryCatch(predict(mdl, newdata = grid), error = function(e) NULL)
+  if (is.null(z)) return(invisible(NULL))
+  
+  z_mat <- matrix(z, nrow = 50, ncol = 50)
+  
+  par(mar = c(5, 5, 4, 5))
+  filled.contour(
+    x      = x_seq, y = y_seq, z = z_mat,
+    color.palette = function(n) colorRampPalette(c("#053061","#2166AC","#4393C3",
+                                                   "#92C5DE","#F7F7F7","#FDDBC7",
+                                                   "#F4A582","#D6604D","#B2182B"))(n),
+    nlevels = 20,
+    xlab    = p1, ylab = p2,
+    main    = sprintf("Response Surface Contour\n%s ~ SO(%s, %s)  |  R² = %.4f",
+                      res$response, p1, p2, res$r_squared),
+    key.title = title(main = res$response, cex.main = 0.8),
+    plot.axes = {
+      axis(1); axis(2)
+      # Overlay observed data points
+      points(df[[p1]], df[[p2]],
+             pch = 21, bg = "white", col = "grey30", cex = 0.6)
+      # Overlay stationary point if available
+      if (!is.null(res$stationary_point)) {
+        sp <- res$stationary_point
+        if (p1 %in% names(sp) && p2 %in% names(sp)) {
+          points(sp[[p1]], sp[[p2]],
+                 pch = 23, bg = "#FFD700", col = "black", cex = 1.8, lwd = 2)
+          text(sp[[p1]], sp[[p2]],
+               labels = paste0("SP\n(", res$surface_type, ")"),
+               pos = 3, cex = 0.65, col = "black")
+        }
+      }
+      grid(lty = 3, col = "grey85")
+    }
+  )
+  par(mar = c(5.1, 4.1, 4.1, 2.1))
+}
+
+# ── 10. COMBINED PDF — ALL MODELS ─────────────────────────────────────────────
+cat("=== GENERATING PDF PLOTS ===\n\n")
+
+pdf_combined <- file.path(output_dir, "RSM_All_Diagnostic_Plots.pdf")
+pdf(pdf_combined, width = 11, height = 8.5, onefile = TRUE)
+
+for (nm in names(all_results)) {
+  res <- all_results[[nm]]
+  cat(sprintf("  [PLOT] %s\n", nm))
+  tryCatch(
+    plot_diagnostics(res, add_title = TRUE),
+    error = function(e) {
+      plot.new()
+      text(0.5, 0.5, paste("Diagnostic plot failed for:\n", nm, "\n\n", e$message),
+           cex = 0.9, col = "red")
+    }
+  )
+}
+
+dev.off()
+cat("[PDF] Combined diagnostics →", pdf_combined, "\n")
+
+# ── 11. CONTOUR PDF — SECOND-ORDER ONLY ───────────────────────────────────────
+pdf_contour <- file.path(output_dir, "RSM_Contour_Plots.pdf")
+pdf(pdf_contour, width = 8.5, height = 7, onefile = TRUE)
+
+for (nm in names(second_order_res)) {
+  res <- second_order_res[[nm]]
+  cat(sprintf("  [CONTOUR] %s\n", nm))
+  tryCatch(
+    plot_contour(res),
+    error = function(e) {
+      plot.new()
+      text(0.5, 0.5, paste("Contour plot failed for:\n", nm, "\n\n", e$message),
+           cex = 0.9, col = "red")
+    }
+  )
+}
+
+dev.off()
+cat("[PDF] Contour plots →", pdf_contour, "\n\n")
+
+# ── 12. INDIVIDUAL PDFs PER MODEL ─────────────────────────────────────────────
+ind_dir <- file.path(output_dir, "individual_pdf")
+
+for (nm in names(all_results)) {
+  res      <- all_results[[nm]]
+  ind_file <- file.path(ind_dir, paste0(nm, ".pdf"))
+  
+  tryCatch({
+    pdf(ind_file, width = 11, height = 8.5)
+    plot_diagnostics(res, add_title = TRUE)
+    if (res$model_type == "second_order")
+      plot_contour(res)
+    dev.off()
+  }, error = function(e) {
+    try(dev.off(), silent = TRUE)
+    message(sprintf("  [WARN] Could not save individual PDF for %s: %s", nm, e$message))
+  })
+}
+cat("[PDF] Individual model PDFs →", ind_dir, "\n\n")
+
+# ── 13. SAVE COMPLETE R OBJECT ────────────────────────────────────────────────
+rds_file <- file.path(output_dir, "RSM_Complete_Results.rds")
+saveRDS(list(
+  all_results        = all_results,
+  first_order_res    = first_order_res,
+  second_order_res   = second_order_res,
+  summary_df         = summary_df,
+  best_models        = best_models,
+  predictor_pairs    = pred_pairs,
+  response_vars      = response_vars,
+  predictor_vars     = predictor_vars
+), rds_file)
+cat("[RDS] Complete R workspace →", rds_file, "\n\n")
+
+# ── 14. CONSOLE SUMMARY REPORT ────────────────────────────────────────────────
+sep_line <- paste(rep("=", 80), collapse = "")
+
+cat(sep_line, "\n")
+cat("  RESPONSE SURFACE ANALYSIS — FINAL SUMMARY REPORT\n")
+cat(sep_line, "\n\n")
+cat(sprintf("  Models fitted   : %d\n", length(all_results)))
+cat(sprintf("    ├─ First-order : %d\n", length(first_order_res)))
+cat(sprintf("    └─ Second-order: %d\n\n", length(second_order_res)))
+
+for (mtype in c("first_order", "second_order")) {
+  sub <- summary_df[summary_df$Model_Type == mtype, ]
+  if (nrow(sub) == 0) next
+  sub_sorted <- sub[order(-sub$R_Squared), ]
+  cat(sprintf("  ── TOP 5 %s MODELS (by R²) ──\n",
+              toupper(gsub("_", "-", mtype))))
+  print(head(sub_sorted[, c("Response","Predictor_1","Predictor_2",
+                            "R_Squared","Adj_R_Squared","Overall_p",
+                            "N_Observations","Surface_Type")], 5),
+        row.names = FALSE)
+  cat("\n")
+}
+cat(sep_line, "\n")
+cat("  OUTPUT FILES\n")
+cat(sep_line, "\n")
+cat(sep_line, "\n")
+cat(sprintf("\n  All results saved to:  %s/\n\n", output_dir))
+
 #===============================================================================
 # TEST: CHI-SQUARE TEST OF INDEPENDENCE + FISHER'S EXACT TEST (fallback)
 #       All categorical variable pairs — with Cramér's V effect size
 #===============================================================================
+cat('-------','CHI-SQUARE TEST OF INDEPENDENCE + FISHERS EXACT TEST (fallback)','----------')
 
-
-
+chi_output_dir <- paste0("ChiSquare_Results_", timestamp)
+dir.create(chi_output_dir, showWarnings = FALSE)
+cat("Results will be saved to:", chi_output_dir, "\n")
 
 
 # Create a list to store all results for later access
@@ -2298,6 +2526,20 @@ print(summary_df, row.names = FALSE)
 
 cat("\nNote: If Fishers_P_Value is 'N/A (ChiSq OK)', the Chi-Square assumptions were met.\n")
 cat("If Fishers_P_Value is present, the Chi-Square approximation was unreliable (expected counts < 5).\n")
+cat("\n", rep("=", 80), "\n", sep = "")
+cat("EXPORTING RESULTS\n")
+cat(rep("=", 80), "\n\n", sep = "")
+
+
+# 4.1 Export Summary CSV
+summary_file <- file.path(chi_output_dir, "ChiSquare_Summary.csv")
+write.csv(summary_df, summary_file, row.names = FALSE)
+cat("Summary saved to:", summary_file, "\n")
+
+# 4.2 Export Detailed Results for each pair
+detailed_dir <- file.path(chi_output_dir, "detailed_tables")
+dir.create(detailed_dir, showWarnings = FALSE)
+source("DetailedTable.r")
 
 #===============================================================================
 # TEST: STRATIFIED REGRESSION ANALYSIS
@@ -2314,34 +2556,36 @@ all_stratified_results <- list()
 
 
 for (i in categorical_vars){
-        # Example usage:
-        stratified_results <- scfa_conf_Analyzer$perform_stratified_analysis(
-          data            = scfa_conf_Analyzer$data,
-          outcome = "Performance",
-          predictors = c("Sensitivity", "Th_AQ_Effect", "Li_So_Effect"),
-          stratify_by_var = i
-        )
-## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
-        # Save the entire result object into the master list (keyed by the variable name)
-        all_stratified_results[[i]] <- stratified_results
+  for (j in numeric_vars){
+           # Example usage:
+            stratified_results <- scfa_conf_Analyzer$perform_stratified_analysis(
+              data            = scfa_conf_Analyzer$data,
+              outcome = j,
+              predictors = numeric_vars,
+              stratify_by_var = i
+          )
+  ## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
+          # Save the entire result object into the master list (keyed by the variable name)
+         all_stratified_results[[i]] <- stratified_results
         
-# View results:
-        # Extract metrics for the summary data frame
-        for (stratum_name in names(stratified_results)) {
-          
-          # Append a new row to the data frame
-          sratfied_summary_df <- rbind(sratfied_summary_df, data.frame(
-            Stratify_By = i,
-            Stratum = stratum_name,
-            R_Squared = stratified_results[[stratum_name]]$r_squared,
-            stringsAsFactors = FALSE
-          ))
-        }
-        # 5. Extract effect sizes from stratified analysis
-        stratum_effect_sizes <- scfa_conf_Analyzer$extract_effect_sizes(
-          list(r.squared = stratified_results[[stratum_name]]$r_squared),
-          "regression"
-        )
+  # View results:
+          # Extract metrics for the summary data frame
+         for (stratum_name in names(stratified_results)) {
+            
+            # Append a new row to the data frame
+           sratfied_summary_df <- rbind(sratfied_summary_df, data.frame(
+              Stratify_By = i,
+              Stratum = stratum_name,
+             R_Squared = stratified_results[[stratum_name]]$r_squared,
+             stringsAsFactors = FALSE
+           ))
+         }
+          # 5. Extract effect sizes from stratified analysis
+         stratum_effect_sizes <- scfa_conf_Analyzer$extract_effect_sizes(
+           list(r.squared = stratified_results[[stratum_name]]$r_squared),
+            "regression"
+         )
+  }
 }
 
 # ============================================================
@@ -2360,81 +2604,284 @@ stratified_results <- sratfied_summary_df[order(-sratfied_summary_df$R_Squared),
 # Print the final data frame
 print(sratfied_summary_df, row.names = FALSE)
 
-#===============================================================================
-# TEST: MEDIATION & MODERATION ANALYSIS (Lavaan SEM-based)
-#===============================================================================
+#### ------ create folders and export result to CSV and text files
+STRATIFIED_dir <- paste0("STRATIFIED_regression_Results_", timestamp)
+dir.create(STRATIFIED_dir, showWarnings = FALSE)
+cat("Results will be saved to:", STRATIFIED_dir, "\n")
+# Create subdirectories for different output types  ## Summary
+summary_dir <- file.path(STRATIFIED_dir, "summaries")
+dir.create(summary_dir, showWarnings = FALSE)
+# Create subdirectories for different output types  ## Detailes
+detailed_dir <- file.path(STRATIFIED_dir, "detailed_results")
+dir.create(detailed_dir, showWarnings = FALSE)
+# Create subdirectories for different output types  ## Model
+model_dir <- file.path(STRATIFIED_dir, "models")
+dir.create(model_dir, showWarnings = FALSE)
+# Create subdirectories for different output types  ## Plot
+plots_dir <- file.path(STRATIFIED_dir, "plots")
+dir.create(plots_dir, showWarnings = FALSE)
 
-# Mediation Analysis Example
-# Run the Lavaan mediation analysis
-lavaan_med_results <- scfa_conf_Analyzer$perform_lavaan_mediation(
-  data = scfa_conf_Analyzer$data,
-  demographic_var = "age",             # Categorical variable!
-  outcome_var = "Performance",
-  mediator_var = "Th_AQ_Effect",
-  reference_group = NULL,     # Optional: Set your baseline age group
-  n_boot = 1000
-)
+# 4.1 Export Summary CSV
+summary_file_stratfied <- file.path(summary_dir, "Stratified_Summary.csv")
+write.csv(sratfied_summary_df, summary_file_stratfied, row.names = FALSE)
+cat("Summary saved to:", summary_file_stratfied, "\n")
 
-# To access specific results later:
-# lavaan_med_results$estimates
-# View mediation results
-print(lavaan_med_results)
+# Export sorted summary as well
+sorted_summary_file <- file.path(summary_dir, "Stratified_Summary_Sorted_by_R2.csv")
+write.csv(stratified_results, sorted_summary_file, row.names = FALSE)
+cat("Sorted summary saved to:", sorted_summary_file, "\n")
 
-# If you want to include Moderation Analysis
-moderation_results <- scfa_conf_Analyzer$perform_mediation_moderation_analysis(
-  data = scfa_conf_Analyzer$data,
-  demographic_var = "Sensitivity",
-  outcome_var = "Performance", 
-  mediator_var = "Th_AQ_Effect",
-  moderator_var = "Gender",              # Add a moderator variable
-  n_boot = 1000,
-  alpha = 0.05
-)
-print(moderation_results )
+source("Stratfied_Resut_Exportion.r")
 
-#===============================================================================
-# TEST: SENSITIVITY ANALYSIS & ROBUSTNESS TESTING
-#       Outlier impact, missing data methods, subgroup stability
-#===============================================================================
-sensitivity_results_perf = scfa_conf_Analyzer$perform_sensitivity_analysis(data =  scfa_conf_Analyzer$data, 
-                                               model_type = "linear",
-                                               dependent_var = "Performance",
-                                               independent_vars = c("Sensitivity", "Th_AQ_Effect", "Li_So_Effect"),
-                                               outlier_method = "iqr",
-                                               missing_data_methods = c("listwise", "mean_imputation"),
-                                               alpha = 0.05) 
 
-# 1. View how many outliers were found in each predictor
-print(sensitivity_results_perf$outlier_analysis$outlier_info)
+# #===============================================================================
+# #===============================================================================
+# #===============================================================================
+# # TEST: MEDIATION & MODERATION ANALYSIS (Lavaan SEM-based)
+# #===============================================================================
+# # Mediation Analysis Example
+# # Run the Lavaan mediation analysis
+# Set output directory
+outputdirectory <- "SecondDataSet/Result of analysis/"
 
-# 2. Compare R-squared before and after removing outliers
-print(sensitivity_results_perf$outlier_analysis$impact_on_models)
+# Create output directory if it doesn't exist
+if (!dir.exists(outputdirectory)) {
+  dir.create(outputdirectory, recursive = TRUE)
+}
 
-# 3. Check if the model assumptions (Normality, Homogeneity) held
-print(sensitivity_results_perf$assumption_validation)
+# Create subdirectories for different result types
+dir.create(file.path(outputdirectory, "mediation_Moderation_Sensitivity"), showWarnings = FALSE)
+dir.create(file.path(outputdirectory, "mediation_Moderation_Sensitivity/mediation_results"), showWarnings = FALSE)
+dir.create(file.path(outputdirectory, "mediation_Moderation_Sensitivity/moderation_results"), showWarnings = FALSE)
+dir.create(file.path(outputdirectory, "mediation_Moderation_Sensitivity/sensitivity_results"), showWarnings = FALSE)
+dir.create(file.path(outputdirectory, "mediation_Moderation_Sensitivity/plots"), showWarnings = FALSE)
+dir.create(file.path(outputdirectory, "mediation_Moderation_Sensitivity/tables"), showWarnings = FALSE)
+# =============================================================================
+# Define outcome variables (performance metrics)
+outcome_vars <- numeric_vars[c(1,2,4)]
+# Define predictor variables (IEQ factors)
+predictor_vars <- numeric_vars[c(3:6)]
+# demographic_var <- categorical_vars[c(1:5,16:17)]
+# beheverial_var <- categorical_vars[c(6:15)]
+demographic_var <- categorical_vars
+# mediator_var
+mediator_var <- numeric_vars[c(3,5:6)]
+# =============================================================================
+# PART 1: MEDIATION ANALYSIS (Lavaan)
+# =============================================================================
+cat("MEDIATION ANALYSIS (Lavaan SEM)\n")
+# Perform mediation analysis using cfTestClass
+# Run mediation analyses for each combination
+mediation_results <- list()
 
-# 4. View how the model performed across different subgroups (Gender, Occupation, etc.)
-print(sensitivity_results_perf$subgroup_analysis)
+for (outcome in outcome_vars) {
+  for (med in mediator_var){
+    for (demo in demographic_vars) {
+      if (outcome != med) {
+        result <- tryCatch({
+          scfa_conf_Analyzer$perform_lavaan_mediation(
+            data = scfa_conf_Analyzer$data,  #
+            demographic_var = demo,
+            outcome_var = outcome,
+            mediator_var = med,
+            reference_group = NULL,
+            n_boot = 500
+          )
+        }, error = function(e) {
+          cat("\n  ERROR:", e$message, "\n")
+          return(NULL)
+        })
+      #}
+      
+      if (!is.null(result)) {
+          key <- paste(outcome, "~", med, "via", demo)
+          mediation_results[[key]] <- result
+        
+          # Save results to file
+          sink(file.path(outputdirectory, "mediation_Moderation_Sensitivity/mediation_results", paste0(gsub("[^A-Za-z0-9]", "_", key), ".txt")))
+          cat("MEDIATION ANALYSIS RESULTS\n")
+          cat(paste(rep("=", 60), collapse = ""), "\n\n")
+          cat("Outcome variable:", outcome, "\n")
+          cat("Mediator variable:", mediator_var, "\n")
+          cat("Demographic variable:", demo, "\n\n")
+          cat("--- Lavaan Estimates ---\n")
+          if (!is.null(result$estimates)) {
+            print(result$estimates[, c("lhs", "op", "rhs", "est", "ci.lower", "ci.upper", "pvalue")])
+          }
+          sink()
+        }
+      }
+    }
+  }
+}
+cat("\n\nMediation analysis completed")
 
+# =============================================================================
+# PART 5: MODERATION ANALYSIS
+# =============================================================================
+cat("MODERATION ANALYSIS\n")
+# Define outcome variables (performance metrics)
+outcome_vars <- numeric_vars[c(1,2,4)]
+# Define predictor variables (IEQ factors)
+predictor_vars <- numeric_vars[c(3:6)]
+# demographic_var <- categorical_vars[c(1:5,16:17)]
+# beheverial_var <- categorical_vars[c(6:15)]
+demographic_vars <- categorical_vars[c(3,9:15)]
+# mediator_var
+mediator_vars <- numeric_vars[c(3,5:6)]
+valid_results <- list()
+  
+cat("MODERATION ANALYSIS\n")
+
+# Storage
+moderation_results_list <- list()
+
+for (outcome in outcome_vars) {
+  for (pred in predictor_vars) {
+    for (medi in mediator_vars) {
+      for (mod in demographic_vars) {
+        
+        # Skip degenerate combinations
+        if (pred == outcome || mod == outcome || pred == medi) next
+        
+        key <- paste0(outcome, "__", pred, "__mediator_", medi, "__mod_", mod)
+        
+        cat(paste0("\n", strrep("=", 60), "\n"))
+        cat("Running:", outcome, "~", pred, "*", mod, "| mediator:", medi, "\n")
+        cat(paste0(strrep("=", 60), "\n"))
+        
+        result <- tryCatch({
+          scfa_conf_Analyzer$perform_mediation_moderation_analysis(
+            data            = scfa_conf_Analyzer$data,
+            demographic_var = pred,      # ← CORRECTED: X variable, not NULL
+            outcome_var     = outcome,
+            mediator_var    = medi,
+            moderator_var   = mod,
+            n_boot          = 1000,
+            alpha           = 0.05
+          )
+        }, error = function(e) {
+          cat("  ✗ Error for", key, ":", e$message, "\n")
+          NULL
+        }, warning = function(w) {
+          cat("  ⚠ Warning for", key, ":", w$message, "\n")
+          NULL
+        })
+        
+        if (!is.null(result)) {
+          moderation_results_list[[key]] <- result
+          
+          # Save to file
+          out_path <- file.path(
+            outputdirectory,
+            "mediation_Moderation_Sensitivity/moderation_results",
+            paste0(gsub("[^A-Za-z0-9]", "_", key), ".txt")
+          )
+          dir.create(dirname(out_path), recursive = TRUE, showWarnings = FALSE)
+          
+          sink(out_path)
+          cat("MODERATION ANALYSIS RESULTS\n")
+          cat(strrep("=", 60), "\n\n")
+          cat("Outcome   :", outcome, "\n")
+          cat("Predictor :", pred,    "\n")
+          cat("Mediator  :", medi,    "\n")
+          cat("Moderator :", mod,     "\n\n")
+          
+          # Mediation path summary
+          if (!is.null(result$mediation)) {
+            cat("--- Mediation Path Estimates ---\n")
+            cat("b-path (mediator → outcome):", result$mediation$b_effect,
+                "  p =", round(result$mediation$b_p, 4), "\n")
+          }
+          
+          # Moderation summary
+          if (!is.null(result$moderation)) {
+            cat("\n--- Interaction Coefficients ---\n")
+            int_eff <- result$moderation$interaction_effects
+            int_ps  <- result$moderation$interaction_ps
+            for (nm in names(int_eff)) {
+              cat(sprintf("  %s: coef = %.4f, p = %.4f %s\n",
+                          nm, int_eff[[nm]], int_ps[[nm]],
+                          ifelse(int_ps[[nm]] < 0.05, "[*]", "")))
+            }
+            cat("\nModeration significant:", result$moderation$moderation_significant, "\n")
+          }
+          sink()
+        }
+        
+      }
+    }
+  }
+}
+
+cat("\n\nModeration analysis completed. Total valid results:", length(moderation_results_list), "\n")
+
+# =============================================================================
+# PART 6: SENSITIVITY ANALYSIS
+# #===============================================================================
+# # TEST: SENSITIVITY ANALYSIS & ROBUSTNESS TESTING
+# #       Outlier impact, missing data methods, subgroup stability
+# #===============================================================================
+# =============================================================================
+cat("\n\n", rep("=", 80), collapse = "")
+cat("SENSITIVITY ANALYSIS\n")
+cat(paste(rep("=", 80), collapse = ""),"\n")
+
+# Run sensitivity analyses
+sensitivity_results <- list()
+
+for (outcome in outcome_vars) {
+  key <- paste("Sensitivity:", outcome)
+  cat("Running:", key)
+  cat(paste0("\n", paste(rep("=", 60), collapse = ""), "\n"))
+  cat(paste0("MODERATED MEDIATION ANALYSIS\n"))
+  cat(paste0(paste(rep("=", 60), collapse = ""), "\n\n"))
+  
+  sensitivity_results = scfa_conf_Analyzer$perform_sensitivity_analysis(data =  scfa_conf_Analyzer$data,
+                                                 model_type = "linear",
+                                                 dependent_var = outcome,
+                                                 independent_vars = predictor_vars,
+                                                 outlier_method = "iqr",
+                                                 missing_data_methods = c("listwise", "mean_imputation"),
+                                                 alpha = 0.05)
+      
+      # Save results to file
+      sink(file.path(outputdirectory, "mediation_Moderation_Sensitivity/sensitivity_results", paste0("sensitivity_", outcome, ".txt")))
+      cat("SENSITIVITY ANALYSIS RESULTS\n")
+      cat(paste(rep("=", 60), collapse = ""), "\n\n")
+      cat("Outcome variable:", outcome, "\n")
+      cat("Predictors:", paste(preds, collapse = ", "), "\n\n")
+      
+      if (!is.null(sensitivity_results$outlier_analysis)) {
+        cat("--- Outlier Analysis ---\n")
+        print(sensitivity_results$outlier_analysis$outlier_info)
+        cat("\n--- Outlier Impact ---\n")
+        print(sensitivity_results$outlier_analysis$impact_on_models)
+      }
+      
+      if (!is.null(sensitivity_results$assumption_validation)) {
+        cat("\n--- Assumption Validation ---\n")
+        print(sensitivity_results$assumption_validation)
+      }
+      
+      if (!is.null(sensitivity_results$subgroup_analysis)) {
+        cat("\n--- Subgroup Analysis ---\n")
+        print(sensitivity_results$subgroup_analysis)
+      }
+      
+      sink()
+}
+
+
+
+cat("\n\nSensitivity analysis completed")
 ###=============================================================================
-###=============================================================================
-analy_SCFA$list_all_methods()
-scfa_conf_Analyzer$list_all_methods()
-###=============================================================================
-###=============================================================================
-###=============================================================================
-###=============================================================================
-###=============================================================================
-
-
 #===============================================================================
 # TEST: NON-PARAMETRIC TESTS ON RANKED DISCRETE DATA (Second Survey)
 #       Mann-Whitney U test + Kolmogorov-Smirnov test — by Gender
 #===============================================================================
 ks_result_Ranked <- analy_SSOr$perform_mann_whitney_ks("Performance.under.AQ", "age", type = "ks", plot = TRUE)
 print(ks_result_Ranked$p_value)
-
-
 # ==============================================================================
 # EXECUTION: Non-Parametric Tests on Ranked Discrete Data
 # ==============================================================================
@@ -2499,6 +2946,22 @@ print(mw_summary)
 cat("\n\n=== KOLMOGOROV-SMIRNOV TEST SUMMARY (Male vs Female) ===\n")
 print(ks_summary)
 
+out_dir <- file.path(outputdirectory, "Statistical Analysis", "mattWhitny_kurskel-result")
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+
+fname <- file.path(out_dir,
+                   paste0("MW_kST_result",
+                          format(Sys.time(), "%Y%m%d_%H%M%S"), ".txt"))
+
+capture.output(
+  cat("=== FULL ORDINAL ASSOCIATIONS (all pairs) ===\n"),
+  print(ks_summary, row.names = FALSE),
+  cat("\n\n=== SIGNIFICANT ASSOCIATIONS ONLY (p < 0.05) ===\n"),
+  print(mw_summary, row.names = FALSE),
+  file = fname, append = TRUE
+)
+cat("Saved to:", fname, "\n")
+
 
 #===============================================================================
 # TEST: ORDINAL ASSOCIATIONS — Goodman-Kruskal Gamma + Kendall's Tau-b
@@ -2506,26 +2969,28 @@ print(ks_summary)
 #===============================================================================
 # Kendall's tau-b (for ties in ordinal data)
 # Extract the two ordinal columns from your ranked data object
-var1 <- analy_SSOr$data$AQ.sensitivity
-var2 <- analy_SSOr$data$Performance.under.AQ
+vars <- analy_SSOr$numeric_cols
+pairs <- combn(vars, 2, simplify = FALSE)
 
-# 1. Goodman and Kruskal's gamma
-gamma_result <- GoodmanKruskalGamma(var1, var2, conf.level = 0.95)
-cat("\nGoodman and Kruskal's Gamma (AQ sensitivity vs Performance under AQ):\n")
-print(gamma_result)
+ord_assoc <- do.call(rbind, lapply(pairs, function(p) {
+  x <- analy_SSOr$data[[p[1]]]
+  y <- analy_SSOr$data[[p[2]]]
+  
+  tau  <- cor.test(x, y, method = "kendall")
+  gam  <- GoodmanKruskalGamma(x, y, conf.level = 0.95)
+  
+  data.frame(
+    Var1 = p[1], Var2 = p[2],
+    Tau_b = unname(tau$estimate), Tau_p = tau$p.value,
+    Gamma = gam[1], Gamma_low = gam[2], Gamma_high = gam[3]
+  )
+}))
 
-# 2. Kendall's tau-b
-tau_b_result <- KendallTauB(var1, var2, conf.level = 0.95)
-cat("\nKendall's Tau-b (AQ sensitivity vs Performance under AQ):\n")
-print(tau_b_result)
+ord_assoc <- ord_assoc[order(-abs(ord_assoc$Gamma)), ]
+print(ord_assoc)
 ##-------------------------------------------------------------------------------
 # Create empty data frame to store results
 # -------------------------------------------------------------------------------
-# Corrected code block
-# -------------------------------------------------------------------------------
-
-# library(DescTools)   # for GoodmanKruskalGamma
-
 # Initialize empty data frame to store results (with desired columns)
 ordinal_assoc_results <- data.frame(
   Var1 = character(),
@@ -2646,9 +3111,6 @@ print(ordinal_assoc_results)
 # ==============================================================================
 # CALCULATE KENDALL'S TAU-B AND GOODMAN-KRUSKAL GAMMA (BULLETPROOF METHOD)
 # ==============================================================================
-
-library(DescTools) # Keep this loaded for the manual Gamma calculation trick
-
 # Create empty data frame to store results
 ordinal_assoc_results <- data.frame(
   Var1 = character(),
@@ -2734,130 +3196,109 @@ cat("\n=== Significant Ordinal Associations (p < 0.05) ===\n")
 print(significant_assoc)
 
 
+# 5. Print the consolidated summary tables
+out_dir <- file.path(outputdirectory, "Statistical Analysis", "Ordinary_data_result")
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
-## data_BOrRank
-## Sensitivity, Performance, Th_AQ_Effect, Li_So_Effect
-## Location.of.Leaving, Occupation, age, Length, Weight, Gender 
+fname <- file.path(out_dir,
+                   paste0("ORDINAL ASSOCIATIONS - Goodman-Kruskal-result_",
+                          format(Sys.time(), "%Y%m%d_%H%M%S"), ".txt"))
+
+capture.output(
+  cat("=== FULL ORDINAL ASSOCIATIONS (all pairs) ===\n"),
+  print(ord_assoc, row.names = FALSE),
+  cat("\n\n=== SIGNIFICANT ASSOCIATIONS ONLY (p < 0.05) ===\n"),
+  print(significant_assoc, row.names = FALSE),
+  file = fname, append = TRUE
+)
+cat("Saved to:", fname, "\n")
+
 #===============================================================================
 # TEST: LEVENE'S TEST FOR HOMOGENEITY OF VARIANCE
 #       + ANDERSON-DARLING K-SAMPLE (distributional equivalence across groups)
 #       Applied to ranked and continuous data
 #===============================================================================
 # ==============================================================================
-# PRE-EXECUTION VALIDATION: Verify required packages and data integrity
 # ==============================================================================
-
-# Dependency verification function
-verify_dependencies <- function(packages_required = c("car", "nortest", "kSamples")) {
-  missing_packages <- c()
-  for (pkg in packages_required) {
-    if (!requireNamespace(pkg, quietly = TRUE)) {
-      missing_packages <- c(missing_packages, pkg)
-    }
-  }
-  if (length(missing_packages) > 0) {
-    cat("WARNING: Missing packages:\n")
-    cat("  install.packages(c(", paste(shQuote(missing_packages), collapse = ", "), "))\n")
-    return(FALSE)
-  }
-  return(TRUE)
-}
-
-# Execute dependency check
-if (!verify_dependencies()) {
-  stop("Required packages not installed. Please install missing dependencies.")
-}
-
-# Verify object initialization
-if (is.null(analy_SSOr$data) || nrow(analy_SSOr$data) == 0) {
-  stop("analy_SSOr object not properly initialized or contains no data")
-}
-
-if (is.null(analy_SCFA$data) || nrow(analy_SCFA$data) == 0) {
-  stop("analy_SCFA object not properly initialized or contains no data")
-}
-
 # Clear all existing plot devices and reset graphics state
 while (dev.cur() > 1) {
   dev.off()
 }
-
 # Reset par() to default specifications
 par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+cat("\n=== LEVENE'S TEST FOR VARIANCE HOMOGENEITY ===\n\n")
 # ==============================================================================
 # SECTION 1: LEVENE'S TEST FOR HOMOGENEITY OF VARIANCE (Ranked/Raw Data)
 # ==============================================================================
 # Purpose: Test if outcome variable variance is homogeneous across demographic groups
 # Null hypothesis (H₀): Variances are equal across groups
 # Alternative (H₁): At least one group has unequal variance
-
-cat("\n=== LEVENE'S TEST FOR VARIANCE HOMOGENEITY ===\n\n")
-while (dev.cur() > 1) {
-  dev.off()
-}
-
-# Reset par() to default specifications
-par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
-
 # Test 1.1: Variance homogeneity of "Performance under TC" across Gender
 # Clear all existing plot devices and reset graphics state
-while (dev.cur() > 1) {
-  dev.off()
+
+test_name <- "Levene_Test"
+timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+out_dir   <- file.path(outputdirectory, "Statistical Analysis",
+                       paste0(test_name, "_", timestamp))
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+
+log_file <- file.path(out_dir, paste0(test_name, "_summary_", timestamp, ".txt"))
+sink(log_file, split = TRUE)
+cat("=== LEVENE'S TEST FOR VARIANCE HOMOGENEITY (AUTOMATED) ===\n")
+cat("Run:", timestamp, "\n")
+
+results_list <- list()
+
+for (outcome in analy_SSOr$numeric_cols) {
+  for (group_col in analy_SSOr$categorical_cols) {
+    
+    grp_vals <- unique(na.omit(analy_SSOr$data[[group_col]]))
+    if (length(grp_vals) < 2 || length(grp_vals) > 15) next   # skip IDs/timestamps/free text
+    
+    cat("\n---------------------------------------------\n")
+    cat("Outcome:", outcome, "| Group:", group_col, "\n")
+    
+    res <- tryCatch({
+      while (dev.cur() > 1) dev.off()
+      par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+      
+      plot_file <- file.path(out_dir, paste0("Levene_", outcome, "_by_", group_col, ".png"))
+      png(plot_file, width = 800, height = 600)
+      lev_res <- analy_SSOr$perform_levene_anderson(
+        outcome = outcome, group_column = group_col,
+        type = "levene", plot = TRUE
+      )
+      dev.off()
+      lev_res
+    }, error = function(e) { cat("  ERROR:", conditionMessage(e), "\n"); NULL })
+    
+    if (is.null(res)) next
+    
+    cat("  F-statistic:", round(res$statistic, 4), "\n")
+    cat("  p-value:", round(res$p_value, 4), "\n")
+    cat("  Interpretation:",
+        ifelse(res$p_value < 0.05,
+               "SIGNIFICANTLY DIFFERENT variances -> use Welch/non-parametric\n",
+               "NOT significantly different -> standard equal-variance test OK\n"))
+    
+    results_list[[paste(outcome, group_col, sep = "__")]] <- data.frame(
+      Outcome = outcome, Group = group_col,
+      F_stat = res$statistic, p_value = res$p_value,
+      Significant = res$p_value < 0.05
+    )
+  }
 }
 
-# Reset par() to default specifications
-par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+summary_table <- do.call(rbind, results_list)
+cat("\n\n=== FULL SUMMARY TABLE ===\n")
+print(summary_table, row.names = FALSE)
+sink()
 
-# Now execute your Levene's test with plotting enabled
-lev_result_ranked <- analy_SSOr$perform_levene_anderson(
-  outcome = "Performance.under.TC",      # Outcome variable (must be numeric)
-  group_column = "Gender",               # Grouping factor
-  type = "levene",                       # Levene's homogeneity test (Levene, 1960)
-  plot = TRUE                            # Generate boxplot visualization
-)
+write.csv(summary_table,
+          file.path(out_dir, paste0(test_name, "_table_", timestamp, ".csv")),
+          row.names = FALSE)
 
-
-cat("  F-statistic:", round(lev_result_ranked$statistic, 4), "\n")
-cat("  p-value:", round(lev_result_ranked$p_value, 4), "\n")
-if (lev_result_ranked$p_value < 0.05) {
-  cat("  Interpretation: Variances are SIGNIFICANTLY DIFFERENT across Gender (p < 0.05)\n")
-  cat("  Recommendation: Use Welch's t-test or non-parametric Mann-Whitney U test\n")
-} else {
-  cat("  Interpretation: Variances are NOT significantly different (p ≥ 0.05)\n")
-  cat("  Recommendation: Standard t-test with equal variance assumption is appropriate\n")
-}
-
-# Test 1.2: Variance homogeneity of "TC sensitivity" across Gender
-cat("\n\nTest 1.2: TC Sensitivity by Gender\n")
-lev_tc_gender <- analy_SSOr$perform_levene_anderson(
-  outcome = "TC.sensitivity",            # Thermal Comfort sensitivity
-  group_column = "Gender",
-  type = "levene",
-  plot = TRUE
-)
-
-cat("  F-statistic:", round(lev_tc_gender$statistic, 4), "\n")
-cat("  p-value:", round(lev_tc_gender$p_value, 4), "\n")
-cat("  Interpretation:", 
-    ifelse(lev_tc_gender$p_value < 0.05, 
-           "Unequal variances (heteroscedastic)\n", 
-           "Equal variances (homoscedastic)\n"))
-
-# Test 1.3: Variance homogeneity of "Performance under AQ" across Occupation
-cat("\n\nTest 1.3: Performance under AQ by Occupation\n")
-lev_perf_occ <- analy_SSOr$perform_levene_anderson(
-  outcome = "Performance.under.AQ",      # Air Quality performance impact
-  group_column = "Occupation",           # Occupational category
-  type = "levene",
-  plot = TRUE
-)
-
-cat("  F-statistic:", round(lev_perf_occ$statistic, 4), "\n")
-cat("  p-value:", round(lev_perf_occ$p_value, 4), "\n")
-cat("  Interpretation:", 
-    ifelse(lev_perf_occ$p_value < 0.05, 
-           "Variances differ significantly across occupations\n", 
-           "Variances are homogeneous across occupations\n"))
+cat("All results and plots saved to:\n", out_dir, "\n")
 # ==============================================================================
 # SUMMARY AND RECOMMENDATIONS
 # ==============================================================================
@@ -2878,66 +3319,278 @@ cat("   • Significant (p < 0.05) → Differential IEQ effects across groups\n"
 cat("   • Non-significant (p ≥ 0.05) → Uniform environmental sensitivity profile\n")
 
 cat("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
-## perform surface response analysis on continuous factor data
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-
-
+#===============================================================================
 #===============================================================================
 # TEST: ORDINAL LOGISTIC REGRESSION
 #       Outcome: ordered factor (1–5) | Predictors: numeric + categorical
+# AUTOMATED ORDINAL LOGISTIC REGRESSION: EACH numeric_col AS OUTCOME,
+# ACH numeric_col AS OUTCOME, PRUNED numeric_cols + categorical_cols AS PREDICTORS
 #===============================================================================
+`%||%` <- function(a, b) if (!is.null(a)) a else b
 
-# Let's model "Performance under TC" (as an ordinal outcome: 1-5) 
-# predicted by "TC sensitivity", "AQ sensitivity", and "Gender"
+test_name <- "Ordinal_Logistic_Regression"
+timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+out_dir   <- file.path(outputdirectory, "Statistical Analysis",
+                       paste0(test_name, "_", timestamp))
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
-ord_log_model <- analy_SSOr$fit_ordinal_logistic_regression(
-  outcome = "Performance.under.TC", 
-  predictors = c("TC.sensitivity", "AQ.sensitivity", "Gender"), 
-  conf_level = 0.95, 
-  plot = TRUE
-)
+# --- Predictor screening (done once, outside the loop) -----------------------
+usable_categorical <- Filter(function(col) {
+  v <- unique(na.omit(analy_SSOr$data[[col]]))
+  length(v) >= 2 && length(v) <= 8
+}, analy_SSOr$categorical_cols)
 
+high_corr      <- ord_assoc[abs(ord_assoc$Gamma) > 0.7, c("Var1", "Var2")]
+drop_numeric   <- unique(high_corr$Var2)
+usable_numeric <- setdiff(analy_SSOr$numeric_cols, drop_numeric)
+
+# Keep the ORIGINAL full dataset safe — we will swap it in/out per model
+original_data <- analy_SSOr$data
+
+log_file <- file.path(out_dir, paste0(test_name, "_summary_", timestamp, ".txt"))
+sink(log_file, split = TRUE)
+cat("=== AUTOMATED ORDINAL LOGISTIC REGRESSION (SCREENED, PER-MODEL COMPLETE CASES) ===\n")
+cat("Run:", timestamp, "\n")
+cat("Categorical predictors retained:", paste(usable_categorical, collapse = ", "), "\n")
+cat("Numeric predictors dropped for collinearity (|gamma|>0.7):",
+    paste(drop_numeric, collapse = ", "), "\n")
+
+fit_summary <- list()
+
+for (outcome in analy_SSOr$numeric_cols) {
+  
+  predictors <- c(setdiff(usable_numeric, outcome), usable_categorical)
+  
+  cat("\n=======================================================\n")
+  cat("Outcome:", outcome, "\n")
+  cat("Predictors:", paste(predictors, collapse = ", "), "\n")
+  
+  # Build the complete-case subset for THIS outcome + THESE predictors ONLY
+  # (ignores missingness in unrelated columns elsewhere in the dataset)
+  sub_df <- original_data[, c(outcome, predictors), drop = FALSE]
+  sub_df <- sub_df[complete.cases(sub_df), ]
+  n_obs  <- nrow(sub_df)
+  
+  cat("  Complete cases for this outcome+predictor set:", n_obs, "\n")
+  
+  for (prede in predictors){
+    res <- tryCatch({
+      while (dev.cur() > 1) dev.off()
+      par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+    
+      plot_file <- file.path(out_dir, paste0("OrdLog_", outcome,"_vs_", prede,".png"))
+      png(plot_file, width = 900, height = 700)
+    
+      analy_SSOr$data <- sub_df   # swap in the per-model complete-case subset
+      model_res <- analy_SSOr$fit_ordinal_logistic_regression(
+        outcome     = outcome,
+        predictors  = prede,
+      conf_level  = 0.95,
+      plot        = TRUE
+    )
+    dev.off()
+    model_res
+    detail_file <- file.path(out_dir, paste0("OrdLog_", outcome, "_vs_", prede,"_detail.txt"))
+    capture.output(print(model_res), file = detail_file)
+  }, error = function(e) {
+    cat("  ERROR:", conditionMessage(e), "\n")
+    NULL
+  })
+  
+    resfull <- tryCatch({
+      while (dev.cur() > 1) dev.off()
+      par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1, mgp = c(3, 1, 0))
+      
+      plot_file <- file.path(out_dir, paste0("OrdLog_", outcome, ".png"))
+      png(plot_file, width = 900, height = 700)
+      
+      analy_SSOr$data <- sub_df   # swap in the per-model complete-case subset
+      model_res <- analy_SSOr$fit_ordinal_logistic_regression(
+        outcome     = outcome,
+        predictors  = predictors,
+        conf_level  = 0.95,
+        plot        = TRUE
+      )
+      dev.off()
+      model_res
+      detail_file <- file.path(out_dir, paste0("OrdLog_", outcome,"_detail.txt"))
+      capture.output(print(model_res), file = detail_file)
+    }, error = function(e) {
+      cat("  ERROR:", conditionMessage(e), "\n")
+      NULL
+    }, finally = {
+      analy_SSOr$data <- original_data   # always restore, success or failure
+    })
+    
+    
+    
+    
+    
+  if (is.null(res)) next
+  }
+  detail_file <- file.path(out_dir, paste0("OrdLog_", outcome, "_detail.txt"))
+  capture.output(print(res), file = detail_file)
+  
+  cat("\n--- Model summary (", outcome, ") ---\n", sep = "")
+  print(res)
+  
+  fit_summary[[outcome]] <- data.frame(
+    Outcome  = outcome,
+    AIC      = tryCatch(res$AIC %||% AIC(res$model), error = function(e) NA),
+    LogLik   = tryCatch(res$logLik %||% as.numeric(logLik(res$model)), error = function(e) NA),
+    N        = n_obs
+  )
+}
+
+analy_SSOr$data <- original_data   # final safety net, in case the loop exits early
+
+summary_table <- do.call(rbind, fit_summary)
+cat("\n\n=== FIT SUMMARY ACROSS ALL OUTCOMES ===\n")
+print(summary_table, row.names = FALSE)
+sink()
+
+write.csv(summary_table,
+          file.path(out_dir, paste0(test_name, "_table_", timestamp, ".csv")),
+          row.names = FALSE)
+
+cat("All models, plots, and detail files saved to:\n", out_dir, "\n")
 # Interpret the results:
 # - Odds_Ratio > 1: As the predictor increases, the odds of being in a higher performance category increase.
 # - Odds_Ratio < 1: As the predictor increases, the odds of being in a higher performance category decrease.
 # - P_Value < 0.05: The predictor is statistically significant.
 
-# If you want to use the CFA data (analy_SCFA) but treat the outcome as ordinal,
-# you can still use this method if you convert the continuous outcome to an ordered factor.
-# Example: Convert 'Sensitivity' to Low/Med/High
-# analy_SCFA$data$Sensitivity_Ord <- cut(analy_SCFA$data$Sensitivity, 
-#                                        breaks = quantile(analy_SCFA$data$Sensitivity, probs = c(0, 0.33, 0.66, 1)), 
-#                                        include.lowest = TRUE, 
-#                                        labels = c("Low", "Medium", "High"))
-# analy_SCFA$data$Sensitivity_Ord <- as.ordered(analy_SCFA$data$Sensitivity_Ord)
+# ==============================================================================
+# ==============================================================================
+# Thematic analisys 
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# thematic_analysis_main.r
+#
+# Written by Meqdad Hasan
+#
+# Thematic analysis of the IEQ (Indoor Environmental Quality) survey data,
+# run separately on:
+#   (A) the CONTINUOUS CFA/BCFA factor-score dataset
+#         SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv
+#   (B) the ORDINAL raw Likert-item dataset (1-5 scale)
+#         SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx
+#
+# This script plugs directly into the existing project structure used by
+# main_SecondSurvey.r (same relative paths, same library set) and adds one
+# new analytical component: thematicAnalysisClass (see thematicAnalysisClass.r).
+#
+# Output: a single, fully self-contained, timestamped results folder
+# containing CSV tables, PNG figures, a narrative TXT report and an RDS
+# snapshot of every R object produced -- see save_thematic_report() below.
+# ==============================================================================
+cat("\014")                       # clear console
+while (dev.cur() > 1) dev.off()   # clear all plotting devices
+# rm(list = ls())                 # uncomment to clear environment variables too
 
-# ord_log_model_cfa <- analy_SCFA$fit_ordinal_logistic_regression(
-#   outcome = "Sensitivity_Ord", 
-#   predictors = c("Th_AQ_Effect", "Li_So_Effect"), 
-#   conf_level = 0.95, 
-#   plot = TRUE
-# )
+#-------------------------------------------------------------------------------
+# STEP 0: Load necessary libraries
+#-------------------------------------------------------------------------------
+library(readxl)
+library(psych)
+library(GPArotation)   # required by psych::fa() for oblique rotation (oblimin)
+library(R6)
 
+#-------------------------------------------------------------------------------
+# STEP 00: source required classes
+#-------------------------------------------------------------------------------
+source("regrissorClass.r")
+source("cfTestClass.r")
+source("thematicAnalysisClass.r")
+cat("\014")
 
+#===============================================================================
+# STEP 1: LOAD DATA (same paths/convention as main_SecondSurvey.r)
+#===============================================================================
 
+# Continuous data: CFA/BCFA factor scores (Second dataset)
+data_SCFs <- read.csv("SecondDataSet/Result of analysis/Grouped_cfa_SECOND_factors_outout_data.csv", header = TRUE)
 
+# Ordinal data: cleaned raw Likert-item responses (Second dataset)
+data_SOrRank <- as.data.frame(read_excel("SecondDataSet/Source_DataSets_/SecondDataSet-Cleaned-Final-Analyzed.xlsx"))
 
+#===============================================================================
+# STEP 2: CREATE thematicAnalysisClass INSTANCES
+#===============================================================================
 
+clean_data_SCFs <- na.omit(data_SCFs)
 
+# (A) Continuous factor scores -> auto-detected as "continuous"
+thematic_continuous <- thematicAnalysisClass$new(input = clean_data_SCFs)
 
+# (B) Raw Likert items -> auto-detected as "ordinal" (integer 1-5, <=10 levels)
+#     unique_threshold can be widened/narrowed if your instrument uses a
+#     different response-scale length (e.g. 7-point Likert -> threshold = 10 is fine;
+#     a 0-100 continuous slider item would need continuous_vars specified explicitly).
+thematic_ordinal <- thematicAnalysisClass$new(input = data_SOrRank, unique_threshold = 10)
 
+cat("\nAuto-detected CONTINUOUS variables:\n")
+print(thematic_continuous$continuous_cols)
+cat("\nAuto-detected ORDINAL variables:\n")
+print(thematic_ordinal$ordinal_cols)
 
+#===============================================================================
+# STEP 3: THEMATIC ANALYSIS -- CONTINUOUS DATA
+#         Pearson-correlation EFA + correlation-distance hierarchical
+#         clustering, cross-validated against one another.
+#===============================================================================
 
+results_continuous <- thematic_continuous$perform_thematic_analysis(
+  variables      = thematic_continuous$continuous_cols,
+  cor_type       = "pearson",
+  rotation       = "oblimin",
+  fm             = "minres",
+  cluster_method = "ward.D2",
+  plot           = TRUE
+)
 
+#===============================================================================
+# STEP 4: THEMATIC ANALYSIS -- ORDINAL DATA
+#         Polychoric-correlation EFA + correlation-distance hierarchical
+#         clustering, cross-validated against one another.
+#===============================================================================
 
+results_ordinal <- thematic_ordinal$perform_thematic_analysis(
+  variables      = thematic_ordinal$ordinal_cols,
+  cor_type       = "polychoric",
+  rotation       = "oblimin",
+  fm             = "minres",
+  cluster_method = "ward.D2",
+  plot           = TRUE
+)
 
+#===============================================================================
+# STEP 5: SAVE EVERYTHING -- creates <test_name>_<YYYYMMDD_HHMMSS>/ containing
+#         CSV tables, PNG figures (scree plot, dendrogram, theme diagram),
+#         a full narrative TXT report and an RDS snapshot of every object.
+#===============================================================================
 
+# Change test_name to whatever label you want this run archived under --
+# the folder that gets created is: <test_name>_<YYYYMMDD_HHMMSS>
+out_dir <- thematic_continuous$save_thematic_report(
+  results_continuous = results_continuous,
+  results_ordinal    = results_ordinal,
+  test_name          = "IEQ_Thematic_Analysis",
+  base_dir           = "."
+)
 
-# After initialization, let us find out and print out the object summary 
+cat("\n\nThematic analysis complete. All outputs saved under:\n  ", out_dir, "\n", sep = "")
+
+# To reload every object from a previous run later, e.g. for further
+# inspection or re-plotting without re-running the analysis:
+#   saved <- readRDS(file.path(out_dir, "thematic_analysis_results.RDS"))
+#   saved$results_continuous$efa$fa_result
+#   saved$results_ordinal$cross_validation$comparison_table
+###=============================================================================
 analy_SCFA$list_all_methods()
-analy_SSOr$list_all_methods()
-
+scfa_conf_Analyzer$list_all_methods()
+###=============================================================================
+###=============================================================================
+###=============================================================================
+###=============================================================================
+###=============================================================================

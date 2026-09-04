@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : performance_decrease_under_noise_and_light 
+Mediator  : Combined_Effect_of_Air_thermal_noise_light 
+Moderator : Actively_adjust_environment_during_IEQ_fluctuations 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.06948358   p = 0.5457 
+
+--- Interaction Coefficients ---
+  performance_decrease_under_noise_and_light:Actively_adjust_environment_during_IEQ_fluctuationsNever: coef = 0.7866, p = 0.3352 
+  performance_decrease_under_noise_and_light:Actively_adjust_environment_during_IEQ_fluctuationsRarely: coef = -0.4795, p = 0.2883 
+  performance_decrease_under_noise_and_light:Actively_adjust_environment_during_IEQ_fluctuationsSometimes: coef = 0.1372, p = 0.5867 
+
+Moderation significant: FALSE 

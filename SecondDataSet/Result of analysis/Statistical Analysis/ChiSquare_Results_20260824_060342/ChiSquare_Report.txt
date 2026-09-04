@@ -1,0 +1,33 @@
+================================================================================
+CHI-SQUARE TEST ANALYSIS REPORT
+================================================================================
+Analysis Date: 2026-08-24 06:09:28.03435
+Data Source: Direct data.frame
+Number of Observations: 211
+Number of Categorical Variables: 17
+Number of Tests Performed: 136
+Significant Associations (p < 0.05): 0
+Significant Association Rate: 0 %
+
+--------------------------------------------------------------------------------
+SUMMARY OF FINDINGS
+--------------------------------------------------------------------------------
+Strongest association: Gender vs height (Cramér's V = 0.7552, p = < 2.2e-16)
+
+--------------------------------------------------------------------------------
+ALL SIGNIFICANT ASSOCIATIONS (p < 0.05)
+--------------------------------------------------------------------------------
+  No significant associations found at p < 0.05
+
+--------------------------------------------------------------------------------
+FILES GENERATED
+--------------------------------------------------------------------------------
+1. Summary CSV: ChiSquare_Summary.csv
+2. Detailed Tables: detailed_tables/
+3. Contingency Tables: contingency_tables/
+4. Percentage Tables: percentage_tables/
+5. Residuals: residuals/
+
+================================================================================
+END OF REPORT
+================================================================================

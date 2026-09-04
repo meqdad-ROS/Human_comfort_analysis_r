@@ -1,0 +1,47 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+
+--- Lavaan Estimates ---
+                                                                                         lhs op
+1                                                 performance_decrease_under_thermal_and_Air  ~
+2                                                 performance_decrease_under_thermal_and_Air  ~
+3                                                                           Work_effectively  ~
+4                                                                           Work_effectively  ~
+5                                                                           Work_effectively  ~
+6                                                 performance_decrease_under_thermal_and_Air ~~
+7                                                                           Work_effectively ~~
+8                         Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not ~~
+9                         Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not ~~
+10     Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case ~~
+11                    ind_Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not :=
+12 ind_Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case :=
+                                                                                     rhs    est ci.lower ci.upper
+1                     Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not -0.252   -0.538    0.032
+2  Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case -0.037   -0.263    0.194
+3                     Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not -0.206   -0.651    0.248
+4  Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case -0.507   -0.895   -0.080
+5                                             performance_decrease_under_thermal_and_Air  0.133   -0.086    0.355
+6                                             performance_decrease_under_thermal_and_Air  0.460    0.355    0.567
+7                                                                       Work_effectively  0.997    0.823    1.115
+8                     Headache_sleepy_at_work_enough_sleep_due_to_light_air_No..I.do.not  0.195    0.195    0.195
+9  Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case -0.152   -0.152   -0.152
+10 Headache_sleepy_at_work_enough_sleep_due_to_light_air_Yes..I.do.experienced.such.case  0.245    0.245    0.245
+11                                                                                  a1*b -0.034   -0.121    0.026
+12                                                                                  a2*b -0.005   -0.052    0.038
+   pvalue
+1   0.091
+2   0.748
+3   0.359
+4   0.011
+5   0.238
+6   0.000
+7   0.000
+8      NA
+9      NA
+10     NA
+11  0.358
+12  0.805

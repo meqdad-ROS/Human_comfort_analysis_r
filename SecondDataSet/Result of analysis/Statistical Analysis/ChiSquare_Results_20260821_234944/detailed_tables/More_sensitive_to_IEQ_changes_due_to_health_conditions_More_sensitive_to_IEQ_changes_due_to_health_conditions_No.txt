@@ -1,0 +1,24 @@
+Stratification Variable: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+Stratum: More_sensitive_to_IEQ_changes_due_to_health_conditions_No 
+R-squared: 0.9385793 
+
+$n_obs
+[1] 38
+
+$r_squared
+[1] 0.9385793
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.02159                                     0.12673  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.05684                                     0.64574  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.01350                                     0.40531  
+
+

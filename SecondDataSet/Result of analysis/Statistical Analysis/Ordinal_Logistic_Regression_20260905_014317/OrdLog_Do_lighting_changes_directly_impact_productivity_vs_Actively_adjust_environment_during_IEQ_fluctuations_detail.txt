@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+    Actively_adjust_environment_during_IEQ_fluctuationsNever 
+                                                  -0.3119155 
+   Actively_adjust_environment_during_IEQ_fluctuationsRarely 
+                                                  -0.6631139 
+Actively_adjust_environment_during_IEQ_fluctuationsSometimes 
+                                                  -0.2474516 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.2432352 -2.1279582 -0.7292373  0.8646364 
+
+Residual Deviance: 562.0675 
+AIC: 576.0675 
+
+$coefficients
+                                                          Term   Estimate Std_Error    Z_Value      P_Value
+1     Actively_adjust_environment_during_IEQ_fluctuationsNever -0.3119155 0.8947845 -0.3485929 7.273950e-01
+2    Actively_adjust_environment_during_IEQ_fluctuationsRarely -0.6631139 0.6910087 -0.9596318 3.372405e-01
+3 Actively_adjust_environment_during_IEQ_fluctuationsSometimes -0.2474516 0.2675611 -0.9248414 3.550484e-01
+4                                                          1|2 -3.2432352 0.3807095 -8.5189241 0.000000e+00
+5                                                          2|3 -2.1279582 0.2709401 -7.8539790 3.996803e-15
+6                                                          3|4 -0.7292373 0.2191594 -3.3274291 8.765130e-04
+7                                                          4|5  0.8646364 0.2214227  3.9049124 9.425952e-05
+  Odds_Ratio
+1  0.7320434
+2  0.5152444
+3  0.7807880
+4  0.0390374
+5  0.1190802
+6  0.4822767
+7  2.3741426
+
+$proportional_odds_test
+                                                                     X2 df probability
+Omnibus                                                      26.8534161  9 0.001479017
+Actively_adjust_environment_during_IEQ_fluctuationsNever      0.1003105  3 0.991800137
+Actively_adjust_environment_during_IEQ_fluctuationsRarely    13.4787602  3 0.003707765
+Actively_adjust_environment_during_IEQ_fluctuationsSometimes  3.2732259  3 0.351386523
+

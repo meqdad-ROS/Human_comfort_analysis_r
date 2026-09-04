@@ -1,0 +1,5 @@
+"","No, I have not received training, and I am not interested in participating in workplace programs.","No, I have not received training, but I am willing to participate in workplace programs to improve IEQ.","Yes, I have received training on this topic, and it has greatly benefited my work.","Yes, I have received training on this topic; however, it has had no impact on my work performance."
+"18 - 30",0.0888888888888889,-0.273076923076923,0.490322580645161,0.4
+"30 - 45",-0.135802469135802,0.142191142191142,-0.315738025415445,0.111111111111111
+"45 - 60",0.047008547008547,0.0484467455621301,0.172456575682382,-0.615384615384615
+"Above 60",0.728395061728395,-0.326923076923077,-0.247311827956989,0.111111111111111

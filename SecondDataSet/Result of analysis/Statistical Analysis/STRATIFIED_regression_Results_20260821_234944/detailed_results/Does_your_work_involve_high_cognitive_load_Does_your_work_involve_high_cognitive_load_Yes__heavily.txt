@@ -1,0 +1,24 @@
+Stratification Variable: Does_your_work_involve_high_cognitive_load 
+Stratum: Does_your_work_involve_high_cognitive_load_Yes, heavily 
+R-squared: 0.726967 
+
+$n_obs
+[1] 93
+
+$r_squared
+[1] 0.726967
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.03248                                    -0.08062  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.11920                                     0.73754  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.31239                                     0.29235  
+
+

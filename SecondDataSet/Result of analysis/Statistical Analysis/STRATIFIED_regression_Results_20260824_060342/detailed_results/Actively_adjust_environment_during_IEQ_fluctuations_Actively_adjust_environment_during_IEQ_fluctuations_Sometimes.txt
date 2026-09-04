@@ -1,0 +1,24 @@
+Stratification Variable: Actively_adjust_environment_during_IEQ_fluctuations 
+Stratum: Actively_adjust_environment_during_IEQ_fluctuations_Sometimes 
+R-squared: 0.7452204 
+
+$n_obs
+[1] 106
+
+$r_squared
+[1] 0.7452204
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  -0.03963                                    -0.01706  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.14979                                     0.54651  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.31819                                     0.35553  
+
+

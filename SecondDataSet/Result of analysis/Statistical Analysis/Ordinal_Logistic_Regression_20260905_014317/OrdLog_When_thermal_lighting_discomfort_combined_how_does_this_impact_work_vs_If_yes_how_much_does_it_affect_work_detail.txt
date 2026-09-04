@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+If_yes_how_much_does_it_affect_work 
+                          0.7254707 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.0820299  0.2397184  1.6712466  3.1463184 
+
+Residual Deviance: 517.9297 
+AIC: 527.9297 
+
+$coefficients
+                                 Term   Estimate Std_Error    Z_Value      P_Value Odds_Ratio
+1 If_yes_how_much_does_it_affect_work  0.7254707 0.1343088  5.4015135 6.608095e-08  2.0657032
+2                                 1|2 -1.0820299 0.5483133 -1.9733790 4.845240e-02  0.3389069
+3                                 2|3  0.2397184 0.4753573  0.5042911 6.140569e-01  1.2708913
+4                                 3|4  1.6712466 0.4760552  3.5106150 4.470714e-04  5.3187941
+5                                 4|5  3.1463184 0.5108426  6.1590755 7.317087e-10 23.2503081
+
+$proportional_odds_test
+                                          X2 df probability
+Omnibus                             3.686906  3   0.2973177
+If_yes_how_much_does_it_affect_work 3.686906  3   0.2973177
+

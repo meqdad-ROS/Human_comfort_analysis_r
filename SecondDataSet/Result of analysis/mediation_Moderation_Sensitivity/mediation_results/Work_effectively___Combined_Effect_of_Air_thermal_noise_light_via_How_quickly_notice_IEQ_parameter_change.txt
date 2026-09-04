@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: How_quickly_notice_IEQ_parameter_change 
+
+--- Lavaan Estimates ---
+                                                                    lhs op
+1                            Combined_Effect_of_Air_thermal_noise_light  ~
+2                            Combined_Effect_of_Air_thermal_noise_light  ~
+3                            Combined_Effect_of_Air_thermal_noise_light  ~
+4                                                      Work_effectively  ~
+5                                                      Work_effectively  ~
+6                                                      Work_effectively  ~
+7                                                      Work_effectively  ~
+8                            Combined_Effect_of_Air_thermal_noise_light ~~
+9                                                      Work_effectively ~~
+10     How_quickly_notice_IEQ_parameter_change_After.an.extended.period ~~
+11     How_quickly_notice_IEQ_parameter_change_After.an.extended.period ~~
+12     How_quickly_notice_IEQ_parameter_change_After.an.extended.period ~~
+13        How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all ~~
+14        How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all ~~
+15                    How_quickly_notice_IEQ_parameter_change_Instantly ~~
+16 ind_How_quickly_notice_IEQ_parameter_change_After.an.extended.period :=
+17    ind_How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all :=
+18                ind_How_quickly_notice_IEQ_parameter_change_Instantly :=
+                                                                rhs    est ci.lower ci.upper pvalue
+1  How_quickly_notice_IEQ_parameter_change_After.an.extended.period -0.754   -1.285   -0.240  0.008
+2     How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all -0.956   -2.833   -0.130  0.140
+3                 How_quickly_notice_IEQ_parameter_change_Instantly  0.078   -0.137    0.291  0.469
+4  How_quickly_notice_IEQ_parameter_change_After.an.extended.period -0.372   -0.862    0.126  0.151
+5     How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all  0.778    0.126    1.297  0.008
+6                 How_quickly_notice_IEQ_parameter_change_Instantly  0.123   -0.169    0.411  0.406
+7                        Combined_Effect_of_Air_thermal_noise_light -0.078   -0.247    0.099  0.367
+8                        Combined_Effect_of_Air_thermal_noise_light  0.643    0.515    0.755  0.000
+9                                                  Work_effectively  1.016    0.856    1.136  0.000
+10 How_quickly_notice_IEQ_parameter_change_After.an.extended.period  0.054    0.054    0.054     NA
+11    How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all -0.001   -0.001   -0.001     NA
+12                How_quickly_notice_IEQ_parameter_change_Instantly -0.025   -0.025   -0.025     NA
+13    How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all  0.019    0.019    0.019     NA
+14                How_quickly_notice_IEQ_parameter_change_Instantly -0.008   -0.008   -0.008     NA
+15                How_quickly_notice_IEQ_parameter_change_Instantly  0.246    0.246    0.246     NA
+16                                                             a1*b  0.059   -0.076    0.227  0.428
+17                                                             a2*b  0.075   -0.101    0.334  0.504
+18                                                             a3*b -0.006   -0.038    0.016  0.651

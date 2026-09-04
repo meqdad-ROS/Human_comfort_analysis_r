@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Typical_response_to_IEQ_discomfort 
+
+--- Lavaan Estimates ---
+                                                                                  lhs op
+1                                          performance_decrease_under_thermal_and_Air  ~
+2                                          performance_decrease_under_thermal_and_Air  ~
+3                                          performance_decrease_under_thermal_and_Air  ~
+4                                                                         Sensitivity  ~
+5                                                                         Sensitivity  ~
+6                                                                         Sensitivity  ~
+7                                                                         Sensitivity  ~
+8                                          performance_decrease_under_thermal_and_Air ~~
+9                                                                         Sensitivity ~~
+10     Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive ~~
+11     Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive ~~
+12     Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive ~~
+13                                  Typical_response_to_IEQ_discomfort_I.take.a.break ~~
+14                                  Typical_response_to_IEQ_discomfort_I.take.a.break ~~
+15                           Typical_response_to_IEQ_discomfort_It.does.not.affect.me ~~
+16 ind_Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive :=
+17                              ind_Typical_response_to_IEQ_discomfort_I.take.a.break :=
+18                       ind_Typical_response_to_IEQ_discomfort_It.does.not.affect.me :=
+                                                                              rhs    est ci.lower ci.upper pvalue
+1  Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive -0.153   -0.385    0.109  0.239
+2                               Typical_response_to_IEQ_discomfort_I.take.a.break  0.157   -0.071    0.360  0.154
+3                        Typical_response_to_IEQ_discomfort_It.does.not.affect.me -0.522   -1.748    0.725  0.388
+4  Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive  0.022   -0.238    0.248  0.863
+5                               Typical_response_to_IEQ_discomfort_I.take.a.break -0.049   -0.284    0.198  0.675
+6                        Typical_response_to_IEQ_discomfort_It.does.not.affect.me -0.644   -1.416   -0.186  0.026
+7                                      performance_decrease_under_thermal_and_Air  0.678    0.522    0.825  0.000
+8                                      performance_decrease_under_thermal_and_Air  0.457    0.351    0.548  0.000
+9                                                                     Sensitivity  0.417    0.299    0.512  0.000
+10 Typical_response_to_IEQ_discomfort_I.continue.working.but.feel.less.productive  0.157    0.157    0.157     NA
+11                              Typical_response_to_IEQ_discomfort_I.take.a.break -0.032   -0.032   -0.032     NA
+12                       Typical_response_to_IEQ_discomfort_It.does.not.affect.me -0.004   -0.004   -0.004     NA
+13                              Typical_response_to_IEQ_discomfort_I.take.a.break  0.138    0.138    0.138     NA
+14                       Typical_response_to_IEQ_discomfort_It.does.not.affect.me -0.003   -0.003   -0.003     NA
+15                       Typical_response_to_IEQ_discomfort_It.does.not.affect.me  0.019    0.019    0.019     NA
+16                                                                           a1*b -0.104   -0.267    0.080  0.250
+17                                                                           a2*b  0.107   -0.050    0.260  0.165
+18                                                                           a3*b -0.354   -1.171    0.452  0.387

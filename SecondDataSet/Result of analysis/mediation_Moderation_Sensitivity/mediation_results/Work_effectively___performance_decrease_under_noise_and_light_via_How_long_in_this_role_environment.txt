@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: How_long_in_this_role_environment 
+
+--- Lavaan Estimates ---
+                                                       lhs op                                                 rhs
+1               performance_decrease_under_noise_and_light  ~         How_long_in_this_role_environment_3.5.years
+2               performance_decrease_under_noise_and_light  ~  How_long_in_this_role_environment_Less.than.1.year
+3               performance_decrease_under_noise_and_light  ~ How_long_in_this_role_environment_More.than.5.years
+4                                         Work_effectively  ~         How_long_in_this_role_environment_3.5.years
+5                                         Work_effectively  ~  How_long_in_this_role_environment_Less.than.1.year
+6                                         Work_effectively  ~ How_long_in_this_role_environment_More.than.5.years
+7                                         Work_effectively  ~          performance_decrease_under_noise_and_light
+8               performance_decrease_under_noise_and_light ~~          performance_decrease_under_noise_and_light
+9                                         Work_effectively ~~                                    Work_effectively
+10             How_long_in_this_role_environment_3.5.years ~~         How_long_in_this_role_environment_3.5.years
+11             How_long_in_this_role_environment_3.5.years ~~  How_long_in_this_role_environment_Less.than.1.year
+12             How_long_in_this_role_environment_3.5.years ~~ How_long_in_this_role_environment_More.than.5.years
+13      How_long_in_this_role_environment_Less.than.1.year ~~  How_long_in_this_role_environment_Less.than.1.year
+14      How_long_in_this_role_environment_Less.than.1.year ~~ How_long_in_this_role_environment_More.than.5.years
+15     How_long_in_this_role_environment_More.than.5.years ~~ How_long_in_this_role_environment_More.than.5.years
+16         ind_How_long_in_this_role_environment_3.5.years :=                                                a1*b
+17  ind_How_long_in_this_role_environment_Less.than.1.year :=                                                a2*b
+18 ind_How_long_in_this_role_environment_More.than.5.years :=                                                a3*b
+      est ci.lower ci.upper pvalue
+1   0.077   -0.154    0.317  0.536
+2  -0.072   -0.493    0.377  0.744
+3   0.000   -0.196    0.208  1.000
+4   0.285   -0.148    0.699  0.205
+5  -0.154   -0.771    0.387  0.604
+6   0.547    0.169    0.913  0.003
+7  -0.058   -0.311    0.205  0.660
+8   0.354    0.276    0.420  0.000
+9   0.962    0.798    1.097  0.000
+10  0.170    0.170    0.170     NA
+11 -0.017   -0.017   -0.017     NA
+12 -0.107   -0.107   -0.107     NA
+13  0.071    0.071    0.071     NA
+14 -0.038   -0.038   -0.038     NA
+15  0.250    0.250    0.250     NA
+16 -0.004   -0.045    0.050  0.834
+17  0.004   -0.059    0.092  0.906
+18  0.000   -0.031    0.041  1.000

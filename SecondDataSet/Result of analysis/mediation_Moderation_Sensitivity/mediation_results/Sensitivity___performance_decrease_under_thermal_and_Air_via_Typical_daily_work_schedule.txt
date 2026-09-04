@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Typical_daily_work_schedule 
+
+--- Lavaan Estimates ---
+                                                 lhs op                                           rhs    est
+1         performance_decrease_under_thermal_and_Air  ~       Typical_daily_work_schedule_6...8.hours  0.001
+2         performance_decrease_under_thermal_and_Air  ~ Typical_daily_work_schedule_Less.than.4.hours -0.413
+3         performance_decrease_under_thermal_and_Air  ~ Typical_daily_work_schedule_More.than.8.hours -0.214
+4                                        Sensitivity  ~       Typical_daily_work_schedule_6...8.hours  0.077
+5                                        Sensitivity  ~ Typical_daily_work_schedule_Less.than.4.hours  0.241
+6                                        Sensitivity  ~ Typical_daily_work_schedule_More.than.8.hours  0.009
+7                                        Sensitivity  ~    performance_decrease_under_thermal_and_Air  0.684
+8         performance_decrease_under_thermal_and_Air ~~    performance_decrease_under_thermal_and_Air  0.459
+9                                        Sensitivity ~~                                   Sensitivity  0.423
+10           Typical_daily_work_schedule_6...8.hours ~~       Typical_daily_work_schedule_6...8.hours  0.250
+11           Typical_daily_work_schedule_6...8.hours ~~ Typical_daily_work_schedule_Less.than.4.hours -0.007
+12           Typical_daily_work_schedule_6...8.hours ~~ Typical_daily_work_schedule_More.than.8.hours -0.148
+13     Typical_daily_work_schedule_Less.than.4.hours ~~ Typical_daily_work_schedule_Less.than.4.hours  0.014
+14     Typical_daily_work_schedule_Less.than.4.hours ~~ Typical_daily_work_schedule_More.than.8.hours -0.004
+15     Typical_daily_work_schedule_More.than.8.hours ~~ Typical_daily_work_schedule_More.than.8.hours  0.203
+16       ind_Typical_daily_work_schedule_6...8.hours :=                                          a1*b  0.000
+17 ind_Typical_daily_work_schedule_Less.than.4.hours :=                                          a2*b -0.283
+18 ind_Typical_daily_work_schedule_More.than.8.hours :=                                          a3*b -0.146
+   ci.lower ci.upper pvalue
+1    -0.247    0.239  0.996
+2    -0.960    0.255  0.185
+3    -0.497    0.051  0.124
+4    -0.187    0.358  0.557
+5    -0.062    0.588  0.162
+6    -0.262    0.317  0.951
+7     0.546    0.807  0.000
+8     0.351    0.565  0.000
+9     0.315    0.523  0.000
+10    0.250    0.250     NA
+11   -0.007   -0.007     NA
+12   -0.148   -0.148     NA
+13    0.014    0.014     NA
+14   -0.004   -0.004     NA
+15    0.203    0.203     NA
+16   -0.167    0.176  0.996
+17   -0.699    0.180  0.190
+18   -0.356    0.035  0.133

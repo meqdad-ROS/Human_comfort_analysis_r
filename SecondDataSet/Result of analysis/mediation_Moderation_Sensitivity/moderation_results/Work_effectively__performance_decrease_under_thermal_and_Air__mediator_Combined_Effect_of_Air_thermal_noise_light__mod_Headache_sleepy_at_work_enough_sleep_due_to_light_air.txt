@@ -1,0 +1,16 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : performance_decrease_under_thermal_and_Air 
+Mediator  : Combined_Effect_of_Air_thermal_noise_light 
+Moderator : Headache_sleepy_at_work_enough_sleep_due_to_light_air 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.4991452   p = 0.0011 
+
+--- Interaction Coefficients ---
+  performance_decrease_under_thermal_and_Air:Headache_sleepy_at_work_enough_sleep_due_to_light_airNo, I do not: coef = 0.2924, p = 0.3972 
+  performance_decrease_under_thermal_and_Air:Headache_sleepy_at_work_enough_sleep_due_to_light_airYes, I do experienced such case: coef = -0.1929, p = 0.5580 
+
+Moderation significant: FALSE 

@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+How_quickly_notice_IEQ_parameter_changeAfter an extended period 
+                                                   -0.258283467 
+   How_quickly_notice_IEQ_parameter_changeI don’t notice at all 
+                                                   -0.764315887 
+               How_quickly_notice_IEQ_parameter_changeInstantly 
+                                                   -0.002294728 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.2196483 -1.6604812  0.1010412  1.8806590 
+
+Residual Deviance: 556.6767 
+AIC: 570.6767 
+
+$coefficients
+                                                             Term     Estimate Std_Error      Z_Value      P_Value
+1 How_quickly_notice_IEQ_parameter_changeAfter an extended period -0.258283467 0.5419018 -0.476624113 6.336298e-01
+2    How_quickly_notice_IEQ_parameter_changeI don’t notice at all -0.764315887 1.0362844 -0.737554186 4.607854e-01
+3                How_quickly_notice_IEQ_parameter_changeInstantly -0.002294728 0.2684979 -0.008546541 9.931809e-01
+4                                                             1|2 -3.219648270 0.3845095 -8.373390228 0.000000e+00
+5                                                             2|3 -1.660481224 0.2307855 -7.194912940 6.250556e-13
+6                                                             3|4  0.101041198 0.1903015  0.530953362 5.954511e-01
+7                                                             4|5  1.880659002 0.2455827  7.657945965 1.887379e-14
+  Odds_Ratio
+1 0.77237626
+2 0.46565238
+3 0.99770790
+4 0.03996911
+5 0.19004750
+6 1.10632222
+7 6.55782506
+
+$proportional_odds_test
+                                                                        X2 df  probability
+Omnibus                                                         96.3646672  9 8.534282e-17
+How_quickly_notice_IEQ_parameter_changeAfter an extended period  1.4032499  3 7.047731e-01
+How_quickly_notice_IEQ_parameter_changeI don’t notice at all    50.5708234  3 6.038399e-11
+How_quickly_notice_IEQ_parameter_changeInstantly                 0.2575249  3 9.678084e-01
+

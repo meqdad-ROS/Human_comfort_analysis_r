@@ -1,0 +1,24 @@
+Stratification Variable: Age 
+Stratum: Age_18 - 30 
+R-squared: 0.7383003 
+
+$n_obs
+[1] 50
+
+$r_squared
+[1] 0.7383003
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.14648                                    -0.02107  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.01908                                     0.87838  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.06180                                     0.23477  
+
+

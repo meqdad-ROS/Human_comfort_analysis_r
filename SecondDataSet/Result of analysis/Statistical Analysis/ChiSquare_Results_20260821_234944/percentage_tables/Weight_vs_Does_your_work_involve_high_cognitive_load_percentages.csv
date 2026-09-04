@@ -1,0 +1,7 @@
+"","No, my work is mostly physical","No, my work is mostly routine","Yes, heavily","Yes, moderately"
+"<=55 kg",0,0.95,4.27,3.32
+">=131 kg",0,0,0,1.42
+"101-115 kg",0.47,0.47,5.21,7.58
+"56-70 kg",0,3.79,11.85,10.9
+"71-85 kg",0.47,2.84,10.43,8.06
+"86-100 kg",1.9,2.84,12.32,10.9

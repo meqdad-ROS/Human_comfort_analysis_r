@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Sensitive_to_noise_sound_changes 
+                       0.4628782 
+
+Intercepts:
+        1|2         2|3         3|4         4|5 
+-2.93805398 -1.37617491  0.03024108  1.28859622 
+
+Residual Deviance: 403.0279 
+AIC: 413.0279 
+
+$coefficients
+                              Term    Estimate Std_Error     Z_Value      P_Value Odds_Ratio
+1 Sensitive_to_noise_sound_changes  0.46287818 0.1296226  3.57096950 0.0003556623 1.58863980
+2                              1|2 -2.93805398 0.8398189 -3.49843753 0.0004679927 0.05296871
+3                              2|3 -1.37617491 0.5706437 -2.41161833 0.0158818972 0.25254271
+4                              3|4  0.03024108 0.5130097  0.05894835 0.9529932449 1.03070298
+5                              4|5  1.28859622 0.5152493  2.50091774 0.0123871946 3.62769050
+
+$proportional_odds_test
+                                       X2 df probability
+Omnibus                          4.797409  3   0.1872473
+Sensitive_to_noise_sound_changes 4.797409  3   0.1872473
+

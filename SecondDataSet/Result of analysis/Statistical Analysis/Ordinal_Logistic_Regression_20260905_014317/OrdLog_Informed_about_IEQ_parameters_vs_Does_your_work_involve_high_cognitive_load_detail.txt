@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Does_your_work_involve_high_cognitive_loadNo, my work is mostly routine 
+                                                             -0.6036160 
+                 Does_your_work_involve_high_cognitive_loadYes, heavily 
+                                                              0.8327800 
+              Does_your_work_involve_high_cognitive_loadYes, moderately 
+                                                              0.1333129 
+
+Intercepts:
+        1|2         2|3         3|4         4|5 
+-2.40148084 -1.45146765  0.02256235  1.47488438 
+
+Residual Deviance: 571.9616 
+AIC: 585.9616 
+
+$coefficients
+                                                                     Term    Estimate Std_Error     Z_Value
+1 Does_your_work_involve_high_cognitive_loadNo, my work is mostly routine -0.60361602 0.9373760 -0.64394223
+2                  Does_your_work_involve_high_cognitive_loadYes, heavily  0.83277998 0.8646806  0.96310704
+3               Does_your_work_involve_high_cognitive_loadYes, moderately  0.13331288 0.8624390  0.15457660
+4                                                                     1|2 -2.40148084 0.8730080 -2.75081181
+5                                                                     2|3 -1.45146765 0.8516164 -1.70436786
+6                                                                     3|4  0.02256235 0.8452351  0.02669358
+7                                                                     4|5  1.47488438 0.8495486  1.73608006
+      P_Value Odds_Ratio
+1 0.519612897 0.54683071
+2 0.335493810 2.29970300
+3 0.877155119 1.14260744
+4 0.005944778 0.09058371
+5 0.088312385 0.23422627
+6 0.978704136 1.02281880
+7 0.082549680 4.37053041
+
+$proportional_odds_test
+                                                                              X2 df probability
+Omnibus                                                                 7.268500  9   0.6091867
+Does_your_work_involve_high_cognitive_loadNo, my work is mostly routine 2.502305  3   0.4748747
+Does_your_work_involve_high_cognitive_loadYes, heavily                  1.963582  3   0.5799997
+Does_your_work_involve_high_cognitive_loadYes, moderately               4.238618  3   0.2368239
+

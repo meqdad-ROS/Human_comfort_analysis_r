@@ -1,0 +1,24 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Gender 
+
+--- Lavaan Estimates ---
+                                         lhs op                                        rhs    est ci.lower
+1 performance_decrease_under_thermal_and_Air  ~                                Gender_Male  0.017   -0.186
+2                                Sensitivity  ~                                Gender_Male -0.093   -0.290
+3                                Sensitivity  ~ performance_decrease_under_thermal_and_Air  0.687    0.538
+4 performance_decrease_under_thermal_and_Air ~~ performance_decrease_under_thermal_and_Air  0.470    0.365
+5                                Sensitivity ~~                                Sensitivity  0.423    0.312
+6                                Gender_Male ~~                                Gender_Male  0.213    0.213
+7                            ind_Gender_Male :=                                       a1*b  0.012   -0.116
+  ci.upper pvalue
+1    0.231  0.869
+2    0.111  0.348
+3    0.824  0.000
+4    0.573  0.000
+5    0.529  0.000
+6    0.213     NA
+7    0.161  0.871

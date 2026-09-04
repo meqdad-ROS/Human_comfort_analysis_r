@@ -1,0 +1,44 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Typical_response_to_IEQ_discomfortI continue working but feel less productive 
+                                                                   -0.3249593 
+                             Typical_response_to_IEQ_discomfortI take a break 
+                                                                   -0.1909333 
+                      Typical_response_to_IEQ_discomfortIt does not affect me 
+                                                                   -3.0154569 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-4.0776532 -2.6847590 -0.8040027  0.5944592 
+
+Residual Deviance: 527.4042 
+AIC: 541.4042 
+
+$coefficients
+                                                                           Term   Estimate Std_Error    Z_Value
+1 Typical_response_to_IEQ_discomfortI continue working but feel less productive -0.3249593 0.3323457 -0.9777752
+2                              Typical_response_to_IEQ_discomfortI take a break -0.1909333 0.3604265 -0.5297426
+3                       Typical_response_to_IEQ_discomfortIt does not affect me -3.0154569 0.8442776 -3.5716414
+4                                                                           1|2 -4.0776532 0.5016029 -8.1292452
+5                                                                           2|3 -2.6847590 0.2986468 -8.9897457
+6                                                                           3|4 -0.8040027 0.1826962 -4.4007624
+7                                                                           4|5  0.5944592 0.1780575  3.3385800
+       P_Value Odds_Ratio
+1 3.281855e-01 0.72255674
+2 5.962904e-01 0.82618769
+3 3.547509e-04 0.04902343
+4 4.440892e-16 0.01694719
+5 0.000000e+00 0.06823763
+6 1.078712e-05 0.44753403
+7 8.420778e-04 1.81205068
+
+$proportional_odds_test
+                                                                                        X2 df probability
+Omnibus                                                                       0.3810967741  9   0.9999906
+Typical_response_to_IEQ_discomfortI continue working but feel less productive 0.0832157424  3   0.9937725
+Typical_response_to_IEQ_discomfortI take a break                              0.2760254761  3   0.9644725
+Typical_response_to_IEQ_discomfortIt does not affect me                       0.0002220948  3   0.9999991
+

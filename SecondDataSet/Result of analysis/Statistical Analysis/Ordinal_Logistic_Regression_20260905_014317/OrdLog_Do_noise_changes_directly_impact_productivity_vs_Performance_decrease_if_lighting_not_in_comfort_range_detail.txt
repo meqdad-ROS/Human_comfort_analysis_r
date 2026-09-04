@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Performance_decrease_if_lighting_not_in_comfort_range 
+                                             0.821905 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-1.1820432  0.6275558  2.1561687  3.6343335 
+
+Residual Deviance: 524.5981 
+AIC: 534.5981 
+
+$coefficients
+                                                   Term   Estimate Std_Error   Z_Value      P_Value Odds_Ratio
+1 Performance_decrease_if_lighting_not_in_comfort_range  0.8219050 0.1511626  5.437226 5.411659e-08  2.2748293
+2                                                   1|2 -1.1820432 0.6223288 -1.899387 5.751364e-02  0.3066516
+3                                                   2|3  0.6275558 0.5143608  1.220069 2.224387e-01  1.8730269
+4                                                   3|4  2.1561687 0.5282873  4.081432 4.475903e-05  8.6379796
+5                                                   4|5  3.6343335 0.5631123  6.454013 1.089269e-10 37.8766011
+
+$proportional_odds_test
+                                                            X2 df probability
+Omnibus                                               7.470704  3    0.058316
+Performance_decrease_if_lighting_not_in_comfort_range 7.470704  3    0.058316
+

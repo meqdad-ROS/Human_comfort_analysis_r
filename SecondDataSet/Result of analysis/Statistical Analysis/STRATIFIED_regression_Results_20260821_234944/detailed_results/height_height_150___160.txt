@@ -1,0 +1,24 @@
+Stratification Variable: height 
+Stratum: height_150 - 160 
+R-squared: 0.6902277 
+
+$n_obs
+[1] 37
+
+$r_squared
+[1] 0.6902277
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                  -0.01205                                     0.05331  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.05603                                     0.56528  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                   0.24025                                     0.29241  
+
+

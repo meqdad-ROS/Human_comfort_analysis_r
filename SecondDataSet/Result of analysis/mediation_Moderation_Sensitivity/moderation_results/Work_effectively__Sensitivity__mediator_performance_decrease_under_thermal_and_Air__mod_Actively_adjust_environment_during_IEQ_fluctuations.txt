@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : Sensitivity 
+Mediator  : performance_decrease_under_thermal_and_Air 
+Moderator : Actively_adjust_environment_during_IEQ_fluctuations 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.1019784   p = 0.4125 
+
+--- Interaction Coefficients ---
+  Sensitivity:Actively_adjust_environment_during_IEQ_fluctuationsNever: coef = -1.2169, p = 0.2574 
+  Sensitivity:Actively_adjust_environment_during_IEQ_fluctuationsRarely: coef = -0.2968, p = 0.3700 
+  Sensitivity:Actively_adjust_environment_during_IEQ_fluctuationsSometimes: coef = -0.1735, p = 0.3606 
+
+Moderation significant: FALSE 

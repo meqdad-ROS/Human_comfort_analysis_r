@@ -1,0 +1,40 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+   professionHouse Wife      professionLab-Work professionMore-Movement   professionoffice-work 
+           -0.340733567            -0.009972977            -0.152985745            -0.240617560 
+  professionOffice-work  professionoutdoor-work 
+           -0.573203310            -2.017014741 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-3.5413398 -2.3033555 -0.9789748  0.3645248 
+
+Residual Deviance: 545.2935 
+AIC: 565.2935 
+
+$coefficients
+                      Term     Estimate Std_Error     Z_Value      P_Value Odds_Ratio
+1     professionHouse Wife -0.340733567 0.7839036 -0.43466259 6.638074e-01 0.71124838
+2       professionLab-Work -0.009972977 0.7510251 -0.01327915 9.894051e-01 0.99007659
+3  professionMore-Movement -0.152985745 0.3221966 -0.47482108 6.349145e-01 0.85814195
+4    professionoffice-work -0.240617560 0.3961668 -0.60736431 5.436092e-01 0.78614222
+5    professionOffice-work -0.573203310 0.5437185 -1.05422810 2.917785e-01 0.56371678
+6   professionoutdoor-work -2.017014741 1.1160610 -1.80726209 7.072142e-02 0.13305207
+7                      1|2 -3.541339825 0.4490971 -7.88546665 3.108624e-15 0.02897448
+8                      2|3 -2.303355457 0.3203294 -7.19058380 6.450396e-13 0.09992299
+9                      3|4 -0.978974803 0.2683147 -3.64860606 2.636671e-04 0.37569606
+10                     4|5  0.364524753 0.2602297  1.40078060 1.612797e-01 1.43982957
+
+$proportional_odds_test
+                                X2 df probability
+Omnibus                 17.2758740 18   0.5042209
+professionHouse Wife     0.3405514  3   0.9522298
+professionLab-Work       0.4880243  3   0.9215144
+professionMore-Movement  2.0011515  3   0.5721677
+professionoffice-work    0.9014223  3   0.8250846
+professionOffice-work    1.1770127  3   0.7585227
+professionoutdoor-work   1.9978963  3   0.5728435
+

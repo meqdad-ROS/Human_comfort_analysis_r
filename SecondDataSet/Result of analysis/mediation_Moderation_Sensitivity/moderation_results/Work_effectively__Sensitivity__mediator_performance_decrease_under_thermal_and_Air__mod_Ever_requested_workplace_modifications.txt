@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : Sensitivity 
+Mediator  : performance_decrease_under_thermal_and_Air 
+Moderator : Ever_requested_workplace_modifications 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): -0.1019784   p = 0.4125 
+
+--- Interaction Coefficients ---
+  Sensitivity:Ever_requested_workplace_modificationsNo, I have never needed to: coef = 0.7444, p = 0.0674 
+  Sensitivity:Ever_requested_workplace_modificationsYes, frequently: coef = 0.3775, p = 0.1624 
+  Sensitivity:Ever_requested_workplace_modificationsYes, occasionally: coef = 0.2359, p = 0.3598 
+
+Moderation significant: FALSE 

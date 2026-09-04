@@ -1,0 +1,76 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: height 
+
+--- Lavaan Estimates ---
+                                          lhs op                                        rhs    est ci.lower
+1  performance_decrease_under_noise_and_light  ~                           height_160...170 -0.058   -0.345
+2  performance_decrease_under_noise_and_light  ~                           height_170...180  0.028   -0.209
+3  performance_decrease_under_noise_and_light  ~                           height_180...190  0.062   -0.214
+4  performance_decrease_under_noise_and_light  ~                       height_more.than.190 -0.290   -0.502
+5  performance_decrease_under_noise_and_light  ~                           height_Under.150 -0.841   -1.053
+6                                productivity  ~                           height_160...170 -0.121   -0.391
+7                                productivity  ~                           height_170...180 -0.244   -0.509
+8                                productivity  ~                           height_180...190 -0.142   -0.445
+9                                productivity  ~                       height_more.than.190 -0.835   -1.034
+10                               productivity  ~                           height_Under.150  1.184    0.930
+11                               productivity  ~ performance_decrease_under_noise_and_light  0.688    0.480
+12 performance_decrease_under_noise_and_light ~~ performance_decrease_under_noise_and_light  0.348    0.279
+13                               productivity ~~                               productivity  0.508    0.384
+14                           height_160...170 ~~                           height_160...170  0.193    0.193
+15                           height_160...170 ~~                           height_170...180 -0.096   -0.096
+16                           height_160...170 ~~                           height_180...190 -0.048   -0.048
+17                           height_160...170 ~~                       height_more.than.190 -0.001   -0.001
+18                           height_160...170 ~~                           height_Under.150 -0.001   -0.001
+19                           height_170...180 ~~                           height_170...180  0.233    0.233
+20                           height_170...180 ~~                           height_180...190 -0.068   -0.068
+21                           height_170...180 ~~                       height_more.than.190 -0.002   -0.002
+22                           height_170...180 ~~                           height_Under.150 -0.002   -0.002
+23                           height_180...190 ~~                           height_180...190  0.151    0.151
+24                           height_180...190 ~~                       height_more.than.190 -0.001   -0.001
+25                           height_180...190 ~~                           height_Under.150 -0.001   -0.001
+26                       height_more.than.190 ~~                       height_more.than.190  0.005    0.005
+27                       height_more.than.190 ~~                           height_Under.150  0.000    0.000
+28                           height_Under.150 ~~                           height_Under.150  0.005    0.005
+29                       ind_height_160...170 :=                                       a1*b -0.040   -0.230
+30                       ind_height_170...180 :=                                       a2*b  0.019   -0.133
+31                       ind_height_180...190 :=                                       a3*b  0.043   -0.145
+32                   ind_height_more.than.190 :=                                       a4*b -0.199   -0.359
+33                       ind_height_Under.150 :=                                       a5*b -0.579   -0.815
+   ci.upper pvalue
+1     0.213  0.686
+2     0.307  0.823
+3     0.387  0.669
+4    -0.055  0.010
+5    -0.606  0.000
+6     0.176  0.411
+7     0.038  0.094
+8     0.149  0.318
+9    -0.599  0.000
+10    1.490  0.000
+11    0.896  0.000
+12    0.426  0.000
+13    0.584  0.000
+14    0.193     NA
+15   -0.096     NA
+16   -0.048     NA
+17   -0.001     NA
+18   -0.001     NA
+19    0.233     NA
+20   -0.068     NA
+21   -0.002     NA
+22   -0.002     NA
+23    0.151     NA
+24   -0.001     NA
+25   -0.001     NA
+26    0.005     NA
+27    0.000     NA
+28    0.005     NA
+29    0.130  0.691
+30    0.213  0.824
+31    0.301  0.676
+32   -0.035  0.013
+33   -0.384  0.000

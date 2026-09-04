@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Work_effectively 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Ever_requested_workplace_modifications 
+
+--- Lavaan Estimates ---
+                                                                     lhs op
+1                             Combined_Effect_of_Air_thermal_noise_light  ~
+2                             Combined_Effect_of_Air_thermal_noise_light  ~
+3                             Combined_Effect_of_Air_thermal_noise_light  ~
+4                                                       Work_effectively  ~
+5                                                       Work_effectively  ~
+6                                                       Work_effectively  ~
+7                                                       Work_effectively  ~
+8                             Combined_Effect_of_Air_thermal_noise_light ~~
+9                                                       Work_effectively ~~
+10     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+11     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+12     Ever_requested_workplace_modifications_No..I.have.never.needed.to ~~
+13                Ever_requested_workplace_modifications_Yes..frequently ~~
+14                Ever_requested_workplace_modifications_Yes..frequently ~~
+15              Ever_requested_workplace_modifications_Yes..occasionally ~~
+16 ind_Ever_requested_workplace_modifications_No..I.have.never.needed.to :=
+17            ind_Ever_requested_workplace_modifications_Yes..frequently :=
+18          ind_Ever_requested_workplace_modifications_Yes..occasionally :=
+                                                                 rhs    est ci.lower ci.upper pvalue
+1  Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.351   -0.203    0.927  0.206
+2             Ever_requested_workplace_modifications_Yes..frequently  0.581    0.175    1.038  0.005
+3           Ever_requested_workplace_modifications_Yes..occasionally  0.322   -0.029    0.747  0.105
+4  Ever_requested_workplace_modifications_No..I.have.never.needed.to -0.052   -0.721    0.578  0.869
+5             Ever_requested_workplace_modifications_Yes..frequently -0.044   -0.543    0.400  0.855
+6           Ever_requested_workplace_modifications_Yes..occasionally -0.075   -0.595    0.313  0.732
+7                         Combined_Effect_of_Air_thermal_noise_light -0.066   -0.227    0.112  0.447
+8                         Combined_Effect_of_Air_thermal_noise_light  0.665    0.529    0.785  0.000
+9                                                   Work_effectively  1.039    0.870    1.158  0.000
+10 Ever_requested_workplace_modifications_No..I.have.never.needed.to  0.086    0.086    0.086     NA
+11            Ever_requested_workplace_modifications_Yes..frequently -0.032   -0.032   -0.032     NA
+12          Ever_requested_workplace_modifications_Yes..occasionally -0.044   -0.044   -0.044     NA
+13            Ever_requested_workplace_modifications_Yes..frequently  0.223    0.223    0.223     NA
+14          Ever_requested_workplace_modifications_Yes..occasionally -0.156   -0.156   -0.156     NA
+15          Ever_requested_workplace_modifications_Yes..occasionally  0.249    0.249    0.249     NA
+16                                                              a1*b -0.023   -0.146    0.060  0.606
+17                                                              a2*b -0.038   -0.168    0.071  0.496
+18                                                              a3*b -0.021   -0.109    0.036  0.544

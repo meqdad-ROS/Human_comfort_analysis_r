@@ -1,0 +1,28 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Do_air_quality_changes_directly_impact_productivity 
+                                          0.4448556 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+0.08709889 1.13190512 2.17565817 3.19468786 
+
+Residual Deviance: 631.4319 
+AIC: 641.4319 
+
+$coefficients
+                                                 Term   Estimate Std_Error   Z_Value      P_Value Odds_Ratio
+1 Do_air_quality_changes_directly_impact_productivity 0.44485556 0.1245331 3.5721882 3.540109e-04   1.560265
+2                                                 1|2 0.08709889 0.4800803 0.1814257 8.560335e-01   1.091005
+3                                                 2|3 1.13190512 0.4761417 2.3772445 1.744252e-02   3.101560
+4                                                 3|4 2.17565817 0.4932239 4.4110963 1.028486e-05   8.807980
+5                                                 4|5 3.19468786 0.5234327 6.1033402 1.038744e-09  24.402555
+
+$proportional_odds_test
+                                                          X2 df  probability
+Omnibus                                             20.02803  3 0.0001674872
+Do_air_quality_changes_directly_impact_productivity 20.02803  3 0.0001674872
+

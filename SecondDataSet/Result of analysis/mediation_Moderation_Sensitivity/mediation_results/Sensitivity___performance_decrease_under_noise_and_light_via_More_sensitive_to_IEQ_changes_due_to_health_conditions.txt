@@ -1,0 +1,34 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: More_sensitive_to_IEQ_changes_due_to_health_conditions 
+
+--- Lavaan Estimates ---
+                                                                            lhs op
+1                                    performance_decrease_under_noise_and_light  ~
+2                                    performance_decrease_under_noise_and_light  ~
+3                                                                   Sensitivity  ~
+4                                                                   Sensitivity  ~
+5                                                                   Sensitivity  ~
+6                                    performance_decrease_under_noise_and_light ~~
+7                                                                   Sensitivity ~~
+8      More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer.not.to.say ~~
+9      More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer.not.to.say ~~
+10                   More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes ~~
+11 ind_More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer.not.to.say :=
+12               ind_More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes :=
+                                                                        rhs    est ci.lower ci.upper pvalue
+1  More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer.not.to.say -0.166   -0.533    0.237  0.402
+2                More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes  0.211   -0.021    0.470  0.080
+3  More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer.not.to.say  0.235   -0.402    0.767  0.418
+4                More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes  0.366    0.060    0.687  0.023
+5                                performance_decrease_under_noise_and_light  0.286    0.088    0.493  0.004
+6                                performance_decrease_under_noise_and_light  0.342    0.271    0.410  0.000
+7                                                               Sensitivity  0.591    0.459    0.710  0.000
+8  More_sensitive_to_IEQ_changes_due_to_health_conditions_Prefer.not.to.say  0.049    0.049    0.049     NA
+9                More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes -0.040   -0.040   -0.040     NA
+10               More_sensitive_to_IEQ_changes_due_to_health_conditions_Yes  0.178    0.178    0.178     NA
+11                                                                     a1*b -0.047   -0.184    0.089  0.447
+12                                                                     a2*b  0.060   -0.005    0.165  0.189

@@ -1,0 +1,24 @@
+Stratification Variable: IEQ_training_receivedWilling_to_join_IEQ_programs 
+Stratum: IEQ_training_receivedWilling_to_join_IEQ_programs_Yes, I have received training on this topic; however, it has had no impact on my work performance. 
+R-squared: 0.890994 
+
+$n_obs
+[1] 21
+
+$r_squared
+[1] 0.890994
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                   0.02078                                     0.24526  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                  -0.15645                                     0.40048  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                  -0.02866                                     0.64406  
+
+

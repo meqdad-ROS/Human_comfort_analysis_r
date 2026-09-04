@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : Work_effectively 
+Predictor : Combined_Effect_of_Air_thermal_noise_light 
+Mediator  : performance_decrease_under_thermal_and_Air 
+Moderator : Ever_requested_workplace_modifications 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): 0.6275595   p = 7e-04 
+
+--- Interaction Coefficients ---
+  Combined_Effect_of_Air_thermal_noise_light:Ever_requested_workplace_modificationsNo, I have never needed to: coef = 0.3091, p = 0.3971 
+  Combined_Effect_of_Air_thermal_noise_light:Ever_requested_workplace_modificationsYes, frequently: coef = 0.0658, p = 0.8195 
+  Combined_Effect_of_Air_thermal_noise_light:Ever_requested_workplace_modificationsYes, occasionally: coef = 0.0402, p = 0.8834 
+
+Moderation significant: FALSE 

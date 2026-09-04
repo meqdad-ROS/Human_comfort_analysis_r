@@ -1,0 +1,24 @@
+Stratification Variable: Country 
+Stratum: Country_GCC 
+R-squared: 0.6994465 
+
+$n_obs
+[1] 149
+
+$r_squared
+[1] 0.6994465
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                 -0.003843                                    0.053309  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                 -0.131988                                    0.645233  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                  0.240731                                    0.243199  
+
+

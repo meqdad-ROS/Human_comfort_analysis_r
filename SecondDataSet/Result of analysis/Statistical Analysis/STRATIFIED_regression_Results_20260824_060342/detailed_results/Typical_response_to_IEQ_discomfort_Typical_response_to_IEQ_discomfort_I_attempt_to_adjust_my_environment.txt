@@ -1,0 +1,24 @@
+Stratification Variable: Typical_response_to_IEQ_discomfort 
+Stratum: Typical_response_to_IEQ_discomfort_I attempt to adjust my environment 
+R-squared: 0.7543512 
+
+$n_obs
+[1] 131
+
+$r_squared
+[1] 0.7543512
+
+$model
+
+Call:
+lm(formula = formula_obj, data = clean_sub)
+
+Coefficients:
+                               (Intercept)                                productivity  
+                                 -0.003402                                    0.002157  
+                          Work_effectively  performance_decrease_under_thermal_and_Air  
+                                 -0.128737                                    0.608971  
+                               Sensitivity  performance_decrease_under_noise_and_light  
+                                  0.224122                                    0.360821  
+
+

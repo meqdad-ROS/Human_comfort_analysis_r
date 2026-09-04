@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: Actively_adjust_environment_during_IEQ_fluctuations 
+
+--- Lavaan Estimates ---
+                                                                 lhs op
+1                         performance_decrease_under_thermal_and_Air  ~
+2                         performance_decrease_under_thermal_and_Air  ~
+3                         performance_decrease_under_thermal_and_Air  ~
+4                                                       productivity  ~
+5                                                       productivity  ~
+6                                                       productivity  ~
+7                                                       productivity  ~
+8                         performance_decrease_under_thermal_and_Air ~~
+9                                                       productivity ~~
+10         Actively_adjust_environment_during_IEQ_fluctuations_Never ~~
+11         Actively_adjust_environment_during_IEQ_fluctuations_Never ~~
+12         Actively_adjust_environment_during_IEQ_fluctuations_Never ~~
+13        Actively_adjust_environment_during_IEQ_fluctuations_Rarely ~~
+14        Actively_adjust_environment_during_IEQ_fluctuations_Rarely ~~
+15     Actively_adjust_environment_during_IEQ_fluctuations_Sometimes ~~
+16     ind_Actively_adjust_environment_during_IEQ_fluctuations_Never :=
+17    ind_Actively_adjust_environment_during_IEQ_fluctuations_Rarely :=
+18 ind_Actively_adjust_environment_during_IEQ_fluctuations_Sometimes :=
+                                                             rhs    est ci.lower ci.upper pvalue
+1      Actively_adjust_environment_during_IEQ_fluctuations_Never -0.092   -0.795    0.614  0.794
+2     Actively_adjust_environment_during_IEQ_fluctuations_Rarely -0.424   -0.994    0.066  0.121
+3  Actively_adjust_environment_during_IEQ_fluctuations_Sometimes -0.310   -0.483   -0.140  0.000
+4      Actively_adjust_environment_during_IEQ_fluctuations_Never  0.074   -0.205    0.271  0.561
+5     Actively_adjust_environment_during_IEQ_fluctuations_Rarely  0.105   -0.174    0.404  0.468
+6  Actively_adjust_environment_during_IEQ_fluctuations_Sometimes -0.043   -0.207    0.122  0.612
+7                     performance_decrease_under_thermal_and_Air  0.875    0.741    0.987  0.000
+8                     performance_decrease_under_thermal_and_Air  0.445    0.347    0.523  0.000
+9                                                   productivity  0.322    0.244    0.403  0.000
+10     Actively_adjust_environment_during_IEQ_fluctuations_Never  0.023    0.023    0.023     NA
+11    Actively_adjust_environment_during_IEQ_fluctuations_Rarely -0.001   -0.001   -0.001     NA
+12 Actively_adjust_environment_during_IEQ_fluctuations_Sometimes -0.012   -0.012   -0.012     NA
+13    Actively_adjust_environment_during_IEQ_fluctuations_Rarely  0.054    0.054    0.054     NA
+14 Actively_adjust_environment_during_IEQ_fluctuations_Sometimes -0.029   -0.029   -0.029     NA
+15 Actively_adjust_environment_during_IEQ_fluctuations_Sometimes  0.250    0.250    0.250     NA
+16                                                          a1*b -0.081   -0.685    0.571  0.794
+17                                                          a2*b -0.371   -0.892    0.060  0.127
+18                                                          a3*b -0.271   -0.429   -0.119  0.001

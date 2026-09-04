@@ -1,0 +1,34 @@
+$model
+Call:
+MASS::polr(formula = formula_obj, data = mf, Hess = TRUE, method = "logistic")
+
+Coefficients:
+Performance_decrease_if_thermal_conditions_not_in_comfort_range 
+                                                      0.6442301 
+
+Intercepts:
+       1|2        2|3        3|4        4|5 
+-0.5156096  0.5308586  1.9126730  3.1251504 
+
+Residual Deviance: 559.0396 
+AIC: 569.0396 
+
+$coefficients
+                                                             Term   Estimate Std_Error    Z_Value      P_Value
+1 Performance_decrease_if_thermal_conditions_not_in_comfort_range  0.6442301 0.1382320  4.6605005 3.154414e-06
+2                                                             1|2 -0.5156096 0.5524263 -0.9333546 3.506369e-01
+3                                                             2|3  0.5308586 0.5149671  1.0308592 3.026068e-01
+4                                                             3|4  1.9126730 0.5250789  3.6426391 2.698571e-04
+5                                                             4|5  3.1251504 0.5547798  5.6331369 1.769608e-08
+  Odds_Ratio
+1  1.9045202
+2  0.5971365
+3  1.7003917
+4  6.7711642
+5 22.7633183
+
+$proportional_odds_test
+                                                                      X2 df probability
+Omnibus                                                         2.937088  3    0.401427
+Performance_decrease_if_thermal_conditions_not_in_comfort_range 2.937088  3    0.401427
+

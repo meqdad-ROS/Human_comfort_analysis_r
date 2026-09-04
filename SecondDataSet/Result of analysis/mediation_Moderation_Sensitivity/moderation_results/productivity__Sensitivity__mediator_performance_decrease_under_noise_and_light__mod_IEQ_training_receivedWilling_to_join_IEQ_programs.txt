@@ -1,0 +1,17 @@
+MODERATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome   : productivity 
+Predictor : Sensitivity 
+Mediator  : performance_decrease_under_noise_and_light 
+Moderator : IEQ_training_receivedWilling_to_join_IEQ_programs 
+
+--- Mediation Path Estimates ---
+b-path (mediator → outcome): 0.4597655   p = 0 
+
+--- Interaction Coefficients ---
+  Sensitivity:IEQ_training_receivedWilling_to_join_IEQ_programsNo, I have not received training, but I am willing to participate in workplace programs to improve IEQ.: coef = 0.0331, p = 0.7912 
+  Sensitivity:IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic, and it has greatly benefited my work.: coef = 0.0670, p = 0.6767 
+  Sensitivity:IEQ_training_receivedWilling_to_join_IEQ_programsYes, I have received training on this topic; however, it has had no impact on my work performance.: coef = 0.3583, p = 0.0840 
+
+Moderation significant: FALSE 

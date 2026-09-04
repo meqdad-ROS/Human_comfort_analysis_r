@@ -1,0 +1,46 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: Sensitivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: How_quickly_notice_IEQ_parameter_change 
+
+--- Lavaan Estimates ---
+                                                                    lhs op
+1                            performance_decrease_under_noise_and_light  ~
+2                            performance_decrease_under_noise_and_light  ~
+3                            performance_decrease_under_noise_and_light  ~
+4                                                           Sensitivity  ~
+5                                                           Sensitivity  ~
+6                                                           Sensitivity  ~
+7                                                           Sensitivity  ~
+8                            performance_decrease_under_noise_and_light ~~
+9                                                           Sensitivity ~~
+10     How_quickly_notice_IEQ_parameter_change_After.an.extended.period ~~
+11     How_quickly_notice_IEQ_parameter_change_After.an.extended.period ~~
+12     How_quickly_notice_IEQ_parameter_change_After.an.extended.period ~~
+13        How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all ~~
+14        How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all ~~
+15                    How_quickly_notice_IEQ_parameter_change_Instantly ~~
+16 ind_How_quickly_notice_IEQ_parameter_change_After.an.extended.period :=
+17    ind_How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all :=
+18                ind_How_quickly_notice_IEQ_parameter_change_Instantly :=
+                                                                rhs    est ci.lower ci.upper pvalue
+1  How_quickly_notice_IEQ_parameter_change_After.an.extended.period -0.225   -0.627    0.164  0.264
+2     How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all -0.776   -1.874   -0.192  0.042
+3                 How_quickly_notice_IEQ_parameter_change_Instantly  0.065   -0.095    0.234  0.429
+4  How_quickly_notice_IEQ_parameter_change_After.an.extended.period -0.471   -1.016   -0.001  0.076
+5     How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all -0.073   -0.968    0.426  0.832
+6                 How_quickly_notice_IEQ_parameter_change_Instantly  0.000   -0.216    0.245  0.998
+7                        performance_decrease_under_noise_and_light  0.301    0.093    0.487  0.003
+8                        performance_decrease_under_noise_and_light  0.338    0.265    0.404  0.000
+9                                                       Sensitivity  0.598    0.471    0.709  0.000
+10 How_quickly_notice_IEQ_parameter_change_After.an.extended.period  0.054    0.054    0.054     NA
+11    How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all -0.001   -0.001   -0.001     NA
+12                How_quickly_notice_IEQ_parameter_change_Instantly -0.025   -0.025   -0.025     NA
+13    How_quickly_notice_IEQ_parameter_change_I.don.t.notice.at.all  0.019    0.019    0.019     NA
+14                How_quickly_notice_IEQ_parameter_change_Instantly -0.008   -0.008   -0.008     NA
+15                How_quickly_notice_IEQ_parameter_change_Instantly  0.246    0.246    0.246     NA
+16                                                             a1*b -0.068   -0.212    0.043  0.285
+17                                                             a2*b -0.233   -0.585   -0.034  0.107
+18                                                             a3*b  0.019   -0.023    0.083  0.473

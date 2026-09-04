@@ -1,0 +1,94 @@
+MEDIATION ANALYSIS RESULTS
+============================================================ 
+
+Outcome variable: productivity 
+Mediator variable: performance_decrease_under_thermal_and_Air performance_decrease_under_noise_and_light Combined_Effect_of_Air_thermal_noise_light 
+Demographic variable: profession 
+
+--- Lavaan Estimates ---
+                                          lhs op                                        rhs    est ci.lower
+1  performance_decrease_under_noise_and_light  ~                      profession_House.Wife -0.438   -0.908
+2  performance_decrease_under_noise_and_light  ~                        profession_Lab.Work -0.319   -1.160
+3  performance_decrease_under_noise_and_light  ~                   profession_More.Movement -0.133   -0.328
+4  performance_decrease_under_noise_and_light  ~                     profession_office.work -0.026   -0.270
+5  performance_decrease_under_noise_and_light  ~                     profession_Office.work -0.135   -0.454
+6  performance_decrease_under_noise_and_light  ~                    profession_outdoor.work -0.145   -0.743
+7                                productivity  ~                      profession_House.Wife  0.120   -0.651
+8                                productivity  ~                        profession_Lab.Work  0.352   -0.291
+9                                productivity  ~                   profession_More.Movement  0.008   -0.205
+10                               productivity  ~                     profession_office.work -0.044   -0.367
+11                               productivity  ~                     profession_Office.work -0.317   -0.883
+12                               productivity  ~                    profession_outdoor.work -0.520   -1.722
+13                               productivity  ~ performance_decrease_under_noise_and_light  0.690    0.511
+14 performance_decrease_under_noise_and_light ~~ performance_decrease_under_noise_and_light  0.347    0.270
+15                               productivity ~~                               productivity  0.508    0.393
+16                      profession_House.Wife ~~                      profession_House.Wife  0.033    0.033
+17                      profession_House.Wife ~~                        profession_Lab.Work -0.001   -0.001
+18                      profession_House.Wife ~~                   profession_More.Movement -0.015   -0.015
+19                      profession_House.Wife ~~                     profession_office.work -0.005   -0.005
+20                      profession_House.Wife ~~                     profession_Office.work -0.002   -0.002
+21                      profession_House.Wife ~~                    profession_outdoor.work  0.000    0.000
+22                        profession_Lab.Work ~~                        profession_Lab.Work  0.033    0.033
+23                        profession_Lab.Work ~~                   profession_More.Movement -0.015   -0.015
+24                        profession_Lab.Work ~~                     profession_office.work -0.005   -0.005
+25                        profession_Lab.Work ~~                     profession_Office.work -0.002   -0.002
+26                        profession_Lab.Work ~~                    profession_outdoor.work  0.000    0.000
+27                   profession_More.Movement ~~                   profession_More.Movement  0.247    0.247
+28                   profession_More.Movement ~~                     profession_office.work -0.071   -0.071
+29                   profession_More.Movement ~~                     profession_Office.work -0.026   -0.026
+30                   profession_More.Movement ~~                    profession_outdoor.work -0.006   -0.006
+31                     profession_office.work ~~                     profession_office.work  0.133    0.133
+32                     profession_office.work ~~                     profession_Office.work -0.009   -0.009
+33                     profession_office.work ~~                    profession_outdoor.work -0.002   -0.002
+34                     profession_Office.work ~~                     profession_Office.work  0.054    0.054
+35                     profession_Office.work ~~                    profession_outdoor.work -0.001   -0.001
+36                    profession_outdoor.work ~~                    profession_outdoor.work  0.014    0.014
+37                  ind_profession_House.Wife :=                                       a1*b -0.302   -0.695
+38                    ind_profession_Lab.Work :=                                       a2*b -0.220   -0.818
+39               ind_profession_More.Movement :=                                       a3*b -0.092   -0.240
+40                 ind_profession_office.work :=                                       a4*b -0.018   -0.188
+41                 ind_profession_Office.work :=                                       a5*b -0.093   -0.316
+42                ind_profession_outdoor.work :=                                       a6*b -0.100   -0.526
+   ci.upper pvalue
+1     0.082  0.090
+2     0.293  0.386
+3     0.073  0.177
+4     0.209  0.833
+5     0.203  0.424
+6     0.342  0.601
+7     0.813  0.746
+8     1.051  0.295
+9     0.237  0.941
+10    0.286  0.792
+11    0.177  0.241
+12    0.237  0.320
+13    0.871  0.000
+14    0.407  0.000
+15    0.578  0.000
+16    0.033     NA
+17   -0.001     NA
+18   -0.015     NA
+19   -0.005     NA
+20   -0.002     NA
+21    0.000     NA
+22    0.033     NA
+23   -0.015     NA
+24   -0.005     NA
+25   -0.002     NA
+26    0.000     NA
+27    0.247     NA
+28   -0.071     NA
+29   -0.026     NA
+30   -0.006     NA
+31    0.133     NA
+32   -0.009     NA
+33   -0.002     NA
+34    0.054     NA
+35   -0.001     NA
+36    0.014     NA
+37    0.059  0.116
+38    0.205  0.384
+39    0.052  0.189
+40    0.149  0.837
+41    0.149  0.428
+42    0.216  0.607
